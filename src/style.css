@@ -1,0 +1,15 @@
+@import "tailwindcss";
+
+@theme {
+    --font-family: 'Karla', sans-serif;
+}
+.description {
+    position: absolute;
+    opacity: 0.5;
+    background-color: #cbd5e1; /* Tailwind bg-gray-400 */
+    border-radius: 0.5rem;     /* Tailwind rounded-lg */
+    color: #374151;            /* Tailwind text-gray-700 */
+    font-size: 1rem;           /* Tailwind text-base */
+    width: 6rem;               /* Tailwind w-24 */
+    will-change: transform;
+}
