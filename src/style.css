@@ -1,15 +1,30 @@
 @import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Karla:wght@400;700&display=swap');
 
-@theme {
-    --font-family: 'Karla', sans-serif;
+:root {
+    --font-family-theme: 'Karla', sans-serif;
 }
+
+body {
+    font-family: var(--font-family-theme);
+}
+
+.bottle-wrapper {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .description {
     position: absolute;
-    opacity: 0.5;
-    background-color: #cbd5e1; /* Tailwind bg-gray-400 */
-    border-radius: 0.5rem;     /* Tailwind rounded-lg */
-    color: #374151;            /* Tailwind text-gray-700 */
-    font-size: 1rem;           /* Tailwind text-base */
-    width: 6rem;               /* Tailwind w-24 */
+    opacity: 0;
+    background-color: #cbd5e1;
+    border-radius: 0.5rem;
+    color: #374151;
+    font-size: 1rem;
+    width: 6rem;
+    bottom: 100%;
+    margin-bottom: 10px;
     will-change: transform;
 }
