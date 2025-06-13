@@ -19,12 +19,5 @@ body {
 .description {
     position: absolute;
     opacity: 0;
-    background-color: #cbd5e1;
-    border-radius: 0.5rem;
-    color: #374151;
-    font-size: 1rem;
-    width: 6rem;
-    bottom: 100%;
-    margin-bottom: 10px;
     will-change: transform;
 }
