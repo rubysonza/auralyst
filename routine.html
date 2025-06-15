@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/src/style.css"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&family=Limelight&display=swap" rel="stylesheet">
+    <title>Auralyst</title>
+</head>
+
+<body class="bg-amber-50">
+
+    <div class="relative min-h-screen">
+        <header class="bg-green-100 relative flex flex-col items-center justify-center text-center p-5 lg:p-10">
+
+            <button id="theme-toggle" class="absolute top-6 left-6 z-10 bg-white rounded-full">
+                <svg id="cancel-icon" class="w-8" viewBox="-3.2 -3.2 38.40 38.40" xmlns="http://www.w3.org/2000/svg" fill="#000000" transform="rotate(0)"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <defs> <style>.cls-1{fill:none;stroke:#000000;stroke-linecap:round;stroke-linejoin:round;stroke-width:2px;}</style> </defs> <title></title> <g id="cross"> <line class="cls-1" x1="7" x2="25" y1="7" y2="25"></line> <line class="cls-1" x1="7" x2="25" y1="25" y2="7"></line> </g> </g></svg>
+            </button>
+
+            <button class="absolute top-6 right-6 z-10 w-10 h-10 rounded-full flex items-center justify-center bg-white backdrop-blur-sm text-gray-800 dark:text-white">
+                <svg id="sun-icon" class="w-30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <circle cx="12" cy="12" r="6" stroke="#1C274C" stroke-width="1.5"></circle> <path d="M12 2V3" stroke="#1C274C" stroke-width="1.5" stroke-linecap="round"></path> <path d="M12 21V22" stroke="#1C274C" stroke-width="1.5" stroke-linecap="round"></path> <path d="M22 12L21 12" stroke="#1C274C" stroke-width="1.5" stroke-linecap="round"></path> <path d="M3 12L2 12" stroke="#1C274C" stroke-width="1.5" stroke-linecap="round"></path> <path d="M19.0708 4.92969L18.678 5.32252" stroke="#1C274C" stroke-width="1.5" stroke-linecap="round"></path> <path d="M5.32178 18.6777L4.92894 19.0706" stroke="#1C274C" stroke-width="1.5" stroke-linecap="round"></path> <path d="M19.0708 19.0703L18.678 18.6775" stroke="#1C274C" stroke-width="1.5" stroke-linecap="round"></path> <path d="M5.32178 5.32227L4.92894 4.92943" stroke="#1C274C" stroke-width="1.5" stroke-linecap="round"></path> </g></svg>
+                <svg id="moon-icon" class="w-30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M3.32031 11.6835C3.32031 16.6541 7.34975 20.6835 12.3203 20.6835C16.1075 20.6835 19.3483 18.3443 20.6768 15.032C19.6402 15.4486 18.5059 15.6834 17.3203 15.6834C12.3497 15.6834 8.32031 11.654 8.32031 6.68342C8.32031 5.50338 8.55165 4.36259 8.96453 3.32996C5.65605 4.66028 3.32031 7.89912 3.32031 11.6835Z" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
+            </button>
+
+            <img src="public\images\bottle_green.png" alt="Green skincare tube bottle with the text 'Routine'"
+                 class="relative w-20 p-2 align-middle justify-center lg:w-26">
+            
+            <!-- wave svg -->
+
+        </header>
+
+        <main>
+            <div class="container mx-auto max-w-2xl">
+                <h1 class="text-center pt-5">Your Path to Radiant Skin</h1>
+
+                <div id="routine-level-toggle" class="flex justify-around items-center rounded-full bg-gray-50 dark:bg-gray-800 p-1 mb-10 max-w-3xs mx-auto">
+                    <button class="">Basic</button>
+                    <button class="">Medium</button>
+                    <button class="">Full</button>
+                </div>
+
+                <div id="routine-steps" class=""></div>
+            </div>
+        </main>
+    </div>
+
+    
+</body>
+</html>
