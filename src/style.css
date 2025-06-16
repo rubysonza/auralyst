@@ -21,3 +21,41 @@ body {
     opacity: 0;
     will-change: transform;
 }
+
+/* ROUTINE */
+body .step-item {
+    transition: background-color 0.5s ease, color 0.5s ease, border-color 0.5s ease;
+}
+.sun-icon, .moon-icon {
+    cursor: pointer;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.moon-icon {
+    opacity: 0;
+    transform: scale(0.5);
+}
+
+.dark .sun-icon {
+    opacity: 0;
+    transform: scale(0.5);
+}
+
+.dark .moon-icon {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.step-item {
+    transform-origin: top;
+    transition: background-color 0.3s ease, border-color 0.3s ease, opacity 0.3s ease;
+}
+
+.step-item.is-unchecked {
+    opacity: 0.6s;
+    background-color: gray;
+}
+
+.dark .step-item.is-unchecked {
+    background-color: rgb(84, 84, 84);
+}
