@@ -150,12 +150,15 @@ const routines = {
 };
 
 document.addEventListener('DOMContentLoaded', () => {
+    gsap.registerPlugin(ScrollTrigger);
 
     let currentTime = 'am';
-    const stepLevels = {'Cleanse':'Essentials','First Cleanse (Oil-Based)':'Advanced','Second Cleanse (Water-Based)':'Advanced','Moisturize':'Essentials','Protect (Sunscreen)':'Essentials','Tone':'Enhanced','Treat (Antioxidant Serum)':'Enhanced','Treat (Repair Serum)':'Enhanced','Exfoliate or Mask':'Advanced','Antioxidant Serum':'Enhanced','Eye Cream':'Advanced','Spot Treatment':'Advanced','Face Oil':'Advanced','Tone / Essence':'Advanced','Treatment Serum (Actives)':'Advanced','Moisturize / Night Cream':'Advanced','Final Seal (Oil or Sleeping Mask)':'Advanced'};
+    const stepLevels = {
+        'Cleanse':'Essentials','Moisturize':'Essentials','Sunscreen':'Essentials','First Cleanse (Oil-Based)':'Essentials','Second Cleanse (Water-Based)':'Essentials','Moisturize / Night Cream':'Essentials',
+        'Tone':'Enhanced','Antioxidant Serum':'Enhanced','Treat (Repair Serum)':'Enhanced','Antioxidant Serum':'Enhanced',
+        'Exfoliate or Mask':'Advanced','Eye Cream':'Advanced','Spot Treatment':'Advanced','Face Oil':'Advanced','Tone / Essence':'Advanced','Treatment Serum (Actives)':'Advanced','Final Seal (Oil or Sleeping Mask)':'Advanced'};
     const levelColors = {'Essentials':'bg-green-700 text-white','Enhanced':'bg-green-500 text-white','Advanced':'bg-green-300 text-green-800'};
     
-    // --- ELEMENT SELECTORS ---
     const themeToggle = document.getElementById('theme-toggle');
     const stepsContainer = document.getElementById('routine-steps-container');
     const ctaButton = document.getElementById('cta-button');
@@ -167,7 +170,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const mainSubtitle = document.getElementById('main-subtitle');
     const footer = document.getElementById('footer');
 
-    // NEW: Object to hold theme classes
+// AM/PM THEME
     const themeClasses = {
         am: {
             body: ['bg-white', 'text-gray-800'],
@@ -189,12 +192,11 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
     
-    // --- FUNCTIONS ---
+// THEME SWITCH
     function applyTheme(theme) {
         const currentTheme = theme === 'pm' ? 'am' : 'pm';
-        // Loop through all elements and swap classes
         Object.keys(themeClasses[theme]).forEach(elementKey => {
-            const el = eval(elementKey); // Get the element variable by its string name
+            const el = eval(elementKey);
             if (el) {
                 el.classList.remove(...themeClasses[currentTheme][elementKey]);
                 el.classList.add(...themeClasses[theme][elementKey]);
@@ -202,12 +204,14 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+// RENDERS STEPS
     function updateDisplay() {
         const routineKey = `full_${currentTime}`;
         const steps = routines[routineKey] || [];
         
         if (!stepsContainer) return;
 
+        // ANIMATES STEPS
         const renderNewSteps = () => {
             stepsContainer.innerHTML = '';
             steps.forEach((step, index) => {
@@ -225,6 +229,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+// CREATES STEP CARD
     function createStepElement(step, stepNumber) {
         const div = document.createElement('div');
         div.className = `step-item relative w-full text-left p-4 bg-gray-50 rounded-lg shadow-sm overflow-hidden ${currentTime === 'pm' ? 'dark-step' : ''}`;
@@ -273,13 +278,14 @@ document.addEventListener('DOMContentLoaded', () => {
         return div;
     }
 
+// STEP COUNTER
     function updateCtaButton() {
         if (!ctaButton) return;
         const checkedCount = stepsContainer.querySelectorAll('input[type="checkbox"]:checked').length;
         ctaButton.textContent = `Find Products for ${checkedCount} Step${checkedCount !== 1 ? 's' : ''}`;
     }
     
-    // --- EVENT LISTENERS ---
+    // TOGGLES THEME
     if (themeToggle) {
         themeToggle.addEventListener('click', () => {
             currentTime = (currentTime === 'am') ? 'pm' : 'am';
@@ -288,6 +294,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
     
+    // GOES TO 'PRODUCT' PAGE
     if (ctaButton) {
         ctaButton.addEventListener('click', () => {
             const selectedSteps = Array.from(stepsContainer.querySelectorAll('input[type="checkbox"]:checked'))
@@ -297,6 +304,38 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- INITIALIZATION ---
+    function scrollAnimation() {
+        gsap.to("#header-bottle", {
+            y:"-50%",
+            ease: "none",
+            delay: "none",
+            scrollTrigger: {
+                trigger: "#page-container",
+                start: "top top",
+                end: "20% top",
+                scrub: true,
+            }
+        });
+        gsap.to(["#header-bg", "#header-wave"], {
+            y: "-100%",
+            scrollTrigger: {
+                trigger: "#page-container",
+                start: "50% top",
+                end: "50% top",
+                scrub: true,
+            }
+        });
+        ScrollTrigger.create({
+            trigger: "#main-subtitle",
+            markers: true,
+            start: "top top+=20px",
+            endTrigger: "#routine-steps-container",
+            end: "bottom top+=300px",
+            pin: true,
+            pinSpacing: false,
+        });
+    }
+
     updateDisplay();
+    scrollAnimation();
 });
