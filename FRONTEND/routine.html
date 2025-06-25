@@ -23,21 +23,21 @@
 
             <!-- TOP ICONS -->
             <div class="absolute top-0 left-0 w-full p-6 flex justify-between items-center">
-                <button id="menu-button">
-                    <svg class="w-8 h-8 text-gray-600" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                <button id="menu-button" class="cursor-pointer">
+                    <svg class="w-7 h-7" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                         <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 5h18M3 12h18M3 19h18"/>
                     </svg>
                 </button>
 
-                <div id="theme-toggle" class="z-30 flex justify-items items-center">
-                    <button id="sun-button">
-                        <svg class="w-8 h-8 text-gray-600" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><g fill="none"><g clip-path="url(#siSunLine0)">
+                <div id="theme-toggle" class="z-30 flex justify-items items-center cursor-pointer">
+                    <button id="sun-button" class="cursor-pointer">
+                        <svg class="w-7 h-7" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><g fill="none"><g clip-path="url(#siSunLine0)">
                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5" d="M3 12H1m22 0h-2m-9 9v2m0-22v2M5.636 18.364l-1.414 1.414M19.778 4.222l-1.414 1.414m-12.728 0L4.222 4.222m15.556 15.556l-1.414-1.414M18 12a6 6 0 1 1-12 0a6 6 0 0 1 12 0"/>
                         </svg>
                     </button>
 
-                    <button id="moon-button" class="hidden">
-                        <svg class="w-7 h-7 text-gray-600" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                    <button id="moon-button" class="cursor-pointer hidden">
+                        <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                             <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10.41 13.28C7.332 10.205 6.716 5.693 8.357 2c-1.23.41-2.256 1.23-3.281 2.256a10.4 10.4 0 0 0 0 14.768c4.102 4.102 10.46 3.897 14.562-.205c1.026-1.026 1.846-2.051 2.256-3.282c-3.896 1.436-8.409.82-11.486-2.256"/>
                         </svg>
                     </button>
@@ -46,27 +46,28 @@
 
             <!-- BOTTLE AND 'ROUTINE' TITLE -->
             <div class="relative text-center">
-                <img id="landing-bottle" src="\public\images\notext_green.png" alt="Green Tube Skincare Bottle" class="w-30">
-                <h1 id="landing-title" class="absolute top-2/5 left-1/2 -translate-x-1/2 -translate-y-1/2 text-5xl font-[Limelight] text-transparent bg-clip-text bg-gradient-to-b from-[#74CF97] to-[#35714C]">Routine</h1>
+                <img id="landing-bottle" src="\public\images\notext_green.png" alt="Green Tube Skincare Bottle" class="w-30 md:w-40">
+                <h1 id="landing-title" class="absolute top-2/5 left-1/2 -translate-x-1/2 -translate-y-1/2 text-5xl md:text-6xl lg:text-8xl font-[Limelight] text-transparent bg-clip-text bg-gradient-to-b from-[#74CF97] to-[#35714C]">Routine</h1>
             </div>
 
         </div>
 
         <main>
             <!-- SECTION 2: Sliding Overlay -->
-            <div id="overlay-section" class="absolute bottom-0 left-0 w-full h-24 bg-[#58B989] shadow-2xl z-20 p-10">
+            <div id="overlay-section" class="absolute bottom-0 left-0 w-full h-24 bg-[#70707030] z-20">
                 
                 <svg class="absolute top-0 left-0 w-full h-24 -translate-y-full" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-                    <path fill="#58B989" d="M600,112.77C268.63,112.77,0,65.52,0,7.23V120H1200V7.23C1200,65.52,931.37,112.77,600,112.77Z" class="shape-fill"></path>
+                    <path fill="#70707030" d="M600,112.77C268.63,112.77,0,65.52,0,7.23V120H1200V7.23C1200,65.52,931.37,112.77,600,112.77Z" class="shape-fill"></path>
                 </svg>
 
-                <div class="overlay-content-wrapper">
-                    <p id="overlay-prompt" class="text-center text-[16px] text-[#28663D]">
+                <div class="overlay-step-container">
+
+                    <p id="overlay-prompt" class="p-6 text-center text-md lg:text-xl text-[#28663D]">
                         Select the steps that work for you
                     </p>
 
                     <div id="steps-container">
-                        <!-- routine.js -->
+                        <!-- createStepElement -->
                     </div>
                 </div>
 
