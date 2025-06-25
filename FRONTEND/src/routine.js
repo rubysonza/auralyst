@@ -4,16 +4,23 @@ import gsap from "gsap";
 const routines = {
     full_am: [
         {
-            name: 'Cleanse',
+            name: 'Cleanser',
             description: 'Gently removes sweat, oil, and residual products from the night before, creating a clean canvas without stripping the skin.',
             types: [
-                { 'Water-Based Cleanser (Gel)': 'Has a clear, gel-like consistency for deep cleaning. Best suited for normal, oily, and acne-prone skin.' },
-                { 'Water-Based Cleanser (Cream)': 'A gentle, hydrating wash that cleanses without stripping lipids. Ideal for dry and sensitive skin.' },
-                { 'Micellar Water': 'A very gentle, no-rinse option using a cotton pad for a quick refresh or for very sensitive skin.' }
+                { 'Gel Cleanser': 'Clear, often foaming, deeply cleanses pores and removes excess oil.' },
+                { 'Cream Cleanser': 'Rich, non-foaming, gently cleanses while hydrating, leaving skin soft.' },
+                { 'Foam Cleanser': 'Creates a rich lather for a thorough cleanse, removing impurities and makeup.' },
+                { 'Oil Cleanser': 'Oil-based, dissolves oil-based impurities like makeup and sunscreen.' },
+                { 'Cleansing Balm': 'Solid balm that melts into an oil to break down makeup and impurities' },
+                { 'Micellar Water': 'No-rinse, uses micelles to lift dirt, oil, and makeup.' },
+                { 'Clay Cleanser': 'Contains clay to absorb excess oil and draw out impurities from pores.' },
+                { 'Powder Cleanser': 'Water-activated powder that transforms into a lather, often with gentle exfoliation.' },
+                { 'Bar Cleanser': 'Solid bar, designed to cleanse the face, ranging from gentle to purifying.' },
+                
             ]
         },
         {
-            name: 'Tone',
+            name: 'Toner',
             description: 'Dampens the skin, balances its natural pH, and primes it to better absorb the serums that follow.',
             types: [
                 { 'Hydrating Toner/Mist': 'Contains humectants like hyaluronic acid to bind water to the skin. Suitable for all skin types.' },
@@ -21,7 +28,7 @@ const routines = {
             ]
         },
         {
-            name: 'Antioxidant Serum',
+            name: 'Serum',
             description: 'Neutralizes free radicals from UV rays and pollution that cause premature aging. This is your essential shield.',
             types: [
                 { 'Vitamin C Serum': 'The gold standard. Brightens skin, boosts collagen, and enhances your sunscreen\'s protective power.' },
@@ -48,7 +55,7 @@ const routines = {
             ]
         },
         {
-            name: 'Moisturize',
+            name: 'Moisturizer',
             description: 'Hydrates the skin and locks in the serums you\'ve applied. A moisturizer supports your skin barrier, keeping it healthy and resilient.',
             types: [
                 { 'Gel Moisturizer': 'Lightweight and often oil-free, absorbs quickly without a heavy feel. Perfect for oily and acne-prone skin.' },
@@ -77,7 +84,7 @@ const routines = {
     ],
     full_pm: [
         {
-            name: 'First Cleanse (Oil-Based)',
+            name: 'Oil Cleanser',
             description: 'Dissolves and lifts oil-based impurities like stubborn makeup, sunscreen, and excess sebum based on the ‘like dissolves like’ principle.',
             types: [
                 { 'Cleansing Oil': 'A liquid oil that is massaged onto dry skin and emulsifies into a milky liquid with water to rinse clean.' },
@@ -85,7 +92,7 @@ const routines = {
             ]
         },
         {
-            name: 'Second Cleanse (Water-Based)',
+            name: 'Water Cleanser',
             description: 'Washes the skin itself, removing any remaining residue and ensuring pores are completely clean for nighttime treatments.',
             types: [
                 { 'Gel Cleanser': 'For a deep clean, ideal for normal to oily skin.' },
@@ -94,7 +101,7 @@ const routines = {
             ]
         },
         {
-            name: 'Exfoliate or Mask',
+            name: 'Exfoliant/Mask',
             note: 'Use only 2-3 times per week, not nightly.',
             description: 'A targeted treatment step to promote cell turnover or address specific issues like congestion or dehydration.',
             types: [
@@ -104,7 +111,7 @@ const routines = {
             ]
         },
         {
-            name: 'Tone / Essence',
+            name: 'Toner/Essence',
             description: 'Immediately replenishes hydration after cleansing. An essence is typically more concentrated and aids in product absorption.',
             types: [
                 { 'Hydrating Toner': 'A watery liquid that provides an initial layer of moisture and balances the skin.' },
@@ -112,7 +119,7 @@ const routines = {
             ]
         },
         {
-            name: 'Treatment Serum (Actives)',
+            name: 'Treatment Serum',
             description: 'The primary repair step of your routine, where potent active ingredients work overnight to target specific skin concerns.',
             note: 'Use retinoids and strong exfoliating acids on alternate nights to avoid irritation.',
             types: [
@@ -130,7 +137,7 @@ const routines = {
             ]
         },
         {
-            name: 'Moisturize / Night Cream',
+            name: 'Moisturizer/Night Cream',
             description: 'Delivers sustained hydration and helps repair the skin barrier. Night creams are typically richer to support regeneration.',
             types: [
                 { 'Night Cream': 'A richer, more restorative cream than a daytime moisturizer, often with added repair ingredients.' },
@@ -138,7 +145,7 @@ const routines = {
             ]
         },
         {
-            name: 'Final Seal (Oil or Sleeping Mask)',
+            name: 'Face Oil/Mask',
             description: 'Creates a final occlusive barrier that locks in your entire routine, preventing moisture loss while you sleep.',
             types: [
                 { 'Face Oil': 'Apply a few drops over your moisturizer to act as a nourishing, comforting seal.' },
@@ -149,193 +156,40 @@ const routines = {
     ]
 };
 
-document.addEventListener('DOMContentLoaded', () => {
-    gsap.registerPlugin(ScrollTrigger);
+ const elements = {
+    page: document.getElementById('routine-page'),
+    landingSection: document.getElementById('landing-section'),
+    landingTitle: document.getElementById('landing-title'),
+    landingBottle: document.getElementById('landing-bottle'),
+    overlaySection: document.getElementById('overlay-section'),
+    overlayWave: document.getElementById('overlay-wave'),
+    overlayPrompt: document.getElementById('overlay-prompt'),
+    stepsContainer: document.getElementById('steps-container'),
+    sunButton: document.getElementById('sun-button'),
+    moonButton: document.getElementById('moon-button'),
+    body: document.body
+};
 
-    let currentTime = 'am';
-    const stepLevels = {
-        'Cleanse':'Essentials','Moisturize':'Essentials','Sunscreen':'Essentials','First Cleanse (Oil-Based)':'Essentials','Second Cleanse (Water-Based)':'Essentials','Moisturize / Night Cream':'Essentials',
-        'Tone':'Enhanced','Antioxidant Serum':'Enhanced','Treat (Repair Serum)':'Enhanced','Antioxidant Serum':'Enhanced',
-        'Exfoliate or Mask':'Advanced','Eye Cream':'Advanced','Spot Treatment':'Advanced','Face Oil':'Advanced','Tone / Essence':'Advanced','Treatment Serum (Actives)':'Advanced','Final Seal (Oil or Sleeping Mask)':'Advanced'};
-    const levelColors = {'Essentials':'bg-green-700 text-white','Enhanced':'bg-green-500 text-white','Advanced':'bg-green-300 text-green-800'};
+// SINGLE STEP CONTAINER
+function createStepElement(step) {
+    const div = document.createElement('div');
+    div.className = 'p-4 bg-white/50 rounded-lg';
+    div.innerHTML = `<h3 class="font-bold">${step.name}</h3><p class="text-sm">${step.description}</p>`;
+    return div;
+}
+
+// POPULATE STEP CONTAINER WITH ROUTINE STEPS
+function populateSteps() {
+    // Clear any existing steps
+    elements.stepsContainer.innerHTML = '';
     
-    const themeToggle = document.getElementById('theme-toggle');
-    const stepsContainer = document.getElementById('routine-steps-container');
-    const ctaButton = document.getElementById('cta-button');
-    const body = document.body;
-    const headerBg = document.getElementById('header-bg');
-    const waveSvg = document.getElementById('wave-svg');
-    const mainContent = document.getElementById('main-content');
-    const mainTitle = document.getElementById('main-title');
-    const mainSubtitle = document.getElementById('main-subtitle');
-    const footer = document.getElementById('footer');
-
-// AM/PM THEME
-    const themeClasses = {
-        am: {
-            body: ['bg-white', 'text-gray-800'],
-            headerBg: ['from-gray-100', 'to-gray-200'],
-            waveSvg: ['text-white'],
-            mainContent: ['bg-white'],
-            mainTitle: ['text-gray-800'],
-            mainSubtitle: ['text-gray-600'],
-            footer: ['bg-white/70', 'border-gray-200']
-        },
-        pm: {
-            body: ['bg-gray-900', 'text-gray-200', 'is-pm'],
-            headerBg: ['from-gray-800', 'to-gray-900'],
-            waveSvg: ['text-gray-900'],
-            mainContent: ['bg-gray-900'],
-            mainTitle: ['text-white'],
-            mainSubtitle: ['text-gray-400'],
-            footer: ['bg-gray-900/70', 'border-gray-700']
-        }
-    };
+    // Get the morning routine from the data
+    const morningRoutine = routines.am_routine || [];
     
-// THEME SWITCH
-    function applyTheme(theme) {
-        const currentTheme = theme === 'pm' ? 'am' : 'pm';
-        Object.keys(themeClasses[theme]).forEach(elementKey => {
-            const el = eval(elementKey);
-            if (el) {
-                el.classList.remove(...themeClasses[currentTheme][elementKey]);
-                el.classList.add(...themeClasses[theme][elementKey]);
-            }
-        });
-    }
+    // Create and append an element for each step
+    morningRoutine.forEach(step => {
+        const stepElement = createStepElement(step);
+        elements.stepsContainer.appendChild(stepElement);
+    });
+}
 
-// RENDERS STEPS
-    function updateDisplay() {
-        const routineKey = `full_${currentTime}`;
-        const steps = routines[routineKey] || [];
-        
-        if (!stepsContainer) return;
-
-        // ANIMATES STEPS
-        const renderNewSteps = () => {
-            stepsContainer.innerHTML = '';
-            steps.forEach((step, index) => {
-                const stepElement = createStepElement(step, index + 1);
-                stepsContainer.appendChild(stepElement);
-            });
-            gsap.from(stepsContainer.children, { opacity: 0, x: 20, stagger: 0.1, duration: 0.4, ease: 'power2.out' });
-            updateCtaButton();
-        };
-
-        if (stepsContainer.children.length > 0) {
-            gsap.to(stepsContainer.children, { opacity: 0, x: -20, stagger: 0.05, duration: 0.3, onComplete: renderNewSteps });
-        } else {
-            renderNewSteps();
-        }
-    }
-
-// CREATES STEP CARD
-    function createStepElement(step, stepNumber) {
-        const div = document.createElement('div');
-        div.className = `step-item relative w-full text-left p-4 bg-gray-50 rounded-lg shadow-sm overflow-hidden ${currentTime === 'pm' ? 'dark-step' : ''}`;
-        
-        if (currentTime === 'pm') {
-            div.classList.add('bg-gray-800');
-        }
-        
-        const level = stepLevels[step.name] || 'Advanced';
-        const colorClasses = levelColors[level] || 'bg-gray-400 text-white';
-        const labelHTML = `<span class="absolute top-0 right-0 px-2 py-1 text-xs font-bold rounded-bl-lg ${colorClasses}">${level}</span>`;
-        const noteHTML = step.note ? `<p class="text-xs text-yellow-500 mt-1 ${currentTime === 'pm' ? 'text-yellow-300' : ''}">${step.note}</p>` : '';
-        const typesHTML = Array.isArray(step.types) ? step.types.map(typeObj => {
-            const [typeName, typeDesc] = Object.entries(typeObj)[0];
-            return `<li class="mt-2"><strong class="font-semibold ${currentTime === 'pm' ? 'text-green-400' : 'text-green-700'}">${typeName}:</strong> <span class="${currentTime === 'pm' ? 'text-gray-400' : 'text-gray-600'}">${typeDesc}</span></li>`;
-        }).join('') : '';
-
-        div.innerHTML = `
-            ${labelHTML}
-            <div class="flex items-start">
-                <input type="checkbox" checked class="h-5 w-5 rounded text-green-600 focus:ring-green-500 border-gray-300 mt-1 mr-4 flex-shrink-0">
-                <div class="flex-shrink-0 w-8 h-8 rounded-lg flex items-center justify-center font-bold text-md mr-4 ${currentTime === 'pm' ? 'bg-green-900/50 text-green-300' : 'bg-green-100 text-green-600'}">
-                    ${stepNumber}
-                </div>
-                <div class="flex-grow">
-                    <h3 class="font-semibold text-lg ${currentTime === 'pm' ? 'text-gray-200' : 'text-gray-800'}">${step.name}</h3>
-                    <p class="text-sm mt-1 ${currentTime === 'pm' ? 'text-gray-400' : 'text-gray-600'}">${step.description}</p>
-                    ${noteHTML}
-                </div>
-            </div>
-            ${typesHTML ? `
-            <details class="mt-3 ml-20">
-                <summary class="text-sm font-semibold cursor-pointer focus:outline-none ${currentTime === 'pm' ? 'text-green-400' : 'text-green-600'}">View Product Types</summary>
-                <ul class="list-disc pl-5 mt-2 text-sm">
-                    ${typesHTML}
-                </ul>
-            </details>` : ''}
-        `;
-        
-        const checkbox = div.querySelector('input[type="checkbox"]');
-        checkbox.addEventListener('change', () => {
-            div.classList.toggle('is-unchecked', !checkbox.checked);
-            updateCtaButton();
-        });
-
-        return div;
-    }
-
-// STEP COUNTER
-    function updateCtaButton() {
-        if (!ctaButton) return;
-        const checkedCount = stepsContainer.querySelectorAll('input[type="checkbox"]:checked').length;
-        ctaButton.textContent = `Find Products for ${checkedCount} Step${checkedCount !== 1 ? 's' : ''}`;
-    }
-    
-    // TOGGLES THEME
-    if (themeToggle) {
-        themeToggle.addEventListener('click', () => {
-            currentTime = (currentTime === 'am') ? 'pm' : 'am';
-            applyTheme(currentTime);
-            updateDisplay();
-        });
-    }
-    
-    // GOES TO 'PRODUCT' PAGE
-    if (ctaButton) {
-        ctaButton.addEventListener('click', () => {
-            const selectedSteps = Array.from(stepsContainer.querySelectorAll('input[type="checkbox"]:checked'))
-                .map(cb => cb.closest('.step-item').querySelector('h3').textContent);
-            console.log("Selected steps:", selectedSteps);
-            alert(`Proceeding to product page with ${selectedSteps.length} steps!`);
-        });
-    }
-
-    function scrollAnimation() {
-        gsap.to("#header-bottle", {
-            y:"-50%",
-            ease: "none",
-            delay: "none",
-            scrollTrigger: {
-                trigger: "#page-container",
-                start: "top top",
-                end: "20% top",
-                scrub: true,
-            }
-        });
-        gsap.to(["#header-bg", "#header-wave"], {
-            y: "-100%",
-            scrollTrigger: {
-                trigger: "#page-container",
-                start: "50% top",
-                end: "50% top",
-                scrub: true,
-            }
-        });
-        ScrollTrigger.create({
-            trigger: "#main-subtitle",
-            markers: true,
-            start: "top top+=20px",
-            endTrigger: "#routine-steps-container",
-            end: "bottom top+=300px",
-            pin: true,
-            pinSpacing: false,
-        });
-    }
-
-    updateDisplay();
-    scrollAnimation();
-});
