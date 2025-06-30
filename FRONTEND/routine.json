@@ -1,0 +1,479 @@
+{
+  "am_routine": [
+    {
+      "name": "Cleanser",
+      "level": "Essentials",
+      "short": "Wash away impurities.",
+      "long": "Gently purifies your skin, removing overnight buildup and preparing it for the day ahead.",
+      "types": [
+        {
+          "name": "Gel Cleanser",
+          "description": "A clear, often foaming cleanser that deeply purifies skin by effectively removing excess oil and impurities.",
+          "best_for": "Oily, combination, and acne-prone skin"
+        },
+        {
+          "name": "Cream Cleanser",
+          "description": "A rich, non-foaming cleanser that gently cleanses while delivering hydration, leaving the skin feeling soft and nourished.",
+          "best_for": "Dry, sensitive, and mature skin"
+        },
+        {
+          "name": "Foam Cleanser",
+          "description": "Creates a rich, airy lather upon contact with water, providing a thorough cleanse that efficiently removes impurities and light makeup residue.",
+          "best_for": "Oily and combination skin"
+        },
+        {
+          "name": "Micellar Water",
+          "description": "A no-rinse cleanser using tiny oil micelles to effortlessly attract and lift away dirt, oil, and makeup.",
+          "best_for": "All skin types, especially sensitive"
+        },
+        {
+          "name": "Powder Cleanser",
+          "description": "A water-activated cleanser in powder form that transforms into a gentle, creamy or foamy lather, often with mild exfoliants for polished skin.",
+          "best_for": "All skin types"
+        },
+        {
+          "name": "Bar Cleanser",
+          "description": "A solid cleanser in bar form, often formulated to be soap-free and pH-balanced, providing cleansing benefits tailored by its ingredients.",
+          "best_for": "Varies by formula (e.g., oily, dry, sensitive)"
+        },
+        {
+          "name": "Balm Cleanser",
+          "description": "A solid cleanser that transforms into a luxurious oil upon skin contact, effectively melting away stubborn makeup and impurities while nourishing skin.",
+          "best_for": "All skin types, especially dry and mature"
+        },
+        {
+          "name": "Cleansing Wipes",
+          "description": "Pre-moistened disposable cloths designed for quick and convenient removal of makeup, dirt, and impurities when traditional cleansing isn't possible.",
+          "best_for": "All skin types (for convenience)"
+        }
+      ]
+    },
+    {
+      "name": "Toner",
+      "level": "Targeted",
+      "short": "Balance and prep.",
+      "long": "Restores your skin's pH balance and preps it for better absorption of subsequent products, ensuring no residue is left behind.",
+      "types": [
+        {
+          "name": "Hydrating Toner",
+          "description": "Replenishes skin's moisture content, often with humectants, and prepares it to better absorb subsequent skincare products.",
+          "best_for": "Dry, sensitive, and dehydrated skin"
+        },
+        {
+          "name": "Exfoliating Toner",
+          "description": "Contains gentle acids (AHAs or BHAs) that effectively sweep away dead skin cells and promote skin cell turnover for a smoother texture.",
+          "best_for": "Oily, combination, and dull skin"
+        },
+        {
+          "name": "Balancing Toner",
+          "description": "Helps to rebalance the skin's pH level and regulate oil production, minimizing shine and tightening the appearance of pores.",
+          "best_for": "Oily, combination, and acne-prone skin"
+        },
+        {
+          "name": "Soothing Toner",
+          "description": "Formulated with calming ingredients to reduce redness, irritation, and inflammation, providing comfort to delicate skin.",
+          "best_for": "Sensitive, irritated, and redness-prone skin"
+        },
+        {
+          "name": "Brightening Toner",
+          "description": "Targets uneven skin tone and dullness, helping to reduce the appearance of dark spots and promote a more radiant complexion.",
+          "best_for": "Dull, hyperpigmented, and uneven skin tone"
+        },
+        {
+          "name": "Clarifying Toner",
+          "description": "Deeply cleanses pores, removes excess sebum, and helps prevent breakouts, often containing ingredients with astringent or antibacterial properties.",
+          "best_for": "Oily, acne-prone, and blemish-prone skin"
+        }
+      ]
+    },
+    {
+      "name": "Serum",
+      "level": "Targeted",
+      "short": "Potent skin boost.",
+      "long": "Delivers concentrated active ingredients deep into your skin, addressing specific concerns like hydration, brightness, or environmental protection.",
+      "types": [
+        {
+          "name": "Vitamin C Serum",
+          "description": "Delivers potent antioxidants to protect skin from environmental damage, neutralize free radicals, and brighten the complexion.",
+          "best_for": "All skin types, especially dull, uneven, and aging skin"
+        },
+        {
+          "name": "Hyaluronic Acid Serum",
+          "description": "Infuses skin with intense hydration by attracting and holding water, visibly plumping and smoothing fine lines.",
+          "best_for": "All skin types, especially dry and dehydrated skin"
+        },
+        {
+          "name": "Niacinamide Serum",
+          "description": "Helps to minimize the appearance of pores, reduce redness, improve skin tone, and strengthen the skin's barrier function.",
+          "best_for": "All skin types, especially oily, acne-prone, and sensitive skin"
+        },
+        {
+          "name": "Antioxidant Serum (General)",
+          "description": "Provides broad protection against environmental aggressors like pollution, preventing cellular damage and premature aging.",
+          "best_for": "All skin types, especially those concerned with environmental exposure and aging"
+        },
+        {
+          "name": "Brightening Serum",
+          "description": "Targets hyperpigmentation, dark spots, and dullness, working to even out skin tone and enhance overall radiance.",
+          "best_for": "Dull, hyperpigmented, and uneven skin tone"
+        },
+        {
+          "name": "Hydrating Serum",
+          "description": "Offers concentrated, lightweight moisture that penetrates deeply, alleviating dryness and restoring skin suppleness.",
+          "best_for": "Dry, dehydrated, and normal skin"
+        }
+      ]
+    },
+    {
+      "name": "Eye Cream",
+      "level": "Targeted",
+      "short": "Delicate eye care.",
+      "long": "Hydrates and nurtures the fragile skin around your eyes, targeting specific concerns such as fine lines, puffiness, or dark circles.",
+      "types": [
+        {
+          "name": "Hydrating Eye Cream",
+          "description": "Provides essential moisture to the delicate skin around the eyes, plumping it to reduce the appearance of dehydration lines.",
+          "best_for": "Dry, dehydrated, and normal skin"
+        },
+        {
+          "name": "Brightening Eye Cream",
+          "description": "Formulated with ingredients that help to visibly reduce the appearance of dark circles and illuminate the under-eye area.",
+          "best_for": "Dullness and dark circles"
+        },
+        {
+          "name": "Firming Eye Cream",
+          "description": "Targets loss of elasticity and aims to improve the skin's resilience around the eyes, often helping to reduce the look of puffiness.",
+          "best_for": "Sagging, puffiness, and mature skin"
+        },
+        {
+          "name": "Anti-Aging Eye Cream",
+          "description": "Contains active ingredients to address and minimize the appearance of fine lines, wrinkles, and crow's feet for a smoother look.",
+          "best_for": "Mature skin and concerns with fine lines"
+        }
+      ]
+    },
+    {
+      "name": "Spot Treatment",
+      "level": "Optional",
+      "short": "Blemish control.",
+      "long": "Applies a concentrated treatment directly to individual blemishes or problem areas to reduce their appearance quickly.",
+      "types": [
+        {
+          "name": "Salicylic Acid Spot Treatment",
+          "description": "Penetrates oil within pores to exfoliate and reduce inflammation, effectively targeting active breakouts and blackheads.",
+          "best_for": "Oily, acne-prone, and blemish-prone skin"
+        },
+        {
+          "name": "Benzoyl Peroxide Spot Treatment",
+          "description": "Kills acne-causing bacteria and helps to dry out active pimples, reducing their size and redness.",
+          "best_for": "Oily, acne-prone, and inflamed blemishes"
+        },
+        {
+          "name": "Hydrocolloid Patch",
+          "description": "A discreet, self-adhesive patch that absorbs fluid from blemishes, protects them from bacteria, and promotes faster healing.",
+          "best_for": "All skin types with active, pus-filled blemishes"
+        },
+        {
+          "name": "Sulfur Spot Treatment",
+          "description": "Reduces inflammation and dries out blemishes by absorbing excess oil and gently exfoliating the skin.",
+          "best_for": "Oily, acne-prone, and cystic acne"
+        },
+        {
+          "name": "Tea Tree Oil Spot Treatment",
+          "description": "A natural antiseptic that helps to reduce inflammation and kill acne-causing bacteria, suitable for targeted application.",
+          "best_for": "Oily, acne-prone, and sensitive skin (when diluted)"
+        }
+      ]
+    },
+    {
+      "name": "Moisturizer",
+      "level": "Essentials",
+      "short": "Hydrate and protect.",
+      "long": "Hydrates and strengthens your skin's protective barrier, sealing in moisture and protecting it from environmental stressors throughout the day.",
+      "types": [
+        {
+          "name": "Gel Moisturizer",
+          "description": "A lightweight, often oil-free formula that provides hydration without feeling heavy, absorbing quickly into the skin.",
+          "best_for": "Oily, combination, and acne-prone skin"
+        },
+        {
+          "name": "Lotion Moisturizer",
+          "description": "A medium-weight formula offering balanced hydration and barrier support, suitable for daily use without greasiness.",
+          "best_for": "Normal, combination, and slightly dry skin"
+        },
+        {
+          "name": "Cream Moisturizer",
+          "description": "A rich, emollient formula providing deep hydration and robust barrier support, ideal for comforting dry or compromised skin.",
+          "best_for": "Dry, very dry, and mature skin"
+        },
+        {
+          "name": "Tinted Moisturizer",
+          "description": "Combines hydration with a sheer tint to lightly even out skin tone, offering a minimal coverage option.",
+          "best_for": "All skin types desiring light coverage and hydration"
+        }
+      ]
+    },
+    {
+      "name": "Face Oil",
+      "level": "Optional",
+      "short": "Extra nourishment.",
+      "long": "Provides an additional layer of nourishment and seals in moisture, leaving your skin feeling supple and adding a healthy glow.",
+      "types": [
+        {
+          "name": "Lightweight Face Oil",
+          "description": "A fast-absorbing oil that provides a gentle layer of moisture and enhances skin's natural glow without feeling heavy.",
+          "best_for": "Oily, combination, and normal skin"
+        },
+        {
+          "name": "Nourishing Face Oil",
+          "description": "A richer oil that delivers intense moisture, essential fatty acids, and nutrients to support skin barrier health and suppleness.",
+          "best_for": "Dry, very dry, and mature skin"
+        }
+      ]
+    },
+    {
+      "name": "Sunscreen",
+      "level": "Essentials",
+      "short": "Daily UV shield.",
+      "long": "Crucially protects your skin from harmful UV rays, which is essential to prevent sun damage, premature aging, and maintain overall skin health.",
+      "types": [
+        {
+          "name": "Mineral Sunscreen",
+          "description": "Uses zinc oxide and/or titanium dioxide to create a physical barrier on the skin that reflects UV rays away.",
+          "best_for": "Sensitive and acne-prone skin"
+        },
+        {
+          "name": "Chemical Sunscreen",
+          "description": "Contains organic compounds that absorb UV radiation and convert it into heat, which is then released from the skin.",
+          "best_for": "All skin types (often cosmetically elegant)"
+        },
+        {
+          "name": "Hybrid Sunscreen",
+          "description": "Combines both mineral and chemical filters to offer broad-spectrum UV protection with enhanced texture and reduced white cast.",
+          "best_for": "All skin types looking for a balance of protection and aesthetics"
+        },
+        {
+          "name": "Tinted Sunscreen",
+          "description": "Provides UV protection along with a sheer tint, offering light coverage to even out skin tone.",
+          "best_for": "All skin types desiring minimal makeup and UV protection"
+        }
+      ]
+    }
+  ],
+  "pm_routine": [
+    {
+      "name": "Oil Cleanser",
+      "level": "Essentials",
+      "short": "Dissolve impurities.",
+      "long": "The crucial first step to effectively dissolve and remove oil-based impurities like makeup, sunscreen, and excess sebum accumulated throughout the day.",
+      "types": [
+        {
+          "name": "Cleansing Oil",
+          "description": "A liquid oil formula designed to effortlessly dissolve oil-based impurities such as stubborn makeup, sunscreen, and excess sebum.",
+          "best_for": "All skin types, especially effective for heavy makeup users and those with dry skin"
+        },
+        {
+          "name": "Cleansing Balm",
+          "description": "A solid, waxy balm that transforms into a luxurious oil upon skin contact, melting away impurities and often providing nourishing benefits.",
+          "best_for": "All skin types, particularly effective for stubborn makeup and those who enjoy a pampering cleansing experience"
+        }
+      ]
+    },
+    {
+      "name": "Water Cleanser",
+      "level": "Essentials",
+      "short": "Deep clean.",
+      "long": "The essential second step that removes any lingering water-based impurities and ensures a thorough clean, optimally preparing your skin for treatments.",
+      "types": [
+        {
+          "name": "Gel Cleanser",
+          "description": "A clear, often foaming cleanser that purifies skin and removes water-based impurities like dirt and sweat without stripping.",
+          "best_for": "Oily, combination, and acne-prone skin"
+        },
+        {
+          "name": "Foam Cleanser",
+          "description": "Produces a rich, airy lather for a thorough cleanse, effectively removing residual impurities and ensuring a deep clean.",
+          "best_for": "Oily and combination skin"
+        },
+        {
+          "name": "Cream Cleanser",
+          "description": "A rich, non-foaming cleanser that gently cleanses while maintaining skin hydration, leaving it feeling soft and balanced.",
+          "best_for": "Dry, sensitive, and mature skin"
+        }
+      ]
+    },
+    {
+      "name": "Exfoliant",
+      "level": "Targeted",
+      "short": "Renew skin.",
+      "long": "Gently removes dead skin cells to improve texture and clarity, revealing smoother, fresher skin underneath.",
+      "types": [
+        {
+          "name": "AHA Exfoliant",
+          "description": "Contains Alpha Hydroxy Acids (like Glycolic or Lactic Acid) that chemically exfoliate the skin's surface, improving texture, tone, and promoting brightness.",
+          "best_for": "Dull, dry, sun-damaged, and uneven skin"
+        },
+        {
+          "name": "BHA Exfoliant",
+          "description": "Contains Beta Hydroxy Acids (like Salicylic Acid) that penetrate oil within pores to exfoliate, helping to clear congestion and reduce breakouts.",
+          "best_for": "Oily, acne-prone, and blemish-prone skin"
+        },
+        {
+          "name": "Enzyme Exfoliant",
+          "description": "Uses fruit enzymes (like papaya or pineapple) to gently break down dead skin cells on the surface, offering a mild exfoliating action suitable for sensitive skin.",
+          "best_for": "Sensitive, dull, and mildly uneven skin"
+        },
+        {
+          "name": "Physical Exfoliant",
+          "description": "Uses small particles or a textured brush to manually buff away dead skin cells from the skin's surface, improving smoothness.",
+          "best_for": "Normal and combination skin (use sparingly)"
+        }
+      ]
+    },
+    {
+      "name": "Toner",
+      "level": "Targeted",
+      "short": "Balance and hydrate.",
+      "long": "Restores your skin's balance after cleansing and provides an initial layer of hydration, optimizing the absorption of subsequent treatment products.",
+      "types": [
+        {
+          "name": "Hydrating Toner",
+          "description": "Replenishes moisture, often with humectants, and provides an initial layer of hydration, optimizing absorption of subsequent night treatments.",
+          "best_for": "Dry, dehydrated, and sensitive skin"
+        },
+        {
+          "name": "Exfoliating Toner",
+          "description": "Contains acids to aid in nightly cell turnover, improving skin texture and clarity by gently removing dead skin cells overnight.",
+          "best_for": "Dull, congested, and uneven skin"
+        },
+        {
+          "name": "Repairing Toner",
+          "description": "Delivers concentrated active ingredients that support the skin's natural regeneration and repair processes during the night.",
+          "best_for": "All skin types, especially those concerned with barrier repair and overall skin health"
+        },
+        {
+          "name": "Soothing Toner",
+          "description": "Formulated with calming ingredients to reduce redness and irritation, providing comfort and relief to sensitive or compromised skin overnight.",
+          "best_for": "Sensitive, irritated, and redness-prone skin"
+        }
+      ]
+    },
+    {
+      "name": "Treatment Serum",
+      "level": "Targeted",
+      "short": "Potent overnight boost.",
+      "long": "Delivers potent active ingredients tailored to address specific concerns like aging or hyperpigmentation, working with your skin's natural regeneration cycle overnight.",
+      "types": [
+        {
+          "name": "Retinoid Serum",
+          "description": "Contains derivatives of Vitamin A (like retinol or retinal) that promote cell turnover, reduce signs of aging, and improve skin texture and tone.",
+          "best_for": "Mature skin, acne-prone skin, and concerns with texture and hyperpigmentation"
+        },
+        {
+          "name": "Peptide Serum",
+          "description": "Features short chains of amino acids that signal skin cells to produce more collagen and elastin, leading to firmer, more resilient skin.",
+          "best_for": "Mature skin, concerns with firmness and elasticity"
+        },
+        {
+          "name": "Niacinamide Serum",
+          "description": "Works overnight to minimize pore appearance, reduce redness, regulate oil production, and strengthen the skin's barrier.",
+          "best_for": "Oily, acne-prone, sensitive, and uneven skin tone"
+        },
+        {
+          "name": "Hyaluronic Acid Serum",
+          "description": "Delivers deep and sustained hydration to the skin, helping to plump up fine lines and support the skin's moisture barrier during its nightly repair cycle.",
+          "best_for": "Dry, dehydrated, and sensitive skin"
+        },
+        {
+          "name": "AHA/BHA Serum",
+          "description": "Contains exfoliating acids that work to gently resurface the skin overnight, improving texture, unclogging pores, and enhancing radiance.",
+          "best_for": "Dull, congested, acne-prone, and uneven skin"
+        }
+      ]
+    },
+    {
+      "name": "Eye Cream",
+      "level": "Targeted",
+      "short": "Nightly eye repair.",
+      "long": "Supports the delicate skin around your eyes during its nightly repair process, targeting concerns like dark circles, fine lines, and puffiness for a refreshed look.",
+      "types": [
+        {
+          "name": "Nourishing Eye Cream",
+          "description": "Provides rich moisture and essential nutrients to support the delicate eye area's repair process while you sleep.",
+          "best_for": "Dry, dehydrated, and mature skin"
+        },
+        {
+          "name": "Anti-Aging Eye Cream",
+          "description": "Formulated with active ingredients to specifically target and reduce the appearance of fine lines, wrinkles, and crow's feet around the eyes.",
+          "best_for": "Mature skin and concerns with visible signs of aging"
+        },
+        {
+          "name": "Dark Circle Eye Cream",
+          "description": "Contains ingredients designed to visibly diminish the appearance of dark circles by targeting pigmentation and improving circulation.",
+          "best_for": "Dark circles and dullness around the eyes"
+        },
+        {
+          "name": "Depuffing Eye Cream",
+          "description": "Helps to reduce fluid retention and inflammation, visibly de-puffing the under-eye area for a more rested appearance by morning.",
+          "best_for": "Puffy eyes and fluid retention"
+        }
+      ]
+    },
+    {
+      "name": "Moisturizer",
+      "level": "Essentials",
+      "short": "Deep night hydration.",
+      "long": "Provides intense hydration and nourishment, supporting your skin's natural regeneration and repair processes while you sleep for a revitalized morning complexion.",
+      "types": [
+        {
+          "name": "Rich Cream Moisturizer",
+          "description": "A deeply emollient and nourishing formula providing intense hydration and robust barrier support, crucial for overnight skin repair.",
+          "best_for": "Dry, very dry, and mature skin"
+        },
+        {
+          "name": "Gel Cream Moisturizer",
+          "description": "A lightweight, often hydrating formula that provides balanced moisture without feeling heavy, suitable for night use on oilier skin types.",
+          "best_for": "Oily, combination, and acne-prone skin"
+        },
+        {
+          "name": "Anti-Aging Moisturizer",
+          "description": "Contains specific ingredients like peptides or antioxidants designed to actively target and reduce the appearance of fine lines and wrinkles while you sleep.",
+          "best_for": "Mature skin and concerns with visible signs of aging"
+        },
+        {
+          "name": "Repairing Moisturizer",
+          "description": "Focuses on strengthening the skin's barrier and supporting its natural healing process, often with ingredients like ceramides.",
+          "best_for": "Damaged barrier, sensitive, and compromised skin"
+        }
+      ]
+    },
+    {
+      "name": "Sleeping Mask",
+      "level": "Optional",
+      "short": "Seal and restore.",
+      "long": "Creates an occlusive barrier to lock in all previous layers of hydration and treatment, providing enhanced absorption and aiding in overnight skin repair.",
+      "types": [
+        {
+          "name": "Hydrating Sleeping Mask",
+          "description": "Forms an occlusive layer to prevent moisture loss and deeply infuse the skin with hydrating ingredients throughout the night.",
+          "best_for": "Dry, dehydrated, and dull skin"
+        },
+        {
+          "name": "Brightening Sleeping Mask",
+          "description": "Works overnight to visibly reduce dark spots, even out skin tone, and enhance overall radiance by morning.",
+          "best_for": "Dullness, hyperpigmentation, and uneven skin tone"
+        },
+        {
+          "name": "Soothing Sleeping Mask",
+          "description": "Designed to calm irritated or sensitive skin, reducing redness and discomfort while providing intense overnight comfort.",
+          "best_for": "Sensitive, irritated, and compromised skin"
+        },
+        {
+          "name": "Firming Sleeping Mask",
+          "description": "Contains ingredients that support skin elasticity and firmness, aiming to provide a more lifted and toned appearance by morning.",
+          "best_for": "Mature skin and concerns with loss of firmness"
+        }
+      ]
+    }
+  ]
+}
