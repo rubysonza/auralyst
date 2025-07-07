@@ -14,13 +14,14 @@
     <title>Auralyst</title>
 </head>
 
-<body class="bg-linear-to-b from-[#D5FFE8] from-15% to-[#58B989]"> 
+<body class="bg-linear-to-b from-[#D5FFE8] from-20% to-[#58B989]"> 
 
-    <div id="routine-page" class="relative h-screen w-screen overflow-y-hidden">
+    <div id="gradient-overlay" class="absolute inset-0 z-0 bg-gradient-to-b from-[#D5FFE8] from-75% to-[#58B989]"></div>
+
+    <div id="routine-page" class="relative h-screen w-screen overflow-hidden">
 
         <!-- SECTION 1: Background Landing Page -->
         <div id="landing-section" class="absolute inset-0 z-0 flex flex-col items-center justify-center-safe">
-
             <!-- TOP ICONS -->
             <div class="absolute top-0 left-0 w-full pt-8 px-5 flex justify-between items-center">
                 <!-- MENU -->
@@ -51,18 +52,19 @@
 
             <!-- BOTTLE AND 'ROUTINE' TITLE -->
             <div class="relative text-center">
-                <img id="landing-bottle" src="\public\images\notext_green.png" alt="Green Tube Skincare Bottle" class="w-30 md:w-40 lg:w-50">
-                <h1 id="landing-title" class="absolute top-2/5 left-1/2 -translate-x-1/2 -translate-y-1/2 text-6xl sm:text-7xl lg:text-8xl font-[Karla] font-extrabold text-[#28663D]">Routine</h1>
+                <img id="landing-bottle" src="\public\images\notext_green.png" alt="Green Tube Skincare Bottle" class="w-30 md:w-42 lg:w-50">
+                <h1 id="landing-title" class="absolute z-50 top-2/5 right-1/2 translate-x-1/2 -translate-y-1/2 text-6xl md:text-7xl lg:text-8xl font-[Karla] font-extrabold text-[#28663D]">Routine</h1>
             </div>
 
         </div>
 
-        <main class="lg:flex justify-items-center">
-            <!-- SECTION 2: Main Content -->
-            <div id="steps-section" class="absolute bottom-0 left-0 w-full h-30 z-20 px-8 flex flex-col overflow-y-auto lg:overflow-hidden">
 
-                <div id="steps-prompt" class="flex flex-col pt-5 space-y-1 text-center justify-center text-[#28663D] flex-shrink-0">
-                    <p class="text-md lg:text-xl">Select the steps that work for you</p>
+        <!-- SECTION 2: Main Content -->
+        <main class="lg:flex justify-items-center overflow-hidden">
+
+            <div id="steps-section" class="absolute flex flex-col z-20 bottom-0 left-0 w-full h-0 px-8 overflow-hidden">
+
+                <div id="steps-prompt" class="flex flex-col pt-7 pb-1 space-y-1 text-center justify-center text-[#28663D] flex-shrink-0">
                     <div class="flex flex-row space-x-1 items-center justify-center align-middle text-sm lg:text-lg">
                         <svg class="" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                             <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.1" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 1 1 7.072 0l-.548.547A3.37 3.37 0 0 0 14 18.469V19a2 2 0 1 1-4 0v-.531c0-.895-.356-1.754-.988-2.386z"/>
@@ -71,32 +73,46 @@
                     </div>
                 </div>
 
-                <div id="steps-content" class="lg:flex lg:flex-shrink-0 pb-6">
-                    <div id="steps-container" class="space-y-5 mt-10 items-center flex-1 min-h-0">
+                <div id="steps-content" class="relative flex flex-col overflow-hidden">
+
+                    <div id="mask-blur" class="absolute -top-1 left-0 w-full h-[3vh] opacity-0 pointer-events-none bg-gradient-to-b from-[#CFFBE3] to-transparent backdrop-blur-md"></div>
+                    
+                    <div id="steps-container" class="relative flex flex-1 flex-col z-0 pt-6 space-y-5 lg:max-h-[100vh] overflow-y-auto no-scrollbar">
                         <!-- function createStepElement -->
                     </div>
-                
-                    <div id="description-modal" class="fixed hidden inset-0 bg-black/20 backdrop-blur-sm z-50 items-center justify-center p-8 lg:relative lg:bg-transparent">
 
-                        <div id="modal-content" class="overflow-y-auto flex flex-col bg-white rounded-2xl p-6 max-w-lg w-full h-200 lg:h-250">
-
-                            <button id="modal-close-button" class="absolute top-5 right-5 w-auto h-auto bg-green-700 text-white p-1 rounded-full">
-                                <svg class="w-7 h-7" xmlns="http://www.w3.org/2000/svg" width="96" height="96" viewBox="0 0 24 24">
-                                    <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6.758 17.243L12.001 12m5.243-5.243L12 12m0 0L6.758 6.757M12.001 12l5.243 5.243"/>
-                                </svg>
-                            </button>
-
-                            <h3 id="modal-title" class="text-2xl font-extrabold mt-4 mb-2 text-gray-800"></h3>
-                            <p id="modal-description" class="text-gray-600"></p>
-
-                            <div id="modal-types-container" class="mt-4 border-t pt-4"></div>
+                    <div id="description-panel" class="hidden absolute left-1/2 w-100 min-h-0 pt-6 z-5">
+                        <div id="panel-content-wrapper" class="bg-white rounded-2xl p-6 w-full h-full max-h-[65vh] flex flex-col overflow-y-auto no-scrollbar">
+                            <h3 id="panel-title" class="text-2xl font-bold mb-2 text-gray-800 flex-shrink-0"></h3>
+                            <p id="panel-description" class="text-gray-600 flex-shrink-0"></p>
                             
+                            <div id="panel-types-container" class="mt-4 border-t pt-4 flex-grow overflow-y-auto"></div>
                         </div>
-
                     </div>
                 </div>
+
             </div>
+
         </main>
+
+        <div id="description-modal" class="absolute hidden overflow-hidden inset-0 bg-black/20 backdrop-blur-sm z-50 items-center justify-center lg:relative lg:bg-transparent lg:backdrop-blur-none">
+
+            <div id="modal-content" class="absolute flex flex-col top-5 left-1/2 -translate-x-1/2 lg:top-1/2 transform bg-white rounded-2xl p-6 w-[40vh] md:w-[50vh] h-[95vh] lg:relative overflow-hidden no-scrollbar z-0">
+
+                <button id="modal-close-button" class="absolute top-5 right-5 w-auto h-auto bg-green-700 text-white p-1 rounded-full">
+                    <svg class="w-7 h-7" xmlns="http://www.w3.org/2000/svg" width="96" height="96" viewBox="0 0 24 24">
+                        <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6.758 17.243L12.001 12m5.243-5.243L12 12m0 0L6.758 6.757M12.001 12l5.243 5.243"/>
+                    </svg>
+                </button>
+
+                <h3 id="modal-title" class="text-2xl font-extrabold mt-4 mb-2 text-gray-800"></h3>
+                <p id="modal-description" class="text-gray-600"></p>
+
+                <div id="modal-types-container" class="mt-4 border-t pt-4 overflow-y-auto no-scrollbar"></div>
+                
+            </div>
+
+        </div>
 
         <!-- <footer class="sticky bottom-0 left-0 w-full p-4 bg-white/80 backdrop-blur-sm border-t border-gray-200 z-30">
             <div class="container mx-auto max-w-2xl text-center">

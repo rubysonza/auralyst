@@ -9,6 +9,18 @@ body {
     font-family: var(--font-family-theme);
 }
 
+
+/* NO SCROLLBAR */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+
 .bottle-wrapper {
     position: relative;
     display: flex;
@@ -26,4 +38,9 @@ body {
 .is-deselected {
     opacity: 0.3;
     transition: opacity 0.3s ease;
+}
+
+#mask-blur {
+    -webkit-mask-image: linear-gradient(to bottom, black 5%, transparent 100%);
+    mask-image: linear-gradient(to bottom, black 5%, transparent 100%);
 }
