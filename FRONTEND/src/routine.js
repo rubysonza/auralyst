@@ -62,14 +62,16 @@ document.addEventListener('DOMContentLoaded', () => {
         const themeConfig = {
             am: {
                 landingTitle: ['text-[#28663D]'],
-                menuButton: ['text-gray-800'],
-                sunButton: ['text-gray-800'],
-                moonButton: ['text-gray-800'],
+                menuButton: ['text-[#28663D]'],
+                sunButton: ['text-[#28663D]'],
+                moonButton: ['text-[#28663D]'],
                 stepsPrompt: ['text-[#28663D'],
                 mask: ['bg-[#D5FFE8]'],
                 menuScreen: ['bg-green-100/90'],
                 modalContent: ['bg-white', 'text-gray-800'],
-                panelContentWrapper: ['bg-white', 'text-gray-800'],
+                panelContentWrapper: ['bg-white', 'text-white'],
+                panelTitle: ['text-gray-800'],
+                panelDescription: ['text-gray-600'],
                 typeEl: ['bg-gray-100', 'text-gray-800'],
             },
             pm: {
@@ -80,9 +82,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 stepsPrompt: ['text-white'],
                 mask: ['bg-[#6DA68A]'],
                 menuScreen: ['bg-green-200/90'],
-                modalContent: ['bg-[#79AF99]', 'text-white'],
-                panelContentWrapper: ['bg-[#415951]', 'text-white'],
-                typeEl: ['bg-[#62937F60]', 'text-white'],
+                modalContent: ['bg-gray-700/60', 'text-white'],
+                panelContentWrapper: ['bg-white/10', 'text-white'],
+                panelTitle: ['text-white'],
+                panelDescription: ['text-white'],
+                typeEl: ['bg-black/30', 'text-white'],
             }
         };
 
@@ -130,17 +134,19 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
 
+
+        
 // ** STEP CONTAINER FUNCTIONS ** //
     // STEPS-CONTENT
         function createStepElement(step, stepNumber, theme) {
             const mod = document.createElement('div');
-            const mainBgColor = theme === 'am' ? 'bg-white/90' : 'bg-gray-900/20';
+            const mainBgColor = theme === 'am' ? 'bg-white/90' : 'bg-white/10';
             mod.className = `step-item flex flex-none rounded-4xl shadow-lg overflow-hidden cursor-pointer ${mainBgColor}`;
 
             const level = step.level || 'Optional';
             const sidebarColor = levelColors[level] || 'bg-gray-400';
-            const titleColor = theme === 'am' ? 'text-gray-800' : 'text-gray-100';
-            const descColor = theme === 'am' ? 'text-gray-600' : 'text-gray-200';
+            const titleColor = theme === 'am' ? 'text-gray-800' : 'text-white';
+            const descColor = theme === 'am' ? 'text-gray-600' : 'text-white';
 
             // .steps-container
             mod.innerHTML = `
@@ -177,16 +183,126 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
     // POPULATE STEPS CONTAINER
+        // Track selections for both routines
+        const userRoutineSelections = {
+            am: new Set(), // store step names or IDs
+            pm: new Set()
+        };
+
+        // Restore selection state when rendering steps
         function populateSteps(theme) {
             if (!elements.stepsContainer) return;
-
             elements.stepsContainer.innerHTML = '';
             const routineData = theme === 'am' ? routines.am_routine : routines.pm_routine;
+
+            if (userRoutineSelections[theme].size === 0) {
+                routineData.forEach(step => userRoutineSelections[theme].add(step.name));
+            }
+
             routineData.forEach((step, index) => {
                 const stepElement = createStepElement(step, index + 1, theme);
                 stepElement.style.opacity = '0';
+                
                 elements.stepsContainer.appendChild(stepElement);
             });
+        }
+
+        // Attach click handlers to each step item
+        function attachStepSelectionHandlers(theme) {
+            const stepItems = elements.stepsContainer.querySelectorAll('.step-item');
+            stepItems.forEach(item => {
+                const stepName = item.querySelector('.step-content h3').textContent;
+                item.dataset.routine = theme;
+                item.dataset.stepName = stepName;
+
+                // Restore selection state
+                if (userRoutineSelections[theme].has(stepName)) {
+                    item.classList.remove('is-deselected');
+                    item.style.opacity = 1;
+                } else {
+                    item.classList.add('is-deselected');
+                    item.style.opacity = 0;
+                }
+
+                // Remove previous listeners to avoid stacking
+                item.replaceWith(item.cloneNode(true));
+                const newItem = elements.stepsContainer.querySelector(`[data-step-name="${stepName}"]`);
+
+                // Add sidebar click handler
+                newItem.querySelector('.step-sidebar').addEventListener('click', () => {
+                    if (newItem.classList.toggle('is-deselected')) {
+                        userRoutineSelections[theme].delete(stepName);
+                    } else {
+                        userRoutineSelections[theme].add(stepName);
+                    }
+                });
+            });
+        }
+
+// ** SAVE ROUTINE BUTTON ** //
+        document.getElementById('save-routine').addEventListener('click', () => {
+            // Get step data for both routines
+            const amSteps = routines.am_routine.filter(step => userRoutineSelections.am.has(step.name));
+            const pmSteps = routines.pm_routine.filter(step => userRoutineSelections.pm.has(step.name));
+
+            const summary = `
+                <h2 class="font-bold text-lg mb-4 text-center">Your Routine</h2>
+                <div class="flex flex-row gap-6 justify-center">
+                    <div class="flex-1">
+                        <h3 class="font-semibold text-green-700 mb-2 text-center">AM Routine</h3>
+                        <div>
+                            ${amSteps.length === 0
+                                ? '<em class="block text-center text-gray-400">No steps selected.</em>'
+                                : amSteps.map(step =>
+                                    `<div class="mb-2 p-2 rounded bg-green-50">
+                                        <strong>${step.name}</strong>
+                                        <div class="text-sm">${step.short}</div>
+                                    </div>`
+                                ).join('')}
+                        </div>
+                    </div>
+                    <div class="flex-1">
+                        <h3 class="font-semibold text-blue-700 mb-2 text-center">PM Routine</h3>
+                        <div>
+                            ${pmSteps.length === 0
+                                ? '<em class="block text-center text-gray-400">No steps selected.</em>'
+                                : pmSteps.map(step =>
+                                    `<div class="mb-2 p-2 rounded bg-blue-50">
+                                        <strong>${step.name}</strong>
+                                        <div class="text-sm">${step.short}</div>
+                                    </div>`
+                                ).join('')}
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            showRoutineSummaryDialog(summary, () => {
+                // Save logic here (e.g., localStorage, API call, etc.)
+                alert('Routine saved!');
+            });
+        });
+
+        // 5. Modal dialog function (unchanged)
+        function showRoutineSummaryDialog(html, onConfirm) {
+            const overlay = document.createElement('div');
+            overlay.className = 'fixed inset-0 bg-black/40 flex items-center justify-center z-[9999]';
+            const dialog = document.createElement('div');
+            dialog.className = 'bg-white rounded-xl p-6 max-w-md w-full shadow-lg';
+            dialog.innerHTML = html + `
+                <div class="flex justify-end mt-4 space-x-2">
+                    <button id="routine-cancel" class="px-4 py-2 rounded bg-gray-200">Cancel</button>
+                    <button id="routine-confirm" class="px-4 py-2 rounded bg-green-500 text-white">Save</button>
+                </div>
+            `;
+            overlay.appendChild(dialog);
+            document.body.appendChild(overlay);
+
+            dialog.querySelector('#routine-cancel').onclick = () => overlay.remove();
+            dialog.querySelector('#routine-confirm').onclick = () => {
+                overlay.remove();
+                onConfirm();
+            };
         }
 
 
@@ -213,7 +329,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 tl.to(elements.landingBottle, { y: -350, scale: 0.6, autoAlpha: 0, duration: 1.0,  ease: 'power2.inOut' }, 0);
                 tl.to(elements.landingTitle, { y: getFinalTitleY, scale: getFinalTitleScale, duration: 1.2, ease: 'expo.inOut' }, 0);
                 tl.to(elements.stepsSection, { height: '84.5vh', duration: 1.2, ease: 'expo.inOut' }, 0);
-                // tl.to(elements.stepsPrompt, { duration: 0.5, ease: 'power1.in' }, 0.1);
                 tl.fromTo(elements.stepsContainer.querySelectorAll('.step-item'), { opacity: 0 }, { opacity: 1, stagger: 0.06, duration: 1.0, ease: 'power2.out' }, '-=0.7');
         }
 
@@ -238,8 +353,8 @@ document.addEventListener('DOMContentLoaded', () => {
                         'mt-4', 'p-3', 'rounded-lg'
                     ].join(' ');
                     typeEl.innerHTML = `<h4 class="font-semibold">${type.name}</h4>
-                        <p class="text-sm mt-1">${type.description}</p>
-                        <p class="text-xs text-green-700 mt-2"><strong>Best for:</strong> ${type.best_for}</p>`;
+                                        <p class="text-sm mt-1">${type.description}</p>
+                                        <p class="text-xs text-green-700 mt-2"><strong>Best for:</strong> ${type.best_for}</p>`;
                     elements.modalTypesContainer.appendChild(typeEl);
                 });
             }
@@ -329,6 +444,9 @@ document.addEventListener('DOMContentLoaded', () => {
             .to(elements.landingTitle, { opacity: 0, duration: 0.2, ease: 'power4.out' }, '-=0.25')
             .to(elements.stepsPrompt, { opacity: 0, duration: 0.5, ease: 'power4.out' }, '-=0.4')
             .to(elements.stepsContainer.children, { opacity: 0, stagger: 0.07, duration: 0.3, ease: 'power2.out' }, '>')
+            .to(elements.descriptionPanel, { opacity: 0, duration: 0.4, ease: 'power4.out' }, '-=0.7')
+
+            
 
             .to(elements.bgSlide, { 
                 y: newTheme === 'am' ? '-30vh' : '-100vh', 
@@ -336,32 +454,40 @@ document.addEventListener('DOMContentLoaded', () => {
                 ease: 'power3.inOut' 
             }, 0)
 
-            .to([elements.menuButton, elements.sunButton, elements.moonButton], { opacity: 0.05, duration: 1.0, ease: 'power4.out' }, 0);
-            
+            .to([elements.menuButton, elements.sunButton, elements.moonButton], { opacity: 0.04, duration: 0.6, ease: 'power4.out' }, 0);
 
             tl.add(() => {
-                applyTheme(newTheme); // Update theme classes/colors
+                applyTheme(newTheme);
 
-                gsap.to([elements.menuButton, elements.sunButton, elements.moonButton], { opacity: 1, duration: 0.5, ease: 'power4.in' }, '>');
+                gsap.to([elements.menuButton, elements.sunButton, elements.moonButton], { opacity: 1, duration: 0.3, ease: 'power4.in' }, '>');
+                elements.descriptionPanel.classList.add('hidden');
 
-                populateSteps(newTheme);
-
-                // Wait for DOM update before animating in
+                // DOM update
                 requestAnimationFrame(() => {
+
+                    populateSteps(newTheme);
+                    attachStepSelectionHandlers(newTheme);
+
                     gsap.fromTo(elements.landingTitle,
                         { opacity: 0 },
-                        { opacity: 1, color: themeConfig[newTheme].landingTitle, duration: 0.3, ease: 'power4.in' }
+                        { opacity: 1, color: themeConfig[newTheme].landingTitle, duration: 0.2, ease: 'power4.in' }
                     );
                     gsap.fromTo(elements.stepsPrompt,
                         { opacity: 0 },
-                        { opacity: 1, color: themeConfig[newTheme].stepsPrompt, duration: 0.5, ease: 'power2.inOut' }
+                        { opacity: 1, color: themeConfig[newTheme].stepsPrompt, duration: 0.3, ease: 'power2.inOut' }
                     );
                     gsap.fromTo(elements.stepsContainer.querySelectorAll('.step-item'), 
                         { opacity: 0 }, 
                         { opacity: 1, stagger: 0.07, duration: 0.3, ease: 'power2.out' }, '>'
                     );
-                });
+                    gsap.fromTo(elements.descriptionPanel, 
+                        { opacity: 0 },
+                        { opacity: 1, duration: 0.5, ease: 'power4.in' }, '-=0.7'
+                    );
+                }, '+=0.1');
             });
+
+            
         }
 
 
