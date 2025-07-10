@@ -20,7 +20,12 @@ body {
   scrollbar-width: none;  /* Firefox */
 }
 
+/* MENU SCREEN */
+#menu-screen.is-closed {
+    transform: translateX(-100%);
+}
 
+/* INDEX */
 .bottle-wrapper {
     position: relative;
     display: flex;
