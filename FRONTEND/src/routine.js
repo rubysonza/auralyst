@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        gsap.registerPlugin(ScrollTrigger);
+        gsap.registerPlugin();
 
         const elements = {
             body: document.body,
@@ -133,9 +133,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
             }
         }
-
-
         
+
 // ** STEP CONTAINER FUNCTIONS ** //
     // STEPS-CONTENT
         function createStepElement(step, stepNumber, theme) {
@@ -183,126 +182,16 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
     // POPULATE STEPS CONTAINER
-        // Track selections for both routines
-        const userRoutineSelections = {
-            am: new Set(), // store step names or IDs
-            pm: new Set()
-        };
-
-        // Restore selection state when rendering steps
         function populateSteps(theme) {
             if (!elements.stepsContainer) return;
+
             elements.stepsContainer.innerHTML = '';
             const routineData = theme === 'am' ? routines.am_routine : routines.pm_routine;
-
-            if (userRoutineSelections[theme].size === 0) {
-                routineData.forEach(step => userRoutineSelections[theme].add(step.name));
-            }
-
             routineData.forEach((step, index) => {
                 const stepElement = createStepElement(step, index + 1, theme);
                 stepElement.style.opacity = '0';
-                
                 elements.stepsContainer.appendChild(stepElement);
             });
-        }
-
-        // Attach click handlers to each step item
-        function attachStepSelectionHandlers(theme) {
-            const stepItems = elements.stepsContainer.querySelectorAll('.step-item');
-            stepItems.forEach(item => {
-                const stepName = item.querySelector('.step-content h3').textContent;
-                item.dataset.routine = theme;
-                item.dataset.stepName = stepName;
-
-                // Restore selection state
-                if (userRoutineSelections[theme].has(stepName)) {
-                    item.classList.remove('is-deselected');
-                    item.style.opacity = 1;
-                } else {
-                    item.classList.add('is-deselected');
-                    item.style.opacity = 0;
-                }
-
-                // Remove previous listeners to avoid stacking
-                item.replaceWith(item.cloneNode(true));
-                const newItem = elements.stepsContainer.querySelector(`[data-step-name="${stepName}"]`);
-
-                // Add sidebar click handler
-                newItem.querySelector('.step-sidebar').addEventListener('click', () => {
-                    if (newItem.classList.toggle('is-deselected')) {
-                        userRoutineSelections[theme].delete(stepName);
-                    } else {
-                        userRoutineSelections[theme].add(stepName);
-                    }
-                });
-            });
-        }
-
-// ** SAVE ROUTINE BUTTON ** //
-        document.getElementById('save-routine').addEventListener('click', () => {
-            // Get step data for both routines
-            const amSteps = routines.am_routine.filter(step => userRoutineSelections.am.has(step.name));
-            const pmSteps = routines.pm_routine.filter(step => userRoutineSelections.pm.has(step.name));
-
-            const summary = `
-                <h2 class="font-bold text-lg mb-4 text-center">Your Routine</h2>
-                <div class="flex flex-row gap-6 justify-center">
-                    <div class="flex-1">
-                        <h3 class="font-semibold text-green-700 mb-2 text-center">AM Routine</h3>
-                        <div>
-                            ${amSteps.length === 0
-                                ? '<em class="block text-center text-gray-400">No steps selected.</em>'
-                                : amSteps.map(step =>
-                                    `<div class="mb-2 p-2 rounded bg-green-50">
-                                        <strong>${step.name}</strong>
-                                        <div class="text-sm">${step.short}</div>
-                                    </div>`
-                                ).join('')}
-                        </div>
-                    </div>
-                    <div class="flex-1">
-                        <h3 class="font-semibold text-blue-700 mb-2 text-center">PM Routine</h3>
-                        <div>
-                            ${pmSteps.length === 0
-                                ? '<em class="block text-center text-gray-400">No steps selected.</em>'
-                                : pmSteps.map(step =>
-                                    `<div class="mb-2 p-2 rounded bg-blue-50">
-                                        <strong>${step.name}</strong>
-                                        <div class="text-sm">${step.short}</div>
-                                    </div>`
-                                ).join('')}
-                        </div>
-                    </div>
-                </div>
-            `;
-
-            showRoutineSummaryDialog(summary, () => {
-                // Save logic here (e.g., localStorage, API call, etc.)
-                alert('Routine saved!');
-            });
-        });
-
-        // 5. Modal dialog function (unchanged)
-        function showRoutineSummaryDialog(html, onConfirm) {
-            const overlay = document.createElement('div');
-            overlay.className = 'fixed inset-0 bg-black/40 flex items-center justify-center z-[9999]';
-            const dialog = document.createElement('div');
-            dialog.className = 'bg-white rounded-xl p-6 max-w-md w-full shadow-lg';
-            dialog.innerHTML = html + `
-                <div class="flex justify-end mt-4 space-x-2">
-                    <button id="routine-cancel" class="px-4 py-2 rounded bg-gray-200">Cancel</button>
-                    <button id="routine-confirm" class="px-4 py-2 rounded bg-green-500 text-white">Save</button>
-                </div>
-            `;
-            overlay.appendChild(dialog);
-            document.body.appendChild(overlay);
-
-            dialog.querySelector('#routine-cancel').onclick = () => overlay.remove();
-            dialog.querySelector('#routine-confirm').onclick = () => {
-                overlay.remove();
-                onConfirm();
-            };
         }
 
 
@@ -388,11 +277,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 elements.descriptionPanel.classList.remove('hidden');
                 const tl = gsap.timeline();
 
-                if ( window.innerWidth > 1024 ) {
-                    tl.to(elements.stepsContainer, { xPercent: -80, duration: 0.7, ease: 'power3.inOut' })
-                    tl.fromTo(elements.descriptionPanel, { opacity: 0, x: 0 }, { opacity: 1, xPercent: -15, width: '45%', height: '100%', duration: 0.7, ease: 'power3.inOut' }, '-=0.6')
+                if ( window.innerWidth > 1366 ) {
+                    tl.to(elements.stepsContainer, { xPercent: -100, duration: 0.7, ease: 'power3.inOut' })
+                    tl.fromTo(elements.descriptionPanel, { opacity: 0, x: 0 }, { opacity: 1, xPercent: -10, width: '45%', height: '100vh', duration: 0.7, ease: 'power3.inOut' }, '-=0.6')
                 } else {
-                    tl.to(elements.stepsContainer, { xPercent: -20, duration: 0.7, ease: 'power3.inOut' })
+                    tl.to(elements.stepsContainer, { xPercent: -60, duration: 0.7, ease: 'power3.inOut' })
                     tl.fromTo(elements.descriptionPanel, { scaleX: 0.8, opacity: 0, x: 0 }, { scaleX: 1, opacity: 1, x: -5, paddingLeft: 5, width: '45%', duration: 0.7, ease: 'power3.inOut' }, '-=0.6');
                 }
             }
@@ -457,17 +346,15 @@ document.addEventListener('DOMContentLoaded', () => {
             .to([elements.menuButton, elements.sunButton, elements.moonButton], { opacity: 0.04, duration: 0.6, ease: 'power4.out' }, 0);
 
             tl.add(() => {
-                applyTheme(newTheme);
+                applyTheme(newTheme); // Update theme classes/colors
 
                 gsap.to([elements.menuButton, elements.sunButton, elements.moonButton], { opacity: 1, duration: 0.3, ease: 'power4.in' }, '>');
                 elements.descriptionPanel.classList.add('hidden');
 
-                // DOM update
+                populateSteps(newTheme);
+
+                // Wait for DOM update before animating in
                 requestAnimationFrame(() => {
-
-                    populateSteps(newTheme);
-                    attachStepSelectionHandlers(newTheme);
-
                     gsap.fromTo(elements.landingTitle,
                         { opacity: 0 },
                         { opacity: 1, color: themeConfig[newTheme].landingTitle, duration: 0.2, ease: 'power4.in' }
@@ -484,10 +371,8 @@ document.addEventListener('DOMContentLoaded', () => {
                         { opacity: 0 },
                         { opacity: 1, duration: 0.5, ease: 'power4.in' }, '-=0.7'
                     );
-                }, '+=0.1');
+                });
             });
-
-            
         }
 
 
