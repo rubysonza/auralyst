@@ -12,7 +12,7 @@
     <title>Auralyst</title>
 </head>
 
-<body class="m-0 p-0 w-screen h-screen overflow-hidden">
+<body class="m-0 p-0 w-screen h-screen">
 
     <!-- BOTTLE -->
     <div class="z-0 relative grid place-items-center w-full h-full">
@@ -20,7 +20,7 @@
     </div>
 
     <!-- TOP BAR -->
-    <div class="z-20 fixed flex flex-row justify-between items-center w-full top-0 left-0 h-24 pt-7 px-7">
+    <div class="z-20 absolute flex flex-row justify-between items-center w-full top-0 left-0 h-24 pt-7 px-7">
         <button id="menu-button" class="cursor-pointer">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M5 5L19 5M5 19L19 19"/><path d="M5 12H19"/></g></svg>
         </button>
@@ -29,39 +29,57 @@
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10a7 7 0 1 0 14 0a7 7 0 1 0-14 0m18 11l-6-6"/></svg>
         </button>
 
-        <h1 id="landing-title" class="z-10 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pt-7 text-[#764C7E] font-bold text-3xl md:text-4xl lg:text-5xl">Products</h1>
+        <h1 id="landing-title" class="z-10 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pt-7 lg:pt-0 text-[#764C7E] font-bold text-3xl md:text-4xl lg:text-[42px]">Products</h1>
     </div>
 
-    <!-- SECOND BAR -->
-    <div id="top-guide" class="z-30 fixed flex justify-center top-24 w-full h-15 bg-[#FCEAFF] text-[#764C7E] outline-gray-300 outline-1">
-        <div class="relative grid place-items-center w-full h-full">
-            <div class="flex justify-center items-center space-x-2 cursor-pointer">
-                <div id="dd-view" class="text-lg lg:text-xl">View All Steps</div>
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 32 32"><path fill="currentColor" d="M8.037 11.166L14.5 22.36c.825 1.43 2.175 1.43 3 0l6.463-11.195c.826-1.43.15-2.598-1.5-2.598H9.537c-1.65 0-2.326 1.17-1.5 2.6z"/></svg>
-            </div>
-        </div>
-    </div>
+    <!-- STEPS LIST -->
+    <div id="product-content" class="z-50 opacity-0 fixed flex flex-col top-24 w-full h-full bg-white">
 
-    <!-- 'VIEW ALL STEPS' -->
-    <div id="view-steps" class="grid-cols-2"></div>
-
-    <!-- PRODUCTS CONTENT LIST -->
-    <div id="product-content" class="z-30 fixed top-39 w-full h-full bg-[#f3f3f3] overflow-y-auto">
-        <div id="filter-nav" class="z-20 sticky flex justify-center items-center top-0 h-13 px-10 text-[#764C7E] bg-gray-500/20 backdrop-blur-2xl">
-            <div class="z-10 grid place-items-center h-9 pr-8 border-r-2 cursor-pointer">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.145 17.704v-3.976c0-.381 0-.572-.044-.75a1.5 1.5 0 0 0-.192-.446c-.1-.155-.238-.286-.515-.548L3.578 7.43a2.648 2.648 0 0 1 1.82-4.572h13.189a2.664 2.664 0 0 1 1.852 4.579l-4.765 4.607c-.27.261-.405.392-.501.545a1.5 1.5 0 0 0-.187.441c-.044.176-.044.364-.044.74v3.935c0 .542 0 .813-.062 1.057a2 2 0 0 1-.641 1.027c-.192.163-.436.282-.923.52c-1.14.557-1.709.835-2.172.835a2 2 0 0 1-1.795-1.121c-.204-.416-.204-1.05-.204-2.318"/></svg>
-            </div>
-
-            <div id="filter-options" class="relative flex flex-row justify-center items-center pl-5 space-x-5">
-                <div class="px-3 py-1 bg-[#FCEAFF] rounded-full">Best Match</div>
-                <div class="px-3 py-1 bg-[#FCEAFF] rounded-full">Low to High</div>
-                <div class="px-3 py-1 bg-[#FCEAFF] rounded-full">High to Low</div>
-                <div class="px-3 py-1 bg-[#FCEAFF] rounded-full">A-Z</div>
-                <div class="px-3 py-1 bg-[#FCEAFF] rounded-full">Z-A</div>
+        <div id="step-scroll" class="z-5 fixed flex justify-start lg:justify-center items-center top-24 h-15 w-full bg-white border-y border-gray-100 shadow-md shadow-gray-300 cursor-grab active:cursor-grabbing select-none whitespace-nowrap overflow-x-auto no-scrollbar">
+            <div id="step-filter" class="relative flex flex-row justify-center items-center left-0 w-auto text-sm md:text-md px-5 space-x-5">
+                <div class="step-filter-option">Cleanser</div>
+                <div class="step-filter-option">Exfoliator</div>
+                <div class="step-filter-option">Toner</div>
+                <div class="step-filter-option">Serum</div>
+                <div class="step-filter-option">Eye Cream</div>
+                <div class="step-filter-option">Spot Treatment</div>
+                <div class="step-filter-option">Moisturizer</div>
+                <div class="step-filter-option">Face Oil</div>
+                <div class="step-filter-option">Sunscreen</div>
+                <div class="step-filter-option">Sleeping Mask</div>
             </div>
         </div>
 
-        <div class="product-cards"></div>
+        <div class="fixed top-39 w-full h-full overflow-y-auto">
+            <div class="z-10 relative flex justify-between items-center left-0 h-15 px-6 sm:px-10">
+                <div class="flex justify-start items-center left-0 h-full p-2">
+                    <div id="filter-button" class="py-5 cursor-pointer">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.145 17.704v-3.976c0-.381 0-.572-.044-.75a1.5 1.5 0 0 0-.192-.446c-.1-.155-.238-.286-.515-.548L3.578 7.43a2.648 2.648 0 0 1 1.82-4.572h13.189a2.664 2.664 0 0 1 1.852 4.579l-4.765 4.607c-.27.261-.405.392-.501.545a1.5 1.5 0 0 0-.187.441c-.044.176-.044.364-.044.74v3.935c0 .542 0 .813-.062 1.057a2 2 0 0 1-.641 1.027c-.192.163-.436.282-.923.52c-1.14.557-1.709.835-2.172.835a2 2 0 0 1-1.795-1.121c-.204-.416-.204-1.05-.204-2.318"/></svg>
+                    </div>
+                </div>
+
+                <div id="sort-menu-container" class="relative inline-block text-left w-40">
+                    <div>
+                        <button id="sort-menu-button" type="button" class="inline-flex w-full justify-between items-center p-1 space-x-1 bg-gray-200 rounded-md">
+                            <span id="selected-sort-option" class="text-center text-sm">Sort by: Best Match</span>
+                            <svg id="sort-menu-icon" class="w-5 h-5 text-gray-400 transition-transform" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
+                            </svg>
+                        </button>
+                    </div>
+
+                    <div id="sort-menu-panel" class="absolute right-0 z-80 w-full bg-gray-50 origin-top-right rounded-md ring-1 ring-gray-500 ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="sort-menu-button" tabindex="1">
+                        <div class="py-1" role="none">
+                            <a href="#" class="text-gray-700 block px-4 py-2 text-sm hover:bg-gray-100 hover:text-gray-900" role="menuitem" tabindex="-1" data-sort="most-popular">Best Match</a>
+                            <a href="#" class="text-gray-700 block px-4 py-2 text-sm hover:bg-gray-100 hover:text-gray-900" role="menuitem" tabindex="-1" data-sort="price-low-high">Price Low to High</a>
+                            <a href="#" class="text-gray-700 block px-4 py-2 text-sm hover:bg-gray-100 hover:text-gray-900" role="menuitem" tabindex="-1" data-sort="price-high-low">Price High to Low</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="product-grid" class="z-0 relative grid gap-x-3 sm:gap-x-7 gap-y-3 sm:gap-y-7 m-3 sm:m-7 grid-cols-2 md:grid-cols-3 xl:grid-cols-4"></div>
+        </div>
     </div>
 
     <!-- MENU SIDEBAR -->
