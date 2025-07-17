@@ -2,17 +2,18 @@ import './style.css'
 import gsap from "gsap";
 
 document.addEventListener('DOMContentLoaded', () => {
-    // Initialize GSAP animations or any other scripts
+    // GSAP animations or any other scripts
     gsap.registerPlugin();
     
-    // ELEMENTS
+    // PAGE ELEMENTS
     const stepScroll = document.getElementById('step-scroll')
     const menuButton = document.getElementById('menu-button')
-    const landingBottle = document.getElementById('landing-bottle')
-    const landingTitle = document.getElementById('landing-title')
     const productContent = document.getElementById('product-content')
 
-    // SORT
+    const landingBottle = document.querySelector('#landing-bottle')
+    const landingTitle = document.getElementById('landing-title')
+
+    // SORT MENU
     const sortContainer = document.getElementById('sort-menu-container');
     const sortButton = document.getElementById('sort-menu-button');
     const sortPanel = document.getElementById('sort-menu-panel');
@@ -21,90 +22,30 @@ document.addEventListener('DOMContentLoaded', () => {
     const sortOptions = sortPanel.querySelectorAll('a');
     const filterButton = document.getElementById('filter-button');
 
+    // FILTER SIDEBAR
+    const openFilter = document.getElementById('open-filter-button');
+    const closeFilter = document.getElementById('close-filter-button');
+    const sidebar = document.getElementById('filter-sidebar');
+    const backdrop = document.getElementById('filter-backdrop');
+     
+
 
     // INTRO ANIMATION
-    gsap.set( productContent, { opacity: 1 });
-    // gsap.set(landingTitle, { y: '43vh', scale: 1.3});
+
+    gsap.set([landingTitle, productContent], { opacity: 1 });
+    // gsap.set(landingBottle, { y: '35vh', autoAlpha: 1 });
 
     // function introAnimation () {
     //     const tl = gsap.timeline();
 
-    //     tl.to(landingBottle, { y: '-70vh', autoAlpha: 0, scale: 0.5, duration: 1.0, ease: 'power2.inOut' })
-    //       .to(landingTitle, { y: '0vh', scale: 1, duration: 0.8, ease: 'power2.inOut'}, '<0.15>')
-    //       .to(productContent, { opacity: 1, duration: 0.5, ease: 'power2.out'}, '>')
+    //     tl.to(landingBottle, { y: '-50vh', autoAlpha: 0, scale: 0.5, duration: 1.0, ease: 'power2.inOut' })
+    //       .to([landingTitle, productContent], { opacity: 1, duration: 0.8, ease: 'power2.out'}, '>')
     // }
-
-
-    // STEPS SCROLL/DRAG
-    let isDragging = false;
-    let startX;
-    let scrollLeft;
-
-    stepScroll.addEventListener('mousedown', (e) => {
-        isDragging = true;
-        stepScroll.classList.add('active:cursor-grabbing');
-        startX = e.pageX - stepScroll.offsetLeft;
-        scrollLeft = stepScroll.scrollLeft;
-    });
-
-    stepScroll.addEventListener('mouseleave', () => {
-        isDragging = false;
-        stepScroll.classList.remove('active:cursor-grabbing');
-    });
-
-    document.addEventListener('mouseup', () => {
-        isDragging = false;
-        stepScroll.classList.remove('active:cursor-grabbing');
-    });
-
-    stepScroll.addEventListener('mousemove', (e) => {
-        if (!isDragging) return;
-        e.preventDefault();
-
-        const x = e.pageX - stepScroll.offsetLeft;
-        const walk = (x -startX) * 0.8;
-
-        stepScroll.scrollLeft = scrollLeft - walk;
-    });
-
-
-
-    // SORT BY
-    let isOpen = false;
-
-    function toggleSortDropdown() {
-        isOpen = !isOpen;
-        sortPanel.classList.toggle('hidden');
-        sortButton.setAttribute('aria-expanded', isOpen);
-        sortIcon.classList.toggle('rotate-180');
-    }
-
-    function closeSortDropdown() {
-        isOpen = false;
-        sortPanel.classList.add('hidden');
-        sortButton.setAttribute('aria-expanded', 'false');
-        sortIcon.classList.remove('rotate-180');
-    }
-
-    function handleSortSelection(event) {
-        event.preventDefault();
-        const selectedText = event.target.textContent;
-        const selectedValue = event.target.getAttribute('data-sort');
-
-        sortSelectedOption.textContent = `Sort by: ${selectedText}`;
-
-        closeSortDropdown();
-
-        console.log(`Sorting by: ${selectedValue}`);
-    }
-
-    
-
 
     function createProductCard(product) {
         return `
-        <div class="group relative flex flex-col overflow-hidden rounded-3xl border border-gray-300 bg-white">
-            <div class="aspect-h-4 aspect-w-3 bg-gray-200 sm:aspect-none h-25">
+        <div class="group relative flex flex-col w-auto h-auto overflow-hidden rounded-3xl border border-gray-300 bg-white">
+            <div class="aspect-h-4 aspect-w-3 bg-gray-200 sm:aspect-none h-40">
                 <img src="${product.image_url}" alt="${product.brand_name} ${product.product_name}" class="h-full w-full object-cover object-center">
             </div>
             <div class="flex flex-1 flex-col space-y-1 p-2 sm:p-4">
@@ -167,8 +108,116 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-// Remember to call the function
-displayProducts('cleanser');
+
+    // STEPS SCROLL/DRAG
+    let isDragging = false;
+    let startX;
+    let scrollLeft;
+
+    stepScroll.addEventListener('mousedown', (e) => {
+        isDragging = true;
+        stepScroll.classList.add('active:cursor-grabbing');
+        startX = e.pageX - stepScroll.offsetLeft;
+        scrollLeft = stepScroll.scrollLeft;
+    });
+
+    stepScroll.addEventListener('mouseleave', () => {
+        isDragging = false;
+        stepScroll.classList.remove('active:cursor-grabbing');
+    });
+
+    document.addEventListener('mouseup', () => {
+        isDragging = false;
+        stepScroll.classList.remove('active:cursor-grabbing');
+    });
+
+    stepScroll.addEventListener('mousemove', (e) => {
+        if (!isDragging) return;
+        e.preventDefault();
+
+        const x = e.pageX - stepScroll.offsetLeft;
+        const walk = (x -startX) * 0.8;
+
+        stepScroll.scrollLeft = scrollLeft - walk;
+    });
+
+
+
+    // SORT BY
+    let isSortOpen = false;
+
+    function toggleSortDropdown() {
+        isSortOpen = !isSortOpen;
+        sortPanel.classList.toggle('hidden');
+        sortButton.setAttribute('aria-expanded', isSortOpen);
+        sortIcon.classList.toggle('rotate-180');
+    }
+
+    function closeSortDropdown() {
+        isSortOpen = false;
+        sortPanel.classList.add('hidden');
+        sortButton.setAttribute('aria-expanded', 'false');
+        sortIcon.classList.remove('rotate-180');
+    }
+
+    function handleSortSelection(event) {
+        event.preventDefault();
+        const selectedText = event.target.textContent;
+        const selectedValue = event.target.getAttribute('data-sort');
+
+        sortSelectedOption.textContent = `Sort by: ${selectedText}`;
+
+        closeSortDropdown();
+
+        console.log(`Sorting by: ${selectedValue}`);
+    }
+
+    sortButton.addEventListener('click', (event) => {
+        event.stopPropagation();
+        toggleSortDropdown();
+    });
+
+    sortOptions.forEach(option => {
+        option.addEventListener('click', handleSortSelection);
+    });
+
+    window.addEventListener('click', (event) => {
+        if(isSortOpen && !sortContainer.contains(event.target)) {
+            closeSortDropdown();
+        }
+    });
+
+    window.addEventListener('keydown', (event) => {
+        if(isSortOpen && event.key === 'Escape') {
+            closeSortDropdown
+        }
+    })
+
+
+
+    // FILTER SIDEBAR
+    function openSidebar() {
+        sidebar.classList.remove('-translate-x-full');
+        backdrop.classList.remove('hidden');
+        openFilter.classList.add('opacity-0');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeSidebar() {
+        sidebar.classList.add('-translate-x-full');
+        backdrop.classList.add('hidden');
+        openFilter.classList.remove('opacity-0');
+        document.body.style.overflow = '';
+    }
+
+    openFilter.addEventListener('click', openSidebar);
+    closeFilter.addEventListener('click', closeSidebar);
+    backdrop.addEventListener('click', closeSidebar);
+
+
+
+    // Remember to call the function
+    displayProducts('cleanser');
 
 
     gsap.delayedCall(0.5, introAnimation);
