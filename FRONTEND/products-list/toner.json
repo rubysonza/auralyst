@@ -1,0 +1,335 @@
+{
+"toner":
+[
+  {
+    "image_url": "",
+    "brand_name": "Klairs",
+    "product_name": "Supple Preparation Unscented Toner",
+    "product_type": "Hydrating Toner",
+    "price": 22.00,
+    "skin_types": ["Normal", "Dry", "Oily", "Combination", "Sensitive"],
+    "skin_concerns": ["Dehydration", "Dryness", "Sensitive Skin", "Redness"],
+    "key_actives": ["Centella Asiatica Extract", "Hyaluronic Acid", "Panthenol"],
+    "usage_time": "Both"
+  },
+  {
+    "image_url": "",
+    "brand_name": "I'm from",
+    "product_name": "Rice Toner",
+    "product_type": "Brightening Toner",
+    "price": 28.00,
+    "skin_types": ["Normal", "Dry", "Combination"],
+    "skin_concerns": ["Dullness", "Uneven Skin Tone", "Dryness"],
+    "key_actives": ["Rice Extract (77.78%)", "Niacinamide"],
+    "usage_time": "Both"
+  },
+  {
+    "image_url": "",
+    "brand_name": "Paula's Choice",
+    "product_name": "Advanced Replenishing Toner",
+    "product_type": "Milky Toner",
+    "price": 26.00,
+    "skin_types": ["Normal", "Dry", "Combination", "Sensitive"],
+    "skin_concerns": ["Dryness", "Dehydration", "Fine Lines"],
+    "key_actives": ["Hyaluronic Acid", "Omega Fatty Acids", "Vitamin E"],
+    "usage_time": "Both"
+  },
+  {
+    "image_url": "",
+    "brand_name": "Pyunkang Yul",
+    "product_name": "Essence Toner",
+    "product_type": "Hydrating Toner",
+    "price": 19.00,
+    "skin_types": ["Normal", "Dry", "Oily", "Combination", "Sensitive"],
+    "skin_concerns": ["Dehydration", "Sensitive Skin", "Dryness"],
+    "key_actives": ["Astragalus Membranaceus Root Extract"],
+    "usage_time": "Both"
+  },
+  {
+    "image_url": "",
+    "brand_name": "Biologique Recherche",
+    "product_name": "Lotion P50V",
+    "product_type": "Exfoliating Toner",
+    "price": 79.00,
+    "skin_types": ["Normal", "Dry", "Combination"],
+    "skin_concerns": ["Dullness", "Fine Lines", "Uneven Texture"],
+    "key_actives": ["Lactic Acid", "Niacinamide", "Yeast Extract"],
+    "usage_time": "Night"
+  },
+  {
+    "image_url": "",
+    "brand_name": "Haruharu Wonder",
+    "product_name": "Black Rice Hyaluronic Toner",
+    "product_type": "Hydrating Toner",
+    "price": 22.00,
+    "skin_types": ["Normal", "Dry", "Combination", "Sensitive"],
+    "skin_concerns": ["Dryness", "Dehydration", "Fine Lines"],
+    "key_actives": ["Fermented Black Rice", "Hyaluronic Acid", "Beta-Glucan"],
+    "usage_time": "Both"
+  },
+  {
+    "image_url": "",
+    "brand_name": "Anua",
+    "product_name": "Heartleaf 77% Soothing Toner",
+    "product_type": "Calming Toner",
+    "price": 26.00,
+    "skin_types": ["Oily", "Combination", "Sensitive"],
+    "skin_concerns": ["Redness", "Sensitive Skin", "Acne"],
+    "key_actives": ["Houttuynia Cordata (Heartleaf) Extract", "Centella Asiatica"],
+    "usage_time": "Both"
+  },
+  {
+    "image_url": "",
+    "brand_name": "Kiehl's",
+    "product_name": "Calendula Herbal Extract Alcohol-Free Toner",
+    "product_type": "Calming Toner",
+    "price": 40.00,
+    "skin_types": ["Normal", "Oily", "Combination", "Sensitive"],
+    "skin_concerns": ["Redness", "Oily Skin", "Acne"],
+    "key_actives": ["Calendula Extract", "Allantoin", "Great Burdock Root"],
+    "usage_time": "Both"
+  },
+  {
+    "image_url": "",
+    "brand_name": "Cosrx",
+    "product_name": "AHA/BHA Clarifying Treatment Toner",
+    "product_type": "Exfoliating Toner",
+    "price": 20.00,
+    "skin_types": ["Oily", "Combination"],
+    "skin_concerns": ["Whiteheads", "Blackheads", "Dullness"],
+    "key_actives": ["Willow Bark Water (BHA)", "Apple Fruit Water (AHA)"],
+    "usage_time": "Both"
+  },
+  {
+    "image_url": "",
+    "brand_name": "Laneige",
+    "product_name": "Cream Skin Cerapeptide™ Toner & Moisturizer",
+    "product_type": "Milky Toner",
+    "price": 36.00,
+    "skin_types": ["Normal", "Dry", "Sensitive"],
+    "skin_concerns": ["Dryness", "Dehydration", "Loss of Firmness"],
+    "key_actives": ["Ceramides", "Peptides", "White Leaf Tea Water"],
+    "usage_time": "Both"
+  },
+  {
+    "image_url": "",
+    "brand_name": "Fresh",
+    "product_name": "Rose Deep Hydration Facial Toner",
+    "product_type": "Hydrating Toner",
+    "price": 48.00,
+    "skin_types": ["Normal", "Dry", "Combination"],
+    "skin_concerns": ["Dryness", "Dullness", "Uneven Texture"],
+    "key_actives": ["Rose Fruit Extract", "Rosewater", "Hyaluronic Acid"],
+    "usage_time": "Both"
+  },
+  {
+    "image_url": "",
+    "brand_name": "The Ordinary",
+    "product_name": "Mandelic Acid 10% + HA",
+    "product_type": "Exfoliating Toner",
+    "price": 8.40,
+    "skin_types": ["Normal", "Dry", "Oily", "Combination", "Sensitive"],
+    "skin_concerns": ["Dullness", "Uneven Skin Tone", "Uneven Texture"],
+    "key_actives": ["Mandelic Acid", "Hyaluronic Acid"],
+    "usage_time": "Night"
+  },
+  {
+    "image_url": "",
+    "brand_name": "Thayers",
+    "product_name": "Rose Petal Witch Hazel Facial Toner",
+    "product_type": "Balancing Toner",
+    "price": 10.99,
+    "skin_types": ["Normal", "Dry", "Oily", "Combination", "Sensitive"],
+    "skin_concerns": ["Redness", "Enlarged Pores"],
+    "key_actives": ["Witch Hazel Extract", "Aloe Vera", "Rosewater"],
+    "usage_time": "Both"
+  },
+  {
+    "image_url": "",
+    "brand_name": "TIRTIR",
+    "product_name": "Milk Skin Toner",
+    "product_type": "Milky Toner",
+    "price": 27.00,
+    "skin_types": ["Normal", "Dry", "Combination"],
+    "skin_concerns": ["Dullness", "Dryness", "Uneven Skin Tone"],
+    "key_actives": ["Rice Bran Extract", "Niacinamide", "Chamomile Flower Extract"],
+    "usage_time": "Both"
+  },
+  {
+    "image_url": "",
+    "brand_name": "Etude House",
+    "product_name": "SoonJung pH 5.5 Relief Toner",
+    "product_type": "Calming Toner",
+    "price": 18.00,
+    "skin_types": ["Sensitive", "Normal", "Dry", "Combination", "Oily"],
+    "skin_concerns": ["Sensitive Skin", "Redness", "Dehydration"],
+    "key_actives": ["Panthenol", "Madecassoside", "Green Tea Extract"],
+    "usage_time": "Both"
+  },
+  {
+    "image_url": "",
+    "brand_name": "Glow Recipe",
+    "product_name": "Cloudberry Bright Essence Toner",
+    "product_type": "Brightening Toner",
+    "price": 38.00,
+    "skin_types": ["Normal", "Dry", "Oily", "Combination", "Sensitive"],
+    "skin_concerns": ["Dullness", "Hyperpigmentation", "Loss of Firmness"],
+    "key_actives": ["Cloudberry", "Coenzyme Q10", "Ginseng"],
+    "usage_time": "Both"
+  },
+  {
+    "image_url": "",
+    "brand_name": "Naturie",
+    "product_name": "Hatomugi Skin Conditioner",
+    "product_type": "Hydrating Toner",
+    "price": 15.00,
+    "skin_types": ["Normal", "Dry", "Oily", "Combination", "Sensitive"],
+    "skin_concerns": ["Dehydration", "Redness", "Sun Damage"],
+    "key_actives": ["Coix Seed (Hatomugi) Extract"],
+    "usage_time": "Both"
+  },
+  {
+    "image_url": "",
+    "brand_name": "Isntree",
+    "product_name": "Green Tea Fresh Toner",
+    "product_type": "Balancing Toner",
+    "price": 21.00,
+    "skin_types": ["Oily", "Combination", "Sensitive"],
+    "skin_concerns": ["Oily Skin", "Redness", "Acne"],
+    "key_actives": ["Jeju Green Tea Extract (80%)", "Centella Asiatica", "Allantoin"],
+    "usage_time": "Both"
+  },
+  {
+    "image_url": "",
+    "brand_name": "Drunk Elephant",
+    "product_name": "B-Hydra Intensive Hydration Serum",
+    "product_type": "Hydrating Toner",
+    "price": 49.00,
+    "skin_types": ["Normal", "Dry", "Oily", "Combination", "Sensitive"],
+    "skin_concerns": ["Dryness", "Dehydration", "Uneven Texture"],
+    "key_actives": ["Pro-Vitamin B5", "Pineapple Ceramide", "Sodium Hyaluronate"],
+    "usage_time": "Both"
+  },
+  {
+    "image_url": "",
+    "brand_name": "Caudalie",
+    "product_name": "Vinoperfect Brightening Glycolic Essence",
+    "product_type": "Exfoliating Toner",
+    "price": 54.00,
+    "skin_types": ["Normal", "Dry", "Oily", "Combination"],
+    "skin_concerns": ["Dullness", "Uneven Skin Tone", "Hyperpigmentation"],
+    "key_actives": ["Glycolic Acid", "Grape Water", "White Peony"],
+    "usage_time": "Morning"
+  },
+  {
+    "image_url": "",
+    "brand_name": "SK-II",
+    "product_name": "Facial Treatment Clear Lotion",
+    "product_type": "Exfoliating Toner",
+    "price": 76.00,
+    "skin_types": ["Normal", "Dry", "Oily", "Combination"],
+    "skin_concerns": ["Dullness", "Uneven Texture", "Clogged Pores"],
+    "key_actives": ["Pitera™", "AHA"],
+    "usage_time": "Both"
+  },
+  {
+    "image_url": "",
+    "brand_name": "Good Molecules",
+    "product_name": "Niacinamide Brightening Toner",
+    "product_type": "Brightening Toner",
+    "price": 14.00,
+    "skin_types": ["Normal", "Dry", "Oily", "Combination"],
+    "skin_concerns": ["Dullness", "Hyperpigmentation", "Enlarged Pores", "Uneven Skin Tone"],
+    "key_actives": ["Niacinamide", "Arbutin", "Licorice Root Extract"],
+    "usage_time": "Both"
+  },
+  {
+    "image_url": "",
+    "brand_name": "First Aid Beauty",
+    "product_name": "Ultra Repair Wild Oat Hydrating Toner",
+    "product_type": "Calming Toner",
+    "price": 24.00,
+    "skin_types": ["Dry", "Sensitive", "Normal"],
+    "skin_concerns": ["Dryness", "Sensitive Skin", "Redness", "Eczema"],
+    "key_actives": ["Colloidal Oatmeal", "Wild Oats", "Honey"],
+    "usage_time": "Both"
+  },
+  {
+    "image_url": "",
+    "brand_name": "Fenty Skin",
+    "product_name": "Fat Water Niacinamide Pore-Refining Toner Serum",
+    "product_type": "Toner-Serum Hybrid",
+    "price": 34.00,
+    "skin_types": ["Normal", "Oily", "Combination"],
+    "skin_concerns": ["Enlarged Pores", "Oily Skin", "Dullness", "Hyperpigmentation"],
+    "key_actives": ["Niacinamide", "Barbados Cherry", "Australian Lemon Myrtle"],
+    "usage_time": "Both"
+  },
+  {
+    "image_url": "",
+    "brand_name": "The INKEY List",
+    "product_name": "PHA Toner",
+    "product_type": "Exfoliating Toner",
+    "price": 13.99,
+    "skin_types": ["Sensitive", "Normal", "Dry", "Combination", "Oily"],
+    "skin_concerns": ["Uneven Texture", "Dullness", "Enlarged Pores"],
+    "key_actives": ["PHA (Polyhydroxy Acid) 3%", "Niacinamide"],
+    "usage_time": "Both"
+  },
+  {
+    "image_url": "",
+    "brand_name": "La Mer",
+    "product_name": "The Tonic",
+    "product_type": "Balancing Toner",
+    "price": 105.00,
+    "skin_types": ["Normal", "Dry", "Oily", "Combination", "Sensitive"],
+    "skin_concerns": ["Dryness", "Dullness"],
+    "key_actives": ["Miracle Broth™", "Deconstructed Waters™"],
+    "usage_time": "Both"
+  },
+  {
+    "image_url": "",
+    "brand_name": "Peach & Lily",
+    "product_name": "Glass Skin Veil Mist",
+    "product_type": "Hydrating Toner",
+    "price": 31.00,
+    "skin_types": ["Normal", "Dry", "Oily", "Combination", "Sensitive"],
+    "skin_concerns": ["Dehydration", "Dullness", "Dryness"],
+    "key_actives": ["Cucumber Water", "Peach Extract", "Lotus Extract"],
+    "usage_time": "Both"
+  },
+  {
+    "image_url": "",
+    "brand_name": "Sulwhasoo",
+    "product_name": "Essential Comfort Balancing Water",
+    "product_type": "Hydrating Toner",
+    "price": 65.00,
+    "skin_types": ["Normal", "Dry", "Combination"],
+    "skin_concerns": ["Dryness", "Dehydration"],
+    "key_actives": ["JAUM Moisturizing Complex™", "Purslane"],
+    "usage_time": "Both"
+  },
+  {
+    "image_url": "",
+    "brand_name": "ACWELL",
+    "product_name": "Licorice pH Balancing Cleansing Toner",
+    "product_type": "Brightening Toner",
+    "price": 18.00,
+    "skin_types": ["Sensitive", "Normal", "Dry", "Combination", "Oily"],
+    "skin_concerns": ["Dullness", "Hyperpigmentation", "Uneven Skin Tone"],
+    "key_actives": ["Licorice Root Water", "Peony Extract", "Green Tea Extract"],
+    "usage_time": "Both"
+  },
+  {
+    "image_url": "",
+    "brand_name": "Innisfree",
+    "product_name": "Green Tea Hyaluronic Acid Toner",
+    "product_type": "Hydrating Toner",
+    "price": 21.00,
+    "skin_types": ["Normal", "Dry", "Oily", "Combination", "Sensitive"],
+    "skin_concerns": ["Dehydration", "Dryness"],
+    "key_actives": ["Green Tea Extract", "5 types of Hyaluronic Acid"],
+    "usage_time": "Both"
+  }
+]
+}

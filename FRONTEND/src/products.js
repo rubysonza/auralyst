@@ -1,7 +1,7 @@
 import './style.css'
 import gsap from "gsap";
 
-document.addEventListener('DOMContentLoaded', () => {
+
     // GSAP animations or any other scripts
     gsap.registerPlugin();
     
@@ -29,6 +29,18 @@ document.addEventListener('DOMContentLoaded', () => {
     const backdrop = document.getElementById('filter-backdrop');
      
 
+    let isDragging = false;
+    let startX;
+    let scrollLeft;
+    let isSortOpen = false;
+    let currentProducts = [];
+    let allProducts = [];
+    let activeFilters = {
+        skin_types: [],
+        skin_concerns: [],
+        brand_name: []
+    }
+
 
     // INTRO ANIMATION
 
@@ -42,6 +54,8 @@ document.addEventListener('DOMContentLoaded', () => {
     //       .to([landingTitle, productContent], { opacity: 1, duration: 0.8, ease: 'power2.out'}, '>')
     // }
 
+
+    // PRODUCT GRID
     function createProductCard(product) {
         return `
         <div class="group relative flex flex-col w-auto h-auto overflow-hidden rounded-3xl border border-gray-300 bg-white">
@@ -62,58 +76,34 @@ document.addEventListener('DOMContentLoaded', () => {
 
     async function displayProducts(step) {
         const productGrid = document.getElementById('product-grid');
-        if (!productGrid) {
-            console.error('Container #product-grid not found!');
-            return;
-        }
+        if (!productGrid) return;
+        
+        // Reset filters and grid when changing steps
+        activeFilters = { skin_types: [], skin_concerns: [], brand_name: [] };
+        // You might also want to uncheck all checkboxes here if desired.
 
         const filePath = `/products-list/${step}.json`;
-        
-        // CHECKPOINT 1: Log the file path to ensure it's correct.
-        console.log('Attempting to fetch:', filePath);
+        productGrid.innerHTML = `<p class="text-center text-gray-500">Loading products...</p>`;
 
         try {
             const response = await fetch(filePath);
-            if (!response.ok) {
-            throw new Error(`Network response was not ok for: ${filePath}`);
-            }
-            
-            // CHECKPOINT 2: Confirm the fetch was successful before parsing.
-            console.log('Fetch successful. Parsing JSON...');
+            if (!response.ok) throw new Error(`File not found for ${step}`);
             
             const data = await response.json();
-            const products = data.cleanser;
+            allProducts = data[step] || []; // Store the new products
 
-            // CHECKPOINT 3: THIS IS THE MOST IMPORTANT ONE.
-            // Log the data to see its exact structure.
-            console.log('Parsed data:', products);
-
-            // CHECKPOINT 4: Confirm we are about to loop.
-            console.log('Data parsing complete. Starting card creation...');
-
-            let allCardsHTML = '';
-            products.forEach(product => {
-            allCardsHTML += createProductCard(product);
-            });
-
-            productGrid.innerHTML = allCardsHTML;
-            
-            // CHECKPOINT 5: Final success message.
-            console.log('Successfully displayed products!');
+            // Crucial: After fetching, immediately apply filters (which are currently none) and render.
+            applyFiltersAndRender();
 
         } catch (error) {
-            // The error object itself will give us a clue.
-            console.error('An error occurred in the try block:', error);
-            productGrid.innerHTML = `<p class="text-center text-gray-500">Could not load products for ${step}.</p>`;
+            console.error('Display Products Error:', error);
+            productGrid.innerHTML = `<p class="text-center text-gray-500">Could not display products.</p>`;
         }
     }
 
 
-    // STEPS SCROLL/DRAG
-    let isDragging = false;
-    let startX;
-    let scrollLeft;
 
+    // STEPS SCROLL/DRAG
     stepScroll.addEventListener('mousedown', (e) => {
         isDragging = true;
         stepScroll.classList.add('active:cursor-grabbing');
@@ -143,9 +133,31 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-    // SORT BY
-    let isSortOpen = false;
+    // STEP BUTTONS
+    function setupStepFilters() {
+        const filterContainer = document.getElementById('step-filter');
+        if (!filterContainer) return;
 
+        filterContainer.addEventListener('click', (event) => {
+            if (event.target.matches('.step-button')) {
+                const step = event.target.dataset.step;
+
+                console.log('Button clicked! Step:', step);
+
+                const allButtons = filterContainer.querySelectorAll('.step-button');
+                allButtons.forEach(btn => btn.classList.remove('active'));
+
+                event.target.classList.add('active');
+
+                displayProducts(step);
+            }
+            
+        })
+    }
+
+
+
+    // SORT BY
     function toggleSortDropdown() {
         isSortOpen = !isSortOpen;
         sortPanel.classList.toggle('hidden');
@@ -194,6 +206,60 @@ document.addEventListener('DOMContentLoaded', () => {
     })
 
 
+    // SORT OPTIONS
+    function renderProductGrid(products) {
+        const productGrid = document.getElementById('product-grid');
+        if (!productGrid) return;
+
+        if (products.length === 0) {
+            productGrid.innerHTML = '<p class="text-center text-gray-500">Could not display products.</p>';
+            return;
+        }
+
+        const allCardsHTML = products.map(product => createProductCard(product)).join('');
+        productGrid.innerHTML = allCardsHTML;
+    }
+
+
+    function sortAndRender(sortBy) {
+        let sortedProducts = [...currentProducts];
+
+        switch (sortBy) {
+            case 'best-match':
+                default:
+                break;
+            case 'price-low-high':
+                sortedProducts.sort((a, b) => a.price - b.price);
+                break;
+            case 'price-high-low':
+                sortedProducts.sort((a, b) => b.price - a.price);
+                break;
+        }
+
+        renderProductGrid(sortedProducts);
+    }
+
+
+    function setupSortMenu() {
+        if (!sortButton || !sortPanel || !sortSelectedOption) return;
+
+        sortPanel.addEventListener('click', (event) => {
+            if (event.target.matches('a[data-sort]')) {
+                event.preventDefault();
+
+                const sortBy = event.target.dataset.sort;
+                const selectionText = event.target.textContent;
+
+                sortSelectedOption.textContent = `Sort by: ${selectionText}`;
+
+                sortAndRender(sortBy);
+
+                sortPanel.classList.add('hidden');
+            }
+        });
+    }
+
+
 
     // FILTER SIDEBAR
     function openSidebar() {
@@ -210,15 +276,150 @@ document.addEventListener('DOMContentLoaded', () => {
         document.body.style.overflow = '';
     }
 
+    async function initializeFilters() {
+        const brandsContainer = document.getElementById('brands-list');
+        if (!brandsContainer) return;
+
+        // Set the initial loading message
+        brandsContainer.innerHTML = '<p class="text-sm text-gray-400">Loading brands...</p>';
+
+        // You can add or remove steps here as you clean up your JSON files
+        const steps = ['cleanser', 'exfoliator'];
+
+        try {
+            // Create a fetch promise for each step
+            const fetchPromises = steps.map(step =>
+                fetch(`/products-list/${step}.json`).then(res => res.json())
+            );
+
+            // Wait for all fetch requests to complete
+            const results = await Promise.all(fetchPromises);
+
+            let allProductsForFilters = [];
+
+            // Combine all products from all files into one big array
+            results.forEach((data, index) => {
+                const stepName = steps[index];
+                // Access the array inside the object (e.g., data['cleanser'])
+                if (data && data[stepName] && Array.isArray(data[stepName])) {
+                    allProductsForFilters.push(...data[stepName]);
+                }
+            });
+
+            // THIS IS THE MISSING STEP:
+            // Now, call the function to populate the sidebar with the combined product list.
+            populateBrandFilters(allProductsForFilters);
+
+        } catch (error) {
+            console.error("Could not initialize filters:", error);
+            brandsContainer.innerHTML = '<p class="text-xs text-red-500">Error loading brands.</p>';
+        }
+    }
+
+    // FILTER: Brands
+    function populateBrandFilters(products) {
+        const brandsContainer = document.getElementById('brands-list');
+        if (!brandsContainer) return;
+
+        const brandCounts = {};
+
+        // Count occurrences of each brand
+        products.forEach(product => {
+            const brand = product.brand_name;
+            if (brand) {
+                brandCounts[brand] = (brandCounts[brand] || 0) + 1;
+            }
+        });
+
+        let brandsHTML = '';
+        // Sort brands alphabetically for a clean list
+        Object.keys(brandCounts).sort().forEach(brand => {
+            const count = brandCounts[brand];
+            const brandId = `filter-brand-${brand.toLowerCase().replace(/\s+/g, '-')}`;
+            brandsHTML += `
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center">
+                        <input id="${brandId}" type="checkbox" data-category="brand_name" data-value="${brand}" class="h-4 w-4 rounded border-gray-300 accent-[#764C7E] cursor-pointer">
+                        <label for="${brandId}" class="ml-3 text-sm text-gray-600 cursor-pointer">${brand}</label>
+                    </div>
+                    <span class="text-xs text-gray-500">${count}</span>
+                </div>
+            `;
+        });
+
+        brandsContainer.innerHTML = brandsHTML;
+    }
+
+    function applyFiltersAndRender() {
+        let filteredProducts = [...allProducts];
+
+        // Filter by Skin Types
+        if (activeFilters.skin_types.length > 0) {
+            filteredProducts = filteredProducts.filter(p => 
+                activeFilters.skin_types.some(type => p.skin_types.includes(type))
+            );
+        }
+        // Filter by Skin Concerns
+        if (activeFilters.skin_concerns.length > 0) {
+            filteredProducts = filteredProducts.filter(p => 
+                activeFilters.skin_concerns.some(concern => p.skin_concerns.includes(concern))
+            );
+        }
+        // Filter by Brand Name
+        if (activeFilters.brand_name.length > 0) {
+            filteredProducts = filteredProducts.filter(p => 
+                activeFilters.brand_name.includes(p.brand_name)
+            );
+        }
+        
+        // After all filtering, call the function that actually builds the HTML.
+        renderProductGrid(filteredProducts);
+    }
+
+
+    function setupFilterSidebar() {
+        const sidebar = document.getElementById('filter-sidebar');
+        if (!sidebar) return;
+
+        sidebar.addEventListener('change', event => {
+            if (event.target.type === 'checkbox') {
+                const category = event.target.dataset.category;
+                const value = event.target.dataset.value;
+                
+                if (!category || !value) return;
+
+                // Update the activeFilters object based on whether the box is checked
+                if (event.target.checked) {
+                    activeFilters[category].push(value);
+                } else {
+                    activeFilters[category] = activeFilters[category].filter(item => item !== value);
+                }
+
+                // After any change, re-run the filter and render process.
+                applyFiltersAndRender();
+            }
+        });
+    }
+
     openFilter.addEventListener('click', openSidebar);
     closeFilter.addEventListener('click', closeSidebar);
     backdrop.addEventListener('click', closeSidebar);
 
 
 
-    // Remember to call the function
-    displayProducts('cleanser');
+document.addEventListener('DOMContentLoaded', () => {
 
+    setupSortMenu();
+
+    setupStepFilters();
+    setupFilterSidebar();
+    initializeFilters();
+
+    displayProducts('cleanser');
+    const defaultButton = document.querySelector('button[data-step="cleanser"]');
+    if (defaultButton) {
+        defaultButton.classList.add('active');
+    }
 
     gsap.delayedCall(0.5, introAnimation);
 

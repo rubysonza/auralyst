@@ -39,16 +39,16 @@
             <!-- STEP SCROLL -->
             <div id="step-scroll" class="z-70 sticky flex justify-start items-center top-0 h-15 w-full bg-white border-y border-gray-100 shadow-md shadow-gray-300 cursor-grab active:cursor-grabbing select-none whitespace-wrap overflow-x-auto no-scrollbar">
                 <div id="step-filter" class="flex flex-row justify-center items-center left-0 w-auto text-sm md:text-md px-5 space-x-5">
-                    <div class="step-filter-option">Cleanser</div>
-                    <div class="step-filter-option">Exfoliator</div>
-                    <div class="step-filter-option">Toner</div>
-                    <div class="step-filter-option">Serum</div>
-                    <div class="step-filter-option">Eye Cream</div>
-                    <div class="step-filter-option">Spot Treatment</div>
-                    <div class="step-filter-option">Moisturizer</div>
-                    <div class="step-filter-option">Face Oil</div>
-                    <div class="step-filter-option">Sunscreen</div>
-                    <div class="step-filter-option">Sleeping Mask</div>
+                    <button data-step="cleanser" class="step-button">Cleanser</button>
+                    <button data-step="exfoliator" class="step-button">Exfoliator</button>
+                    <button data-step="toner" class="step-button">Toner</button>
+                    <button data-step="serum" class="step-button">Serum</button>
+                    <button data-step="eye-cream" class="step-button">Eye Cream</button>
+                    <button data-step="spot-treatment" class="step-button">Spot Treatment</button>
+                    <button data-step="moisturizer" class="step-button">Moisturizer</button>
+                    <button data-step="face-oil" class="step-button">Face Oil</button>
+                    <button data-step="sunscreen" class="step-button">Sunscreen</button>
+                    <button data-step="sleeping-mask" class="step-button">Sleeping Mask</button>
                 </div>
             </div>
 
@@ -70,25 +70,25 @@
                             <div>
                                 <h3 class="font-bold text-gray-900 mb-2">Skin Types</h3>
                                 <div class="space-y-2">
-                                    <div class="flex items-center"><input id="filter-dry" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-purple-500"><label for="filter-dry" class="ml-3 text-sm text-gray-600">Dry</label></div>
-                                    <div class="flex items-center"><input id="filter-combination" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"><label for="filter-combination" class="ml-3 text-sm text-gray-600">Combination</label></div>
-                                    <div class="flex items-center"><input id="filter-oily" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"><label for="filter-oily" class="ml-3 text-sm text-gray-600">Oily</label></div>
-                                    <div class="flex items-center"><input id="filter-sensitive" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"><label for="filter-sensitive" class="ml-3 text-sm text-gray-600">Sensitive</label></div>
-                                    <div class="flex items-center"><input id="filter-normal" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"><label for="filter-normal" class="ml-3 text-sm text-gray-600">Normal</label></div>
+                                    <div class="flex items-center"><input id="filter-normal" type="checkbox" data-category="skin_types" data-value="Normal" class="h-4 w-4 rounded border-gray-300 accent-[#764C7E] cursor-pointer"><label for="filter-normal" class="ml-3 text-sm text-gray-600 cursor-pointer">Normal</label></div>
+                                    <div class="flex items-center"><input id="filter-oily" type="checkbox" data-category="skin_types" data-value="Oily" class="h-4 w-4 rounded border-gray-300 accent-[#764C7E] cursor-pointer"><label for="filter-oily" class="ml-3 text-sm text-gray-600 cursor-pointer">Oily</label></div>
+                                    <div class="flex items-center"><input id="filter-dry" type="checkbox" data-category="skin_types" data-value="Dry" class="h-4 w-4 rounded border-gray-300 accent-[#764C7E] cursor-pointer"><label for="filter-dry" class="ml-3 text-sm text-gray-600 cursor-pointer">Dry</label></div>
+                                    <div class="flex items-center"><input id="filter-combination" type="checkbox" data-category="skin_types" data-value="Combination" class="h-4 w-4 rounded border-gray-300 accent-[#764C7E] cursor-pointer"><label for="filter-combination" class="ml-3 text-sm text-gray-600 cursor-pointer">Combination</label></div>
+                                    <div class="flex items-center"><input id="filter-sensitive" type="checkbox" data-category="skin_types" data-value="Sensitive" class="h-4 w-4 rounded border-gray-300 accent-[#764C7E] cursor-pointer"><label for="filter-sensitive" class="ml-3 text-sm text-gray-600 cursor-pointer">Sensitive</label></div>
                                 </div>
                             </div>
                             <!-- SKIN CONCERNS -->
                             <div>
                                 <h3 class="font-bold text-gray-900 mb-2">Skin Concerns</h3>
                                 <div class="space-y-2">
-                                    <div class="flex items-center"><input id="filter-acne" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"><label for="filter-acne" class="ml-3 text-sm text-gray-600">Acne</label></div>
-                                    <div class="flex items-center"><input id="filter-blemishes" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"><label for="filter-blemishes" class="ml-3 text-sm text-gray-600">Blemishes</label></div>
-                                    <div class="flex items-center"><input id="filter-pores" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"><label for="filter-pores" class="ml-3 text-sm text-gray-600">Pores</label></div>
-                                    <div class="flex items-center"><input id="filter-rosacea" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"><label for="filter-rosacea" class="ml-3 text-sm text-gray-600">Rosacea</label></div>
-                                    <div class="flex items-center"><input id="filter-hyperpigmentation" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"><label for="filter-hyperpigmentation" class="ml-3 text-sm text-gray-600">Hyperpigmentation</label></div>
-                                    <div class="flex items-center"><input id="filter-wrinkles" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"><label for="filter-wrinkles" class="ml-3 text-sm text-gray-600">Wrinkles</label></div>
-                                    <div class="flex items-center"><input id="filter-blackheads" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"><label for="filter-blackheads" class="ml-3 text-sm text-gray-600">Blackheads</label></div>
-                                    <div class="flex items-center"><input id="filter-whiteheads" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"><label for="filter-whiteheads" class="ml-3 text-sm text-gray-600">Whiteheads</label></div>
+                                    <div class="flex items-center"><input id="filter-acne" type="checkbox" data-category="skin_concerns" data-value="Acne" class="h-4 w-4 rounded border-gray-300 accent-[#764C7E] cursor-pointer"><label for="filter-acne" class="ml-3 text-sm text-gray-600 cursor-pointer">Acne</label></div>
+                                    <div class="flex items-center"><input id="filter-blemishes" type="checkbox" data-category="skin_concerns" data-value="Blemishes" class="h-4 w-4 rounded border-gray-300 accent-[#764C7E] cursor-pointer"><label for="filter-blemishes" class="ml-3 text-sm text-gray-600 cursor-pointer">Blemishes</label></div>
+                                    <div class="flex items-center"><input id="filter-pores" type="checkbox" data-category="skin_concerns" data-value="Pores" class="h-4 w-4 rounded border-gray-300 accent-[#764C7E] cursor-pointer"><label for="filter-pores" class="ml-3 text-sm text-gray-600 cursor-pointer">Pores</label></div>
+                                    <div class="flex items-center"><input id="filter-rosacea" type="checkbox" data-category="skin_concerns" data-value="Rosacea" class="h-4 w-4 rounded border-gray-300 accent-[#764C7E] cursor-pointer"><label for="filter-rosacea" class="ml-3 text-sm text-gray-600 cursor-pointer">Rosacea</label></div>
+                                    <div class="flex items-center"><input id="filter-hyperpigmentation" type="checkbox" data-category="skin_concerns" data-value="Hyperpigmentation" class="h-4 w-4 rounded border-gray-300 accent-[#764C7E] cursor-pointer"><label for="filter-hyperpigmentation" class="ml-3 text-sm text-gray-600 cursor-pointer">Hyperpigmentation</label></div>
+                                    <div class="flex items-center"><input id="filter-wrinkles" type="checkbox" data-category="skin_concerns" data-value="Wrinkles" class="h-4 w-4 rounded border-gray-300 accent-[#764C7E] cursor-pointer"><label for="filter-wrinkles" class="ml-3 text-sm text-gray-600 cursor-pointer">Wrinkles</label></div>
+                                    <div class="flex items-center"><input id="filter-blackheads" type="checkbox" data-category="skin_concerns" data-value="Blackheads" class="h-4 w-4 rounded border-gray-300 accent-[#764C7E] cursor-pointer"><label for="filter-blackheads" class="ml-3 text-sm text-gray-600 cursor-pointer">Blackheads</label></div>
+                                    <div class="flex items-center"><input id="filter-whiteheads" type="checkbox" data-category="skin_concerns" data-value="Whiteheads" class="h-4 w-4 rounded border-gray-300 accent-[#764C7E] cursor-pointer"><label for="filter-whiteheads" class="ml-3 text-sm text-gray-600 cursor-pointer">Whiteheads</label></div>
                                 </div>
                             </div>
                             <!-- BRAND -->
@@ -118,7 +118,7 @@
                             <!-- SORT BY -->
                             <div id="sort-menu-container" class="relative inline-block text-left w-43 sm:w-50">
                                 <div>
-                                    <button id="sort-menu-button" type="button" class="inline-flex w-full justify-between items-center p-1 space-x-1 bg-gray-200 rounded-xl">
+                                    <button id="sort-menu-button" type="button" class="inline-flex w-full justify-between items-center p-1 space-x-1 bg-gray-200 rounded-xl cursor-pointer">
                                         <span id="selected-sort-option" class="text-center text-xs sm:text-sm">Sort by: Best Match</span>
                                         <svg id="sort-menu-icon" class="w-5 h-5 text-gray-400 transition-transform" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                                             <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" />

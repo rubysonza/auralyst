@@ -51,7 +51,7 @@ body {
 }
 
 
-.step-filter-option {
+.step-button {
     display: flex;
     justify-content: center;
     font-size: 1rem;
@@ -66,4 +66,15 @@ body {
     font-weight: bold;
     text-overflow: ellipsis;
     cursor: pointer;
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+.step-button:hover {
+    background-color: #FCEAFF;
+    color: #764C7E;
+}
+
+.step-button.active {
+    background-color: #764C7E;
+    color: white;
 }

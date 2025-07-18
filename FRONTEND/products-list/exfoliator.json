@@ -1,0 +1,335 @@
+{
+"exfoliator": 
+[
+  {
+    "image_url": "",
+    "brand_name": "Paula's Choice",
+    "product_name": "Skin Perfecting 2% BHA Liquid Exfoliant",
+    "product_type": "BHA",
+    "price": 35.00,
+    "skin_types": ["Oily", "Combination", "Normal"],
+    "skin_concerns": ["Acne", "Blackheads", "Enlarged Pores", "Redness", "Whiteheads"],
+    "key_actives": ["Salicylic Acid", "Green Tea Extract"],
+    "usage_time": "Both"
+  },
+  {
+    "image_url": "",
+    "brand_name": "The Ordinary",
+    "product_name": "Glycolic Acid 7% Toning Solution",
+    "product_type": "AHA",
+    "price": 13.00,
+    "skin_types": ["Normal", "Oily", "Combination"],
+    "skin_concerns": ["Dullness", "Uneven Texture", "Acne Scars"],
+    "key_actives": ["Glycolic Acid", "Ginseng Root Extract", "Tasmanian Pepperberry"],
+    "usage_time": "Night"
+  },
+  {
+    "image_url": "",
+    "brand_name": "Dermalogica",
+    "product_name": "Daily Microfoliant",
+    "product_type": "Enzyme",
+    "price": 68.00,
+    "skin_types": ["Normal", "Dry", "Oily", "Combination", "Sensitive"],
+    "skin_concerns": ["Dullness", "Uneven Texture", "Hyperpigmentation"],
+    "key_actives": ["Rice Bran Extract", "Papain", "Salicylic Acid"],
+    "usage_time": "Both"
+  },
+  {
+    "image_url": "",
+    "brand_name": "Skinfood",
+    "product_name": "Black Sugar Mask Wash Off",
+    "product_type": "Physical",
+    "price": 10.00,
+    "skin_types": ["Oily", "Combination", "Normal"],
+    "skin_concerns": ["Blackheads", "Enlarged Pores", "Uneven Texture"],
+    "key_actives": ["Black Sugar Granules", "Macadamia Seed Oil"],
+    "usage_time": "Night"
+  },
+  {
+    "image_url": "",
+    "brand_name": "Cosrx",
+    "product_name": "BHA Blackhead Power Liquid",
+    "product_type": "BHA",
+    "price": 25.00,
+    "skin_types": ["Oily", "Combination"],
+    "skin_concerns": ["Blackheads", "Acne", "Enlarged Pores", "Whiteheads"],
+    "key_actives": ["Betaine Salicylate", "Niacinamide", "Willow Bark Water"],
+    "usage_time": "Night"
+  },
+  {
+    "image_url": "",
+    "brand_name": "Sunday Riley",
+    "product_name": "Good Genes All-In-One Lactic Acid Treatment",
+    "product_type": "AHA",
+    "price": 85.00,
+    "skin_types": ["Normal", "Dry", "Oily", "Combination"],
+    "skin_concerns": ["Dullness", "Hyperpigmentation", "Fine Lines", "Uneven Skin Tone"],
+    "key_actives": ["Lactic Acid", "Licorice Root", "Lemongrass"],
+    "usage_time": "Both"
+  },
+  {
+    "image_url": "",
+    "brand_name": "Tatcha",
+    "product_name": "The Rice Polish: Classic",
+    "product_type": "Enzyme",
+    "price": 68.00,
+    "skin_types": ["Normal", "Dry", "Combination"],
+    "skin_concerns": ["Uneven Texture", "Dullness", "Fine Lines"],
+    "key_actives": ["Rice Bran", "Silk Protein", "Hadasei-3"],
+    "usage_time": "Both"
+  },
+  {
+    "image_url": "",
+    "brand_name": "Acure",
+    "product_name": "Brightening Facial Scrub",
+    "product_type": "Physical",
+    "price": 9.99,
+    "skin_types": ["Normal", "Oily", "Combination"],
+    "skin_concerns": ["Dullness", "Uneven Skin Tone"],
+    "key_actives": ["Sea Kelp", "French Green Clay", "Walnut Shell Flour"],
+    "usage_time": "Night"
+  },
+  {
+    "image_url": "",
+    "brand_name": "Dr. Dennis Gross",
+    "product_name": "Alpha Beta Universal Daily Peel",
+    "product_type": "AHA",
+    "price": 92.00,
+    "skin_types": ["Normal", "Dry", "Oily", "Combination"],
+    "skin_concerns": ["Dullness", "Uneven Texture", "Fine Lines", "Enlarged Pores", "Acne"],
+    "key_actives": ["Glycolic Acid", "Lactic Acid", "Malic Acid", "Salicylic Acid"],
+    "usage_time": "Both"
+  },
+  {
+    "image_url": "",
+    "brand_name": "The INKEY List",
+    "product_name": "Beta Hydroxy Acid (BHA) Serum",
+    "product_type": "BHA",
+    "price": 12.99,
+    "skin_types": ["Oily", "Combination"],
+    "skin_concerns": ["Acne", "Blackheads", "Enlarged Pores", "Oily Skin"],
+    "key_actives": ["Salicylic Acid (2%)", "Zinc Salt", "Hyaluronic Acid"],
+    "usage_time": "Both"
+  },
+  {
+    "image_url": "",
+    "brand_name": "Wishful",
+    "product_name": "Yo Glow AHA & BHA Facial Enzyme Scrub",
+    "product_type": "Enzyme",
+    "price": 39.00,
+    "skin_types": ["Normal", "Dry", "Oily", "Combination"],
+    "skin_concerns": ["Dullness", "Uneven Texture", "Hyperpigmentation"],
+    "key_actives": ["Pineapple Enzyme", "Papaya Enzyme", "AHA", "BHA"],
+    "usage_time": "Night"
+  },
+  {
+    "image_url": "",
+    "brand_name": "Fresh",
+    "product_name": "Sugar Face Polish Exfoliator",
+    "product_type": "Physical",
+    "price": 66.00,
+    "skin_types": ["Normal", "Dry", "Combination"],
+    "skin_concerns": ["Dryness", "Dullness", "Uneven Texture"],
+    "key_actives": ["Brown Sugar", "Strawberry Seeds", "Grapeseed Oil"],
+    "usage_time": "Night"
+  },
+  {
+    "image_url": "",
+    "brand_name": "KraveBeauty",
+    "product_name": "Kale-Lalu-yAHA",
+    "product_type": "AHA",
+    "price": 25.00,
+    "skin_types": ["Normal", "Dry", "Oily", "Combination"],
+    "skin_concerns": ["Dullness", "Uneven Texture", "Hyperpigmentation"],
+    "key_actives": ["Glycolic Acid (5.25%)", "Hyaluronic Acid", "Kale"],
+    "usage_time": "Night"
+  },
+  {
+    "image_url": "",
+    "brand_name": "Farmacy",
+    "product_name": "Deep Sweep 2% BHA Pore Cleaning Toner",
+    "product_type": "BHA",
+    "price": 34.00,
+    "skin_types": ["Oily", "Combination"],
+    "skin_concerns": ["Enlarged Pores", "Oily Skin", "Acne"],
+    "key_actives": ["Salicylic Acid (2%)", "Moringa", "Papaya Enzyme"],
+    "usage_time": "Both"
+  },
+  {
+    "image_url": "",
+    "brand_name": "Peter Thomas Roth",
+    "product_name": "Pumpkin Enzyme Mask Enzymatic Dermal Resurfacer",
+    "product_type": "Enzyme",
+    "price": 60.00,
+    "skin_types": ["Normal", "Dry", "Oily", "Combination"],
+    "skin_concerns": ["Dullness", "Uneven Texture", "Fine Lines"],
+    "key_actives": ["Pumpkin Enzyme", "Alpha Hydroxy Acid (AHA)", "Aluminum Oxide Crystals"],
+    "usage_time": "Night"
+  },
+  {
+    "image_url": "",
+    "brand_name": "Kate Somerville",
+    "product_name": "ExfoliKate Intensive Exfoliating Treatment",
+    "product_type": "Physical",
+    "price": 98.00,
+    "skin_types": ["Normal", "Dry", "Oily", "Combination"],
+    "skin_concerns": ["Dullness", "Uneven Texture", "Enlarged Pores"],
+    "key_actives": ["Lactic Acid", "Salicylic Acid", "Silica", "Papaya Enzyme"],
+    "usage_time": "Night"
+  },
+  {
+    "image_url": "",
+    "brand_name": "Drunk Elephant",
+    "product_name": "T.L.C. Framboos Glycolic Night Serum",
+    "product_type": "AHA",
+    "price": 90.00,
+    "skin_types": ["Normal", "Dry", "Oily", "Combination"],
+    "skin_concerns": ["Dullness", "Uneven Texture", "Enlarged Pores", "Fine Lines"],
+    "key_actives": ["Glycolic Acid", "Lactic Acid", "Salicylic Acid", "Raspberry Fruit Extract"],
+    "usage_time": "Night"
+  },
+  {
+    "image_url": "",
+    "brand_name": "Peach & Lily",
+    "product_name": "The Good Acids Pore Toner",
+    "product_type": "BHA",
+    "price": 39.00,
+    "skin_types": ["Oily", "Combination", "Normal"],
+    "skin_concerns": ["Enlarged Pores", "Clogged Pores", "Uneven Texture"],
+    "key_actives": ["Salicylic Acid", "AHA", "Turmeric"],
+    "usage_time": "Night"
+  },
+  {
+    "image_url": "",
+    "brand_name": "AmoréPacific",
+    "product_name": "Treatment Enzyme Peel Cleansing Powder",
+    "product_type": "Enzyme",
+    "price": 68.00,
+    "skin_types": ["Normal", "Dry", "Oily", "Combination", "Sensitive"],
+    "skin_concerns": ["Dullness", "Uneven Texture"],
+    "key_actives": ["Green Tea-derived Probiotic Enzyme", "Papain"],
+    "usage_time": "Both"
+  },
+  {
+    "image_url": "",
+    "brand_name": "Kiehl's",
+    "product_name": "Epidermal Re-Texturizing Micro-Dermabrasion",
+    "product_type": "Physical",
+    "price": 46.00,
+    "skin_types": ["Normal", "Oily", "Combination"],
+    "skin_concerns": ["Uneven Texture", "Fine Lines", "Enlarged Pores"],
+    "key_actives": ["Micronized Shells (Diatomaceous Earth)", "Shea Butter"],
+    "usage_time": "Night"
+  },
+  {
+    "image_url": "",
+    "brand_name": "Glow Recipe",
+    "product_name": "Watermelon Glow PHA + BHA Pore-Tight Toner",
+    "product_type": "BHA",
+    "price": 35.00,
+    "skin_types": ["Normal", "Oily", "Combination"],
+    "skin_concerns": ["Enlarged Pores", "Dehydration", "Uneven Texture"],
+    "key_actives": ["PHA", "Willow Bark (BHA)", "Watermelon Extract"],
+    "usage_time": "Both"
+  },
+  {
+    "image_url": "",
+    "brand_name": "Isntree",
+    "product_name": "Chestnut AHA 8% Clear Essence",
+    "product_type": "AHA",
+    "price": 16.50,
+    "skin_types": ["Normal", "Dry", "Oily", "Combination"],
+    "skin_concerns": ["Uneven Texture", "Dullness", "Clogged Pores"],
+    "key_actives": ["Glycolic Acid (4%)", "Lactic Acid (4%)", "Centella Asiatica"],
+    "usage_time": "Night"
+  },
+  {
+    "image_url": "",
+    "brand_name": "Biossance",
+    "product_name": "Squalane + Glycolic Renewal Mask",
+    "product_type": "AHA",
+    "price": 49.00,
+    "skin_types": ["Normal", "Dry", "Oily", "Combination"],
+    "skin_concerns": ["Dullness", "Hyperpigmentation", "Uneven Texture"],
+    "key_actives": ["Glycolic Acid", "Lactic Acid", "Malic Acid", "Tartaric Acid"],
+    "usage_time": "Night"
+  },
+  {
+    "image_url": "",
+    "brand_name": "Cure",
+    "product_name": "Natural Aqua Gel",
+    "product_type": "Enzyme",
+    "price": 25.00,
+    "skin_types": ["Normal", "Dry", "Oily", "Combination", "Sensitive"],
+    "skin_concerns": ["Dullness", "Uneven Texture", "Clogged Pores"],
+    "key_actives": ["Glycerin", "Acrylates Crosspolymer", "Aloe Leaf Extract"],
+    "usage_time": "Night"
+  },
+  {
+    "image_url": "",
+    "brand_name": "Medik8",
+    "product_name": "Pore Minimising Tonic",
+    "product_type": "BHA",
+    "price": 45.00,
+    "skin_types": ["Oily", "Combination"],
+    "skin_concerns": ["Enlarged Pores", "Oily Skin", "Acne"],
+    "key_actives": ["Mandelic Acid (AHA)", "Lactic Acid (AHA)", "Salicylic Acid (BHA)"],
+    "usage_time": "Both"
+  },
+  {
+    "image_url": "",
+    "brand_name": "The Ordinary",
+    "product_name": "Lactic Acid 10% + HA",
+    "product_type": "AHA",
+    "price": 9.00,
+    "skin_types": ["Normal", "Dry", "Combination"],
+    "skin_concerns": ["Uneven Texture", "Dullness", "Fine Lines"],
+    "key_actives": ["Lactic Acid", "Tasmanian Pepperberry", "Hyaluronic Acid"],
+    "usage_time": "Night"
+  },
+  {
+    "image_url": "",
+    "brand_name": "Dermalogica",
+    "product_name": "Rapid Reveal Peel",
+    "product_type": "AHA",
+    "price": 85.00,
+    "skin_types": ["Normal", "Dry", "Combination"],
+    "skin_concerns": ["Fine Lines", "Wrinkles", "Hyperpigmentation", "Dullness"],
+    "key_actives": ["Lactic Acid", "Pumpkin Fruit Enzyme", "Rice Bran Extract"],
+    "usage_time": "Night"
+  },
+  {
+    "image_url": "",
+    "brand_name": "St. Ives",
+    "product_name": "Fresh Skin Apricot Scrub",
+    "product_type": "Physical",
+    "price": 5.99,
+    "skin_types": ["Oily", "Combination"],
+    "skin_concerns": ["Dullness", "Blackheads"],
+    "key_actives": ["Walnut Shell Powder", "Apricot Fruit Extract"],
+    "usage_time": "Night"
+  },
+  {
+    "image_url": "",
+    "brand_name": "CeraVe",
+    "product_name": "Acne Control Gel",
+    "product_type": "BHA",
+    "price": 20.49,
+    "skin_types": ["Oily", "Combination"],
+    "skin_concerns": ["Acne", "Blackheads", "Enlarged Pores"],
+    "key_actives": ["Salicylic Acid (2%)", "Glycolic Acid", "Lactic Acid", "Niacinamide"],
+    "usage_time": "Night"
+  },
+  {
+    "image_url": "",
+    "brand_name": "Boscia",
+    "product_name": "Exfoliating Peel Gel",
+    "product_type": "Enzyme",
+    "price": 34.00,
+    "skin_types": ["Normal", "Dry", "Oily", "Combination"],
+    "skin_concerns": ["Dullness", "Uneven Texture", "Enlarged Pores"],
+    "key_actives": ["Pomegranate Enzyme", "Multi-Fruit AHAs"],
+    "usage_time": "Night"
+  }
+]
+}
