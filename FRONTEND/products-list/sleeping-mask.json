@@ -1,0 +1,335 @@
+{
+"sleeping-mask":
+[
+  {
+    "image_url": "",
+    "brand_name": "Laneige",
+    "product_name": "Water Sleeping Mask with Squalane",
+    "product_type": "Hydrating",
+    "price": 32.00,
+    "skin_types": ["Normal", "Dry", "Oily", "Combination", "Sensitive"],
+    "skin_concerns": ["Dehydration", "Dryness", "Dullness"],
+    "key_actives": ["Squalane", "Probiotic-derived Complex", "Hyaluronic Acid"],
+    "usage_time": "Night"
+  },
+  {
+    "image_url": "",
+    "brand_name": "Glow Recipe",
+    "product_name": "Watermelon Glow Sleeping Mask",
+    "product_type": "Brightening",
+    "price": 46.00,
+    "skin_types": ["Normal", "Dry", "Oily", "Combination"],
+    "skin_concerns": ["Dullness", "Uneven Texture", "Dehydration", "Enlarged Pores"],
+    "key_actives": ["Watermelon Extract", "Hyaluronic Acid", "PHA", "AHA"],
+    "usage_time": "Night"
+  },
+  {
+    "image_url": "",
+    "brand_name": "Dr. Jart+",
+    "product_name": "Cicapair Sleepair Intensive Soothing Repair Mask",
+    "product_type": "Soothing",
+    "price": 47.00,
+    "skin_types": ["Normal", "Dry", "Oily", "Combination", "Sensitive"],
+    "skin_concerns": ["Redness", "Dryness", "Sensitive Skin"],
+    "key_actives": ["Centella Asiatica (Tiger Grass)", "Probiotics", "Glycerin"],
+    "usage_time": "Night"
+  },
+  {
+    "image_url": "",
+    "brand_name": "Youth to the People",
+    "product_name": "Superberry Hydrate + Glow Dream Mask",
+    "product_type": "Firming",
+    "price": 52.00,
+    "skin_types": ["Normal", "Dry", "Combination"],
+    "skin_concerns": ["Dryness", "Dullness", "Uneven Skin Tone", "Loss of Firmness"],
+    "key_actives": ["Vitamin C (THD Ascorbate)", "Maqui", "Squalane"],
+    "usage_time": "Night"
+  },
+  {
+    "image_url": "",
+    "brand_name": "COSRX",
+    "product_name": "Ultimate Nourishing Rice Overnight Spa Mask",
+    "product_type": "Hydrating",
+    "price": 18.00,
+    "skin_types": ["Normal", "Dry", "Combination", "Sensitive"],
+    "skin_concerns": ["Dryness", "Dullness", "Uneven Skin Tone"],
+    "key_actives": ["Rice Extract (68%)", "Niacinamide", "Sunflower Seed Oil"],
+    "usage_time": "Night"
+  },
+  {
+    "image_url": "",
+    "brand_name": "SOME BY MI",
+    "product_name": "Yuja Niacin Brightening Sleeping Mask",
+    "product_type": "Brightening",
+    "price": 24.00,
+    "skin_types": ["Normal", "Oily", "Combination"],
+    "skin_concerns": ["Hyperpigmentation", "Dullness", "Acne Scars"],
+    "key_actives": ["Yuja (Citron) Extract", "Niacinamide", "Glutathione", "Arbutin"],
+    "usage_time": "Night"
+  },
+  {
+    "image_url": "",
+    "brand_name": "Kiehl's",
+    "product_name": "Ultra Facial Overnight Hydrating Face Mask with Squalane",
+    "product_type": "Soothing",
+    "price": 45.00,
+    "skin_types": ["Normal", "Dry", "Sensitive"],
+    "skin_concerns": ["Dryness", "Dehydration", "Uneven Texture"],
+    "key_actives": ["Squalane", "Glacial Glycoprotein"],
+    "usage_time": "Night"
+  },
+  {
+    "image_url": "",
+    "brand_name": "Fresh",
+    "product_name": "Black Tea Firming Overnight Mask",
+    "product_type": "Firming",
+    "price": 97.00,
+    "skin_types": ["Normal", "Dry", "Oily", "Combination"],
+    "skin_concerns": ["Loss of Firmness", "Fine Lines", "Wrinkles", "Dryness"],
+    "key_actives": ["Black Tea Complex", "Belle de Nuit Extract", "Peptides"],
+    "usage_time": "Night"
+  },
+  {
+    "image_url": "",
+    "brand_name": "Origins",
+    "product_name": "Drink Up Intensive Overnight Hydrating Mask",
+    "product_type": "Hydrating",
+    "price": 32.00,
+    "skin_types": ["Normal", "Dry", "Combination"],
+    "skin_concerns": ["Dryness", "Dehydration", "Dullness"],
+    "key_actives": ["Avocado", "Glacier Water", "Hyaluronic Acid"],
+    "usage_time": "Night"
+  },
+  {
+    "image_url": "",
+    "brand_name": "belif",
+    "product_name": "Aqua Bomb Sleeping Mask",
+    "product_type": "Hydrating",
+    "price": 38.00,
+    "skin_types": ["Normal", "Dry", "Oily", "Combination"],
+    "skin_concerns": ["Dehydration", "Dullness", "Dryness"],
+    "key_actives": ["Lady's Mantle", "Scottish Heather", "Hyaluronic Acid"],
+    "usage_time": "Night"
+  },
+  {
+    "image_url": "",
+    "brand_name": "Farmacy",
+    "product_name": "10% Niacinamide Night Mask",
+    "product_type": "Brightening",
+    "price": 44.00,
+    "skin_types": ["Normal", "Oily", "Combination"],
+    "skin_concerns": ["Enlarged Pores", "Oily Skin", "Uneven Texture"],
+    "key_actives": ["Niacinamide (10%)", "Panthenol", "Upcycled Blueberry Seed Oil"],
+    "usage_time": "Night"
+  },
+  {
+    "image_url": "",
+    "brand_name": "La Roche-Posay",
+    "product_name": "Toleriane Ultra Night Face Moisturizer",
+    "product_type": "Soothing",
+    "price": 30.99,
+    "skin_types": ["Normal", "Dry", "Sensitive"],
+    "skin_concerns": ["Sensitive Skin", "Redness", "Dryness"],
+    "key_actives": ["La Roche-Posay Thermal Spring Water", "Niacinamide", "Shea Butter"],
+    "usage_time": "Night"
+  },
+  {
+    "image_url": "",
+    "brand_name": "Shiseido",
+    "product_name": "WASO YUZU-C Beauty Sleeping Mask",
+    "product_type": "Brightening",
+    "price": 38.00,
+    "skin_types": ["Normal", "Dry", "Oily", "Combination"],
+    "skin_concerns": ["Dehydration", "Dullness"],
+    "key_actives": ["Yuzu Extract", "Vitamin C", "Squalane"],
+    "usage_time": "Night"
+  },
+  {
+    "image_url": "",
+    "brand_name": "Drunk Elephant",
+    "product_name": "F-Balm Electrolyte Waterfacial",
+    "product_type": "Hydrating",
+    "price": 54.00,
+    "skin_types": ["Normal", "Dry", "Oily", "Combination", "Sensitive"],
+    "skin_concerns": ["Dehydration", "Dryness", "Dullness", "Uneven Texture"],
+    "key_actives": ["Niacinamide", "Sodium PCA", "Squalane", "Ceramides"],
+    "usage_time": "Night"
+  },
+  {
+    "image_url": "",
+    "brand_name": "Alpyn Beauty",
+    "product_name": "Wild Nettle & Niacinamide Firming Sleeping Mask",
+    "product_type": "Firming",
+    "price": 68.00,
+    "skin_types": ["Normal", "Dry", "Oily", "Combination"],
+    "skin_concerns": ["Loss of Firmness", "Fine Lines", "Wrinkles", "Enlarged Pores"],
+    "key_actives": ["Niacinamide", "Wild Nettle", "Ram-butan", "Bakuchiol"],
+    "usage_time": "Night"
+  },
+  {
+    "image_url": "",
+    "brand_name": "Sulwhasoo",
+    "product_name": "Overnight Vitalizing Mask",
+    "product_type": "Nourishing",
+    "price": 56.00,
+    "skin_types": ["Normal", "Dry", "Oily", "Combination"],
+    "skin_concerns": ["Dryness", "Dullness", "Dehydration"],
+    "key_actives": ["Jujube", "Pomegranate", "Scutellaria Root", "Walnut"],
+    "usage_time": "Night"
+  },
+  {
+    "image_url": "",
+    "brand_name": "AmorePacific",
+    "product_name": "Time Response Skin Reserve Sleeping Masque",
+    "product_type": "Anti-aging",
+    "price": 200.00,
+    "skin_types": ["Normal", "Dry", "Combination"],
+    "skin_concerns": ["Anti-Aging", "Dryness", "Fine Lines", "Wrinkles", "Loss of Firmness"],
+    "key_actives": ["Green Tea", "Peptides", "Shea Butter"],
+    "usage_time": "Night"
+  },
+  {
+    "image_url": "",
+    "brand_name": "Summer Fridays",
+    "product_name": "Jet Lag Mask",
+    "product_type": "Hydrating",
+    "price": 49.00,
+    "skin_types": ["Normal", "Dry", "Combination", "Sensitive"],
+    "skin_concerns": ["Dryness", "Dullness", "Dehydration"],
+    "key_actives": ["Niacinamide", "Glycerin", "Hyaluronic Acid", "Shea Butter"],
+    "usage_time": "Night"
+  },
+  {
+    "image_url": "",
+    "brand_name": "Caudalie",
+    "product_name": "Vinoperfect Brightening Glycolic Overnight Cream",
+    "product_type": "Brightening",
+    "price": 69.00,
+    "skin_types": ["Normal", "Dry", "Oily", "Combination"],
+    "skin_concerns": ["Hyperpigmentation", "Dullness", "Acne Scars", "Uneven Skin Tone"],
+    "key_actives": ["Viniferine", "Glycolic Acid", "Papaya Enzyme"],
+    "usage_time": "Night"
+  },
+  {
+    "image_url": "",
+    "brand_name": "iUNIK",
+    "product_name": "Propolis Vitamin Sleeping Mask",
+    "product_type": "Soothing",
+    "price": 18.99,
+    "skin_types": ["Normal", "Dry", "Sensitive"],
+    "skin_concerns": ["Dryness", "Dullness", "Redness"],
+    "key_actives": ["Propolis Extract", "Sea Buckthorn Fruit Extract", "Centella Asiatica"],
+    "usage_time": "Night"
+  },
+  {
+    "image_url": "",
+    "brand_name": "Korres",
+    "product_name": "Wild Rose Night-Brightening Sleeping Facial",
+    "product_type": "Brightening",
+    "price": 48.00,
+    "skin_types": ["Normal", "Dry", "Combination"],
+    "skin_concerns": ["Dullness", "Uneven Skin Tone", "Dryness"],
+    "key_actives": ["Wild Rose Oil", "Vitamin C", "Hyaluronic Acid"],
+    "usage_time": "Night"
+  },
+  {
+    "image_url": "",
+    "brand_name": "Murad",
+    "product_name": "Retinol Youth Renewal Night Cream",
+    "product_type": "Firming",
+    "price": 86.00,
+    "skin_types": ["Normal", "Dry", "Oily", "Combination"],
+    "skin_concerns": ["Fine Lines", "Wrinkles", "Loss of Firmness", "Dryness"],
+    "key_actives": ["Retinol Tri-Active Technology", "Niacinamide", "Picolinamide"],
+    "usage_time": "Night"
+  },
+  {
+    "image_url": "",
+    "brand_name": "Avène",
+    "product_name": "Tolérance EXTRÊME Mask",
+    "product_type": "Soothing",
+    "price": 36.00,
+    "skin_types": ["Dry", "Sensitive"],
+    "skin_concerns": ["Sensitive Skin", "Redness", "Dehydration"],
+    "key_actives": ["Avène Thermal Spring Water", "Glycerin"],
+    "usage_time": "Night"
+  },
+  {
+    "image_url": "",
+    "brand_name": "Peach & Lily",
+    "product_name": "Overnight Star Sleeping Mask",
+    "product_type": "Brightening",
+    "price": 43.00,
+    "skin_types": ["Normal", "Dry", "Oily", "Combination"],
+    "skin_concerns": ["Dullness", "Hyperpigmentation", "Acne Scars"],
+    "key_actives": ["Acai Berry", "Niacinamide", "Hyaluronic Acid", "Jojoba"],
+    "usage_time": "Night"
+  },
+  {
+    "image_url": "",
+    "brand_name": "Renée Rouleau",
+    "product_name": "Rapid Response Detox Masque",
+    "product_type": "Soothing",
+    "price": 65.50,
+    "skin_types": ["Oily", "Combination"],
+    "skin_concerns": ["Acne", "Redness", "Clogged Pores"],
+    "key_actives": ["Tea Tree Oil", "Salicylic Acid", "Manuka"],
+    "usage_time": "Night"
+  },
+  {
+    "image_url": "",
+    "brand_name": "Peter Thomas Roth",
+    "product_name": "Water Drench Hyaluronic Cloud Mask Hydrating Gel",
+    "product_type": "Hydrating",
+    "price": 55.00,
+    "skin_types": ["Normal", "Dry", "Oily", "Combination", "Sensitive"],
+    "skin_concerns": ["Dehydration", "Dryness", "Fine Lines"],
+    "key_actives": ["Hyaluronic Acid", "Vitamin E", "Aloe Vera"],
+    "usage_time": "Night"
+  },
+  {
+    "image_url": "",
+    "brand_name": "Sisley-Paris",
+    "product_name": "Velvet Sleeping Mask with Saffron Flowers",
+    "product_type": "Soothing",
+    "price": 155.00,
+    "skin_types": ["Dry", "Sensitive"],
+    "skin_concerns": ["Dryness", "Redness", "Sensitive Skin"],
+    "key_actives": ["Saffron Flower extract", "Shea Butter", "Thyme Honey"],
+    "usage_time": "Night"
+  },
+  {
+    "image_url": "",
+    "brand_name": "Tatcha",
+    "product_name": "Indigo Overnight Repair",
+    "product_type": "Soothing",
+    "price": 92.00,
+    "skin_types": ["Normal", "Dry", "Combination", "Sensitive"],
+    "skin_concerns": ["Redness", "Eczema", "Uneven Texture", "Dryness"],
+    "key_actives": ["Japanese Indigo", "Ceramides", "Mondo Grass Root"],
+    "usage_time": "Night"
+  },
+  {
+    "image_url": "",
+    "brand_name": "Allies of Skin",
+    "product_name": "1A Retinal + Peptides Overnight Mask",
+    "product_type": "Firming",
+    "price": 109.00,
+    "skin_types": ["Normal", "Dry", "Oily", "Combination"],
+    "skin_concerns": ["Fine Lines", "Wrinkles", "Acne", "Hyperpigmentation"],
+    "key_actives": ["Retinaldehyde", "Peptides", "Niacinamide", "AHAs"],
+    "usage_time": "Night"
+  },
+  {
+    "image_url": "",
+    "brand_name": "Volition Beauty",
+    "product_name": "Celery Green Cream",
+    "product_type": "Hydrating",
+    "price": 55.00,
+    "skin_types": ["Normal", "Oily", "Combination"],
+    "skin_concerns": ["Enlarged Pores", "Dehydration", "Uneven Texture"],
+    "key_actives": ["Celery Extract", "Hyaluronic Acid", "Peptides"],
+    "usage_time": "Night"
+  }
+]
+}

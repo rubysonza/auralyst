@@ -6,9 +6,11 @@ import gsap from "gsap";
     gsap.registerPlugin();
     
     // PAGE ELEMENTS
-    const stepScroll = document.getElementById('step-scroll')
-    const menuButton = document.getElementById('menu-button')
-    const productContent = document.getElementById('product-content')
+    const stepScroll = document.getElementById('step-scroll');
+    const menuButton = document.getElementById('menu-button');
+    const productGrid = document.getElementById('product-grid');
+    const plpSection = document.getElementById('plp-section');
+    const pdpSection = document.getElementById('pdp-section');
 
     const landingBottle = document.querySelector('#landing-bottle')
     const landingTitle = document.getElementById('landing-title')
@@ -18,7 +20,7 @@ import gsap from "gsap";
     const sortButton = document.getElementById('sort-menu-button');
     const sortPanel = document.getElementById('sort-menu-panel');
     const sortIcon = document.getElementById('sort-menu-icon');
-    const sortSelectedOption = document.getElementById('selected-sort-option');
+    const selectedOptionSpan = document.getElementById('selected-sort-option');
     const sortOptions = sortPanel.querySelectorAll('a');
     const filterButton = document.getElementById('filter-button');
 
@@ -29,10 +31,13 @@ import gsap from "gsap";
     const backdrop = document.getElementById('filter-backdrop');
      
 
+    // VARIABLES
+    let currentStep = '';
     let isDragging = false;
     let startX;
     let scrollLeft;
     let isSortOpen = false;
+    let currentSortOption = 'best-match';
     let currentProducts = [];
     let allProducts = [];
     let activeFilters = {
@@ -43,62 +48,155 @@ import gsap from "gsap";
 
 
     // INTRO ANIMATION
-
-    gsap.set([landingTitle, productContent], { opacity: 1 });
+    gsap.set([landingTitle, plpSection], { autoAlpha: 1 });
     // gsap.set(landingBottle, { y: '35vh', autoAlpha: 1 });
 
     // function introAnimation () {
     //     const tl = gsap.timeline();
 
     //     tl.to(landingBottle, { y: '-50vh', autoAlpha: 0, scale: 0.5, duration: 1.0, ease: 'power2.inOut' })
-    //       .to([landingTitle, productContent], { opacity: 1, duration: 0.8, ease: 'power2.out'}, '>')
+    //       .to([landingTitle, plpSection], { autoAlpha: 1, duration: 0.8, ease: 'power2.out'}, '>')
     // }
 
 
-    // PRODUCT GRID
+    // PLP
     function createProductCard(product) {
         return `
-        <div class="group relative flex flex-col w-auto h-auto overflow-hidden rounded-3xl border border-gray-300 bg-white">
-            <div class="aspect-h-4 aspect-w-3 bg-gray-200 sm:aspect-none h-40">
-                <img src="${product.image_url}" alt="${product.brand_name} ${product.product_name}" class="h-full w-full object-cover object-center">
-            </div>
-            <div class="flex flex-1 flex-col space-y-1 p-2 sm:p-4">
-                <p class="text-xs sm:text-sm font-bold text-gray-900">${product.brand_name}</p>
-                <h3 class="text-sm sm:text-base font-medium text-gray-900">${product.product_name}</h3>
-                <p class="text-xs sm:text-sm font-medium text-gray-500">${product.product_type}</p>
-                <div class="flex flex-1 flex-col justify-end">
-                    <p class="text-sm sm:text-lg font-semibold text-gray-900">$${product.price.toFixed(2)}</p>
+            <div class="product-card group relative flex flex-col w-auto h-auto overflow-hidden rounded-3xl border border-gray-300 bg-white cursor-pointer" data-product-name="${product.product_name}">
+                <div class="aspect-h-4 aspect-w-3 bg-gray-200 sm:aspect-none h-40">
+                    <img src="${product.image_url}" alt="${product.brand_name} ${product.product_name}" class="h-full w-full object-cover object-center">
+                </div>
+
+                <div class="flex flex-1 flex-col space-y-1 p-2 sm:p-4">
+                    <p class="text-xs sm:text-sm font-bold text-gray-900">${product.brand_name}</p>
+                    <h3 class="text-sm sm:text-base font-medium text-gray-900">${product.product_name}</h3>
+                    <p class="text-xs sm:text-sm font-medium text-gray-500">${product.product_type}</p>
+                    
+                    <div class="flex flex-1 items-center justify-between pt-2">
+                        <p class="text-sm sm:text-lg font-semibold text-gray-900">$${product.price.toFixed(2)}</p>
+                        
+                        <button 
+                            type="button" 
+                            class="add-to-routine-btn rounded-full bg-indigo-600 p-2 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 cursor-pointer"
+                            data-product-name="${product.product_name}"
+                        >
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"><path fill="currentColor" d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
+                        </button>
+                    </div>
                 </div>
             </div>
-        </div>
         `;
     }
 
-    async function displayProducts(step) {
+    function setupProductCardActions() {
         const productGrid = document.getElementById('product-grid');
+        productGrid.addEventListener('click', (event) => {
+            const card = event.target.closest('.product-card');
+            if (card) {
+                const productName = card.dataset.productName;
+                console.log('Card clicked, finding product:', productName); // DEBUGGING
+                const productToShow = allProducts.find(p => p.product_name === productName);
+                if (productToShow) {
+                    console.log('Product found:', productToShow); // DEBUGGING
+                    showPDP(productToShow);
+                } else {
+                    console.error('Product not found in allProducts array:', productName); // DEBUGGING
+                }
+            }
+        });
+    }
+
+    async function displayProducts(step) {
         if (!productGrid) return;
         
         // Reset filters and grid when changing steps
-        activeFilters = { skin_types: [], skin_concerns: [], brand_name: [] };
-        // You might also want to uncheck all checkboxes here if desired.
+        currentSortOption = 'best-match';
+        selectedOptionSpan.textContent = 'Sort by: Best Match';
 
         const filePath = `/products-list/${step}.json`;
         productGrid.innerHTML = `<p class="text-center text-gray-500">Loading products...</p>`;
+        currentStep = step;
 
         try {
             const response = await fetch(filePath);
-            if (!response.ok) throw new Error(`File not found for ${step}`);
-            
             const data = await response.json();
-            allProducts = data[step] || []; // Store the new products
-
-            // Crucial: After fetching, immediately apply filters (which are currently none) and render.
-            applyFiltersAndRender();
-
+            allProducts = data[step] || data; // Handles both object and array-based JSON
+            renderProductGrid(allProducts);
         } catch (error) {
-            console.error('Display Products Error:', error);
-            productGrid.innerHTML = `<p class="text-center text-gray-500">Could not display products.</p>`;
+            console.error("Error displaying products:", error);
+            document.getElementById('product-grid').innerHTML = '<p>Could not load products.</p>';
         }
+    }
+
+    function showPLP() {
+        pdpSection.classList.add('hidden');
+        plpSection.classList.remove('hidden');
+    }
+    
+
+
+    // PDP
+    function showPDP(product) {
+        renderPDP(product);
+        plpSection.classList.add('hidden');
+        pdpSection.classList.remove('hidden');
+        window.scrollTo(0, 0);
+    }
+
+    function renderPDP(product) {
+        document.getElementById('pdp-image').src = product.image_url;
+        document.getElementById('pdp-brand').textContent = product.brand_name;
+        document.getElementById('pdp-name').textContent = product.product_name;
+        document.getElementById('pdp-type').textContent = product.product_type;
+        document.getElementById('pdp-price').textContent = `$${product.price.toFixed(2)}`;
+
+        const skinTypesContainer = document.getElementById('pdp-skin-types');
+        skinTypesContainer.innerHTML = (product.skin_types || []).map(type => {
+            const colorClasses = skinTypeColors[type] || skinTypeColors.default;
+            return `<span class="text-sm font-medium px-3 py-1 rounded-full ${colorClasses}">${type}</span>`;
+        }).join('');
+
+        const skinConcernsContainer = document.getElementById('pdp-skin-concerns');
+        skinConcernsContainer.innerHTML = (product.skin_concerns || []).map(concern => `<span class="text-sm font-medium bg-gray-100 text-gray-800 px-3 py-1 rounded-full">${concern}</span>`).join('');
+        
+        const keyActivesContainer = document.getElementById('pdp-key-actives');
+        keyActivesContainer.innerHTML = (product.key_actives || []).map(active => `<div class="bg-gray-100 p-3 rounded-lg"><p class="font-medium text-gray-800">${active}</p></div>`).join('');
+
+        const morningIcon = document.querySelector('#usage-time-morning .text-3xl');
+        const morningRec = document.querySelector('#usage-time-morning .text-sm');
+        const nightIcon = document.querySelector('#usage-time-night .text-3xl');
+        const nightRec = document.querySelector('#usage-time-night .text-sm');
+
+        morningIcon.textContent = '☀️';
+        nightIcon.textContent = '🌙';
+
+        if (product.usage_time === 'Both') {
+            morningRec.textContent = 'Recommended'; morningRec.className = 'text-sm text-green-600 font-semibold';
+            nightRec.textContent = 'Recommended'; nightRec.className = 'text-sm text-green-600 font-semibold';
+        } else if (product.usage_time === 'Morning') {
+            morningRec.textContent = 'Recommended'; morningRec.className = 'text-sm text-green-600 font-semibold';
+            nightRec.textContent = 'Not Recommended'; nightRec.className = 'text-sm text-gray-400';
+        } else if (product.usage_time === 'Night') {
+            morningRec.textContent = 'Not Recommended'; nightRec.className = 'text-sm text-gray-400';
+            nightRec.textContent = 'Recommended'; nightRec.className = 'text-sm text-green-600 font-semibold';
+        }
+    }
+
+    const skinTypeColors = {
+        "Normal": "bg-green-100 text-green-800",
+        "Oily": "bg-blue-100 text-blue-800",
+        "Dry": "bg-orange-100 text-orange-800",
+        "Combination": "bg-purple-100 text-purple-800",
+        "Sensitive": "bg-pink-100 text-pink-800",
+        "All Skin Types": "bg-gray-200 text-gray-800",
+        "default": "bg-gray-100 text-gray-800"
+    };
+
+    function setupPDPActions() {
+        const addBtn = document.getElementById('add-to-routine-btn');
+        addBtn.addEventListener('click', () => {
+        console.log('Add to routine clicked!');
+        });
     }
 
 
@@ -113,12 +211,12 @@ import gsap from "gsap";
 
     stepScroll.addEventListener('mouseleave', () => {
         isDragging = false;
-        stepScroll.classList.remove('active:cursor-grabbing');
+        stepScroll.classList.remove('active:cursor-pointer');
     });
 
     document.addEventListener('mouseup', () => {
         isDragging = false;
-        stepScroll.classList.remove('active:cursor-grabbing');
+        stepScroll.classList.remove('active:cursor-pointer');
     });
 
     stepScroll.addEventListener('mousemove', (e) => {
@@ -157,106 +255,94 @@ import gsap from "gsap";
 
 
 
-    // SORT BY
-    function toggleSortDropdown() {
-        isSortOpen = !isSortOpen;
-        sortPanel.classList.toggle('hidden');
-        sortButton.setAttribute('aria-expanded', isSortOpen);
-        sortIcon.classList.toggle('rotate-180');
-    }
-
-    function closeSortDropdown() {
-        isSortOpen = false;
-        sortPanel.classList.add('hidden');
-        sortButton.setAttribute('aria-expanded', 'false');
-        sortIcon.classList.remove('rotate-180');
-    }
-
-    function handleSortSelection(event) {
-        event.preventDefault();
-        const selectedText = event.target.textContent;
-        const selectedValue = event.target.getAttribute('data-sort');
-
-        sortSelectedOption.textContent = `Sort by: ${selectedText}`;
-
-        closeSortDropdown();
-
-        console.log(`Sorting by: ${selectedValue}`);
-    }
-
-    sortButton.addEventListener('click', (event) => {
-        event.stopPropagation();
-        toggleSortDropdown();
-    });
-
-    sortOptions.forEach(option => {
-        option.addEventListener('click', handleSortSelection);
-    });
-
-    window.addEventListener('click', (event) => {
-        if(isSortOpen && !sortContainer.contains(event.target)) {
-            closeSortDropdown();
-        }
-    });
-
-    window.addEventListener('keydown', (event) => {
-        if(isSortOpen && event.key === 'Escape') {
-            closeSortDropdown
-        }
-    })
-
-
     // SORT OPTIONS
     function renderProductGrid(products) {
         const productGrid = document.getElementById('product-grid');
         if (!productGrid) return;
-
-        if (products.length === 0) {
-            productGrid.innerHTML = '<p class="text-center text-gray-500">Could not display products.</p>';
-            return;
-        }
-
-        const allCardsHTML = products.map(product => createProductCard(product)).join('');
-        productGrid.innerHTML = allCardsHTML;
+        productGrid.innerHTML = products.map(p => createProductCard(p)).join('');
     }
 
-
-    function sortAndRender(sortBy) {
-        let sortedProducts = [...currentProducts];
-
-        switch (sortBy) {
-            case 'best-match':
-                default:
-                break;
-            case 'price-low-high':
-                sortedProducts.sort((a, b) => a.price - b.price);
-                break;
-            case 'price-high-low':
-                sortedProducts.sort((a, b) => b.price - a.price);
-                break;
-        }
-
-        renderProductGrid(sortedProducts);
-    }
 
 
     function setupSortMenu() {
-        if (!sortButton || !sortPanel || !sortSelectedOption) return;
+        if (!sortButton || !sortPanel || !selectedOptionSpan || !sortIcon) {
+            console.error("Sort menu elements not found!");
+            return;
+        }
 
+        // Event listener for the main sort button
+        sortButton.addEventListener('click', (event) => {
+            event.stopPropagation(); 
+            sortPanel.classList.toggle('hidden');
+            // 2. Toggle the rotation class on the icon
+            sortIcon.classList.toggle('rotate-180');
+        });
+
+        // Event listener for the panel with the sort options
         sortPanel.addEventListener('click', (event) => {
             if (event.target.matches('a[data-sort]')) {
                 event.preventDefault();
 
-                const sortBy = event.target.dataset.sort;
-                const selectionText = event.target.textContent;
+                currentSortOption = event.target.dataset.sort;
+                selectedOptionSpan.textContent = `Sort by: ${event.target.textContent}`;
+                
+                filterAndSortProducts();
 
-                sortSelectedOption.textContent = `Sort by: ${selectionText}`;
-
-                sortAndRender(sortBy);
-
+                // 3. Hide the panel and reset the icon
                 sortPanel.classList.add('hidden');
+                sortIcon.classList.remove('rotate-180');
             }
         });
+
+        // Event listener to close the dropdown when clicking outside
+        window.addEventListener('click', () => {
+            if (!sortPanel.classList.contains('hidden')) {
+                sortPanel.classList.add('hidden');
+                // 4. Also reset the icon here
+                sortIcon.classList.remove('rotate-180');
+            }
+        });
+    }
+
+
+    function filterAndSortProducts() {
+        // Start with the full list of products for the current step.
+        let processedProducts = [...allProducts];
+
+        // --- 1. APPLY FILTERS FIRST ---
+        if (activeFilters.skin_types.length > 0) {
+            processedProducts = processedProducts.filter(p => 
+                activeFilters.skin_types.some(type => p.skin_types.includes(type))
+            );
+        }
+        if (activeFilters.skin_concerns.length > 0) {
+            processedProducts = processedProducts.filter(p =>
+                activeFilters.skin_concerns.some(type => p.skin_concerns.includes(type))
+            );
+        }
+        if (activeFilters.brand_name.length > 0) {
+            processedProducts = processedProducts.filter(p => 
+                activeFilters.brand_name.includes(p.brand_name)
+            );
+        }
+        // (Add other filters like skin_concerns here)
+
+        // --- 2. SORT THE FILTERED RESULT ---
+        switch (currentSortOption) {
+            case 'price-low-high':
+                processedProducts.sort((a, b) => a.price - b.price);
+                break;
+            case 'price-high-low':
+                processedProducts.sort((a, b) => b.price - a.price);
+                break;
+            case 'best-match':
+            default:
+                // For 'best-match', we do nothing and keep the original filtered order.
+                break;
+        }
+        
+        // --- 3. RENDER THE FINAL RESULT ---
+        renderProductGrid(processedProducts);
     }
 
 
@@ -284,7 +370,7 @@ import gsap from "gsap";
         brandsContainer.innerHTML = '<p class="text-sm text-gray-400">Loading brands...</p>';
 
         // You can add or remove steps here as you clean up your JSON files
-        const steps = ['cleanser', 'exfoliator'];
+        const steps = ['cleanser', 'exfoliator', 'toner', 'serum', 'eye-cream', 'spot-treatment', 'moisturizer', 'face-oil', 'sunscreen', 'sleeping-mask'];
 
         try {
             // Create a fetch promise for each step
@@ -350,53 +436,25 @@ import gsap from "gsap";
         brandsContainer.innerHTML = brandsHTML;
     }
 
-    function applyFiltersAndRender() {
-        let filteredProducts = [...allProducts];
-
-        // Filter by Skin Types
-        if (activeFilters.skin_types.length > 0) {
-            filteredProducts = filteredProducts.filter(p => 
-                activeFilters.skin_types.some(type => p.skin_types.includes(type))
-            );
-        }
-        // Filter by Skin Concerns
-        if (activeFilters.skin_concerns.length > 0) {
-            filteredProducts = filteredProducts.filter(p => 
-                activeFilters.skin_concerns.some(concern => p.skin_concerns.includes(concern))
-            );
-        }
-        // Filter by Brand Name
-        if (activeFilters.brand_name.length > 0) {
-            filteredProducts = filteredProducts.filter(p => 
-                activeFilters.brand_name.includes(p.brand_name)
-            );
-        }
-        
-        // After all filtering, call the function that actually builds the HTML.
-        renderProductGrid(filteredProducts);
-    }
 
 
     function setupFilterSidebar() {
-        const sidebar = document.getElementById('filter-sidebar');
         if (!sidebar) return;
 
-        sidebar.addEventListener('change', event => {
+        sidebar.addEventListener('change', (event) => {
             if (event.target.type === 'checkbox') {
                 const category = event.target.dataset.category;
                 const value = event.target.dataset.value;
-                
                 if (!category || !value) return;
 
-                // Update the activeFilters object based on whether the box is checked
                 if (event.target.checked) {
                     activeFilters[category].push(value);
                 } else {
                     activeFilters[category] = activeFilters[category].filter(item => item !== value);
                 }
 
-                // After any change, re-run the filter and render process.
-                applyFiltersAndRender();
+                // Call the master function to re-render the grid
+                filterAndSortProducts();
             }
         });
     }
@@ -407,12 +465,15 @@ import gsap from "gsap";
 
 
 
+
 document.addEventListener('DOMContentLoaded', () => {
 
     setupSortMenu();
-
     setupStepFilters();
     setupFilterSidebar();
+    setupProductCardActions();
+    setupPDPActions();
+
     initializeFilters();
 
     displayProducts('cleanser');
@@ -422,6 +483,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     gsap.delayedCall(0.5, introAnimation);
+
+
+    renderPDP(productData);
 
     
 });

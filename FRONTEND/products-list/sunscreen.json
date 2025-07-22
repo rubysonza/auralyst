@@ -1,0 +1,335 @@
+{
+"sunscreen":
+[
+  {
+    "image_url": "",
+    "brand_name": "Beauty of Joseon",
+    "product_name": "Relief Sun : Rice + Probiotics (SPF 50+ PA++++)",
+    "product_type": "Chemical",
+    "price": 18.00,
+    "skin_types": ["Normal", "Dry", "Combination", "Sensitive"],
+    "skin_concerns": ["Sun Damage", "Dehydration", "Dullness"],
+    "key_actives": ["Uvinul A Plus", "Uvinul T 150", "Tinosorb M", "Niacinamide"],
+    "usage_time": "Morning"
+  },
+  {
+    "image_url": "",
+    "brand_name": "EltaMD",
+    "product_name": "UV Clear Broad-Spectrum SPF 46",
+    "product_type": "Hybrid",
+    "price": 41.00,
+    "skin_types": ["Oily", "Combination", "Sensitive"],
+    "skin_concerns": ["Acne", "Rosacea", "Hyperpigmentation", "Sun Damage"],
+    "key_actives": ["Zinc Oxide", "Octinoxate", "Niacinamide", "Hyaluronic Acid"],
+    "usage_time": "Morning"
+  },
+  {
+    "image_url": "",
+    "brand_name": "Supergoop!",
+    "product_name": "Unseen Sunscreen SPF 40",
+    "product_type": "Chemical",
+    "price": 38.00,
+    "skin_types": ["Normal", "Dry", "Oily", "Combination"],
+    "skin_concerns": ["Sun Damage", "Enlarged Pores"],
+    "key_actives": ["Avobenzone", "Homosalate", "Octisalate", "Octocrylene"],
+    "usage_time": "Morning"
+  },
+  {
+    "image_url": "",
+    "brand_name": "Tower 28 Beauty",
+    "product_name": "SunnyDays SPF 30 Tinted Sunscreen Foundation",
+    "product_type": "Tinted",
+    "price": 32.00,
+    "skin_types": ["Normal", "Dry", "Oily", "Combination", "Sensitive"],
+    "skin_concerns": ["Redness", "Uneven Skin Tone", "Eczema", "Sun Damage"],
+    "key_actives": ["Zinc Oxide", "Prickly Pear Extract", "White Sage Extract"],
+    "usage_time": "Morning"
+  },
+  {
+    "image_url": "",
+    "brand_name": "La Roche-Posay",
+    "product_name": "Anthelios Mineral Ultra-Light Fluid SPF 50",
+    "product_type": "Mineral",
+    "price": 37.99,
+    "skin_types": ["Normal", "Oily", "Combination", "Sensitive"],
+    "skin_concerns": ["Sun Damage", "Sensitive Skin"],
+    "key_actives": ["Titanium Dioxide", "Zinc Oxide", "Vitamin E"],
+    "usage_time": "Morning"
+  },
+  {
+    "image_url": "",
+    "brand_name": "Round Lab",
+    "product_name": "Birch Juice Moisturizing Sun Cream SPF 50+",
+    "product_type": "Chemical",
+    "price": 27.00,
+    "skin_types": ["Normal", "Dry", "Combination", "Sensitive"],
+    "skin_concerns": ["Dehydration", "Dryness", "Sun Damage"],
+    "key_actives": ["Uvinul A Plus", "Uvinul T 150", "Tinosorb M", "Birch Sap"],
+    "usage_time": "Morning"
+  },
+  {
+    "image_url": "",
+    "brand_name": "ILIA",
+    "product_name": "Super Serum Skin Tint SPF 40",
+    "product_type": "Tinted",
+    "price": 48.00,
+    "skin_types": ["Normal", "Dry", "Combination", "Sensitive"],
+    "skin_concerns": ["Dryness", "Uneven Skin Tone", "Sun Damage", "Fine Lines"],
+    "key_actives": ["Zinc Oxide", "Hyaluronic Acid", "Squalane", "Niacinamide"],
+    "usage_time": "Morning"
+  },
+  {
+    "image_url": "",
+    "brand_name": "Skin1004",
+    "product_name": "Madagascar Centella Hyalu-Cica Water-Fit Sun Serum SPF50+",
+    "product_type": "Chemical",
+    "price": 23.00,
+    "skin_types": ["Normal", "Dry", "Combination", "Sensitive"],
+    "skin_concerns": ["Dehydration", "Sun Damage", "Redness"],
+    "key_actives": ["Uvinul A Plus", "Uvinul T 150", "Tinosorb M", "Centella Asiatica"],
+    "usage_time": "Morning"
+  },
+  {
+    "image_url": "",
+    "brand_name": "Drunk Elephant",
+    "product_name": "Umbra Sheer Physical Daily Defense SPF 30",
+    "product_type": "Mineral",
+    "price": 34.00,
+    "skin_types": ["Normal", "Dry", "Combination", "Sensitive"],
+    "skin_concerns": ["Sun Damage", "Sensitive Skin"],
+    "key_actives": ["Zinc Oxide (20%)", "Marula Oil", "Astaxanthin"],
+    "usage_time": "Morning"
+  },
+  {
+    "image_url": "",
+    "brand_name": "Biore",
+    "product_name": "UV Aqua Rich Watery Essence SPF 50+",
+    "product_type": "Chemical",
+    "price": 15.00,
+    "skin_types": ["Normal", "Oily", "Combination"],
+    "skin_concerns": ["Sun Damage", "Dehydration"],
+    "key_actives": ["Octinoxate", "Tinosorb S", "Uvinul A Plus", "Uvinul T 150"],
+    "usage_time": "Morning"
+  },
+  {
+    "image_url": "",
+    "brand_name": "Isntree",
+    "product_name": "Hyaluronic Acid Watery Sun Gel SPF 50+",
+    "product_type": "Chemical",
+    "price": 26.50,
+    "skin_types": ["Normal", "Dry", "Combination"],
+    "skin_concerns": ["Dehydration", "Dryness", "Sun Damage"],
+    "key_actives": ["Homosalate", "Tinosorb S", "Tinosorb M", "Hyaluronic Acid"],
+    "usage_time": "Morning"
+  },
+  {
+    "image_url": "",
+    "brand_name": "CeraVe",
+    "product_name": "Hydrating Mineral Sunscreen SPF 50 Face Sheer Tint",
+    "product_type": "Tinted",
+    "price": 16.99,
+    "skin_types": ["Normal", "Dry", "Sensitive"],
+    "skin_concerns": ["Sun Damage", "Uneven Skin Tone", "Sensitive Skin"],
+    "key_actives": ["Titanium Dioxide", "Zinc Oxide", "Ceramides", "Niacinamide"],
+    "usage_time": "Morning"
+  },
+  {
+    "image_url": "",
+    "brand_name": "Shiseido",
+    "product_name": "Ultimate Sun Protector Lotion SPF 50+",
+    "product_type": "Chemical",
+    "price": 50.00,
+    "skin_types": ["Normal", "Dry", "Oily", "Combination"],
+    "skin_concerns": ["Sun Damage"],
+    "key_actives": ["Avobenzone", "Homosalate", "Octisalate", "Octocrylene"],
+    "usage_time": "Morning"
+  },
+  {
+    "image_url": "",
+    "brand_name": "KraveBeauty",
+    "product_name": "Beet The Sun SPF 40 PA+++",
+    "product_type": "Hybrid",
+    "price": 20.00,
+    "skin_types": ["Normal", "Dry", "Oily", "Combination", "Sensitive"],
+    "skin_concerns": ["Sun Damage", "Dehydration"],
+    "key_actives": ["Tinosorb S", "Tinosorb M", "Uvinul A Plus", "Beetroot Extract"],
+    "usage_time": "Morning"
+  },
+  {
+    "image_url": "",
+    "brand_name": "Badger",
+    "product_name": "Active Mineral Sunscreen Cream SPF 30",
+    "product_type": "Mineral",
+    "price": 17.99,
+    "skin_types": ["Normal", "Dry", "Sensitive"],
+    "skin_concerns": ["Sun Damage", "Sensitive Skin"],
+    "key_actives": ["Zinc Oxide (18.75%)", "Sunflower Oil", "Beeswax"],
+    "usage_time": "Morning"
+  },
+  {
+    "image_url": "",
+    "brand_name": "PURITO",
+    "product_name": "Daily Go-To Sunscreen SPF 50+",
+    "product_type": "Hybrid",
+    "price": 22.00,
+    "skin_types": ["Normal", "Dry", "Combination", "Sensitive"],
+    "skin_concerns": ["Sun Damage", "Sensitive Skin"],
+    "key_actives": ["Tinosorb S", "Tinosorb M", "Titanium Dioxide", "Centella Asiatica"],
+    "usage_time": "Morning"
+  },
+  {
+    "image_url": "",
+    "brand_name": "Saie",
+    "product_name": "Slip Tint Dewy Tinted Moisturizer SPF 35",
+    "product_type": "Tinted",
+    "price": 36.00,
+    "skin_types": ["Normal", "Dry", "Combination"],
+    "skin_concerns": ["Uneven Skin Tone", "Dryness", "Dullness"],
+    "key_actives": ["Zinc Oxide", "Hyaluronic Acid", "Licorice Root Extract"],
+    "usage_time": "Morning"
+  },
+  {
+    "image_url": "",
+    "brand_name": "Anessa",
+    "product_name": "Perfect UV Sunscreen Skincare Milk SPF 50+",
+    "product_type": "Hybrid",
+    "price": 35.00,
+    "skin_types": ["Normal", "Oily", "Combination"],
+    "skin_concerns": ["Sun Damage", "Oily Skin"],
+    "key_actives": ["Zinc Oxide", "Octinoxate", "Tinosorb S", "Uvinul T 150"],
+    "usage_time": "Morning"
+  },
+  {
+    "image_url": "",
+    "brand_name": "Coola",
+    "product_name": "Classic Face Organic Sunscreen Lotion SPF 50",
+    "product_type": "Chemical",
+    "price": 32.00,
+    "skin_types": ["Normal", "Dry", "Oily", "Combination"],
+    "skin_concerns": ["Sun Damage"],
+    "key_actives": ["Avobenzone", "Homosalate", "Octisalate", "Octocrylene"],
+    "usage_time": "Morning"
+  },
+  {
+    "image_url": "",
+    "brand_name": "Kinship",
+    "product_name": "Self Reflect Probiotic Moisturizing Sunscreen Zinc Oxide SPF 32",
+    "product_type": "Mineral",
+    "price": 28.00,
+    "skin_types": ["Normal", "Oily", "Combination", "Sensitive"],
+    "skin_concerns": ["Sun Damage", "Acne", "Sensitive Skin"],
+    "key_actives": ["Zinc Oxide (22.4%)", "Turmeric", "Kinbiome™ (probiotic)"],
+    "usage_time": "Morning"
+  },
+  {
+    "image_url": "",
+    "brand_name": "Glow Recipe",
+    "product_name": "Watermelon Glow Niacinamide Sunscreen SPF 50",
+    "product_type": "Hybrid",
+    "price": 35.00,
+    "skin_types": ["Normal", "Dry", "Oily", "Combination"],
+    "skin_concerns": ["Dullness", "Hyperpigmentation", "Sun Damage"],
+    "key_actives": ["Zinc Oxide", "Homosalate", "Octisalate", "Niacinamide"],
+    "usage_time": "Morning"
+  },
+  {
+    "image_url": "",
+    "brand_name": "EltaMD",
+    "product_name": "UV Daily Broad-Spectrum SPF 40",
+    "product_type": "Tinted",
+    "price": 39.00,
+    "skin_types": ["Normal", "Dry", "Combination"],
+    "skin_concerns": ["Sun Damage", "Fine Lines", "Wrinkles"],
+    "key_actives": ["Zinc Oxide", "Octinoxate", "Hyaluronic Acid"],
+    "usage_time": "Morning"
+  },
+  {
+    "image_url": "",
+    "brand_name": "Pipette",
+    "product_name": "Mineral Sunscreen Broad Spectrum SPF 50",
+    "product_type": "Mineral",
+    "price": 16.50,
+    "skin_types": ["Normal", "Dry", "Combination", "Sensitive"],
+    "skin_concerns": ["Sun Damage", "Sensitive Skin"],
+    "key_actives": ["Zinc Oxide (20%)", "Squalane", "Glycerin"],
+    "usage_time": "Morning"
+  },
+  {
+    "image_url": "",
+    "brand_name": "Thank You Farmer",
+    "product_name": "Sun Project Water Sun Cream SPF 50+",
+    "product_type": "Chemical",
+    "price": 27.00,
+    "skin_types": ["Normal", "Dry", "Combination"],
+    "skin_concerns": ["Dehydration", "Sun Damage", "Dryness"],
+    "key_actives": ["Octinoxate", "Tinosorb S", "Uvinul A Plus", "African Walnut Oil"],
+    "usage_time": "Morning"
+  },
+  {
+    "image_url": "",
+    "brand_name": "Australian Gold",
+    "product_name": "Botanical Tinted Face Sunscreen SPF 50",
+    "product_type": "Tinted",
+    "price": 16.99,
+    "skin_types": ["Oily", "Combination", "Sensitive"],
+    "skin_concerns": ["Oily Skin", "Sun Damage", "Uneven Skin Tone"],
+    "key_actives": ["Titanium Dioxide", "Zinc Oxide", "Kakadu Plum"],
+    "usage_time": "Morning"
+  },
+  {
+    "image_url": "",
+    "brand_name": "Innisfree",
+    "product_name": "Daily UV Defense Sunscreen Broad Spectrum SPF 36",
+    "product_type": "Chemical",
+    "price": 18.00,
+    "skin_types": ["Normal", "Dry", "Combination"],
+    "skin_concerns": ["Sun Damage", "Dryness"],
+    "key_actives": ["Avobenzone", "Homosalate", "Octisalate", "Green Tea"],
+    "usage_time": "Morning"
+  },
+  {
+    "image_url": "",
+    "brand_name": "Supergoop!",
+    "product_name": "Mineral Sheerscreen SPF 30",
+    "product_type": "Mineral",
+    "price": 38.00,
+    "skin_types": ["Normal", "Combination", "Sensitive"],
+    "skin_concerns": ["Sun Damage", "Sensitive Skin"],
+    "key_actives": ["Zinc Oxide (17.5%)", "Squalane", "Bush Clover Extract"],
+    "usage_time": "Morning"
+  },
+  {
+    "image_url": "",
+    "brand_name": "COSRX",
+    "product_name": "Aloe Soothing Sun Cream SPF50+ PA+++",
+    "product_type": "Hybrid",
+    "price": 16.00,
+    "skin_types": ["Normal", "Dry", "Combination", "Sensitive"],
+    "skin_concerns": ["Sun Damage", "Dryness", "Redness"],
+    "key_actives": ["Octinoxate", "Titanium Dioxide", "Aloe Leaf Extract"],
+    "usage_time": "Morning"
+  },
+  {
+    "image_url": "",
+    "brand_name": "DRMTLGY",
+    "product_name": "Universal Tinted Moisturizer SPF 46",
+    "product_type": "Tinted",
+    "price": 28.00,
+    "skin_types": ["Normal", "Dry", "Oily", "Combination", "Sensitive"],
+    "skin_concerns": ["Sun Damage", "Uneven Skin Tone", "Fine Lines"],
+    "key_actives": ["Zinc Oxide", "Octinoxate", "Niacinamide", "Hyaluronic Acid"],
+    "usage_time": "Morning"
+  },
+  {
+    "image_url": "",
+    "brand_name": "Cetaphil",
+    "product_name": "Sheer Mineral Face Liquid Sunscreen SPF 50",
+    "product_type": "Mineral",
+    "price": 15.99,
+    "skin_types": ["Sensitive", "Normal", "Dry", "Oily", "Combination"],
+    "skin_concerns": ["Sensitive Skin", "Sun Damage"],
+    "key_actives": ["Zinc Oxide (12%)", "Vitamin E"],
+    "usage_time": "Morning"
+  }
+]
+}

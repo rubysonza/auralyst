@@ -1,0 +1,335 @@
+{
+"face-oil":
+[
+  {
+    "image_url": "",
+    "brand_name": "The Ordinary",
+    "product_name": "100% Organic Cold-Pressed Rose Hip Seed Oil",
+    "product_type": "Rosehip",
+    "price": 10.90,
+    "skin_types": ["Normal", "Dry", "Combination", "Sensitive"],
+    "skin_concerns": ["Dullness", "Acne Scars", "Fine Lines", "Sun Damage"],
+    "key_actives": ["Rosehip Seed Oil"],
+    "usage_time": "Night"
+  },
+  {
+    "image_url": "",
+    "brand_name": "Drunk Elephant",
+    "product_name": "Virgin Marula Luxury Facial Oil",
+    "product_type": "Marula",
+    "price": 68.00,
+    "skin_types": ["Normal", "Dry", "Combination", "Sensitive"],
+    "skin_concerns": ["Dryness", "Redness", "Fine Lines", "Uneven Texture"],
+    "key_actives": ["Sclerocarya Birrea (Marula) Seed Oil"],
+    "usage_time": "Both"
+  },
+  {
+    "image_url": "",
+    "brand_name": "Josie Maran",
+    "product_name": "100% Pure Argan Oil",
+    "product_type": "Argan",
+    "price": 49.00,
+    "skin_types": ["Normal", "Dry", "Combination", "Sensitive"],
+    "skin_concerns": ["Dryness", "Loss of Firmness", "Fine Lines"],
+    "key_actives": ["Argan Oil"],
+    "usage_time": "Both"
+  },
+  {
+    "image_url": "",
+    "brand_name": "The Body Shop",
+    "product_name": "Tea Tree Oil",
+    "product_type": "Tea Tree",
+    "price": 12.00,
+    "skin_types": ["Oily", "Combination"],
+    "skin_concerns": ["Acne", "Oily Skin", "Blackheads"],
+    "key_actives": ["Tea Tree Oil"],
+    "usage_time": "Both"
+  },
+  {
+    "image_url": "",
+    "brand_name": "Cliganic",
+    "product_name": "100% Pure & Natural Jojoba Oil",
+    "product_type": "Jojoba",
+    "price": 9.99,
+    "skin_types": ["Normal", "Dry", "Oily", "Combination", "Sensitive"],
+    "skin_concerns": ["Dryness", "Dehydration", "Oily Skin"],
+    "key_actives": ["Jojoba Oil"],
+    "usage_time": "Both"
+  },
+  {
+    "image_url": "",
+    "brand_name": "Kopari",
+    "product_name": "100% Organic Coconut Melt",
+    "product_type": "Coconut",
+    "price": 29.00,
+    "skin_types": ["Dry", "Normal"],
+    "skin_concerns": ["Dryness", "Dullness", "Dehydration"],
+    "key_actives": ["Coconut Oil"],
+    "usage_time": "Both"
+  },
+  {
+    "image_url": "",
+    "brand_name": "Pai Skincare",
+    "product_name": "Rosehip Bioregenerate Universal Face Oil",
+    "product_type": "Rosehip",
+    "price": 44.00,
+    "skin_types": ["Normal", "Dry", "Combination", "Sensitive"],
+    "skin_concerns": ["Dullness", "Uneven Skin Tone", "Fine Lines", "Dryness"],
+    "key_actives": ["Rosehip Fruit Extract", "Rosehip Seed Extract"],
+    "usage_time": "Night"
+  },
+  {
+    "image_url": "",
+    "brand_name": "The INKEY List",
+    "product_name": "Rosehip Oil",
+    "product_type": "Rosehip",
+    "price": 12.99,
+    "skin_types": ["Normal", "Dry"],
+    "skin_concerns": ["Redness", "Dryness", "Dullness"],
+    "key_actives": ["Rosehip Oil"],
+    "usage_time": "Night"
+  },
+  {
+    "image_url": "",
+    "brand_name": "Acure",
+    "product_name": "The Essentials Marula Oil",
+    "product_type": "Marula",
+    "price": 12.99,
+    "skin_types": ["Normal", "Dry", "Combination"],
+    "skin_concerns": ["Dryness", "Redness", "Fine Lines"],
+    "key_actives": ["Marula Oil"],
+    "usage_time": "Both"
+  },
+  {
+    "image_url": "",
+    "brand_name": "The Ordinary",
+    "product_name": "100% Organic Cold-Pressed Moroccan Argan Oil",
+    "product_type": "Argan",
+    "price": 8.10,
+    "skin_types": ["Dry"],
+    "skin_concerns": ["Dryness", "Dehydration"],
+    "key_actives": ["Argan Oil"],
+    "usage_time": "Night"
+  },
+  {
+    "image_url": "",
+    "brand_name": "Sunday Riley",
+    "product_name": "U.F.O. Ultra-Clarifying Face Oil",
+    "product_type": "Tea Tree",
+    "price": 80.00,
+    "skin_types": ["Oily", "Combination"],
+    "skin_concerns": ["Acne", "Blackheads", "Enlarged Pores", "Clogged Pores"],
+    "key_actives": ["Salicylic Acid (1.5%)", "Tea Tree Oil", "Black Cumin Seed Oil"],
+    "usage_time": "Both"
+  },
+  {
+    "image_url": "",
+    "brand_name": "Biossance",
+    "product_name": "100% Squalane Oil",
+    "product_type": "Jojoba",
+    "price": 34.00,
+    "skin_types": ["Normal", "Dry", "Oily", "Combination", "Sensitive"],
+    "skin_concerns": ["Dryness", "Dehydration", "Redness"],
+    "key_actives": ["Sugarcane-Derived Squalane"],
+    "usage_time": "Both"
+  },
+  {
+    "image_url": "",
+    "brand_name": "SheaMoisture",
+    "product_name": "100% Virgin Coconut Oil Daily Hydration Overnight Facial Oil",
+    "product_type": "Coconut",
+    "price": 11.99,
+    "skin_types": ["Normal", "Dry", "Combination"],
+    "skin_concerns": ["Dryness", "Dullness"],
+    "key_actives": ["Coconut Oil", "Acacia Senegal"],
+    "usage_time": "Night"
+  },
+  {
+    "image_url": "",
+    "brand_name": "Kiehl's",
+    "product_name": "Midnight Recovery Concentrate",
+    "product_type": "Rosehip",
+    "price": 57.00,
+    "skin_types": ["Normal", "Dry", "Combination", "Sensitive"],
+    "skin_concerns": ["Dryness", "Dullness", "Fine Lines"],
+    "key_actives": ["Lavender Essential Oil", "Squalane", "Evening Primrose Oil"],
+    "usage_time": "Night"
+  },
+  {
+    "image_url": "",
+    "brand_name": "Go-To",
+    "product_name": "Face Hero",
+    "product_type": "Marula",
+    "price": 45.00,
+    "skin_types": ["Normal", "Dry", "Combination", "Sensitive"],
+    "skin_concerns": ["Dryness", "Redness", "Dullness", "Uneven Skin Tone"],
+    "key_actives": ["Buriti Oil", "Marula Oil", "Rosehip Oil", "Jojoba Oil"],
+    "usage_time": "Both"
+  },
+  {
+    "image_url": "",
+    "brand_name": "Melaleuca",
+    "product_name": "T36-C5 Melaleuca Oil",
+    "product_type": "Tea Tree",
+    "price": 16.00,
+    "skin_types": ["Oily"],
+    "skin_concerns": ["Acne"],
+    "key_actives": ["Tea Tree Oil"],
+    "usage_time": "Both"
+  },
+  {
+    "image_url": "",
+    "brand_name": "ArtNaturals",
+    "product_name": "Organic Argan Oil",
+    "product_type": "Argan",
+    "price": 12.99,
+    "skin_types": ["Dry", "Normal"],
+    "skin_concerns": ["Dryness", "Fine Lines", "Eczema"],
+    "key_actives": ["Argan Oil"],
+    "usage_time": "Both"
+  },
+  {
+    "image_url": "",
+    "brand_name": "Now Solutions",
+    "product_name": "Certified Organic & 100% Pure Jojoba Oil",
+    "product_type": "Jojoba",
+    "price": 11.99,
+    "skin_types": ["Normal", "Dry", "Oily", "Combination", "Sensitive"],
+    "skin_concerns": ["Dryness", "Oily Skin"],
+    "key_actives": ["Jojoba Oil"],
+    "usage_time": "Both"
+  },
+  {
+    "image_url": "",
+    "brand_name": "Pacifica Beauty",
+    "product_name": "Superflower Rapid Response Face Oil",
+    "product_type": "Rosehip",
+    "price": 16.00,
+    "skin_types": ["Normal", "Dry", "Combination", "Sensitive"],
+    "skin_concerns": ["Redness", "Dryness"],
+    "key_actives": ["Rosehip Seed Oil", "Blue Tansy", "Grapeseed Oil"],
+    "usage_time": "Night"
+  },
+  {
+    "image_url": "",
+    "brand_name": "Palmer's",
+    "product_name": "Cocoa Butter Formula Skin Therapy Oil Face",
+    "product_type": "Rosehip",
+    "price": 10.99,
+    "skin_types": ["Dry", "Normal"],
+    "skin_concerns": ["Dryness", "Acne Scars", "Sun Damage", "Wrinkles"],
+    "key_actives": ["Cocoa Butter", "Vitamin E", "Retinol", "Vitamin C"],
+    "usage_time": "Night"
+  },
+  {
+    "image_url": "",
+    "brand_name": "Herbivore Botanicals",
+    "product_name": "Lapis Blue Tansy Face Oil",
+    "product_type": "Jojoba",
+    "price": 74.00,
+    "skin_types": ["Oily", "Combination"],
+    "skin_concerns": ["Redness", "Oily Skin", "Acne", "Enlarged Pores"],
+    "key_actives": ["Blue Tansy", "Jojoba Oil", "Squalane"],
+    "usage_time": "Night"
+  },
+  {
+    "image_url": "",
+    "brand_name": "African Botanics",
+    "product_name": "Pure Marula Oil",
+    "product_type": "Marula",
+    "price": 100.00,
+    "skin_types": ["Normal", "Dry", "Sensitive"],
+    "skin_concerns": ["Dryness", "Redness", "Loss of Firmness"],
+    "key_actives": ["Marula Oil"],
+    "usage_time": "Both"
+  },
+  {
+    "image_url": "",
+    "brand_name": "Burt's Bees",
+    "product_name": "Complete Nourishment Facial Oil",
+    "product_type": "Rosehip",
+    "price": 19.99,
+    "skin_types": ["Normal", "Dry"],
+    "skin_concerns": ["Dryness", "Dullness", "Fine Lines"],
+    "key_actives": ["Rosehip Seed Extract", "Jojoba Oil", "Evening Primrose Oil"],
+    "usage_time": "Night"
+  },
+  {
+    "image_url": "",
+    "brand_name": "Good Molecules",
+    "product_name": "Pure Cold-Pressed Rosehip Seed Oil",
+    "product_type": "Rosehip",
+    "price": 10.00,
+    "skin_types": ["Normal", "Dry", "Oily", "Combination"],
+    "skin_concerns": ["Dryness", "Redness", "Dullness"],
+    "key_actives": ["Rosehip Seed Oil"],
+    "usage_time": "Night"
+  },
+  {
+    "image_url": "",
+    "brand_name": "Viva Naturals",
+    "product_name": "Organic Coconut Oil",
+    "product_type": "Coconut",
+    "price": 9.99,
+    "skin_types": ["Dry"],
+    "skin_concerns": ["Dryness", "Dehydration"],
+    "key_actives": ["Coconut Oil"],
+    "usage_time": "Both"
+  },
+  {
+    "image_url": "",
+    "brand_name": "Desert Essence",
+    "product_name": "100% Pure Jojoba Oil",
+    "product_type": "Jojoba",
+    "price": 11.99,
+    "skin_types": ["Normal", "Dry", "Oily", "Combination", "Sensitive"],
+    "skin_concerns": ["Dryness", "Oily Skin"],
+    "key_actives": ["Jojoba Oil"],
+    "usage_time": "Both"
+  },
+  {
+    "image_url": "",
+    "brand_name": "Youth to the People",
+    "product_name": "Superberry Hydrate + Glow Dream Oil",
+    "product_type": "Marula",
+    "price": 46.00,
+    "skin_types": ["Normal", "Dry", "Combination"],
+    "skin_concerns": ["Dullness", "Dryness", "Uneven Skin Tone"],
+    "key_actives": ["Maqui", "Acai", "Goji Berry", "Marula Oil"],
+    "usage_time": "Night"
+  },
+  {
+    "image_url": "",
+    "brand_name": "Moroccanoil",
+    "product_name": "Pure Argan Oil",
+    "product_type": "Argan",
+    "price": 52.00,
+    "skin_types": ["Normal", "Dry", "Combination"],
+    "skin_concerns": ["Dryness", "Dullness"],
+    "key_actives": ["Argan Oil"],
+    "usage_time": "Both"
+  },
+  {
+    "image_url": "",
+    "brand_name": "Biossance",
+    "product_name": "100% Sugarcane Squalane Oil",
+    "product_type": "Jojoba",
+    "price": 34.00,
+    "skin_types": ["Normal", "Dry", "Oily", "Combination", "Sensitive"],
+    "skin_concerns": ["Dryness", "Dehydration", "Redness"],
+    "key_actives": ["Squalane"],
+    "usage_time": "Both"
+  },
+  {
+    "image_url": "",
+    "brand_name": "Shea Terra Organics",
+    "product_name": "Rose Hips & Carrot Perfecting Serum",
+    "product_type": "Rosehip",
+    "price": 24.00,
+    "skin_types": ["Dry", "Normal"],
+    "skin_concerns": ["Sun Damage", "Fine Lines", "Acne Scars"],
+    "key_actives": ["Rosehip Oil", "Carrot Seed Oil"],
+    "usage_time": "Night"
+  }
+]
+}
