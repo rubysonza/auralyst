@@ -57,12 +57,12 @@ body {
     font-size: 1rem;
     align-items: center;
     padding: 5px 12px;
-    background-color: rgb(234, 234, 234);
+    background-color: #7D32FF10;
     border-radius: 20px;
-    opacity: 0.8;
+    opacity: 0.7;
     white-space: nowrap;
     overflow: hidden;
-    color: #764C7E;
+    color: #7D32FF;
     font-weight: bold;
     text-overflow: ellipsis;
     cursor: pointer;
@@ -70,11 +70,31 @@ body {
 }
 
 .step-button:hover {
-    background-color: #FCEAFF;
-    color: #764C7E;
+    background-color: #7D32FF30;
+    opacity: 0.9;
 }
 
 .step-button.active {
-    background-color: #764C7E;
+    background-color: #7D32FF;
     color: white;
+    opacity: 1;
+}
+
+.morning-select-btn.active {
+    background-color: #FFF8A9;
+    color: #575000;
+    border-color: #FFEC1D;
+}
+
+.night-select-btn.active {
+    background-color: #A2CAFF;
+    color: #002557;
+    border-color: #4595FF;
+}
+
+.routine-select-btn:disabled {
+    background-color: #F3F4F6; /* gray-100 */
+    color: #D1D5DB; /* gray-300 */
+    cursor: not-allowed;
+    border-color: #E5E7EB; /* gray-200 */
 }

@@ -2,7 +2,8 @@
 "exfoliator": 
 [
   {
-    "image_url": "",
+    "image_url": "https://www.sephora.com/productimages/sku/s2421360-main-zoom.jpg?imwidth=612",
+    "product_url": "https://www.sephora.com/product/paula-s-choice-skin-perfecting-2-bha-liquid-exfoliant-P469502?country_switch=us&lang=en&skuId=2421360&om_mmc=ppc-GG_17791296883___2421360__9197929_c&country_switch=us&lang=en&gad_source=1&gad_campaignid=17798721803&gbraid=0AAAAADnIXb19yxaFO-YXd5Sxf_6muUh9E&gclid=Cj0KCQjwkILEBhDeARIsAL--pjxhwVDDV9FPzwOVcal8HR1_Z3Kv9b9h4DUwGLT-MgRYkhOdJ1AdpG8aArVYEALw_wcB&gclsrc=aw.ds",
     "brand_name": "Paula's Choice",
     "product_name": "Skin Perfecting 2% BHA Liquid Exfoliant",
     "product_type": "BHA",
@@ -13,7 +14,8 @@
     "usage_time": "Both"
   },
   {
-    "image_url": "",
+    "image_url": "https://www.sephora.com/productimages/sku/s2031508-main-zoom.jpg?imwidth=612",
+    "product_url": "https://www.sephora.com/product/the-ordinary-deciem-glycolic-acid-7-toning-solution-P427406?country_switch=us&lang=en&skuId=2031508&om_mmc=ppc-GG_17791296883___2031508__9197929_c&country_switch=us&lang=en&gad_source=1&gad_campaignid=17798721803&gbraid=0AAAAADnIXb19yxaFO-YXd5Sxf_6muUh9E&gclid=Cj0KCQjwkILEBhDeARIsAL--pjyoZO1NNV8n8FW5xBhFqAag4I37KO3LwQB0L1R33atOICI3UO4uyJsaAvNGEALw_wcB&gclsrc=aw.ds",
     "brand_name": "The Ordinary",
     "product_name": "Glycolic Acid 7% Toning Solution",
     "product_type": "AHA",
@@ -24,29 +26,32 @@
     "usage_time": "Night"
   },
   {
-    "image_url": "",
+    "image_url": "https://www.sephora.com/productimages/sku/s2002087-main-zoom.jpg?imwidth=612",
+    "product_url": "https://www.sephora.com/product/daily-microfoliant-P423688?country_switch=us&lang=en&skuId=2002087&om_mmc=ppc-GG_17791296883___2820876__9197929_c&gad_source=1&gad_campaignid=17798721803&gbraid=0AAAAADnIXb19yxaFO-YXd5Sxf_6muUh9E&gclid=Cj0KCQjwkILEBhDeARIsAL--pjxWmyxg7lBB-pE8tNT0tysccub9Hk_NG5ZmmnsCBj2Uu0vRFgYpmD0aAg5FEALw_wcB&gclsrc=aw.ds",
     "brand_name": "Dermalogica",
     "product_name": "Daily Microfoliant",
     "product_type": "Enzyme",
-    "price": 68.00,
+    "price": 69.00,
     "skin_types": ["Normal", "Dry", "Oily", "Combination", "Sensitive"],
     "skin_concerns": ["Dullness", "Uneven Texture", "Hyperpigmentation"],
     "key_actives": ["Rice Bran Extract", "Papain", "Salicylic Acid"],
     "usage_time": "Both"
   },
   {
-    "image_url": "",
+    "image_url": "https://m.media-amazon.com/images/I/61CTuE73ymL._SL1000_.jpg",
+    "product_url": "https://www.amazon.com/Skinfood-Black-Sugar-Exfoliator-Ounce/dp/B01H6EHVK4/ref=sr_1_1?crid=RTKBWBL78RYW&dib=eyJ2IjoiMSJ9.THPIm_mv7qwjCGf01RUnRbA4jvuE3X87NbY_Y8NBeSzOI7G9-yvZ6AIL9l5Fbo3aoSA-CX4EbIo1EplZU67fS-mBKSIDvJq7dgLTJH-D_tF5YAXIoUSE_zd2ZY4g46swyKgS7l3MW2qekUwcR5EVrdXvIw6FMlxVykR033kOrNINFvqZAIe5RQKCHb9r8ZksRYmB6H3CECzJmktRNSQ-GqdnN_wqeD_x63jpbIdxZfwMYw2UQKJ_95wbv3zrSCICeKe8G0YnPG1M1b8JER2jxLvlPMMb6FrHUWE_kfhSs-E.A52VrGguQrM9FO3pYvLTVdiAp_8Iv3S4NsCH3GI9Ens&dib_tag=se&keywords=skinfood+black+sugar+mask+wash+off&qid=1753317023&sprefix=skinfood+black+sugar+mask+wash+off%2Caps%2C149&sr=8-1",
     "brand_name": "Skinfood",
     "product_name": "Black Sugar Mask Wash Off",
     "product_type": "Physical",
-    "price": 10.00,
+    "price": 13.00,
     "skin_types": ["Oily", "Combination", "Normal"],
     "skin_concerns": ["Blackheads", "Enlarged Pores", "Uneven Texture"],
     "key_actives": ["Black Sugar Granules", "Macadamia Seed Oil"],
     "usage_time": "Night"
   },
   {
-    "image_url": "",
+    "image_url": "https://media.ulta.com/i/ulta/2504914?w=1080&h=1080&fmt=auto",
+    "product_url": "https://www.ulta.com/p/bha-blackhead-power-liquid-treatment-xlsImpprod15641056?sku=2504914&cmpid=PS_Non!google!Product_Listing_Ads&utm_source=google&utm_medium=paidsearch&cagpspn=pla&CATCI=&CAAGID=&CAWELAID=&gad_source=1&gad_campaignid=21821954779&gbraid=0AAAAAD9rLH6sCiXussXggfsEDD26yTcjh&gclid=Cj0KCQjwkILEBhDeARIsAL--pjxUi11wLKgrZINd3uUN9FfJ1TxMKBjIi4Bau9VQEfLGnwToBY8WkPUaAnQCEALw_wcB",
     "brand_name": "Cosrx",
     "product_name": "BHA Blackhead Power Liquid",
     "product_type": "BHA",
@@ -57,7 +62,8 @@
     "usage_time": "Night"
   },
   {
-    "image_url": "",
+    "image_url": "https://www.sephora.com/productimages/sku/s1418581-main-zoom.jpg?imwidth=612",
+    "product_url": "https://www.sephora.com/product/good-genes-all-in-one-lactic-acid-treatment-P309308?country_switch=us&lang=en&skuId=1418581&om_mmc=ppc-GG_17798154149___1418581__9197929_c&country_switch=us&lang=en&gad_source=1&gad_campaignid=17790678136&gbraid=0AAAAADnIXb2GCpsd7PuoBfmDIS9xNV471&gclid=Cj0KCQjwkILEBhDeARIsAL--pjxcszpMHndxB6gka760BpeKCxUAfR7xC5mezm0RLib4jir29o-psUkaAmK4EALw_wcB&gclsrc=aw.ds",
     "brand_name": "Sunday Riley",
     "product_name": "Good Genes All-In-One Lactic Acid Treatment",
     "product_type": "AHA",
@@ -68,29 +74,32 @@
     "usage_time": "Both"
   },
   {
-    "image_url": "",
+    "image_url": "https://www.sephora.com/productimages/sku/s2468734-main-zoom.jpg?imwidth=612",
+    "product_url": "https://www.sephora.com/product/polished-rice-enzyme-powder-P426340?country_switch=us&lang=en&skuId=2468734&om_mmc=ppc-GG_17798154149___2468734__9197929_c&country_switch=us&lang=en&gad_source=1&gad_campaignid=17790678136&gbraid=0AAAAADnIXb1ojxX-GMYJ2CMzzgkDZCKhc&gclid=Cj0KCQjwkILEBhDeARIsAL--pjzGKlPdwdlelabw0h-n8WoCQdwgi_aaBaGC2TU_9QSnYSc2LZYTfPgaAgviEALw_wcB&gclsrc=aw.ds",
     "brand_name": "Tatcha",
     "product_name": "The Rice Polish: Classic",
-    "product_type": "Enzyme",
+    "product_type": "Powder Cleanser",
     "price": 68.00,
     "skin_types": ["Normal", "Dry", "Combination"],
-    "skin_concerns": ["Uneven Texture", "Dullness", "Fine Lines"],
+    "skin_concerns": ["Uneven Texture", "Dullness", "Enlarged Pores"],
     "key_actives": ["Rice Bran", "Silk Protein", "Hadasei-3"],
     "usage_time": "Both"
   },
   {
-    "image_url": "",
+    "image_url": "https://m.media-amazon.com/images/I/61zD-9GRJEL._SL1500_.jpg",
+    "product_url": "https://www.amazon.com/Acure-Brightening-Facial-Scrub-Pack/dp/B003Z4OD24/ref=sr_1_2?crid=FJCZRAME4XTT&dib=eyJ2IjoiMSJ9.YvkJSBvXoZQMKyGrst7WINsQHjTUyipyouCG-jr6aIdFWO78ch_-q9qfb88Y7v7sa8x1MlbU2uZZR-sB-gmx0n7X2RC1Yyrmz0j5v31qkOFR4oKhOV6nEX74K9DnfJU6vZu09pWHFtoCQqgdASX98o6nI_UBPTQIuiuyG6IBFE4-VlXNn76aW1zry5YKr5ZDcLy9FE6_Tf4bTWg5wKe42zGpCX70D3-vmPMsk21rlosWP_M18GbyZbSiDhUKFOxw5JUm2aUrnmVadct4Z4gMo1QfgdKDczzBaEl4eqJ3vjs.tX_IQM-_cLCRMlFU9tW7rpj_Bji6Z7rJntt1UYVOGtg&dib_tag=se&keywords=acure%2Bbrightening%2Bfacial%2Bscrub&qid=1753317246&sprefix=acure%2Bbrightening%2Bfacial%2Bscrub%2Caps%2C145&sr=8-2&th=1",
     "brand_name": "Acure",
     "product_name": "Brightening Facial Scrub",
     "product_type": "Physical",
-    "price": 9.99,
+    "price": 11.99,
     "skin_types": ["Normal", "Oily", "Combination"],
     "skin_concerns": ["Dullness", "Uneven Skin Tone"],
     "key_actives": ["Sea Kelp", "French Green Clay", "Walnut Shell Flour"],
     "usage_time": "Night"
   },
   {
-    "image_url": "",
+    "image_url": "https://www.sephora.com/productimages/sku/s1499474-main-zoom.jpg?imwidth=612",
+    "product_url": "https://www.sephora.com/product/alpha-beta-universal-daily-peel-P377533?country_switch=us&lang=en&skuId=1499474&om_mmc=ppc-GG_17791296883___1499474__9197929_c&country_switch=us&lang=en&gad_source=1&gad_campaignid=17798721803&gbraid=0AAAAADnIXb19yxaFO-YXd5Sxf_6muUh9E&gclid=Cj0KCQjwkILEBhDeARIsAL--pjzL7UUhOFJCy84DM--ZOPvE3eAntUstPnTgGjihvWfqmJhOP_y13twaAsRWEALw_wcB&gclsrc=aw.ds",
     "brand_name": "Dr. Dennis Gross",
     "product_name": "Alpha Beta Universal Daily Peel",
     "product_type": "AHA",
@@ -101,11 +110,12 @@
     "usage_time": "Both"
   },
   {
-    "image_url": "",
+    "image_url": "https://www.sephora.com/productimages/sku/s2211597-main-zoom.jpg?imwidth=612",
+    "product_url": "https://www.sephora.com/product/beta-hydroxy-acid-P442871?country_switch=us&lang=en&skuId=2211597&srsltid=AfmBOorxH7uvSB6GE1G9hpzgexbdsJ9tTc9sU_66x2SNpRm34_a_aXUb0jQ",
     "brand_name": "The INKEY List",
     "product_name": "Beta Hydroxy Acid (BHA) Serum",
     "product_type": "BHA",
-    "price": 12.99,
+    "price": 11.00,
     "skin_types": ["Oily", "Combination"],
     "skin_concerns": ["Acne", "Blackheads", "Enlarged Pores", "Oily Skin"],
     "key_actives": ["Salicylic Acid (2%)", "Zinc Salt", "Hyaluronic Acid"],
@@ -113,6 +123,7 @@
   },
   {
     "image_url": "",
+    "product_url": "",
     "brand_name": "Wishful",
     "product_name": "Yo Glow AHA & BHA Facial Enzyme Scrub",
     "product_type": "Enzyme",
@@ -124,6 +135,7 @@
   },
   {
     "image_url": "",
+    "product_url": "",
     "brand_name": "Fresh",
     "product_name": "Sugar Face Polish Exfoliator",
     "product_type": "Physical",
@@ -135,6 +147,7 @@
   },
   {
     "image_url": "",
+    "product_url": "",
     "brand_name": "KraveBeauty",
     "product_name": "Kale-Lalu-yAHA",
     "product_type": "AHA",
@@ -146,6 +159,7 @@
   },
   {
     "image_url": "",
+    "product_url": "",
     "brand_name": "Farmacy",
     "product_name": "Deep Sweep 2% BHA Pore Cleaning Toner",
     "product_type": "BHA",
@@ -157,6 +171,7 @@
   },
   {
     "image_url": "",
+    "product_url": "",
     "brand_name": "Peter Thomas Roth",
     "product_name": "Pumpkin Enzyme Mask Enzymatic Dermal Resurfacer",
     "product_type": "Enzyme",
@@ -168,6 +183,7 @@
   },
   {
     "image_url": "",
+    "product_url": "",
     "brand_name": "Kate Somerville",
     "product_name": "ExfoliKate Intensive Exfoliating Treatment",
     "product_type": "Physical",
@@ -179,6 +195,7 @@
   },
   {
     "image_url": "",
+    "product_url": "",
     "brand_name": "Drunk Elephant",
     "product_name": "T.L.C. Framboos Glycolic Night Serum",
     "product_type": "AHA",
@@ -190,6 +207,7 @@
   },
   {
     "image_url": "",
+    "product_url": "",
     "brand_name": "Peach & Lily",
     "product_name": "The Good Acids Pore Toner",
     "product_type": "BHA",
@@ -201,6 +219,7 @@
   },
   {
     "image_url": "",
+    "product_url": "",
     "brand_name": "AmoréPacific",
     "product_name": "Treatment Enzyme Peel Cleansing Powder",
     "product_type": "Enzyme",
@@ -212,6 +231,7 @@
   },
   {
     "image_url": "",
+    "product_url": "",
     "brand_name": "Kiehl's",
     "product_name": "Epidermal Re-Texturizing Micro-Dermabrasion",
     "product_type": "Physical",
@@ -223,6 +243,7 @@
   },
   {
     "image_url": "",
+    "product_url": "",
     "brand_name": "Glow Recipe",
     "product_name": "Watermelon Glow PHA + BHA Pore-Tight Toner",
     "product_type": "BHA",
@@ -234,6 +255,7 @@
   },
   {
     "image_url": "",
+    "product_url": "",
     "brand_name": "Isntree",
     "product_name": "Chestnut AHA 8% Clear Essence",
     "product_type": "AHA",
@@ -245,6 +267,7 @@
   },
   {
     "image_url": "",
+    "product_url": "",
     "brand_name": "Biossance",
     "product_name": "Squalane + Glycolic Renewal Mask",
     "product_type": "AHA",
@@ -256,6 +279,7 @@
   },
   {
     "image_url": "",
+    "product_url": "",
     "brand_name": "Cure",
     "product_name": "Natural Aqua Gel",
     "product_type": "Enzyme",
@@ -267,6 +291,7 @@
   },
   {
     "image_url": "",
+    "product_url": "",
     "brand_name": "Medik8",
     "product_name": "Pore Minimising Tonic",
     "product_type": "BHA",
@@ -278,6 +303,7 @@
   },
   {
     "image_url": "",
+    "product_url": "",
     "brand_name": "The Ordinary",
     "product_name": "Lactic Acid 10% + HA",
     "product_type": "AHA",
@@ -289,6 +315,7 @@
   },
   {
     "image_url": "",
+    "product_url": "",
     "brand_name": "Dermalogica",
     "product_name": "Rapid Reveal Peel",
     "product_type": "AHA",
@@ -300,6 +327,7 @@
   },
   {
     "image_url": "",
+    "product_url": "",
     "brand_name": "St. Ives",
     "product_name": "Fresh Skin Apricot Scrub",
     "product_type": "Physical",
@@ -311,6 +339,7 @@
   },
   {
     "image_url": "",
+    "product_url": "",
     "brand_name": "CeraVe",
     "product_name": "Acne Control Gel",
     "product_type": "BHA",
@@ -322,6 +351,7 @@
   },
   {
     "image_url": "",
+    "product_url": "",
     "brand_name": "Boscia",
     "product_name": "Exfoliating Peel Gel",
     "product_type": "Enzyme",

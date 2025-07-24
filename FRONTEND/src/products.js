@@ -5,15 +5,22 @@ import gsap from "gsap";
     // GSAP animations or any other scripts
     gsap.registerPlugin();
     
-    // PAGE ELEMENTS
-    const stepScroll = document.getElementById('step-scroll');
+    // BUTTONS
     const menuButton = document.getElementById('menu-button');
+    const backButton = document.getElementById('back-button');
+    const fsSection = document.getElementById('filter-sort-section');
+
+    // PAGE ELEMENTS
+    const landingBottle = document.querySelector('#landing-bottle');
+    const landingTitle = document.getElementById('landing-title');
+
+    // CONTENT AREA
+    const mainContent = document.getElementById('main-content');
+    const stepScroll = document.getElementById('step-scroll');
+    const stepFilter = document.getElementById('step-filter');
     const productGrid = document.getElementById('product-grid');
     const plpSection = document.getElementById('plp-section');
     const pdpSection = document.getElementById('pdp-section');
-
-    const landingBottle = document.querySelector('#landing-bottle')
-    const landingTitle = document.getElementById('landing-title')
 
     // SORT MENU
     const sortContainer = document.getElementById('sort-menu-container');
@@ -22,16 +29,18 @@ import gsap from "gsap";
     const sortIcon = document.getElementById('sort-menu-icon');
     const selectedOptionSpan = document.getElementById('selected-sort-option');
     const sortOptions = sortPanel.querySelectorAll('a');
-    const filterButton = document.getElementById('filter-button');
-
+    
     // FILTER SIDEBAR
     const openFilter = document.getElementById('open-filter-button');
     const closeFilter = document.getElementById('close-filter-button');
     const sidebar = document.getElementById('filter-sidebar');
     const backdrop = document.getElementById('filter-backdrop');
+    const activeFilters = document.getElementById('active-filters-container');
      
 
     // VARIABLES
+    let lastScrollY = window.scrollY;
+    let lastScrollPosition = 0;
     let currentStep = '';
     let isDragging = false;
     let startX;
@@ -40,7 +49,7 @@ import gsap from "gsap";
     let currentSortOption = 'best-match';
     let currentProducts = [];
     let allProducts = [];
-    let activeFilters = {
+    let filters = {
         skin_types: [],
         skin_concerns: [],
         brand_name: []
@@ -62,9 +71,9 @@ import gsap from "gsap";
     // PLP
     function createProductCard(product) {
         return `
-            <div class="product-card group relative flex flex-col w-auto h-auto overflow-hidden rounded-3xl border border-gray-300 bg-white cursor-pointer" data-product-name="${product.product_name}">
+            <div class="product-card group relative flex flex-col w-auto h-auto overflow-hidden rounded-3xl border border-gray-100 bg-white shadow-lg cursor-pointer" data-product-name="${product.product_name}">
                 <div class="aspect-h-4 aspect-w-3 bg-gray-200 sm:aspect-none h-40">
-                    <img src="${product.image_url}" alt="${product.brand_name} ${product.product_name}" class="h-full w-full object-cover object-center">
+                    <img src="${product.image_url}" alt="${product.brand_name} ${product.product_name}" class="h-full w-full object-contain object-center bg-white">
                 </div>
 
                 <div class="flex flex-1 flex-col space-y-1 p-2 sm:p-4">
@@ -72,22 +81,46 @@ import gsap from "gsap";
                     <h3 class="text-sm sm:text-base font-medium text-gray-900">${product.product_name}</h3>
                     <p class="text-xs sm:text-sm font-medium text-gray-500">${product.product_type}</p>
                     
-                    <div class="flex flex-1 items-center justify-between pt-2">
-                        <p class="text-sm sm:text-lg font-semibold text-gray-900">$${product.price.toFixed(2)}</p>
-                        
-                        <button 
-                            type="button" 
-                            class="add-to-routine-btn rounded-full bg-indigo-600 p-2 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 cursor-pointer"
-                            data-product-name="${product.product_name}"
-                        >
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"><path fill="currentColor" d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
-                        </button>
+                    <div class="flex flex-1 items-end justify-center">
+                        <div class="flex flex-1 items-center justify-between py-2">
+                            <p class="text-sm sm:text-lg font-semibold text-gray-900">$${product.price.toFixed(2)}</p>
+                            
+                            <button 
+                                type="button" 
+                                class="add-to-routine-btn rounded-full bg-[#7D32FF] p-2 px-3 text-white shadow-sm hover:bg-[#6524D5] focus-visible:outline-offset-2 cursor-pointer"
+                                data-product-name="${product.product_name}"
+                            >
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"><path fill="currentColor" d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
         `;
     }
 
+    async function displayProducts(step) {
+        if (!productGrid) return;
+        
+        currentSortOption = 'best-match';
+        selectedOptionSpan.textContent = 'Sort by: Best Match';
+
+        const filePath = `/products-list/${step}.json`;
+        productGrid.innerHTML = `<p class="text-center text-gray-500">Loading products...</p>`;
+        currentStep = step;
+
+        try {
+            const response = await fetch(filePath);
+            const data = await response.json();
+            allProducts = data[step] || data;
+            filterAndSortProducts(); 
+        } catch (error) {
+            console.error("Error displaying products:", error);
+            document.getElementById('product-grid').innerHTML = '<p>Could not load products.</p>';
+        }
+    }
+
+    // Click event for product cards
     function setupProductCardActions() {
         const productGrid = document.getElementById('product-grid');
         productGrid.addEventListener('click', (event) => {
@@ -106,45 +139,38 @@ import gsap from "gsap";
         });
     }
 
-    async function displayProducts(step) {
-        if (!productGrid) return;
-        
-        // Reset filters and grid when changing steps
-        currentSortOption = 'best-match';
-        selectedOptionSpan.textContent = 'Sort by: Best Match';
-
-        const filePath = `/products-list/${step}.json`;
-        productGrid.innerHTML = `<p class="text-center text-gray-500">Loading products...</p>`;
-        currentStep = step;
-
-        try {
-            const response = await fetch(filePath);
-            const data = await response.json();
-            allProducts = data[step] || data; // Handles both object and array-based JSON
-            renderProductGrid(allProducts);
-        } catch (error) {
-            console.error("Error displaying products:", error);
-            document.getElementById('product-grid').innerHTML = '<p>Could not load products.</p>';
-        }
-    }
-
     function showPLP() {
         pdpSection.classList.add('hidden');
         plpSection.classList.remove('hidden');
+        window.scrollTo(0, lastScrollPosition);
     }
     
 
 
     // PDP
     function showPDP(product) {
+        lastScrollPosition = window.scrollY;
         renderPDP(product);
         plpSection.classList.add('hidden');
         pdpSection.classList.remove('hidden');
         window.scrollTo(0, 0);
     }
 
+    const skinTypeColors = {
+        "Normal": "bg-green-100 text-green-800",
+        "Oily": "bg-blue-100 text-blue-800",
+        "Dry": "bg-orange-100 text-orange-800",
+        "Combination": "bg-purple-100 text-purple-800",
+        "Sensitive": "bg-pink-100 text-pink-800",
+    };
+
     function renderPDP(product) {
-        document.getElementById('pdp-image').src = product.image_url;
+        const imageLink = document.getElementById('pdp-image-link');
+        const image = document.getElementById('pdp-image');
+
+        image.src = product.image_url;
+        imageLink.href = product.product_url || '#';
+        
         document.getElementById('pdp-brand').textContent = product.brand_name;
         document.getElementById('pdp-name').textContent = product.product_name;
         document.getElementById('pdp-type').textContent = product.product_type;
@@ -157,45 +183,134 @@ import gsap from "gsap";
         }).join('');
 
         const skinConcernsContainer = document.getElementById('pdp-skin-concerns');
-        skinConcernsContainer.innerHTML = (product.skin_concerns || []).map(concern => `<span class="text-sm font-medium bg-gray-100 text-gray-800 px-3 py-1 rounded-full">${concern}</span>`).join('');
+        skinConcernsContainer.innerHTML = (product.skin_concerns || []).map(concern => `
+            <div class="flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5 text-green-500 mr-2 flex-shrink-0">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                </svg>
+                <span class="text-gray-700 text-sm">${concern}</span>
+            </div>
+        `).join('');
         
         const keyActivesContainer = document.getElementById('pdp-key-actives');
-        keyActivesContainer.innerHTML = (product.key_actives || []).map(active => `<div class="bg-gray-100 p-3 rounded-lg"><p class="font-medium text-gray-800">${active}</p></div>`).join('');
+        keyActivesContainer.innerHTML = (product.key_actives || []).map(active => `<div class="p-2 rounded-lg"><p class="text-gray-800">${active}</p></div>`).join('');
 
-        const morningIcon = document.querySelector('#usage-time-morning .text-3xl');
-        const morningRec = document.querySelector('#usage-time-morning .text-sm');
-        const nightIcon = document.querySelector('#usage-time-night .text-3xl');
-        const nightRec = document.querySelector('#usage-time-night .text-sm');
+        const usageContainer = document.getElementById('pdp-usage-time');
+            let usageHTML = '';
+            let usageClasses = 'flex items-center justify-center p-4 rounded-lg border';
 
-        morningIcon.textContent = '☀️';
-        nightIcon.textContent = '🌙';
+            const morningHTML = `
+                <div class="flex items-center gap-2">
+                    <span class="text-lg">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24">
+                            <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 12a4 4 0 1 0 8 0a4 4 0 1 0-8 0m-5 0h1m8-9v1m8 8h1m-9 8v1M5.6 5.6l.7.7m12.1-.7l-.7.7m0 11.4l.7.7m-12.1-.7l-.7.7" />
+                        </svg>
+                    </span>
+                    <span class="font-medium">Morning</span>
+                </div>`;
+            const nightHTML = `
+                <div class="flex items-center gap-2">
+                    <span class="text-lg">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                            <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 3h.393a7.5 7.5 0 0 0 7.92 12.446A9 9 0 1 1 12 2.992z" />
+                        </svg>
+                    </span>
+                    <span class="font-medium">Night</span>
+                </div>`;
+            const divider = `<div class="h-6 w-px bg-gray-300 mx-4"></div>`;
 
-        if (product.usage_time === 'Both') {
-            morningRec.textContent = 'Recommended'; morningRec.className = 'text-sm text-green-600 font-semibold';
-            nightRec.textContent = 'Recommended'; nightRec.className = 'text-sm text-green-600 font-semibold';
-        } else if (product.usage_time === 'Morning') {
-            morningRec.textContent = 'Recommended'; morningRec.className = 'text-sm text-green-600 font-semibold';
-            nightRec.textContent = 'Not Recommended'; nightRec.className = 'text-sm text-gray-400';
-        } else if (product.usage_time === 'Night') {
-            morningRec.textContent = 'Not Recommended'; nightRec.className = 'text-sm text-gray-400';
-            nightRec.textContent = 'Recommended'; nightRec.className = 'text-sm text-green-600 font-semibold';
-        }
+            if (product.usage_time === 'Both') {
+                usageHTML = `${morningHTML}${divider}${nightHTML}`;
+                usageClasses += ' bg-gradient-to-r from-yellow-100 to-blue-100 border-gray-200';
+            } else if (product.usage_time === 'Morning') {
+                usageHTML = morningHTML;
+                usageClasses += ' bg-yellow-100 border-yellow-200';
+            } else if (product.usage_time === 'Night') {
+                usageHTML = nightHTML;
+                usageClasses += ' bg-blue-100 border-blue-200';
+            }
+            
+            usageContainer.innerHTML = usageHTML;
+            usageContainer.className = usageClasses;
+
+            const morningBtn = document.getElementById('select-morning-btn');
+            const nightBtn = document.getElementById('select-night-btn');
+
+            // 1. Reset both buttons to their default enabled state
+            morningBtn.disabled = false;
+            nightBtn.disabled = false;
+            
+            // 2. Disable buttons based on usage_time
+            if (product.usage_time === 'Morning') {
+                nightBtn.disabled = true;
+            } else if (product.usage_time === 'Night') {
+                morningBtn.disabled = true;
+            }
     }
 
-    const skinTypeColors = {
-        "Normal": "bg-green-100 text-green-800",
-        "Oily": "bg-blue-100 text-blue-800",
-        "Dry": "bg-orange-100 text-orange-800",
-        "Combination": "bg-purple-100 text-purple-800",
-        "Sensitive": "bg-pink-100 text-pink-800",
-        "All Skin Types": "bg-gray-200 text-gray-800",
-        "default": "bg-gray-100 text-gray-800"
-    };
-
     function setupPDPActions() {
+        const morningBtn = document.getElementById('select-morning-btn');
+        const nightBtn = document.getElementById('select-night-btn');
         const addBtn = document.getElementById('add-to-routine-btn');
+        const addBtnText = document.getElementById('add-to-routine-btn-text');
+        const errorMsg = document.getElementById('cta-error-msg');
+
+        let selectedRoutines = []; // Use an array for multi-select
+
+        function updateButtonState() {
+            // Update Morning Button
+            if (selectedRoutines.includes('Morning')) {
+                morningBtn.classList.add('active');
+            } else {
+                morningBtn.classList.remove('active');
+            }
+
+            // Update Night Button
+            if (selectedRoutines.includes('Night')) {
+                nightBtn.classList.add('active');
+            } else {
+                nightBtn.classList.remove('active');
+            }
+
+            // Update Main "Add to Routine" Button Text
+            if (selectedRoutines.length === 0) {
+                addBtnText.textContent = 'Add to Routine';
+            } else if (selectedRoutines.length === 2) {
+                addBtnText.textContent = 'Add to Morning & Night';
+            } else {
+                addBtnText.textContent = `Add to ${selectedRoutines[0]}`;
+            }
+        }
+
+        morningBtn.addEventListener('click', () => {
+            if (selectedRoutines.includes('Morning')) {
+                selectedRoutines = selectedRoutines.filter(r => r !== 'Morning');
+            } else {
+                selectedRoutines.push('Morning');
+            }
+            updateButtonState();
+        });
+
+        nightBtn.addEventListener('click', () => {
+            if (selectedRoutines.includes('Night')) {
+                selectedRoutines = selectedRoutines.filter(r => r !== 'Night');
+            } else {
+                selectedRoutines.push('Night');
+            }
+            updateButtonState();
+        });
+        
         addBtn.addEventListener('click', () => {
-        console.log('Add to routine clicked!');
+            if (selectedRoutines.length === 0) {
+                errorMsg.textContent = 'Please select a routine first.';
+                setTimeout(() => { errorMsg.textContent = ''; }, 3000);
+            } else {
+                errorMsg.textContent = '';
+                console.log(`Product added to: ${selectedRoutines.join(', ')} Routine(s)`);
+                // Reset selection after adding
+                selectedRoutines = [];
+                updateButtonState();
+            }
         });
     }
 
@@ -231,21 +346,26 @@ import gsap from "gsap";
 
 
 
-    // STEP BUTTONS
+    // STEP SCROLL
     function setupStepFilters() {
         const filterContainer = document.getElementById('step-filter');
-        if (!filterContainer) return;
+        if (!filterContainer || !stepScroll) return;
 
         filterContainer.addEventListener('click', (event) => {
             if (event.target.matches('.step-button')) {
-                const step = event.target.dataset.step;
-
-                console.log('Button clicked! Step:', step);
+                const button = event.target;
+                const step = button.dataset.step;
 
                 const allButtons = filterContainer.querySelectorAll('.step-button');
                 allButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
 
-                event.target.classList.add('active');
+                const scrollTarget = button.offsetLeft - 20;
+
+                stepScroll.scrollTo({
+                    left: scrollTarget,
+                    behavior: 'smooth'
+                });
 
                 displayProducts(step);
             }
@@ -255,14 +375,25 @@ import gsap from "gsap";
 
 
 
-    // SORT OPTIONS
+    // FILTER and SORT
+    window.addEventListener('scroll', () => {
+        if (lastScrollY < window.scrollY && window.scrollY > 150) {
+            fsSection.classList.add('-translate-y-full');
+        } else {
+            fsSection.classList.remove('-translate-y-full');
+        }
+
+        lastScrollY = window.scrollY;
+    })
+
+
+
+    // SORT BY
     function renderProductGrid(products) {
         const productGrid = document.getElementById('product-grid');
         if (!productGrid) return;
         productGrid.innerHTML = products.map(p => createProductCard(p)).join('');
     }
-
-
 
     function setupSortMenu() {
         if (!sortButton || !sortPanel || !selectedOptionSpan || !sortIcon) {
@@ -304,25 +435,24 @@ import gsap from "gsap";
         });
     }
 
-
     function filterAndSortProducts() {
         // Start with the full list of products for the current step.
         let processedProducts = [...allProducts];
 
         // --- 1. APPLY FILTERS FIRST ---
-        if (activeFilters.skin_types.length > 0) {
+        if (filters.skin_types.length > 0) {
             processedProducts = processedProducts.filter(p => 
-                activeFilters.skin_types.some(type => p.skin_types.includes(type))
+                filters.skin_types.some(type => p.skin_types.includes(type))
             );
         }
-        if (activeFilters.skin_concerns.length > 0) {
+        if (filters.skin_concerns.length > 0) {
             processedProducts = processedProducts.filter(p =>
-                activeFilters.skin_concerns.some(type => p.skin_concerns.includes(type))
+                filters.skin_concerns.some(type => p.skin_concerns.includes(type))
             );
         }
-        if (activeFilters.brand_name.length > 0) {
+        if (filters.brand_name.length > 0) {
             processedProducts = processedProducts.filter(p => 
-                activeFilters.brand_name.includes(p.brand_name)
+                filters.brand_name.includes(p.brand_name)
             );
         }
         // (Add other filters like skin_concerns here)
@@ -343,12 +473,17 @@ import gsap from "gsap";
         
         // --- 3. RENDER THE FINAL RESULT ---
         renderProductGrid(processedProducts);
+        renderActiveFilterPills();
     }
 
 
 
     // FILTER SIDEBAR
     function openSidebar() {
+        const filterTop = fsSection.getBoundingClientRect();
+
+        sidebar.style.top = `${filterTop.top}px`;
+
         sidebar.classList.remove('-translate-x-full');
         backdrop.classList.remove('hidden');
         openFilter.classList.add('opacity-0');
@@ -366,24 +501,19 @@ import gsap from "gsap";
         const brandsContainer = document.getElementById('brands-list');
         if (!brandsContainer) return;
 
-        // Set the initial loading message
         brandsContainer.innerHTML = '<p class="text-sm text-gray-400">Loading brands...</p>';
 
-        // You can add or remove steps here as you clean up your JSON files
         const steps = ['cleanser', 'exfoliator', 'toner', 'serum', 'eye-cream', 'spot-treatment', 'moisturizer', 'face-oil', 'sunscreen', 'sleeping-mask'];
 
         try {
-            // Create a fetch promise for each step
             const fetchPromises = steps.map(step =>
                 fetch(`/products-list/${step}.json`).then(res => res.json())
             );
 
-            // Wait for all fetch requests to complete
             const results = await Promise.all(fetchPromises);
 
             let allProductsForFilters = [];
 
-            // Combine all products from all files into one big array
             results.forEach((data, index) => {
                 const stepName = steps[index];
                 // Access the array inside the object (e.g., data['cleanser'])
@@ -392,14 +522,34 @@ import gsap from "gsap";
                 }
             });
 
-            // THIS IS THE MISSING STEP:
-            // Now, call the function to populate the sidebar with the combined product list.
             populateBrandFilters(allProductsForFilters);
 
         } catch (error) {
             console.error("Could not initialize filters:", error);
             brandsContainer.innerHTML = '<p class="text-xs text-red-500">Error loading brands.</p>';
         }
+    }
+
+    function renderActiveFilterPills() {
+        if (!activeFilters) return;
+
+        let pillsHTML = '';
+
+        for (const category in filters) {
+            filters[category].forEach(value => {
+                pillsHTML += `
+                    <span class="inline-flex items-center gap-x-1.5 rounded-full bg-[#7D32FF20] px-2 py-1 text-sm font-medium text-[#7D32FF]">
+                        ${value}
+                        <button type="button" class="remove-filter-btn group relative -mr-1 h-3.5 w-3.5 rounded-sm hover:bg-indigo-600/20" data-category="${category}" data-value="${value}">
+                            <svg viewBox="0 0 14 14" class="h-3.5 w-3.5 stroke-indigo-600/50 group-hover:stroke-indigo-600/75">
+                                <path d="M4 4l6 6m0-6l-6 6" />
+                            </svg>
+                        </button>
+                    </span>
+                `;
+            });
+        }
+        activeFilters.innerHTML = pillsHTML;
     }
 
     // FILTER: Brands
@@ -409,7 +559,6 @@ import gsap from "gsap";
 
         const brandCounts = {};
 
-        // Count occurrences of each brand
         products.forEach(product => {
             const brand = product.brand_name;
             if (brand) {
@@ -418,14 +567,13 @@ import gsap from "gsap";
         });
 
         let brandsHTML = '';
-        // Sort brands alphabetically for a clean list
         Object.keys(brandCounts).sort().forEach(brand => {
             const count = brandCounts[brand];
             const brandId = `filter-brand-${brand.toLowerCase().replace(/\s+/g, '-')}`;
             brandsHTML += `
                 <div class="flex items-center justify-between">
                     <div class="flex items-center">
-                        <input id="${brandId}" type="checkbox" data-category="brand_name" data-value="${brand}" class="h-4 w-4 rounded border-gray-300 accent-[#764C7E] cursor-pointer">
+                        <input id="${brandId}" type="checkbox" data-category="brand_name" data-value="${brand}" class="h-4 w-4 rounded border-gray-300 accent-[#7D32FF] cursor-pointer">
                         <label for="${brandId}" class="ml-3 text-sm text-gray-600 cursor-pointer">${brand}</label>
                     </div>
                     <span class="text-xs text-gray-500">${count}</span>
@@ -436,7 +584,23 @@ import gsap from "gsap";
         brandsContainer.innerHTML = brandsHTML;
     }
 
+    function setupMobileSidebarToggle() {
+            const openBtn = document.getElementById('open-filter-button');
+            const closeBtn = document.getElementById('close-filter-button');
+            const sidebar = document.getElementById('filter-sidebar');
 
+            if (!openBtn || !closeBtn || !sidebar) return;
+
+            openBtn.addEventListener('click', () => {
+                sidebar.classList.remove('-translate-x-full');
+                // This is the fix: reset scroll position to the top every time it's opened.
+                sidebar.scrollTop = 0;
+            });
+
+            closeBtn.addEventListener('click', () => {
+                sidebar.classList.add('-translate-x-full');
+            });
+        }
 
     function setupFilterSidebar() {
         if (!sidebar) return;
@@ -448,12 +612,35 @@ import gsap from "gsap";
                 if (!category || !value) return;
 
                 if (event.target.checked) {
-                    activeFilters[category].push(value);
+                    filters[category].push(value);
                 } else {
-                    activeFilters[category] = activeFilters[category].filter(item => item !== value);
+                    filters[category] = filters[category].filter(item => item !== value);
                 }
 
-                // Call the master function to re-render the grid
+                filterAndSortProducts();
+            }
+        });
+    }
+
+    function setupActivePillActions() {
+        if (!activeFilters) return;
+
+        activeFilters.addEventListener('click', (event) => {
+            const removeBtn = event.target.closest('.remove-filter-btn');
+            if (removeBtn) {
+                const category = removeBtn.dataset.category;
+                const value = removeBtn.dataset.value;
+
+                // 1. Remove the filter from our state
+                filters[category] = filters[category].filter(item => item !== value);
+
+                // 2. Find and uncheck the corresponding checkbox in the sidebar
+                const checkboxToUncheck = document.querySelector(`input[data-category="${category}"][data-value="${value}"]`);
+                if (checkboxToUncheck) {
+                    checkboxToUncheck.checked = false;
+                }
+
+                // 3. Re-run the master function to update everything
                 filterAndSortProducts();
             }
         });
@@ -471,22 +658,26 @@ document.addEventListener('DOMContentLoaded', () => {
     setupSortMenu();
     setupStepFilters();
     setupFilterSidebar();
+    setupActivePillActions();
     setupProductCardActions();
     setupPDPActions();
+    setupMobileSidebarToggle();
+    backButton.addEventListener('click', showPLP);
 
     initializeFilters();
 
-    displayProducts('cleanser');
+    
     const defaultButton = document.querySelector('button[data-step="cleanser"]');
     if (defaultButton) {
         defaultButton.classList.add('active');
     }
 
-    gsap.delayedCall(0.5, introAnimation);
+    displayProducts('cleanser');
 
+    gsap.delayedCall(0.5, introAnimation);
 
     renderPDP(productData);
 
     
+    
 });
-
