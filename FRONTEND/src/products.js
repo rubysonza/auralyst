@@ -12,9 +12,9 @@ import gsap from "gsap";
 
     // PAGE ELEMENTS
     const landingBottle = document.querySelector('#landing-bottle');
-    const landingTitle = document.getElementById('landing-title');
+    const headerTitle = document.getElementById('header-title');
 
-    // CONTENT AREA
+    // MAIN CONTENT
     const mainContent = document.getElementById('main-content');
     const stepScroll = document.getElementById('step-scroll');
     const stepFilter = document.getElementById('step-filter');
@@ -57,14 +57,14 @@ import gsap from "gsap";
 
 
     // INTRO ANIMATION
-    gsap.set([landingTitle, plpSection], { autoAlpha: 1 });
+    gsap.set([headerTitle, plpSection], { autoAlpha: 1 });
     // gsap.set(landingBottle, { y: '35vh', autoAlpha: 1 });
 
     // function introAnimation () {
     //     const tl = gsap.timeline();
 
     //     tl.to(landingBottle, { y: '-50vh', autoAlpha: 0, scale: 0.5, duration: 1.0, ease: 'power2.inOut' })
-    //       .to([landingTitle, plpSection], { autoAlpha: 1, duration: 0.8, ease: 'power2.out'}, '>')
+    //       .to([headerTitle, plpSection], { autoAlpha: 1, duration: 0.8, ease: 'power2.out'}, '>')
     // }
 
 
@@ -77,20 +77,20 @@ import gsap from "gsap";
                 </div>
 
                 <div class="flex flex-1 flex-col space-y-1 p-2 sm:p-4">
-                    <p class="text-xs sm:text-sm font-bold text-gray-900">${product.brand_name}</p>
-                    <h3 class="text-sm sm:text-base font-medium text-gray-900">${product.product_name}</h3>
-                    <p class="text-xs sm:text-sm font-medium text-gray-500">${product.product_type}</p>
+                    <p class="text-sm font-bold text-gray-900">${product.brand_name}</p>
+                    <h3 class="text-base font-medium text-gray-900">${product.product_name}</h3>
+                    <p class="text-sm font-medium text-gray-500">${product.product_type}</p>
                     
                     <div class="flex flex-1 items-end justify-center">
                         <div class="flex flex-1 items-center justify-between py-2">
-                            <p class="text-sm sm:text-lg font-semibold text-gray-900">$${product.price.toFixed(2)}</p>
+                            <p class="text-lg font-semibold text-gray-900">$${product.price.toFixed(2)}</p>
                             
                             <button 
                                 type="button" 
                                 class="add-to-routine-btn rounded-full bg-[#7D32FF] p-2 px-3 text-white shadow-sm hover:bg-[#6524D5] focus-visible:outline-offset-2 cursor-pointer"
                                 data-product-name="${product.product_name}"
                             >
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"><path fill="currentColor" d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"><path fill="currentColor" d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
                             </button>
                         </div>
                     </div>
@@ -197,11 +197,11 @@ import gsap from "gsap";
 
         const usageContainer = document.getElementById('pdp-usage-time');
             let usageHTML = '';
-            let usageClasses = 'flex items-center justify-center p-4 rounded-lg border';
+            let usageClasses = 'flex items-center justify-evenly p-4 rounded-lg border';
 
             const morningHTML = `
-                <div class="flex items-center gap-2">
-                    <span class="text-lg">
+                <div class="flex items-center gap-2 text-[#575000]">
+                    <span class="text-lg ">
                         <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24">
                             <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 12a4 4 0 1 0 8 0a4 4 0 1 0-8 0m-5 0h1m8-9v1m8 8h1m-9 8v1M5.6 5.6l.7.7m12.1-.7l-.7.7m0 11.4l.7.7m-12.1-.7l-.7.7" />
                         </svg>
@@ -209,7 +209,7 @@ import gsap from "gsap";
                     <span class="font-medium">Morning</span>
                 </div>`;
             const nightHTML = `
-                <div class="flex items-center gap-2">
+                <div class="flex items-center gap-2 text-[#002557]">
                     <span class="text-lg">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                             <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 3h.393a7.5 7.5 0 0 0 7.92 12.446A9 9 0 1 1 12 2.992z" />
@@ -221,7 +221,7 @@ import gsap from "gsap";
 
             if (product.usage_time === 'Both') {
                 usageHTML = `${morningHTML}${divider}${nightHTML}`;
-                usageClasses += ' bg-gradient-to-r from-yellow-100 to-blue-100 border-gray-200';
+                usageClasses += ' bg-gradient-to-r from-yellow-200 to-blue-200 border-gray-200';
             } else if (product.usage_time === 'Morning') {
                 usageHTML = morningHTML;
                 usageClasses += ' bg-yellow-100 border-yellow-200';
@@ -651,6 +651,52 @@ import gsap from "gsap";
     backdrop.addEventListener('click', closeSidebar);
 
 
+    // HEART ICON
+    function setupFavoriteButton() {
+        const favButton = document.getElementById('pdp-favorite-btn');
+        const heartUnfilled = document.getElementById('heart-icon-unfilled');
+        const heartFilled = document.getElementById('heart-icon-filled');
+
+        if (!favButton || !heartUnfilled || !heartFilled) return;
+
+        let isFavorited = false; // Initial state
+
+        favButton.addEventListener('click', () => {
+            isFavorited = !isFavorited; // Toggle the state
+
+            if (isFavorited) {
+                heartUnfilled.classList.add('hidden');
+                heartFilled.classList.remove('hidden');
+                showToast('Product saved to favorites');
+            } else {
+                heartFilled.classList.add('hidden');
+                heartUnfilled.classList.remove('hidden');
+                showToast('Product removed from favorites');
+            }
+        });
+    }
+
+    // NEW: Helper function to show and hide the toast notification
+    let toastTimeout;
+    function showToast(message) {
+        const toast = document.getElementById('favorite-toast');
+        if (!toast) return;
+
+        // Clear any existing timeout to prevent glitches
+        clearTimeout(toastTimeout);
+
+        toast.textContent = message;
+        toast.classList.remove('hidden', 'toast-exit-active');
+        toast.classList.add('toast-enter-active');
+
+        // Set a timeout to hide the toast after 3 seconds
+        toastTimeout = setTimeout(() => {
+            toast.classList.remove('toast-enter-active');
+            toast.classList.add('toast-exit-active');
+            // Optional: fully hide after animation
+            setTimeout(() => toast.classList.add('hidden'), 300);
+        }, 3000);
+    }
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -662,6 +708,7 @@ document.addEventListener('DOMContentLoaded', () => {
     setupProductCardActions();
     setupPDPActions();
     setupMobileSidebarToggle();
+    setupFavoriteButton();
     backButton.addEventListener('click', showPLP);
 
     initializeFilters();

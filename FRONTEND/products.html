@@ -12,7 +12,7 @@
     <title>Auralyst</title>
 </head>
 
-<body>
+<body class="bg-gray-50 overflow-y-auto no-scrollbar">
 
     <!-- BOTTLE -->
     <div class="z-0 relative grid place-items-center w-full h-full">
@@ -20,12 +20,12 @@
     </div>
 
     <!-- HEADER -->
-    <div class="z-20 relative flex flex-row justify-between items-center w-full h-30 top-0 left-0 pt-10 px-10 text-black">
+    <div class="z-20 relative flex flex-row justify-between items-center w-full h-30 top-0 left-0 pt-10 px-10 text-gray-800">
         <button id="back-button" class="cursor-pointer">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" strok-linejoin="round" stroke-width="0.5"><path fill="currentColor" d="M7.397 2.21A.726.726 0 0 1 8.41 2.2a.69.69 0 0 1 .012.99L2.373 9.243l16.931.105a.7.7 0 0 1-.008 1.4l-16.809-.104l6.303 6.16a.69.69 0 0 1 .076.903l-.075.087a.727.727 0 0 1-1.012 0L.21 10.4a.69.69 0 0 1-.005-.985Z"/></g></svg>
         </button>
 
-        <h1 id="landing-title" class="opacity-0 z-10 text-black font-bold text-3xl md:text-4xl lg:text-[42px]">Products</h1>
+        <h1 id="header-title" class="opacity-0 z-10 text-gray-800 font-bold text-3xl md:text-4xl lg:text-[42px]">Products</h1>
 
         <button id="menu-button" class="cursor-pointer">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M5 5L19 5M5 19L19 19"/><path d="M5 12H19"/></g></svg>
@@ -33,13 +33,13 @@
     </div>
 
 
-
     <!-- PRODUCT CONTENT -->
     <div id="plp-section" class="z-50 top-0 w-full h-full bg-gray-50">
 
-        <div id="main-content" class="relative top-0"> <!--STEP SCROLL + FILTER + MAIN CONTENT-->
+        <!--STEP SCROLL + FILTER + MAIN CONTENT-->
+        <div id="main-content" class="relative top-0 ">
             <!-- STEP SCROLL -->
-            <div id="step-scroll" class="z-70 sticky flex justify-start items-center top-0 h-15 w-full bg-white border-y border-gray-100 shadow-md shadow-gray-300 cursor-pointer select-none whitespace-wrap overflow-x-auto no-scrollbar">
+            <div id="step-scroll" class="z-70 sticky flex justify-start xl:justify-center items-center top-0 h-15 w-full bg-gray-50 border-y border-gray-100 shadow-md shadow-gray-300 cursor-pointer select-none whitespace-wrap overflow-x-auto no-scrollbar">
                 <div id="step-filter" class="flex flex-row justify-center items-center left-0 w-auto text-sm md:text-md px-5 space-x-5">
                     <button data-step="cleanser" class="step-button">Cleanser</button>
                     <button data-step="exfoliator" class="step-button">Exfoliator</button>
@@ -54,67 +54,66 @@
                 </div>
             </div>
 
-            <div class="top-45 lg:grid lg:grid-cols-5"> <!-- FILTER + MAIN CONTENT-->
+            <!-- FILTER + MAIN CONTENT-->
+            <div class="top-45 lg:grid lg:grid-cols-5"> 
                 <!-- FILTER SIDEBAR -->
-                <aside id="filter-sidebar" class="z-50 fixed grid left-0 h-screen w-65 lg:w-80 max-w-[calc(100%-2rem)] bg-white shadow-xl -translate-x-full transform transition-transform duration-300 ease-in-out overflow-y-auto no-scrollbar
-                        lg:z-auto lg:sticky lg:top-15 lg:rounded-xl lg:col-span-1 lg:translate-x-0">
+                <aside id="filter-sidebar" class="z-50 fixed grid left-0 h-screen max-h-screen w-65 lg:w-80 max-w-[calc(100%-2rem)] bg-white shadow-xl -translate-x-full transform transition-transform duration-300 ease-in-out overflow-y-auto no-scrollbar
+                        lg:z-auto lg:sticky lg:top-15 lg:h-[calc(100vh-4rem)] lg:rounded-xl lg:col-span-1 lg:translate-x-0">
 
-                    <div class=" lg:h-full">
-                        <div class="lg:sticky lg:top-15 p-5 space-y-2 rounded-lg overflow-y-auto no-scrollbar">
-                            <div class="z-10 flex items-center justify-between top-0 pb-4">
-                                <h2 class="text-lg font-semibold text-gray-900">Filters</h2>
-                                <!-- CLOSE FILTER -->
-                                <button id="close-filter-button" type="button" class="p-1 bg-gray-200 rounded-md cursor-pointer transition-opacity duration-300 lg:hidden">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.145 17.704v-3.976c0-.381 0-.572-.044-.75a1.5 1.5 0 0 0-.192-.446c-.1-.155-.238-.286-.515-.548L3.578 7.43a2.648 2.648 0 0 1 1.82-4.572h13.189a2.664 2.664 0 0 1 1.852 4.579l-4.765 4.607c-.27.261-.405.392-.501.545a1.5 1.5 0 0 0-.187.441c-.044.176-.044.364-.044.74v3.935c0 .542 0 .813-.062 1.057a2 2 0 0 1-.641 1.027c-.192.163-.436.282-.923.52c-1.14.557-1.709.835-2.172.835a2 2 0 0 1-1.795-1.121c-.204-.416-.204-1.05-.204-2.318"/></svg>
-                                </button>
+                    <div class="p-5 space-y-4">
+                        <div class="z-10 flex items-center justify-between pb-4">
+                            <h2 class="text-lg font-semibold text-gray-800">Filters</h2>
+                            <!-- CLOSE FILTER -->
+                            <button id="close-filter-button" type="button" class="p-1 bg-gray-200 rounded-md cursor-pointer transition-opacity duration-300 lg:hidden">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.145 17.704v-3.976c0-.381 0-.572-.044-.75a1.5 1.5 0 0 0-.192-.446c-.1-.155-.238-.286-.515-.548L3.578 7.43a2.648 2.648 0 0 1 1.82-4.572h13.189a2.664 2.664 0 0 1 1.852 4.579l-4.765 4.607c-.27.261-.405.392-.501.545a1.5 1.5 0 0 0-.187.441c-.044.176-.044.364-.044.74v3.935c0 .542 0 .813-.062 1.057a2 2 0 0 1-.641 1.027c-.192.163-.436.282-.923.52c-1.14.557-1.709.835-2.172.835a2 2 0 0 1-1.795-1.121c-.204-.416-.204-1.05-.204-2.318"/></svg>
+                            </button>
+                        </div>
+                        <!-- SKIN TYPES -->
+                        <div>
+                            <h3 class="font-bold text-gray-800 mb-2">Skin Types</h3>
+                            <div class="space-y-2">
+                                <div class="flex items-center"><input id="filter-combination" type="checkbox" data-category="skin_types" data-value="Combination" class="h-4 w-4 rounded border-gray-300 accent-[#7D32FF] cursor-pointer"><label for="filter-combination" class="ml-3 text-sm text-gray-600 cursor-pointer">Combination</label></div>
+                                <div class="flex items-center"><input id="filter-dry" type="checkbox" data-category="skin_types" data-value="Dry" class="h-4 w-4 rounded border-gray-300 accent-[#7D32FF] cursor-pointer"><label for="filter-dry" class="ml-3 text-sm text-gray-600 cursor-pointer">Dry</label></div>
+                                <div class="flex items-center"><input id="filter-normal" type="checkbox" data-category="skin_types" data-value="Normal" class="h-4 w-4 rounded border-gray-300 accent-[#7D32FF] cursor-pointer"><label for="filter-normal" class="ml-3 text-sm text-gray-600 cursor-pointer">Normal</label></div>
+                                <div class="flex items-center"><input id="filter-oily" type="checkbox" data-category="skin_types" data-value="Oily" class="h-4 w-4 rounded border-gray-300 accent-[#7D32FF] cursor-pointer"><label for="filter-oily" class="ml-3 text-sm text-gray-600 cursor-pointer">Oily</label></div>
+                                <div class="flex items-center"><input id="filter-sensitive" type="checkbox" data-category="skin_types" data-value="Sensitive" class="h-4 w-4 rounded border-gray-300 accent-[#7D32FF] cursor-pointer"><label for="filter-sensitive" class="ml-3 text-sm text-gray-600 cursor-pointer">Sensitive</label></div>
                             </div>
-                            <!-- SKIN TYPES -->
-                            <div>
-                                <h3 class="font-bold text-gray-900 mb-2">Skin Types</h3>
-                                <div class="space-y-2">
-                                    <div class="flex items-center"><input id="filter-normal" type="checkbox" data-category="skin_types" data-value="Normal" class="h-4 w-4 rounded border-gray-300 accent-[#7D32FF] cursor-pointer"><label for="filter-normal" class="ml-3 text-sm text-gray-600 cursor-pointer">Normal</label></div>
-                                    <div class="flex items-center"><input id="filter-oily" type="checkbox" data-category="skin_types" data-value="Oily" class="h-4 w-4 rounded border-gray-300 accent-[#7D32FF] cursor-pointer"><label for="filter-oily" class="ml-3 text-sm text-gray-600 cursor-pointer">Oily</label></div>
-                                    <div class="flex items-center"><input id="filter-dry" type="checkbox" data-category="skin_types" data-value="Dry" class="h-4 w-4 rounded border-gray-300 accent-[#7D32FF] cursor-pointer"><label for="filter-dry" class="ml-3 text-sm text-gray-600 cursor-pointer">Dry</label></div>
-                                    <div class="flex items-center"><input id="filter-combination" type="checkbox" data-category="skin_types" data-value="Combination" class="h-4 w-4 rounded border-gray-300 accent-[#7D32FF] cursor-pointer"><label for="filter-combination" class="ml-3 text-sm text-gray-600 cursor-pointer">Combination</label></div>
-                                    <div class="flex items-center"><input id="filter-sensitive" type="checkbox" data-category="skin_types" data-value="Sensitive" class="h-4 w-4 rounded border-gray-300 accent-[#7D32FF] cursor-pointer"><label for="filter-sensitive" class="ml-3 text-sm text-gray-600 cursor-pointer">Sensitive</label></div>
-                                </div>
+                        </div>
+                        <!-- SKIN CONCERNS -->
+                        <div>
+                            <h3 class="font-bold text-gray-800 mb-2">Skin Concerns</h3>
+                            <div class="space-y-2">
+                                <div class="flex items-center"><input id="filter-acne" type="checkbox" data-category="skin_concerns" data-value="Acne" class="h-4 w-4 rounded border-gray-300 accent-[#7D32FF] cursor-pointer"><label for="filter-acne" class="ml-3 text-sm text-gray-600 cursor-pointer">Acne</label></div>
+                                <div class="flex items-center"><input id="filter-acne-scars" type="checkbox" data-category="skin_concerns" data-value="Acne Scars" class="h-4 w-4 rounded border-gray-300 accent-[#7D32FF] cursor-pointer"><label for="filter-acne-scars" class="ml-3 text-sm text-gray-600 cursor-pointer">Acne Scars</label></div>
+                                <div class="flex items-center"><input id="filter-blackheads" type="checkbox" data-category="skin_concerns" data-value="Blackheads" class="h-4 w-4 rounded border-gray-300 accent-[#7D32FF] cursor-pointer"><label for="filter-blackheads" class="ml-3 text-sm text-gray-600 cursor-pointer">Blackheads</label></div>
+                                <div class="flex items-center"><input id="filter-clogged-pores" type="checkbox" data-category="skin_concerns" data-value="Clogged Pores" class="h-4 w-4 rounded border-gray-300 accent-[#7D32FF] cursor-pointer"><label for="filter-clogged-pores" class="ml-3 text-sm text-gray-600 cursor-pointer">Clogged Pores</label></div>
+                                <div class="flex items-center"><input id="filter-dark-circles" type="checkbox" data-category="skin_concerns" data-value="Dark Circles" class="h-4 w-4 rounded border-gray-300 accent-[#7D32FF] cursor-pointer"><label for="filter-dark-circles" class="ml-3 text-sm text-gray-600 cursor-pointer">Dark Circles</label></div>
+                                <div class="flex items-center"><input id="filter-dehydration" type="checkbox" data-category="skin_concerns" data-value="Dehydration" class="h-4 w-4 rounded border-gray-300 accent-[#7D32FF] cursor-pointer"><label for="filter-dehydration" class="ml-3 text-sm text-gray-600 cursor-pointer">Dehydration</label></div>
+                                <div class="flex items-center"><input id="filter-dryness" type="checkbox" data-category="skin_concerns" data-value="Dryness" class="h-4 w-4 rounded border-gray-300 accent-[#7D32FF] cursor-pointer"><label for="filter-dryness" class="ml-3 text-sm text-gray-600 cursor-pointer">Dryness</label></div>
+                                <div class="flex items-center"><input id="filter-dullness" type="checkbox" data-category="skin_concerns" data-value="Dullness" class="h-4 w-4 rounded border-gray-300 accent-[#7D32FF] cursor-pointer"><label for="filter-dullness" class="ml-3 text-sm text-gray-600 cursor-pointer">Dullness</label></div>
+                                <div class="flex items-center"><input id="filter-eczema" type="checkbox" data-category="skin_concerns" data-value="Eczema" class="h-4 w-4 rounded border-gray-300 accent-[#7D32FF] cursor-pointer"><label for="filter-eczema" class="ml-3 text-sm text-gray-600 cursor-pointer">Eczema</label></div>
+                                <div class="flex items-center"><input id="filter-enlarged-pores" type="checkbox" data-category="skin_concerns" data-value="Enlarged Pores" class="h-4 w-4 rounded border-gray-300 accent-[#7D32FF] cursor-pointer"><label for="filter-enlarged-pores" class="ml-3 text-sm text-gray-600 cursor-pointer">Enlarged Pores</label></div>
+                                <div class="flex items-center"><input id="filter-fine-lines" type="checkbox" data-category="skin_concerns" data-value="Fine Lines" class="h-4 w-4 rounded border-gray-300 accent-[#7D32FF] cursor-pointer"><label for="filter-fine-lines" class="ml-3 text-sm text-gray-600 cursor-pointer">Fine Lines</label></div>
+                                <div class="flex items-center"><input id="filter-hyperpigmentation" type="checkbox" data-category="skin_concerns" data-value="Hyperpigmentation" class="h-4 w-4 rounded border-gray-300 accent-[#7D32FF] cursor-pointer"><label for="filter-hyperpigmentation" class="ml-3 text-sm text-gray-600 cursor-pointer">Hyperpigmentation</label></div>
+                                <div class="flex items-center"><input id="filter-loss-of-firmness" type="checkbox" data-category="skin_concerns" data-value="Loss of Firmness" class="h-4 w-4 rounded border-gray-300 accent-[#7D32FF] cursor-pointer"><label for="filter-loss-of-firmness" class="ml-3 text-sm text-gray-600 cursor-pointer">Loss of Firmness</label></div>
+                                <div class="flex items-center"><input id="filter-oily-skin" type="checkbox" data-category="skin_concerns" data-value="Oily Skin" class="h-4 w-4 rounded border-gray-300 accent-[#7D32FF] cursor-pointer"><label for="filter-oily-skin" class="ml-3 text-sm text-gray-600 cursor-pointer">Oily Skin</label></div>
+                                <div class="flex items-center"><input id="filter-puffiness" type="checkbox" data-category="skin_concerns" data-value="Puffiness" class="h-4 w-4 rounded border-gray-300 accent-[#7D32FF] cursor-pointer"><label for="filter-puffiness" class="ml-3 text-sm text-gray-600 cursor-pointer">Puffiness</label></div>
+                                <div class="flex items-center"><input id="filter-redness" type="checkbox" data-category="skin_concerns" data-value="Redness" class="h-4 w-4 rounded border-gray-300 accent-[#7D32FF] cursor-pointer"><label for="filter-redness" class="ml-3 text-sm text-gray-600 cursor-pointer">Redness</label></div>
+                                <div class="flex items-center"><input id="filter-rosacea" type="checkbox" data-category="skin_concerns" data-value="Rosacea" class="h-4 w-4 rounded border-gray-300 accent-[#7D32FF] cursor-pointer"><label for="filter-rosacea" class="ml-3 text-sm text-gray-600 cursor-pointer">Rosacea</label></div>
+                                <div class="flex items-center"><input id="filter-sensitive-skin" type="checkbox" data-category="skin_concerns" data-value="Sensitive Skin" class="h-4 w-4 rounded border-gray-300 accent-[#7D32FF] cursor-pointer"><label for="filter-sensitive-skin" class="ml-3 text-sm text-gray-600 cursor-pointer">Sensitive Skin</label></div>
+                                <div class="flex items-center"><input id="filter-sun-damage" type="checkbox" data-category="skin_concerns" data-value="Sun Damage" class="h-4 w-4 rounded border-gray-300 accent-[#7D32FF] cursor-pointer"><label for="filter-sun-damage" class="ml-3 text-sm text-gray-600 cursor-pointer">Sun Damage</label></div>
+                                <div class="flex items-center"><input id="filter-uneven-skin-tone" type="checkbox" data-category="skin_concerns" data-value="Uneven Skin Tone" class="h-4 w-4 rounded border-gray-300 accent-[#7D32FF] cursor-pointer"><label for="filter-uneven-skin-tone" class="ml-3 text-sm text-gray-600 cursor-pointer">Uneven Skin Tone</label></div>
+                                <div class="flex items-center"><input id="filter-uneven-texture" type="checkbox" data-category="skin_concerns" data-value="Uneven Texture" class="h-4 w-4 rounded border-gray-300 accent-[#7D32FF] cursor-pointer"><label for="filter-uneven-texture" class="ml-3 text-sm text-gray-600 cursor-pointer">Uneven Texture</label></div>
+                                <div class="flex items-center"><input id="filter-whiteheads" type="checkbox" data-category="skin_concerns" data-value="Whiteheads" class="h-4 w-4 rounded border-gray-300 accent-[#7D32FF] cursor-pointer"><label for="filter-whiteheads" class="ml-3 text-sm text-gray-600 cursor-pointer">Whiteheads</label></div>
+                                <div class="flex items-center"><input id="filter-wrinkles" type="checkbox" data-category="skin_concerns" data-value="Wrinkles" class="h-4 w-4 rounded border-gray-300 accent-[#7D32FF] cursor-pointer"><label for="filter-wrinkles" class="ml-3 text-sm text-gray-600 cursor-pointer">Wrinkles</label></div>
                             </div>
-                            <!-- SKIN CONCERNS -->
-                            <div>
-                                <h3 class="font-bold text-gray-900 mb-2">Skin Concerns</h3>
-                                <div class="space-y-2">
-                                    <div class="flex items-center"><input id="filter-acne" type="checkbox" data-category="skin_concerns" data-value="Acne" class="h-4 w-4 rounded border-gray-300 accent-[#7D32FF] cursor-pointer"><label for="filter-acne" class="ml-3 text-sm text-gray-600 cursor-pointer">Acne</label></div>
-                                    <div class="flex items-center"><input id="filter-acne-scars" type="checkbox" data-category="skin_concerns" data-value="Acne Scars" class="h-4 w-4 rounded border-gray-300 accent-[#7D32FF] cursor-pointer"><label for="filter-acne-scars" class="ml-3 text-sm text-gray-600 cursor-pointer">Acne Scars</label></div>
-                                    <div class="flex items-center"><input id="filter-blackheads" type="checkbox" data-category="skin_concerns" data-value="Blackheads" class="h-4 w-4 rounded border-gray-300 accent-[#7D32FF] cursor-pointer"><label for="filter-blackheads" class="ml-3 text-sm text-gray-600 cursor-pointer">Blackheads</label></div>
-                                    <div class="flex items-center"><input id="filter-clogged-pores" type="checkbox" data-category="skin_concerns" data-value="Clogged Pores" class="h-4 w-4 rounded border-gray-300 accent-[#7D32FF] cursor-pointer"><label for="filter-clogged-pores" class="ml-3 text-sm text-gray-600 cursor-pointer">Clogged Pores</label></div>
-                                    <div class="flex items-center"><input id="filter-dark-circles" type="checkbox" data-category="skin_concerns" data-value="Dark Circles" class="h-4 w-4 rounded border-gray-300 accent-[#7D32FF] cursor-pointer"><label for="filter-dark-circles" class="ml-3 text-sm text-gray-600 cursor-pointer">Dark Circles</label></div>
-                                    <div class="flex items-center"><input id="filter-dehydration" type="checkbox" data-category="skin_concerns" data-value="Dehydration" class="h-4 w-4 rounded border-gray-300 accent-[#7D32FF] cursor-pointer"><label for="filter-dehydration" class="ml-3 text-sm text-gray-600 cursor-pointer">Dehydration</label></div>
-                                    <div class="flex items-center"><input id="filter-dryness" type="checkbox" data-category="skin_concerns" data-value="Dryness" class="h-4 w-4 rounded border-gray-300 accent-[#7D32FF] cursor-pointer"><label for="filter-dryness" class="ml-3 text-sm text-gray-600 cursor-pointer">Dryness</label></div>
-                                    <div class="flex items-center"><input id="filter-dullness" type="checkbox" data-category="skin_concerns" data-value="Dullness" class="h-4 w-4 rounded border-gray-300 accent-[#7D32FF] cursor-pointer"><label for="filter-dullness" class="ml-3 text-sm text-gray-600 cursor-pointer">Dullness</label></div>
-                                    <div class="flex items-center"><input id="filter-eczema" type="checkbox" data-category="skin_concerns" data-value="Eczema" class="h-4 w-4 rounded border-gray-300 accent-[#7D32FF] cursor-pointer"><label for="filter-eczema" class="ml-3 text-sm text-gray-600 cursor-pointer">Eczema</label></div>
-                                    <div class="flex items-center"><input id="filter-enlarged-pores" type="checkbox" data-category="skin_concerns" data-value="Enlarged Pores" class="h-4 w-4 rounded border-gray-300 accent-[#7D32FF] cursor-pointer"><label for="filter-enlarged-pores" class="ml-3 text-sm text-gray-600 cursor-pointer">Enlarged Pores</label></div>
-                                    <div class="flex items-center"><input id="filter-fine-lines" type="checkbox" data-category="skin_concerns" data-value="Fine Lines" class="h-4 w-4 rounded border-gray-300 accent-[#7D32FF] cursor-pointer"><label for="filter-fine-lines" class="ml-3 text-sm text-gray-600 cursor-pointer">Fine Lines</label></div>
-                                    <div class="flex items-center"><input id="filter-hyperpigmentation" type="checkbox" data-category="skin_concerns" data-value="Hyperpigmentation" class="h-4 w-4 rounded border-gray-300 accent-[#7D32FF] cursor-pointer"><label for="filter-hyperpigmentation" class="ml-3 text-sm text-gray-600 cursor-pointer">Hyperpigmentation</label></div>
-                                    <div class="flex items-center"><input id="filter-loss-of-firmness" type="checkbox" data-category="skin_concerns" data-value="Loss of Firmness" class="h-4 w-4 rounded border-gray-300 accent-[#7D32FF] cursor-pointer"><label for="filter-loss-of-firmness" class="ml-3 text-sm text-gray-600 cursor-pointer">Loss of Firmness</label></div>
-                                    <div class="flex items-center"><input id="filter-oily-skin" type="checkbox" data-category="skin_concerns" data-value="Oily Skin" class="h-4 w-4 rounded border-gray-300 accent-[#7D32FF] cursor-pointer"><label for="filter-oily-skin" class="ml-3 text-sm text-gray-600 cursor-pointer">Oily Skin</label></div>
-                                    <div class="flex items-center"><input id="filter-puffiness" type="checkbox" data-category="skin_concerns" data-value="Puffiness" class="h-4 w-4 rounded border-gray-300 accent-[#7D32FF] cursor-pointer"><label for="filter-puffiness" class="ml-3 text-sm text-gray-600 cursor-pointer">Puffiness</label></div>
-                                    <div class="flex items-center"><input id="filter-redness" type="checkbox" data-category="skin_concerns" data-value="Redness" class="h-4 w-4 rounded border-gray-300 accent-[#7D32FF] cursor-pointer"><label for="filter-redness" class="ml-3 text-sm text-gray-600 cursor-pointer">Redness</label></div>
-                                    <div class="flex items-center"><input id="filter-rosacea" type="checkbox" data-category="skin_concerns" data-value="Rosacea" class="h-4 w-4 rounded border-gray-300 accent-[#7D32FF] cursor-pointer"><label for="filter-rosacea" class="ml-3 text-sm text-gray-600 cursor-pointer">Rosacea</label></div>
-                                    <div class="flex items-center"><input id="filter-sensitive-skin" type="checkbox" data-category="skin_concerns" data-value="Sensitive Skin" class="h-4 w-4 rounded border-gray-300 accent-[#7D32FF] cursor-pointer"><label for="filter-sensitive-skin" class="ml-3 text-sm text-gray-600 cursor-pointer">Sensitive Skin</label></div>
-                                    <div class="flex items-center"><input id="filter-sun-damage" type="checkbox" data-category="skin_concerns" data-value="Sun Damage" class="h-4 w-4 rounded border-gray-300 accent-[#7D32FF] cursor-pointer"><label for="filter-sun-damage" class="ml-3 text-sm text-gray-600 cursor-pointer">Sun Damage</label></div>
-                                    <div class="flex items-center"><input id="filter-uneven-skin-tone" type="checkbox" data-category="skin_concerns" data-value="Uneven Skin Tone" class="h-4 w-4 rounded border-gray-300 accent-[#7D32FF] cursor-pointer"><label for="filter-uneven-skin-tone" class="ml-3 text-sm text-gray-600 cursor-pointer">Uneven Skin Tone</label></div>
-                                    <div class="flex items-center"><input id="filter-uneven-texture" type="checkbox" data-category="skin_concerns" data-value="Uneven Texture" class="h-4 w-4 rounded border-gray-300 accent-[#7D32FF] cursor-pointer"><label for="filter-uneven-texture" class="ml-3 text-sm text-gray-600 cursor-pointer">Uneven Texture</label></div>
-                                    <div class="flex items-center"><input id="filter-whiteheads" type="checkbox" data-category="skin_concerns" data-value="Whiteheads" class="h-4 w-4 rounded border-gray-300 accent-[#7D32FF] cursor-pointer"><label for="filter-whiteheads" class="ml-3 text-sm text-gray-600 cursor-pointer">Whiteheads</label></div>
-                                    <div class="flex items-center"><input id="filter-wrinkles" type="checkbox" data-category="skin_concerns" data-value="Wrinkles" class="h-4 w-4 rounded border-gray-300 accent-[#7D32FF] cursor-pointer"><label for="filter-wrinkles" class="ml-3 text-sm text-gray-600 cursor-pointer">Wrinkles</label></div>
-                                </div>
-                            </div>
-                            <!-- BRAND -->
-                            <div>
-                                <h3 class="font-bold text-gray-900 mb-2">Brands</h3>
-                                <div id="brands-list" class="space-y-2">
-                                    <p class="text-sm text-gray-400">Loading brands...</p>
-                                    <!-- function populateBrandFilters -->
-                                </div>
+                        </div>
+                        <!-- BRAND -->
+                        <div>
+                            <h3 class="font-bold text-gray-800 mb-2">Brands</h3>
+                            <div id="brands-list" class="space-y-2">
+                                <p class="text-sm text-gray-400">Loading brands...</p>
+                                <!-- function populateBrandFilters -->
                             </div>
                         </div>
                     </div>
@@ -125,28 +124,29 @@
                     <!-- BACKDROP -->
                     <div id="filter-backdrop" class="fixed top-24 inset-0 z-30 bg-gray-50/50 hidden lg:hidden"></div>
 
+                    <!-- FILTER + SORT BY -->
                     <main class="relative top-0 w-full h-full">
-                        <div id="filter-sort-section" class="z-10 sticky flex justify-between items-center top-15 left-0 h-15 px-6 bg-white/50 transition-transform duration-200 ease-in-out">
+                        <div id="filter-sort-section" class="z-10 sticky flex justify-between items-center top-15 left-0 h-15 px-6 bg-white/05 transition-transform duration-200 ease-in-out">
 
                             <!-- OPEN FILTER -->
-                            <div class="flex">
+                            <div class="flex justify-center items-center">
                                 <div class="flex justify-center items-center left-0 h-auto p-2">
-                                    <button id="open-filter-button" type="button" class="p-2 bg-gray-100 rounded-xl cursor-pointer transition-opacity duration-300 lg:hidden">
+                                    <button id="open-filter-button" type="button" class="p-2 bg-gray-100 border-1 border-gray-400  rounded-xl cursor-pointer transition-opacity duration-300 lg:hidden">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.145 17.704v-3.976c0-.381 0-.572-.044-.75a1.5 1.5 0 0 0-.192-.446c-.1-.155-.238-.286-.515-.548L3.578 7.43a2.648 2.648 0 0 1 1.82-4.572h13.189a2.664 2.664 0 0 1 1.852 4.579l-4.765 4.607c-.27.261-.405.392-.501.545a1.5 1.5 0 0 0-.187.441c-.044.176-.044.364-.044.74v3.935c0 .542 0 .813-.062 1.057a2 2 0 0 1-.641 1.027c-.192.163-.436.282-.923.52c-1.14.557-1.709.835-2.172.835a2 2 0 0 1-1.795-1.121c-.204-.416-.204-1.05-.204-2.318"/></svg>
                                     </button>
                                 </div>
-
-                                <div id="active-filters-container" class="flex flex-wrap px-6 pt-4 gap-2"></div>
+                                <!-- ACTIVE FILTERS -->
+                                <div id="active-filters-container" class="flex flex-wrap justify-start items-center px-6 pt-4 gap-2"></div>
 
                             </div>
 
                             <!-- SORT BY -->
                             <div id="sort-menu-container" class="relative inline-block text-left w-52">
                                 <div>
-                                    <button id="sort-menu-button" type="button" class="flex justify-between items-center w-full p-2 space-x-1 bg-gray-100 rounded-xl cursor-pointer">
-                                        <span id="selected-sort-option" class="text-center text-xs sm:text-sm font-medium">Sort by: Best Match</span>
+                                    <button id="sort-menu-button" type="button" class="flex justify-between items-center w-full p-2 space-x-1 bg-gray-50 border-2 border-gray-400 shadow-2xl rounded-xl cursor-pointer">
+                                        <span id="selected-sort-option" class="text-center text-gray-900 text-sm font-medium">Sort by: Best Match</span>
                                         <span class="flex justify-end">
-                                            <svg id="sort-menu-icon" class="w-5 h-5 text-gray-400 transition-transform" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                            <svg id="sort-menu-icon" class="w-5 h-5 text-gray-900 transition-transform" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                                                 <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
                                             </svg>
                                         </span>
@@ -173,14 +173,13 @@
     </div>
 
 
-
     <!-- PDP -->
-    <div id="pdp-section" class="hidden bg-transparent min-h-screen">
+    <div id="pdp-section" class="hidden bg-transparent">
 
-        <main class="w-full max-w-full">
-            <div class="flex flex-col lg:grid lg:grid-cols-2">
+        <main class="w-full max-w-full min-h-screen">
+            <div class="flex flex-col lg:grid lg:grid-cols-2 lg:h-screen">
                 <!-- Image -->
-                <div class="flex justify-center lg:justify-end p-5">
+                <div class="flex justify-center lg:justify-end p-5 lg:sticky lg:top-0 lg:h-screen">
                     <div>
                         <a id="pdp-image-link" href="#" target="_blank" rel="noopener noreferrer" class="block w-full max-w-xl mx-auto aspect-square transition-transform duration-500 hover:scale-102">
                             <img id="pdp-image" src="" alt="" class="w-full h-full object-cover rounded-3xl shadow-2xl">
@@ -190,9 +189,15 @@
 
                 <!-- Core Info -->
                 <div class="flex flex-col justify-center items-start w-full p-5 space-y-4">
-                    <div class="flex flex-col justify-start">
-                        <p id="pdp-brand" class="text-lg font-semibold uppercase text-[#7D32FF]">Brand name</p>
-                        <h2 id="pdp-name" class="text-3xl font-bold">Product Name</h2>
+                    <div class="w-full flex justify-between items-start">
+                        <div class="flex flex-col justify-start">
+                            <p id="pdp-brand" class="text-lg font-semibold uppercase text-[#7D32FF]">Brand name</p>
+                            <h2 id="pdp-name" class="text-3xl font-bold">Product Name</h2>
+                        </div>
+                        <button id="pdp-favorite-btn" type="button" class="p-2 text-gray-500 hover:text-red-300 cursor-pointer transition-colors">
+                            <svg class="w-8 h-8" id="heart-icon-unfilled" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 0 1 6.364 0L12 7.682l1.318-1.364a4.5 4.5 0 0 1 6.364 6.364L12 20.364l-7.682-7.682a4.5 4.5 0 0 1 0-6.364Z"/></svg>
+                            <svg class="w-8 h-8 hidden text-red-500" id="heart-icon-filled" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="currentColor" d="M12 20.364L4.318 12.682a4.5 4.5 0 0 1 0-6.364a4.5 4.5 0 0 1 6.364 0L12 7.682l1.318-1.364a4.5 4.5 0 0 1 6.364 6.364L12 20.364z"/></svg>
+                        </button>
                     </div>
 
                     <div class="flex items-center">
@@ -265,7 +270,7 @@
                             </div>
                             <div class="space-y-3">
                             <div class="grid grid-cols-2 gap-3">
-                                <button id="select-morning-btn" class="routine-select-btn morning-select-btn w-full border-2 border-gray-300 bg-gray-100 text-gray-800 font-semibold py-3 rounded-xl flex items-center justify-center gap-2 active:bg-yellow-300 cursor-pointer">
+                                <button id="select-morning-btn" class="routine-select-btn morning-select-btn w-full border-2 border-gray-300 bg-gray-100 text-gray-800 font-semibold py-3 rounded-xl flex items-center justify-center gap-2 cursor-pointer">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24">
                                         <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 12a4 4 0 1 0 8 0a4 4 0 1 0-8 0m-5 0h1m8-9v1m8 8h1m-9 8v1M5.6 5.6l.7.7m12.1-.7l-.7.7m0 11.4l.7.7m-12.1-.7l-.7.7" />
                                     </svg>
@@ -278,7 +283,7 @@
                                     <span>Night</span>
                                 </button>
                             </div>
-                            <button id="add-to-routine-btn" class="w-full bg-indigo-600 text-white font-semibold py-4 rounded-xl hover:bg-indigo-700 transition-colors flex items-center justify-center gap-2">
+                            <button id="add-to-routine-btn" class="w-full bg-indigo-600 text-white font-semibold py-4 rounded-xl hover:bg-indigo-700 transition-colors flex items-center justify-center gap-2 cursor-pointer">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path fill="currentColor" d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
                                 <span id="add-to-routine-btn-text">Add to Routine</span>
                             </button>
@@ -289,8 +294,11 @@
 
                 </div>
             </div>
-
         </main>
+    </div>
+
+    <div id="favorite-toast" class="fixed text-center bottom-5 left-1/2 -translate-x-1/2 bg-gray-800 text-white text-md font-semibold py-3 px-6 rounded-full shadow-lg whitespace-nowrap hidden toast-enter">
+        <!-- Message -->
     </div>
 
 

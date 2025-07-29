@@ -14,80 +14,101 @@
     <title>Auralyst</title>
 </head>
 
-<body class="m-0 p-0 w-screen h-screen overflow-hidden">
+<body class="bg-gray-100 overflow-hidden">
 
-    <div id="bg-container" class="relative w-screen h-screen overflow-hidden">
-        <div id="bg-slide" class="z-0 absolute w-screen h-[200vh] top-0 left-0 will-change-transform bg-linear-to-b from-[#D5FFE8] from-20% via-[#58B989] via-60% to-[#3B6353]"></div>
-
-        <!-- SECTION 1: Landing Page -->
-        <div id="landing-section" class="z-0 absolute flex flex-col inset-0 justify-center-safe items-center bg-linear-to-b">
-            <div class="relative text-center">
-                <img id="landing-bottle" src="\public\images\notext_green.png" alt="Green Tube Skincare Bottle" class="w-30 md:w-42 lg:w-50">
-                <h1 id="landing-title" class="z-50 absolute top-2/5 right-1/2 translate-x-1/2 -translate-y-1/2 transition-opacity text-[#28663D] font-extrabold text-6xl md:text-7xl lg:text-8xl">Routine</h1>
-            </div>
-        </div>
-
-        <!-- SECTION 2: Main Content -->
-        <main class="z-30 justify-items-center overflow-hidden lg:flex">
-
-            <div id="steps-section" class="z-20 absolute flex flex-col w-full h-0 px-8 bottom-0 left-0 overflow-hidden">
-
-                <div id="steps-prompt" class="flex flex-col flex-shrink-0 pt-7 pb-1 space-y-1 text-center justify-center transition-opacity text-[#28663D]">
-                    <div class="flex flex-row space-x-1 items-center justify-center align-middle text-sm md:text-base lg:text-lg">
-                        <svg class="" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                            <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.1" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 1 1 7.072 0l-.548.547A3.37 3.37 0 0 0 14 18.469V19a2 2 0 1 1-4 0v-.531c0-.895-.356-1.754-.988-2.386z"/>
-                        </svg>
-                        <p>Tap on a number to deselect it</p>
-                    </div>
-                </div>
-
-                <div id="steps-content" class="relative flex flex-col overflow-hidden">
-
-                    <!-- <div id="mask-blur" class="z-50 absolute w-full h-[2vh] -top-1 left-0 opacity-0 bg-gradient-to-b to-transparent backdrop-blur-md pointer-events-none"></div> -->
-                    
-                    <div id="steps-container" class="z-0 relative flex flex-1 flex-col py-6 mx-auto space-y-5 overflow-y-auto no-scrollbar">
-                        <!-- function createStepElement {mod} -->
-                    </div>
-
-                    <div id="description-panel" class="z-50 hidden absolute left-1/2 w-100 min-h-0 pt-6">
-                        <div id="panel-content-wrapper" class="flex flex-col p-6 w-full max-h-[65vh] rounded-2xl bg-white overflow-y-auto no-scrollbar">
-                            <h3 id="panel-title" class="flex-shrink-0 mb-2 text-2xl font-bold"></h3>
-                            <p id="panel-description" class="flex-shrink-0"></p>
-                            
-                            <div id="panel-types-container" class="flex-grow overflow-y-auto"></div>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </main>
-
+    <!-- BOTTLE -->
+    <div class="z-0 relative grid place-items-center w-full h-full">
+        <img id="landing-bottle" src="\public\images\notext_green.png" alt="Green Tube Skincare Bottle" class="opacity-0 z-0 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-24 md:w-28 lg:w-34 h-auto">
     </div>
 
-    <!-- TOP ICONS -->
-    <div class="z-30 fixed flex top-0 left-0 w-full pt-8 px-5 justify-between items-center">
-        <!-- MENU -->
-        <button id="menu-button" class="cursor-pointer">
+    <!-- HEADER -->
+    <div class="z-20 relative flex flex-row justify-between items-center w-full h-30 top-0 left-0 pt-10 px-10 text-gray-800">
+        <button id="back-button" class="group-buttons cursor-pointer">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" strok-linejoin="round" stroke-width="0.5"><path fill="currentColor" d="M7.397 2.21A.726.726 0 0 1 8.41 2.2a.69.69 0 0 1 .012.99L2.373 9.243l16.931.105a.7.7 0 0 1-.008 1.4l-16.809-.104l6.303 6.16a.69.69 0 0 1 .076.903l-.075.087a.727.727 0 0 1-1.012 0L.21 10.4a.69.69 0 0 1-.005-.985Z"/></g></svg>
+        </button>
+        
+        <h1 id="header-title" class="opacity-1 z-10 text-gray-800 font-bold text-3xl md:text-4xl lg:text-[42px]">Routine</h1>
+
+        <button id="menu-button" class="group-buttons cursor-pointer">
             <svg class="w-7 h-7" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                 <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 5h18M3 12h18M3 19h18"/>
             </svg>
         </button>
+    </div>
 
-        <!-- SUN/MOON -->
-        <div id="theme-toggle" class="z-30 relative flex flex-row w-auto p-2.5 space-x-3 items-center rounded-full bg-[#3F866750]">
-            <div id="theme-pill" class="absolute w-9 h-9 left-1.5 rounded-full bg-green-200 shadow-md"></div>
+    <!-- THEME TOGGLE -->
+    <div class="grid place-items-center">
+        <div id="theme-toggle" class="z-30 relative grid grid-cols-2 w-auto p-2 space-x-2 items-center rounded-full text-gray-800 bg-[#00E2E230] border-2 border-[#00E2E2]">
+            <div id="theme-pill" class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-23 h-9 rounded-full bg-[#00E2E2]"></div>
 
-            <button id="sun-button" class="relative flex w-1/2 h-full justify-center items-center cursor-pointer">
-                <svg class="w-7 h-7" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><g fill="none"><g clip-path="url(#siSunLine0)">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5" d="M3 12H1m22 0h-2m-9 9v2m0-22v2M5.636 18.364l-1.414 1.414M19.778 4.222l-1.414 1.414m-12.728 0L4.222 4.222m15.556 15.556l-1.414-1.414M18 12a6 6 0 1 1-12 0a6 6 0 0 1 12 0"/>
+            <button id="sun-button" class="group-buttons relative flex flex-row justify-center items-center cursor-pointer">
+                <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24">
+                    <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 12a4 4 0 1 0 8 0a4 4 0 1 0-8 0m-5 0h1m8-9v1m8 8h1m-9 8v1M5.6 5.6l.7.7m12.1-.7l-.7.7m0 11.4l.7.7m-12.1-.7l-.7.7" />
+                </svg>
+                <span class="text-sm">Morning</span>
+            </button>
+
+            <button id="moon-button" class="group-buttons relative flex flex-row justify-center items-center cursor-pointer">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                    <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 3h.393a7.5 7.5 0 0 0 7.92 12.446A9 9 0 1 1 12 2.992z" />
+                </svg>
+                <span class="text-sm">Night</span>
+            </button>
+        </div>
+    </div>
+
+
+    <!-- MAIN CONTENT -->
+    <main class="z-30 justify-items-center top-30 h-screen overflow-hidden">
+
+        <div id="steps-section" class="group relative z-20 flex flex-col w-full h-full px-8 top-0 left-0">
+
+            <div id="steps-prompt" class="flex flex-col flex-shrink-0 pt-7 pb-1 space-y-1 text-center justify-center text-gray-800">
+                <div class="flex flex-row space-x-1 items-center justify-center align-middle text-sm md:text-base lg:text-lg">
+                    <svg class="" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                        <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.1" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 1 1 7.072 0l-.548.547A3.37 3.37 0 0 0 14 18.469V19a2 2 0 1 1-4 0v-.531c0-.895-.356-1.754-.988-2.386z"/>
+                    </svg>
+                    <p>Tap on a number to deselect it</p>
+                </div>
+            </div>
+
+            <div id="steps-content" class="relative flex justify-center group-[.is-panel-active]:justify-center items-start gap-8 py-5 overflow-hidden">
+                
+                <div id="steps-wrapper" class="flex justify-start w-auto h-full pb-5">
+                    <div id="steps-container" class="relative z-10 flex flex-col justify-start h-full space-y-5 overflow-y-auto no-scrollbar max-w-md group-[.is-panel-active]:w-auto group-[.is-panel-active]:max-w-md">
+                        <!-- function createStepElement {mod} -->
+                    </div>
+                </div>
+
+                <div id="description-panel" class="hidden w-7/12 h-full z-20 group-[.is-panel-active]:block">
+                    <div id="panel-content-wrapper" class="flex flex-col p-6 w-full h-full rounded-2xl bg-white overflow-y-auto no-scrollbar">
+                        <h3 id="panel-title" class="flex-shrink-0 mb-2 text-2xl font-bold"></h3>
+                        <p id="panel-description" class="flex-shrink-0"></p>
+                        
+                        <div id="panel-types-container" class="flex-grow overflow-y-auto"></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+
+    <div id="description-modal" class="z-50 hidden absolute inset-0 bg-gray-900/30 backdrop-blur-sm flex items-center justify-center overflow-hidden lg:hidden">
+
+        <div id="modal-content" class="relative flex flex-col p-6 rounded-2xl bg-white w-11/12 max-w-lg max-h-[90vh]">
+
+            <button id="modal-close-button" class="absolute p-1 top-4 right-4 w-auto h-auto bg-[#00B2B2] text-white rounded-full">
+                <svg class="w-7 h-7" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6.758 17.243L12.001 12m5.243-5.243L12 12m0 0L6.758 6.757M12.001 12l5.243 5.243"/>
                 </svg>
             </button>
 
-            <button id="moon-button" class="relative flex w-1/2 h-full justify-center items-center cursor-pointer">
-                <svg class="w-7 h-7 pr-0.5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                    <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10.41 13.28C7.332 10.205 6.716 5.693 8.357 2c-1.23.41-2.256 1.23-3.281 2.256a10.4 10.4 0 0 0 0 14.768c4.102 4.102 10.46 3.897 14.562-.205c1.026-1.026 1.846-2.051 2.256-3.282c-3.896 1.436-8.409.82-11.486-2.256"/>
-                </svg>
-            </button>
+            <h3 id="modal-title" class="mt-4 mb-2 text-2xl font-extrabold"></h3>
+            <p id="modal-description" class="flex-shrink-0"></p>
+
+            <div id="modal-types-container" class="flex-1 mt-4 pt-4 overflow-y-auto no-scrollbar"></div>
+            
         </div>
     </div>
 
@@ -141,27 +162,6 @@
                 </ul>
             </nav>
         </div>
-    </div>
-
-
-    <div id="description-modal" class="z-50 hidden absolute inset-0 bg-gray-900/30 backdrop-blur-sm items-center justify-center overflow-hidden 
-                                        lg:relative lg:bg-transparent lg:backdrop-blur-none">
-
-        <div id="modal-content" class="z-0 absolute flex flex-col p-6 top-5 left-1/2 -translate-x-1/2 lg:top-1/2 transform rounded-2xl lg:relative overflow-hidden no-scrollbar w-[40vh] md:w-[50vh] h-[95vh] ">
-
-            <button id="modal-close-button" class="absolute p-1 top-5 right-5 w-auto h-auto bg-[#439484] text-white rounded-full">
-                <svg class="w-7 h-7" xmlns="http://www.w3.org/2000/svg" width="96" height="96" viewBox="0 0 24 24">
-                    <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6.758 17.243L12.001 12m5.243-5.243L12 12m0 0L6.758 6.757M12.001 12l5.243 5.243"/>
-                </svg>
-            </button>
-
-            <h3 id="modal-title" class="mt-4 mb-2 text-2xl font-extrabold "></h3>
-            <p id="modal-description"></p>
-
-            <div id="modal-types-container" class="mt-4 pt-4 overflow-y-auto no-scrollbar"></div>
-            
-        </div>
-
     </div>
 
 

@@ -20,10 +20,12 @@ body {
   scrollbar-width: none;  /* Firefox */
 }
 
+
 /* MENU SCREEN */
 #menu-screen.is-closed {
     transform: translateX(-100%);
 }
+
 
 /* INDEX */
 .bottle-wrapper {
@@ -39,18 +41,15 @@ body {
     will-change: transform;
 }
 
+
 /* ROUTINE */
 .is-deselected {
     opacity: 0.3;
     transition: opacity 0.3s ease;
 }
 
-#mask-blur {
-    -webkit-mask-image: linear-gradient(to bottom, black 5%, transparent 100%);
-    mask-image: linear-gradient(to bottom, black 5%, transparent 100%);
-}
 
-
+/* PRODUCTS */
 .step-button {
     display: flex;
     justify-content: center;
@@ -58,6 +57,7 @@ body {
     align-items: center;
     padding: 5px 12px;
     background-color: #7D32FF10;
+    border-width: 2px;
     border-radius: 20px;
     opacity: 0.7;
     white-space: nowrap;
@@ -93,8 +93,8 @@ body {
 }
 
 .routine-select-btn:disabled {
-    background-color: #F3F4F6; /* gray-100 */
-    color: #D1D5DB; /* gray-300 */
+    background-color: #F3F4F6;
+    color: #D1D5DB;
     cursor: not-allowed;
-    border-color: #E5E7EB; /* gray-200 */
+    border-color: #E5E7EB;
 }
