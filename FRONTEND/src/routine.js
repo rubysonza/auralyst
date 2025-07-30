@@ -60,6 +60,7 @@ async function init() {
 
     let currentRoutine = 'am';
 
+    elements.descriptionModal.classList.add('hidden');
 
     // INTRO ANIMATION
     function playIntroAnimation() {

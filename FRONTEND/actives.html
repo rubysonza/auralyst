@@ -14,7 +14,35 @@
     <title>Auralyst</title>
 </head>
 
-<body>
+<body class="bg-gray-100">
+
+    <!-- HEADER -->
+    <header class="z-20 relative flex flex-row justify-between items-center w-full h-30 top-0 left-0 pt-10 px-10 text-gray-800">
+        <button id="back-button" class="group-buttons cursor-pointer">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" strok-linejoin="round" stroke-width="0.5">
+                <path fill="currentColor" d="M7.397 2.21A.726.726 0 0 1 8.41 2.2a.69.69 0 0 1 .012.99L2.373 9.243l16.931.105a.7.7 0 0 1-.008 1.4l-16.809-.104l6.303 6.16a.69.69 0 0 1 .076.903l-.075.087a.727.727 0 0 1-1.012 0L.21 10.4a.69.69 0 0 1-.005-.985Z"/></g>
+            </svg>
+        </button>
+
+        <h1 id="header-title" class=" z-10 text-gray-800 font-bold text-3xl md:text-4xl lg:text-[42px]">Actives</h1>
+
+        <button id="menu-button" class="group-buttons cursor-pointer">
+            <svg class="w-7 h-7" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 5h18M3 12h18M3 19h18"/>
+            </svg>
+        </button>
+    </header>
+
+    <!-- NAV -->
+    <div class="sticky top-0 z-10 bg-gray-50/90 backdrop-blur-sm border-b border-gray-200">
+        <nav id="az-nav-container" class="w-4xl lg:w-full mx-auto flex justify-start xl:justify-center overflow-x-auto"></nav>
+    </div>
     
+    <!-- MAIN CONTENT -->
+    <main class="w-full max-w-4xl mx-auto px-4 mt-8">
+
+        <div id="actives-accordion-container" class="space-y-4"></div>
+
+    </main>
 </body>
 </html>
