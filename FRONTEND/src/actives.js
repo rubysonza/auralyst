@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function generateAZNav() {
         const alphabet = ['All', ...'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('')];
         navContainer.innerHTML = alphabet.map(letter => `
-            <button data-filter="${letter}" class="nav-button shrink-0 px-4 py-2 text-lg font-semibold text-gray-500 hover:text-[#FF7451]">${letter}</button>
+            <button data-filter="${letter}" class="nav-button shrink-0 px-4 py-2 text-lg font-semibold text-gray-500 hover:text-[#FF7451] cursor-pointer">${letter}</button>
         `).join('');
     }
     
@@ -51,14 +51,18 @@ document.addEventListener('DOMContentLoaded', () => {
             let headingHTML = '';
             if (currentFilter === 'All' && firstLetter !== currentLetter) {
                 currentLetter = firstLetter;
-                headingHTML = `<h2 class="text-2xl font-bold text-[#FF7451] mt-8 mb-4 pt-4">${currentLetter}</h2>`;
+                headingHTML = `
+                    <div class="pt-8 mt-8 border-t border-gray-200">
+                        <h2 class="text-2xl font-bold text-[#FF7451]">${currentLetter}</h2>
+                    </div>
+                `;
             }
 
             // --- Note the changes in the accordion-content div below ---
             return `
                 ${headingHTML}
                 <div class="bg-white border border-gray-200 shadow-sm rounded-2xl">
-                    <button class="accordion-toggle w-full flex justify-between items-center p-4 text-left hover:bg-gray-100">
+                    <button class="accordion-toggle w-full flex justify-between items-center p-4 text-left hover:bg-gray-100 cursor-pointer">
                         <h3 class="text-xl font-semibold text-gray-900">${active.active_name}</h3>
                         <svg class="accordion-icon w-6 h-6 transition-transform duration-300 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                     </button>

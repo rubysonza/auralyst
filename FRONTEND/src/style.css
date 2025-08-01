@@ -5,6 +5,10 @@
     --font-family-theme: 'Karla', sans-serif;
 }
 
+::-webkit-scrollbar {
+    display: none;
+}
+
 body {
     font-family: var(--font-family-theme);
 }
@@ -43,9 +47,8 @@ body {
 
 
 /* ROUTINE */
-.is-deselected {
-    opacity: 0.3;
-    transition: opacity 0.3s ease;
+body.modal-open {
+    overflow: hidden;
 }
 
 

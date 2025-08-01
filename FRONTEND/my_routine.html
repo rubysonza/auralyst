@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="src/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&family=Limelight&display=swap" rel="stylesheet">
+    <script src="src/gsap.min.js" defer></script>
+    <script type="module" src="src/index.js" defer></script>
+    <title>Auralyst</title>
+</head>
+<body>
+    
+    <!-- HEADER -->
+    <header class="z-20 relative flex flex-row justify-between items-center w-full h-30 top-0 left-0 pt-10 px-10 text-gray-800">
+        <button id="back-button" class="group-buttons cursor-pointer">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" strok-linejoin="round" stroke-width="0.5"><path fill="currentColor" d="M7.397 2.21A.726.726 0 0 1 8.41 2.2a.69.69 0 0 1 .012.99L2.373 9.243l16.931.105a.7.7 0 0 1-.008 1.4l-16.809-.104l6.303 6.16a.69.69 0 0 1 .076.903l-.075.087a.727.727 0 0 1-1.012 0L.21 10.4a.69.69 0 0 1-.005-.985Z"/></g></svg>
+        </button>
+        
+        <h1 id="header-title" class="z-10 text-gray-800 font-bold text-3xl md:text-4xl lg:text-[42px]">My Skincare</h1>
+
+        <button id="menu-button" class="cursor-pointer">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M5 5L19 5M5 19L19 19"/><path d="M5 12H19"/></g></svg>
+        </button>
+    </header>
+
+    <!-- THEME TOGGLE -->
+    <div class="grid place-items-center">
+        <div id="theme-toggle" class="z-30 relative grid grid-cols-2 w-auto p-2 space-x-2 items-center rounded-full text-gray-800 bg-[#00E2E230] border-2 border-[#00E2E2]">
+            <div id="theme-pill" class="absolute top-1/2 left-[26%] -translate-x-1/2 -translate-y-1/2 w-23 h-9 rounded-full bg-[#00E2E2]"></div>
+
+            <button id="sun-button" class="group-buttons relative flex flex-row justify-center items-center cursor-pointer">
+                <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24">
+                    <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 12a4 4 0 1 0 8 0a4 4 0 1 0-8 0m-5 0h1m8-9v1m8 8h1m-9 8v1M5.6 5.6l.7.7m12.1-.7l-.7.7m0 11.4l.7.7m-12.1-.7l-.7.7" />
+                </svg>
+                <span class="text-sm">Morning</span>
+            </button>
+
+            <button id="moon-button" class="group-buttons relative flex flex-row justify-center items-center cursor-pointer">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                    <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 3h.393a7.5 7.5 0 0 0 7.92 12.446A9 9 0 1 1 12 2.992z" />
+                </svg>
+                <span class="text-sm">Night</span>
+            </button>
+        </div>
+    </div>
+
+    <main id="routine-steps-container" class="p-4 space-y-4">
+        <!-- Routine step cards will be dynamically inserted here -->
+    </main>
+</body>
+</html>

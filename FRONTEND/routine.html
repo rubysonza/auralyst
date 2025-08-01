@@ -14,12 +14,12 @@
     <title>Auralyst</title>
 </head>
 
-<body class="bg-gray-100 overflow-hidden">
+<body class="bg-gray-100 w-full h-full overflow-hidden">
 
     <!-- BOTTLE -->
-    <div class="z-0 relative grid place-items-center w-full h-full">
+    <!-- <div class="z-0 relative grid place-items-center w-full h-full">
         <img id="landing-bottle" src="\public\images\notext_green.png" alt="Green Tube Skincare Bottle" class="opacity-0 z-0 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-24 md:w-28 lg:w-34 h-auto">
-    </div>
+    </div> -->
 
     <!-- HEADER -->
     <header class="z-20 relative flex flex-row justify-between items-center w-full h-30 top-0 left-0 pt-10 px-10 text-gray-800">
@@ -27,19 +27,17 @@
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" strok-linejoin="round" stroke-width="0.5"><path fill="currentColor" d="M7.397 2.21A.726.726 0 0 1 8.41 2.2a.69.69 0 0 1 .012.99L2.373 9.243l16.931.105a.7.7 0 0 1-.008 1.4l-16.809-.104l6.303 6.16a.69.69 0 0 1 .076.903l-.075.087a.727.727 0 0 1-1.012 0L.21 10.4a.69.69 0 0 1-.005-.985Z"/></g></svg>
         </button>
         
-        <h1 id="header-title" class="opacity-1 z-10 text-gray-800 font-bold text-3xl md:text-4xl lg:text-[42px]">Routine</h1>
+        <h1 id="header-title" class="z-10 text-gray-800 font-bold text-3xl md:text-4xl lg:text-[42px]">Routine</h1>
 
-        <button id="menu-button" class="group-buttons cursor-pointer">
-            <svg class="w-7 h-7" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 5h18M3 12h18M3 19h18"/>
-            </svg>
+        <button id="menu-button" class="cursor-pointer">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M5 5L19 5M5 19L19 19"/><path d="M5 12H19"/></g></svg>
         </button>
     </header>
 
     <!-- THEME TOGGLE -->
     <div class="grid place-items-center">
         <div id="theme-toggle" class="z-30 relative grid grid-cols-2 w-auto p-2 space-x-2 items-center rounded-full text-gray-800 bg-[#00E2E230] border-2 border-[#00E2E2]">
-            <div id="theme-pill" class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-23 h-9 rounded-full bg-[#00E2E2]"></div>
+            <div id="theme-pill" class="absolute top-1/2 left-[26%] -translate-x-1/2 -translate-y-1/2 w-23 h-9 rounded-full bg-[#00E2E2]"></div>
 
             <button id="sun-button" class="group-buttons relative flex flex-row justify-center items-center cursor-pointer">
                 <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24">
@@ -61,9 +59,9 @@
     <!-- MAIN CONTENT -->
     <main class="z-30 justify-items-center top-30 h-screen overflow-hidden">
 
-        <div id="steps-section" class="group relative z-20 flex flex-col w-full h-full px-8 top-0 left-0">
+        <div id="steps-section" class="group relative z-20 grid grid-rows-[auto_1fr] w-full h-full px-8 top-0 left-0">
 
-            <div id="steps-prompt" class="flex flex-col flex-shrink-0 pt-7 pb-1 space-y-1 text-center justify-center text-gray-800">
+            <div id="steps-prompt" class="flex-shrink-0 pt-7 pb-1 text-center text-gray-800">
                 <div class="flex flex-row space-x-1 items-center justify-center align-middle text-sm md:text-base lg:text-lg">
                     <svg class="" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                         <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.1" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 1 1 7.072 0l-.548.547A3.37 3.37 0 0 0 14 18.469V19a2 2 0 1 1-4 0v-.531c0-.895-.356-1.754-.988-2.386z"/>
@@ -72,15 +70,13 @@
                 </div>
             </div>
 
-            <div id="steps-content" class="relative flex justify-center group-[.is-panel-active]:justify-center items-start gap-8 py-5 overflow-hidden">
+            <div id="steps-content" class="relative flex justify-center items-start pt-5 gap-8 overflow-y-auto min-h-0">
                 
-                <div id="steps-wrapper" class="flex justify-start w-auto h-full pb-5">
-                    <div id="steps-container" class="relative z-10 flex flex-col justify-start h-full space-y-5 overflow-y-auto no-scrollbar max-w-md group-[.is-panel-active]:w-auto group-[.is-panel-active]:max-w-md">
-                        <!-- function createStepElement {mod} -->
-                    </div>
+                <div id="steps-container" class="relative z-10 flex flex-col justify-start w-auto h-full pb-60 space-y-5 overflow-y-auto no-scrollbar max-w-md group-[.is-panel-active]:w-auto group-[.is-panel-active]:max-w-md">
+                    <!-- function createStepElement {mod} -->
                 </div>
 
-                <div id="description-panel" class="hidden w-7/12 h-full z-20 group-[.is-panel-active]:block">
+                <div id="description-panel" class="hidden w-7/12 z-20 group-[.is-panel-active]:block overflow-hidden">
                     <div id="panel-content-wrapper" class="flex flex-col p-6 w-full h-full rounded-2xl bg-white overflow-y-auto no-scrollbar">
                         <h3 id="panel-title" class="flex-shrink-0 mb-2 text-2xl font-bold"></h3>
                         <p id="panel-description" class="flex-shrink-0"></p>
@@ -94,7 +90,7 @@
     </main>
 
 
-    <div id="description-modal" class="z-50 absolute inset-0 bg-gray-900/30 backdrop-blur-sm flex items-center justify-center overflow-hidden lg:hidden">
+    <div id="description-modal" class="hidden z-50 absolute inset-0 bg-gray-900/30 backdrop-blur-sm flex items-center justify-center overflow-hidden lg:hidden">
 
         <div id="modal-content" class="relative flex flex-col p-6 rounded-2xl bg-white w-11/12 max-w-lg max-h-[90vh]">
 
@@ -114,49 +110,47 @@
 
 
     <!-- MENU SCREEN -->
-    <div id="menu-backdrop" class="z-90 hidden absolute opacity-0 inset-0 bg-black/30 backdrop-blur-sm">
+    <div id="menu-backdrop" class="z-90 hidden absolute opacity-0 inset-0 h-full w-full bg-black/30 backdrop-blur-sm">
     
-        <div id="menu-screen" class="z-100 fixed top-0 left-0 h-full w-2/3 md:w-1/3 lg:w-1/4 -translate-x-full transition-transform">
+        <div id="menu-screen" class="z-100 fixed top-0 right-0 h-full w-full sm:w-1/2 md:w-1/3 lg:w-1/4 bg-gray-100 translate-x-full transition-transform">
 
             <!-- Menu Panel -->
-            <nav class="z-100 relative max-w-sm h-full p-6 ">
+            <nav class="z-100 relative h-full p-6 ">
                 <!-- Close Button -->
-                <div class="flex my-4 justify-end">
+                <div class="flex justify-end top-0 left-0 pt-10 pr-5">
                     <button id="menu-close" class="cursor-pointer">
-                        <svg class="w-7 h-7" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                            <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 5h18M3 12h18M3 19h18"/>
-                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M5 5L19 5M5 19L19 19"/><path d="M5 12H19"/></g></svg>
                     </button>
                 </div>
 
                 <!-- Navigation Links -->
                 <ul class="space-y-4">
                     <li>
-                        <a href="frontend\index.html" class="flex p-3 space-x-4 rounded-lg items-center hover:bg-green-200/50">
+                        <a href="\index.html" class="flex p-3 space-x-4 rounded-lg items-center hover:bg-[#00E2E250]">
                             <!-- Home Icon -->
-                            <svg class="w-6 h-6 text-green-800" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" /></svg>
-                            <span class="font-semibold text-lg text-green-900">Home</span>
+                            <svg class="w-6 h-6 text-gray-800" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" /></svg>
+                            <span class="font-semibold text-lg text-gray-800">Home</span>
                         </a>
                     </li>
                     <li>
-                        <a href="#" class="flex p-3 space-x-4 rounded-lg items-center hover:bg-green-200/50">
-                            <!-- My Routine Icon -->
-                            <svg class="w-6 h-6 text-green-800" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" /></svg>
-                            <span class="font-semibold text-lg text-green-900">My Routine</span>
+                        <a href="\my_routine.html" class="flex p-3 space-x-4 rounded-lg items-center hover:bg-[#00E2E250]">
+                            <!-- My Skincare Icon -->
+                            <svg class="w-6 h-6 text-gray-800" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" /></svg>
+                            <span class="font-semibold text-lg text-gray-800">My Skincare</span>
                         </a>
                     </li>
                     <li>
-                        <a href="#" class="flex p-3 space-x-4 rounded-lg items-center hover:bg-green-200/50">
+                        <a href="\products.html" class="flex p-3 space-x-4 rounded-lg items-center hover:bg-[#00E2E250]">
                             <!-- Products Icon -->
-                            <svg class="w-6 h-6 text-green-800" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4" /></svg>
-                            <span class="font-semibold text-lg text-green-900">Products</span>
+                            <svg class="w-6 h-6 text-gray-800" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4" /></svg>
+                            <span class="font-semibold text-lg text-gray-800">Products</span>
                         </a>
                     </li>
                     <li>
-                        <a href="#" class="flex p-3 space-x-4 rounded-lg items-center hover:bg-green-200/50">
+                        <a href="\actives.html" class="flex p-3 space-x-4 rounded-lg items-center hover:bg-[#00E2E250]">
                             <!-- Actives Icon -->
-                            <svg class="w-6 h-6 text-green-800" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" /></svg>
-                            <span class="font-semibold text-lg text-green-900">Actives</span>
+                            <svg class="w-6 h-6 text-gray-800" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" /></svg>
+                            <span class="font-semibold text-lg text-gray-800">Actives</span>
                         </a>
                     </li>
                 </ul>
@@ -165,11 +159,52 @@
     </div>
 
 
-    <!-- <footer class="z-30 fixed bottom-0 left-0 w-full p-4 bg-white/10 backdrop-blur-sm">
-        <div class="container mx-auto max-w-xl text-center">
-            <button id="save-button" class="w-full md:w-auto bg-green-500 hover:bg-green-700 text-white font-bold py-3 px-8 rounded-full transition-colors duration-300 cursor-pointer">Save Routine</button>
+    <!-- SAVE BUTTON -->
+    <div class="z-70 fixed flex justify-center bottom-0 left-0 w-full p-4 bg-white/10 backdrop-blur-sm">
+        <div class="container mx-auto max-w-sm text-center">
+            <button id="save-button" class="w-3/4 bg-[#00E2E2] hover:bg-[#6bd4d4] text-white font-bold py-3 px-8 rounded-full transition-colors duration-300 cursor-pointer">Save Routine</button>
         </div>
-    </footer> -->
+    </div>
+
+    <!-- DIALOG BOX -->
+    <div id="confirm-dialog" class="hidden z-90 fixed inset-0 bg-gray-900/30 backdrop-blur-sm flex items-center justify-center p-4">
+        
+        <div id="confirm-card" class="relative bg-white w-full max-w-2xl rounded-2xl shadow-lg p-6 md:p-8">
+            
+            <button id="dialog-close-button" class="absolute top-4 right-4 text-gray-400 hover:text-gray-800 cursor-pointer">
+                <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+            </button>
+
+            <h2 class="text-2xl md:text-3xl font-bold text-gray-800 text-center mb-6">Your Custom Routine</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                
+                <div>
+                    <div class="flex flex-row border-b pb-2 mb-3 space-x-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24">
+                            <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 12a4 4 0 1 0 8 0a4 4 0 1 0-8 0m-5 0h1m8-9v1m8 8h1m-9 8v1M5.6 5.6l.7.7m12.1-.7l-.7.7m0 11.4l.7.7m-12.1-.7l-.7.7" />
+                        </svg>
+                        <h3 class="text-lg font-semibold text-gray-700">Morning</h3>
+                    </div>
+                    <ul id="am-confirm-list" class="space-y-2 text-gray-600"></ul>
+                </div>
+
+                <div>
+                    <div class="flex flex-row border-b pb-2 mb-3 space-x-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                            <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 3h.393a7.5 7.5 0 0 0 7.92 12.446A9 9 0 1 1 12 2.992z" />
+                        </svg>
+                        <h3 class="text-lg font-semibold text-gray-700">Night</h3>
+                    </div>
+                    <ul id="pm-confirm-list" class="space-y-2 text-gray-600"></ul>
+                </div>
+            </div>
+
+            <div class="mt-8 text-center">
+                <button id="next-button" class="w-full md:w-auto bg-[#00E2E2] hover:bg-[#6bd4d4] text-white font-bold py-3 px-8 rounded-full transition-colors duration-300 cursor-pointer">Next: Pick Your Products</button>
+            </div>
+        </div>
+    </div>
 
 </body>
 </html>

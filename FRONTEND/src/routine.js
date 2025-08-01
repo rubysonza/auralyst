@@ -2,20 +2,10 @@ import './style.css'
 import gsap from "gsap";
 import Flip from "gsap/Flip";
 
-async function init() {
-    gsap.registerPlugin(Flip);
-    let routines;
-    try {
-        const response = await fetch('/routine.json');
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        routines = await response.json();
-    } catch (error) {
-        console.error("Could not fetch routine data:", error);
-        return;
-    }
+document.addEventListener('DOMContentLoaded', async () => {
 
+    gsap.registerPlugin(Flip);
+    
     const elements = {
         body: document.body,
         themePill: document.getElementById('theme-pill'),
@@ -25,7 +15,6 @@ async function init() {
         stepsSection: document.getElementById('steps-section'),
         stepsContent: document.getElementById('steps-content'),
         stepsPrompt: document.getElementById('steps-prompt'),
-        stepsWrapper: document.getElementById('steps-wrapper'),
         stepsContainer: document.getElementById('steps-container'),
         // BUTTONS
         buttons: document.querySelectorAll('group-buttons'),
@@ -49,7 +38,15 @@ async function init() {
         panelContentWrapper: document.getElementById('panel-content-wrapper'),
         panelTitle: document.getElementById('panel-title'),
         panelDescription: document.getElementById('panel-description'),
-        panelTypesContainer: document.getElementById('panel-types-container')
+        panelTypesContainer: document.getElementById('panel-types-container'),
+        // SAVE BUTTON DIALOG BOX
+        saveButton: document.getElementById('save-button'),
+        confirmDialog: document.getElementById('confirm-dialog'),
+        confirmCard: document.getElementById('confirm-card'),
+        amConfirmList: document.getElementById('am-confirm-list'),
+        pmConfirmList: document.getElementById('pm-confirm-list'),
+        dialogCloseButton: document.getElementById('dialog-close-button'),
+        nextButton: document.getElementById('next-button')
     };
 
     const levelColors = {
@@ -59,29 +56,56 @@ async function init() {
     };
 
     let currentRoutine = 'am';
+    const routineStorageKey = 'mySkincareRoutine'; // A key for Local Storage
+    let userRoutine = { am: [], pm: [] };
 
-    elements.descriptionModal.classList.add('hidden');
 
-    // INTRO ANIMATION
-    function playIntroAnimation() {
-        populateSteps(currentRoutine);
-
-        const tl = gsap.timeline({ delay: 0.1 }); // Add a small delay to the timeline itself
-        tl.to(elements.landingBottle, { y: -350, scale: 0.6, autoAlpha: 0, duration: 1.0, ease: 'power2.inOut' }, 0);
-        tl.to(elements.stepsSection, { height: '84.5vh', duration: 1.2, ease: 'expo.inOut' }, 0);
-        tl.fromTo(elements.stepsContainer.querySelectorAll('.step-item'), { opacity: 0 }, { opacity: 1, stagger: 0.06, duration: 1.0, ease: 'power2.out' }, '-=0.7');
+    function initializeRoutineState() {
+        const savedData = localStorage.getItem(routineStorageKey);
+        if (savedData) {
+            // If we found saved data, load it into our state object
+            userRoutine = JSON.parse(savedData);
+        } else {
+            // Otherwise, populate our state with all default steps
+            userRoutine.am = routines.am_routine.map(step => step.name);
+            userRoutine.pm = routines.pm_routine.map(step => step.name);
+        }
     }
 
-    gsap.set(elements.headerTitle, { autoAlpha: 1 });
+    let routines;
+    try {
+        const response = await fetch('/routine.json');
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        routines = await response.json();
+        initializeRoutineState();
+    } catch (error) {
+        console.error("Could not fetch routine data:", error);
+        return;
+    }
+
+    populateSteps(currentRoutine);
+    gsap.fromTo(elements.stepsContainer.querySelectorAll('.step-item'),
+    {
+        opacity: 0,
+        y: 20
+    },
+    {
+        opacity: (index, target) => {
+            return target.classList.contains('is-deselected') ? 0.3 : 1;
+        },
+        y: 0,
+        stagger: 0.07,
+        duration: 0.5,
+        ease: 'power2.out'
+    }
+);
 
 
-    // ROUTINE TOGGLE
-    // Set the initial position of the pill:
-    gsap.set(elements.themePill, { left: '26%' });
-
-
+    // STEP CONTAINER FUNCTIONS
     function routineTransition(newRoutine) {
-        if (gsap.isTweening(elements.themePill)) return;
+        if (gsap.isTweening(elements.stepsWrapper) || gsap.isTweening(elements.themePill)) return;
 
         currentRoutine = newRoutine;
 
@@ -93,81 +117,42 @@ async function init() {
 
         const tl = gsap.timeline();
 
-        // Fade out the panel
-        tl.to(elements.descriptionPanel, {
-            opacity: 0,
-            duration: 0.3
-        });
+        const oldSteps = elements.stepsContainer.querySelectorAll('.step-item');
 
-        // Fade out old steps
-        tl.to(elements.stepsContainer.children, {
+        tl.to([elements.descriptionPanel, ...oldSteps], {
             opacity: 0,
             duration: 0.3,
             stagger: 0.05
-        }, 0); // Start at the same time as panel fade
+        });
 
-        // After fade-out, reset the layout and populate new steps
         tl.add(() => {
-            // Record the "side-by-side" state
             const state = Flip.getState(elements.stepsWrapper);
 
-            // Remove the class to snap back to the centered layout
             elements.stepsSection.classList.remove('is-panel-active');
 
-            // Animate from the previous state to the new centered state
             Flip.from(state, {
-                duration: 0.6,
-                ease: 'power3.inOut'
+                duration: 0.5,
+                ease: 'power3.inOut',
+                onComplete: () => {
+                    populateSteps(newRoutine);
+                    gsap.fromTo(elements.stepsContainer.querySelectorAll('.step-item'),
+                        { opacity: 0, y: 10 },
+                        {
+                            opacity: (index, target) => target.classList.contains('is-deselected') ? 0.3 : 1,
+                            y: 0,
+                            stagger: 0.07,
+                            duration: 0.3
+                        }
+                    );
+                }
             });
-
-            // Populate and fade in the new steps
-            populateSteps(newRoutine);
-            gsap.fromTo(elements.stepsContainer.querySelectorAll('.step-item'),
-                { opacity: 0 },
-                { opacity: 1, stagger: 0.07, duration: 0.3, delay: 0.2 }
-            );
         });
     }
 
 
-    // MENU
-    let menuTimeline = null;
-
-    function openMenu() {
-        if (menuTimeline) {
-            menuTimeline.play();
-            return;
-        }
-        menuTimeline = gsap.timeline({ paused: true });
-        menuTimeline
-            .to(elements.menuBackdrop, {
-                opacity: 1,
-                duration: 0.2,
-                onStart: () => elements.menuBackdrop.classList.remove('hidden')
-            }, 0)
-            .to(elements.menuScreen, {
-                x: 0,
-                duration: 0.2,
-                ease: 'power2.inOut',
-                onStart: () => elements.menuScreen.classList.remove('-translate-x-full')
-            }, 0);
-        menuTimeline.play();
-    }
-
-    function closeMenu() {
-        if (menuTimeline) {
-            menuTimeline.reverse();
-            menuTimeline.eventCallback('onReverseComplete', () => {
-                elements.menuBackdrop.classList.add('hidden');
-                elements.menuScreen.classList.add('-translate-x-full');
-            });
-        }
-    }
-
-    // STEP CONTAINER FUNCTIONS
     function createStepElement(step, stepNumber) {
         const mod = document.createElement('div');
-        mod.className = 'step-item flex flex-none w-xs max-w-md mb-3 lg:mb-5 rounded-4xl shadow-lg overflow-hidden cursor-pointer bg-white/90';
+        mod.className = 'step-item flex flex-none w-xs min-w-xs mb-3 lg:mb-5 rounded-4xl shadow-lg overflow-hidden cursor-pointer bg-white/90';
 
         const level = step.level || 'Optional';
         const sidebarColor = levelColors[level] || 'bg-gray-400';
@@ -194,6 +179,16 @@ async function init() {
             if (e.target.closest('.step-sidebar')) {
                 const isDeselected = mod.classList.toggle('is-deselected');
                 gsap.to(mod, { opacity: isDeselected ? 0.3 : 1, duration: 0.1 });
+
+                // --- ADD THIS LOGIC ---
+                // Update our state object when the user toggles a step
+                if (isDeselected) {
+                    // Remove the step from the array
+                    userRoutine[currentRoutine] = userRoutine[currentRoutine].filter(name => name !== step.name);
+                } else {
+                    // Add the step back to the array
+                    userRoutine[currentRoutine].push(step.name);
+                }
             } else if (e.target.closest('.step-content')) {
                 if (window.innerWidth < 1024) {
                     openModalMobile(step);
@@ -205,6 +200,7 @@ async function init() {
         return mod;
     }
 
+
     function populateSteps(routine) {
         if (!elements.stepsContainer) return;
 
@@ -212,13 +208,19 @@ async function init() {
         const routineData = routine === 'am' ? routines.am_routine : routines.pm_routine;
         routineData.forEach((step, index) => {
             const stepElement = createStepElement(step, index + 1);
-            stepElement.style.opacity = '0';
+
+            if (!userRoutine[routine].includes(step.name)) {
+                stepElement.classList.add('is-deselected');
+            }
+
             elements.stepsContainer.appendChild(stepElement);
         });
+
+        elements.stepsContainer.scrollTop = 0;
     }
 
 
-    // MODAL CONTENT FUNCTIONS
+    // MODAL/PANEL FUNCTIONS
     let modalTimeline = null;
 
     function openModalMobile(step) {
@@ -259,10 +261,9 @@ async function init() {
     function openModalDesktop(step) {
         if (!step) return;
 
-        // 1. Update the panel's content with data from the clicked step.
         elements.panelTitle.textContent = step.name;
         elements.panelDescription.textContent = step.long;
-        elements.panelTypesContainer.innerHTML = ''; // Clear out old content first
+        elements.panelTypesContainer.innerHTML = '';
         elements.panelTitle.innerHTML = `<span class="px-4 py-1 bg-[#00E2E2] text-white rounded-full">${step.name}</span>`;
 
         if (step.types && step.types.length > 0) {
@@ -278,26 +279,116 @@ async function init() {
             });
         }
 
-        // 1. Get the current state of the container
         const state = Flip.getState(elements.stepsWrapper);
 
-        // 2. Add the class, which makes the layout instantly "snap" to the final state in the DOM
         elements.stepsSection.classList.add('is-panel-active');
 
-        // 3. Use Flip.from() to animate from the old state to the new one
         Flip.from(state, {
             duration: 0.6,
             ease: 'power3.inOut'
         });
 
-        // We can also fade in the panel for a smoother effect
         gsap.fromTo(elements.descriptionPanel, 
             { opacity: 0, x: 20 },
             { opacity: 1, x: 0, duration: 0.5, delay: 0.1 }
         );
     }
 
-    // EVENT LISTENERS //
+
+    // DIALOG BOX
+    function openConfirmDialog() {
+        console.log("openConfirmDialog function started.");
+        document.body.classList.add('modal-open');
+
+        // --- Populate Morning List ---
+        elements.amConfirmList.innerHTML = '';
+        if (userRoutine.am.length > 0) {
+            userRoutine.am.forEach(stepName => {
+                const li = document.createElement('li');
+                li.textContent = stepName;
+                elements.amConfirmList.appendChild(li);
+            });
+        } else {
+            elements.amConfirmList.innerHTML = `<li class="italic text-gray-400">No steps selected for this routine</li>`;
+        }
+
+        // --- Populate Night List ---
+        elements.pmConfirmList.innerHTML = '';
+        if (userRoutine.pm.length > 0) {
+            userRoutine.pm.forEach(stepName => {
+                const li = document.createElement('li');
+                li.textContent = stepName;
+                elements.pmConfirmList.appendChild(li);
+            });
+        } else {
+            elements.pmConfirmList.innerHTML = `<li class="italic text-gray-400">No steps selected for this routine</li>`;
+        }
+
+        console.log("Attempting to show dialog:", elements.confirmDialog);
+
+        elements.confirmDialog.classList.remove('hidden');
+        gsap.from(elements.confirmCard, { 
+            opacity: 0, 
+            y: 20, 
+            duration: 0.3, 
+            ease: 'power2.out' 
+        });
+
+        console.log("openConfirmDialog function finished.");
+    }
+
+    function closeConfirmDialog() {
+        document.body.classList.remove('modal-open');
+        
+        gsap.to(elements.confirmCard, {
+            opacity: 0,
+            y: 20,
+            duration: 0.3,
+            ease: 'power2.in',
+            onComplete: () => {
+                elements.confirmDialog.classList.add('hidden');
+                gsap.set(elements.confirmCard, { clearProps: 'all' });
+            }
+        });
+    }
+
+
+    // MENU
+    let menuTimeline = null;
+
+    function openMenu() {
+        if (menuTimeline) {
+            menuTimeline.play();
+            return;
+        }
+        menuTimeline = gsap.timeline({ paused: true });
+        menuTimeline
+            .to(elements.menuBackdrop, {
+                opacity: 1,
+                duration: 0.2,
+                onStart: () => elements.menuBackdrop.classList.remove('hidden')
+            }, 0)
+            .to(elements.menuScreen, {
+                x: 0,
+                duration: 0.2,
+                ease: 'power2.inOut',
+                onStart: () => elements.menuScreen.classList.remove('translate-x-full')
+            }, 0);
+        menuTimeline.play();
+    }
+
+    function closeMenu() {
+        if (menuTimeline) {
+            menuTimeline.reverse();
+            menuTimeline.eventCallback('onReverseComplete', () => {
+                elements.menuBackdrop.classList.add('hidden');
+                elements.menuScreen.classList.add('-translate-x-full');
+            });
+        }
+    }
+
+
+    // EVENT LISTENERS
     elements.sunButton.addEventListener('click', () => {
         if (currentRoutine !== 'am') {
             routineTransition('am');
@@ -324,7 +415,28 @@ async function init() {
         }
     });
 
-    gsap.delayedCall(0.5, playIntroAnimation);
-}
+    elements.saveButton.addEventListener('click', openConfirmDialog);
 
-document.addEventListener('DOMContentLoaded', init);
+    elements.dialogCloseButton.addEventListener('click', closeConfirmDialog);
+    elements.nextButton.addEventListener('click', () => {
+        localStorage.setItem(routineStorageKey, JSON.stringify(userRoutine));
+
+        elements.nextButton.textContent = 'Saved!';
+        elements.nextButton.disabled = true;
+
+        gsap.delayedCall(1, () => {
+            window.location.href = '/products.html'; 
+
+            elements.nextButton.textContent = originalText;
+            elements.nextButton.disabled = false;
+            closeConfirmDialog();
+        });
+    });
+
+    elements.confirmDialog.addEventListener('click', (e) => {
+        if (e.target === elements.confirmDialog) {
+            closeConfirmDialog();
+        }
+    });
+
+});

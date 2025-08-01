@@ -1,7 +1,8 @@
 import './style.css'
 import gsap from "gsap";
 
-
+document.addEventListener('DOMContentLoaded', () => {
+    
     // GSAP animations or any other scripts
     gsap.registerPlugin();
     
@@ -699,7 +700,7 @@ import gsap from "gsap";
     }
 
 
-document.addEventListener('DOMContentLoaded', () => {
+
 
     setupSortMenu();
     setupStepFilters();
