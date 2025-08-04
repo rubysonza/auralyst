@@ -1,4 +1,4 @@
-import './style.css'
+import '../styles.css'
 import gsap from "gsap";
 
 document.addEventListener('DOMContentLoaded', () => {
