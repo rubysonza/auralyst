@@ -1,2 +1,2 @@
 # auralyst
-An interactive guide to skincare routines.
+An interactive guide to skincare routines. 
