@@ -7,7 +7,6 @@ document.addEventListener('DOMContentLoaded', () => {
     gsap.registerPlugin();
     
     // BUTTONS
-    const menuButton = document.getElementById('menu-button');
     const backButton = document.getElementById('back-button');
     const fsSection = document.getElementById('filter-sort-section');
 
@@ -37,7 +36,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const sidebar = document.getElementById('filter-sidebar');
     const backdrop = document.getElementById('filter-backdrop');
     const activeFilters = document.getElementById('active-filters-container');
-     
+
+    // MENU
+    const elements = {
+        menuButton: document.getElementById('menu-button'),
+        menuClose: document.getElementById('menu-close'),
+        menuScreen: document.getElementById('menu-screen'),
+        menuBackdrop: document.getElementById('menu-backdrop')
+    };
 
     // VARIABLES
     let lastScrollY = window.scrollY;
@@ -145,7 +151,61 @@ document.addEventListener('DOMContentLoaded', () => {
         plpSection.classList.remove('hidden');
         window.scrollTo(0, lastScrollPosition);
     }
-    
+
+
+    // STEP SCROLL + SAVED ROUTINE
+    const routineStorageKey = 'mySkincareRoutine';
+
+    function setupPersonalizedStepFilters() {
+        const savedData = localStorage.getItem(routineStorageKey);
+        if (!savedData) {
+            console.log("No saved routine found.");
+            return; 
+        }
+
+        // This is our master list. It controls the final order and groups related step names.
+        const masterStepOrder = [
+            { displayName: 'Cleanser', checkValues: ['Cleanser', 'Oil Cleanser', 'Water Cleanser'] },
+            { displayName: 'Exfoliator', checkValues: ['Exfoliator'] },
+            { displayName: 'Toner', checkValues: ['Toner'] },
+            { displayName: 'Serum', checkValues: ['Serum'] },
+            { displayName: 'Eye Cream', checkValues: ['Eye Cream'] },
+            { displayName: 'Spot Treatment', checkValues: ['Spot Treatment'] },
+            { displayName: 'Moisturizer', checkValues: ['Moisturizer'] },
+            { displayName: 'Face Oil', checkValues: ['Face Oil'] },
+            { displayName: 'Sunscreen', checkValues: ['Sunscreen'] },
+            { displayName: 'Sleeping Mask', checkValues: ['Sleeping Mask'] }
+        ];
+
+        const userRoutine = JSON.parse(savedData);
+        const stepFilterContainer = document.getElementById('step-filter');
+
+        // Combine all saved steps into a single Set for quick lookups.
+        const savedSteps = new Set([...userRoutine.am, ...userRoutine.pm]);
+
+        if (savedSteps.size > 0 && stepFilterContainer) {
+            // Clear the hardcoded buttons
+            stepFilterContainer.innerHTML = '';
+
+            // Filter the master list to find which buttons to create
+            masterStepOrder.forEach(masterStep => {
+                // Check if any of the checkValues for this step exist in the user's saved steps.
+                const isStepIncluded = masterStep.checkValues.some(value => savedSteps.has(value));
+
+                if (isStepIncluded) {
+                    const button = document.createElement('button');
+                    const dataStepName = masterStep.displayName.toLowerCase().replace(/\s+/g, '-');
+                    
+                    button.className = 'step-button';
+                    button.dataset.step = dataStepName;
+                    button.textContent = masterStep.displayName;
+                    
+                    stepFilterContainer.appendChild(button);
+                }
+            });
+        }
+    }
+        
 
 
     // PDP
@@ -700,8 +760,49 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 
+    // MENU
+    let menuTimeline = null;
 
+    function openMenu() {
+        if (menuTimeline) {
+            menuTimeline.play();
+            return;
+        }
+        menuTimeline = gsap.timeline({ paused: true });
+        menuTimeline
+            .to(elements.menuBackdrop, {
+                opacity: 1,
+                duration: 0.2,
+                onStart: () => elements.menuBackdrop.classList.remove('hidden')
+            }, 0)
+            .to(elements.menuScreen, {
+                x: 0,
+                duration: 0.2,
+                ease: 'power2.inOut',
+                onStart: () => elements.menuScreen.classList.remove('translate-x-full')
+            }, 0);
+        menuTimeline.play();
+    }
 
+    function closeMenu() {
+        if (menuTimeline) {
+            menuTimeline.reverse();
+            menuTimeline.eventCallback('onReverseComplete', () => {
+                elements.menuBackdrop.classList.add('hidden');
+                elements.menuScreen.classList.add('-translate-x-full');
+            });
+        }
+    }
+
+    elements.menuButton.addEventListener('click', openMenu);
+    elements.menuClose.addEventListener('click', closeMenu);
+    elements.menuBackdrop.addEventListener('click', (e) => {
+        if (e.target === elements.menuBackdrop) {
+            closeMenu();
+        }
+    });
+
+    setupPersonalizedStepFilters();
     setupSortMenu();
     setupStepFilters();
     setupFilterSidebar();
@@ -713,14 +814,20 @@ document.addEventListener('DOMContentLoaded', () => {
     backButton.addEventListener('click', showPLP);
 
     initializeFilters();
-
     
     const defaultButton = document.querySelector('button[data-step="cleanser"]');
     if (defaultButton) {
         defaultButton.classList.add('active');
     }
 
-    displayProducts('cleanser');
+    const firstStepButton = document.querySelector('#step-filter .step-button');
+        if (firstStepButton) {
+            firstStepButton.classList.add('active');
+            displayProducts(firstStepButton.dataset.step);
+        } else {
+            // Handle the case where the user has no saved steps
+            productGrid.innerHTML = '<p class="text-center text-gray-500 col-span-full">Save a routine to see relevant products here!</p>';
+        }
 
     gsap.delayedCall(0.5, introAnimation);
 

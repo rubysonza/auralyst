@@ -5,6 +5,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const navContainer = document.getElementById('az-nav-container');
     const accordionContainer = document.getElementById('actives-accordion-container');
+
+    // MENU
+    const elements = {
+        menuButton: document.getElementById('menu-button'),
+        menuClose: document.getElementById('menu-close'),
+        menuScreen: document.getElementById('menu-screen'),
+        menuBackdrop: document.getElementById('menu-backdrop')
+    };
     
     let allActives = []; 
     let currentFilter = 'All'; 
@@ -119,6 +127,49 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+
+
+    // MENU
+    let menuTimeline = null;
+
+    function openMenu() {
+        if (menuTimeline) {
+            menuTimeline.play();
+            return;
+        }
+        menuTimeline = gsap.timeline({ paused: true });
+        menuTimeline
+            .to(elements.menuBackdrop, {
+                opacity: 1,
+                duration: 0.2,
+                onStart: () => elements.menuBackdrop.classList.remove('hidden')
+            }, 0)
+            .to(elements.menuScreen, {
+                x: 0,
+                duration: 0.2,
+                ease: 'power2.inOut',
+                onStart: () => elements.menuScreen.classList.remove('translate-x-full')
+            }, 0);
+        menuTimeline.play();
+    }
+
+    function closeMenu() {
+        if (menuTimeline) {
+            menuTimeline.reverse();
+            menuTimeline.eventCallback('onReverseComplete', () => {
+                elements.menuBackdrop.classList.add('hidden');
+                elements.menuScreen.classList.add('-translate-x-full');
+            });
+        }
+    }
+
+    elements.menuButton.addEventListener('click', openMenu);
+    elements.menuClose.addEventListener('click', closeMenu);
+    elements.menuBackdrop.addEventListener('click', (e) => {
+        if (e.target === elements.menuBackdrop) {
+            closeMenu();
+        }
+    });
     
     initializeGlossary();
 });

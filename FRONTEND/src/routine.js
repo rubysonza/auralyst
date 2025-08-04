@@ -43,10 +43,18 @@ document.addEventListener('DOMContentLoaded', async () => {
         saveButton: document.getElementById('save-button'),
         confirmDialog: document.getElementById('confirm-dialog'),
         confirmCard: document.getElementById('confirm-card'),
+        amToggle: document.getElementById('am-toggle'),
+        pmToggle: document.getElementById('pm-toggle'),
+        amContainer: document.getElementById('am-confirm-list-container'),
+        pmContainer: document.getElementById('pm-confirm-list-container'),
         amConfirmList: document.getElementById('am-confirm-list'),
         pmConfirmList: document.getElementById('pm-confirm-list'),
-        dialogCloseButton: document.getElementById('dialog-close-button'),
-        nextButton: document.getElementById('next-button')
+        nextButton: document.getElementById('next-button'),
+        dialogCancelButton: document.getElementById('dialog-cancel-button'),
+        dialogSaveButton: document.getElementById('dialog-save-button'),
+        goBackButton: document.getElementById('go-back-button'),
+        preSaveContent: document.getElementById('pre-save-content'),
+        postSaveContent: document.getElementById('post-save-content')
     };
 
     const levelColors = {
@@ -56,7 +64,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     };
 
     let currentRoutine = 'am';
-    const routineStorageKey = 'mySkincareRoutine'; // A key for Local Storage
+    const routineStorageKey = 'mySkincareRoutine';
     let userRoutine = { am: [], pm: [] };
 
 
@@ -297,44 +305,58 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     // DIALOG BOX
     function openConfirmDialog() {
-        console.log("openConfirmDialog function started.");
+        // Lock the background scroll
         document.body.classList.add('modal-open');
 
+        const amList = document.getElementById('am-confirm-list');
+        const pmList = document.getElementById('pm-confirm-list');
+
         // --- Populate Morning List ---
-        elements.amConfirmList.innerHTML = '';
-        if (userRoutine.am.length > 0) {
-            userRoutine.am.forEach(stepName => {
+        amList.innerHTML = '';
+        routines.am_routine.forEach(step => {
+            if (userRoutine.am.includes(step.name)) {
                 const li = document.createElement('li');
-                li.textContent = stepName;
-                elements.amConfirmList.appendChild(li);
-            });
-        } else {
-            elements.amConfirmList.innerHTML = `<li class="italic text-gray-400">No steps selected for this routine</li>`;
+                li.className = 'p-3 pl-5 bg-gray-100 rounded-lg';
+                li.textContent = step.name;
+                amList.appendChild(li);
+            }
+        });
+        if (amList.children.length === 0) {
+            amList.innerHTML = `<li class="italic text-gray-400">No steps selected</li>`;
         }
 
         // --- Populate Night List ---
-        elements.pmConfirmList.innerHTML = '';
-        if (userRoutine.pm.length > 0) {
-            userRoutine.pm.forEach(stepName => {
+        pmList.innerHTML = '';
+        routines.pm_routine.forEach(step => {
+            if (userRoutine.pm.includes(step.name)) {
                 const li = document.createElement('li');
-                li.textContent = stepName;
-                elements.pmConfirmList.appendChild(li);
-            });
-        } else {
-            elements.pmConfirmList.innerHTML = `<li class="italic text-gray-400">No steps selected for this routine</li>`;
+                li.className = 'p-3 pl-5 bg-gray-100 rounded-lg';
+                li.textContent = step.name;
+                pmList.appendChild(li);
+            }
+        });
+        if (pmList.children.length === 0) {
+            pmList.innerHTML = `<li class="italic text-gray-400">No steps selected</li>`;
         }
 
-        console.log("Attempting to show dialog:", elements.confirmDialog);
+        // Show the relevant list and highlight the active toggle
+        document.getElementById('am-confirm-list-container').classList.remove('hidden');
+        document.getElementById('pm-confirm-list-container').classList.add('hidden');
+        document.getElementById('am-toggle').classList.add('bg-white', 'text-[#00E2E2]', 'shadow-sm');
+        document.getElementById('pm-toggle').classList.remove('bg-white', 'text-[#00E2E2]', 'shadow-sm');
 
+        // Show the main save actions and hide the post-save content
+        document.getElementById('save-actions').classList.remove('hidden');
+        document.getElementById('post-save-content').classList.add('hidden');
+
+        // Show the dialog
         elements.confirmDialog.classList.remove('hidden');
-        gsap.from(elements.confirmCard, { 
-            opacity: 0, 
-            y: 20, 
-            duration: 0.3, 
-            ease: 'power2.out' 
+        gsap.from(elements.confirmCard, {
+            opacity: 1,
+            y: 20,
+            duration: 0.3,
+            ease: 'power2.out'
         });
-
-        console.log("openConfirmDialog function finished.");
     }
 
     function closeConfirmDialog() {
@@ -416,27 +438,59 @@ document.addEventListener('DOMContentLoaded', async () => {
     });
 
     elements.saveButton.addEventListener('click', openConfirmDialog);
-
-    elements.dialogCloseButton.addEventListener('click', closeConfirmDialog);
-    elements.nextButton.addEventListener('click', () => {
-        localStorage.setItem(routineStorageKey, JSON.stringify(userRoutine));
-
-        elements.nextButton.textContent = 'Saved!';
-        elements.nextButton.disabled = true;
-
-        gsap.delayedCall(1, () => {
-            window.location.href = '/products.html'; 
-
-            elements.nextButton.textContent = originalText;
-            elements.nextButton.disabled = false;
-            closeConfirmDialog();
-        });
-    });
-
+    
     elements.confirmDialog.addEventListener('click', (e) => {
         if (e.target === elements.confirmDialog) {
             closeConfirmDialog();
         }
+    });
+
+
+    if (elements.amToggle) {
+        elements.amToggle.addEventListener('click', () => {
+            elements.amContainer.classList.remove('hidden');
+            elements.pmContainer.classList.add('hidden');
+            elements.amToggle.classList.add('bg-white', 'text-[#00E2E2]', 'shadow-sm');
+            elements.pmToggle.classList.remove('bg-white', 'text-[#00E2E2]', 'shadow-sm');
+        });
+    }
+
+    if (elements.pmToggle) {
+        elements.pmToggle.addEventListener('click', () => {
+            elements.pmContainer.classList.remove('hidden');
+            elements.amContainer.classList.add('hidden');
+            elements.pmToggle.classList.add('bg-white', 'text-[#00E2E2]', 'shadow-sm');
+            elements.amToggle.classList.remove('bg-white', 'text-[#00E2E2]', 'shadow-sm');
+        });
+    }
+
+    elements.dialogCancelButton.addEventListener('click', (closeConfirmDialog));
+
+    elements.dialogSaveButton.addEventListener('click', () => {
+        // 1. Save to Local Storage
+        localStorage.setItem(routineStorageKey, JSON.stringify(userRoutine));
+
+        // 2. Hide the pre-save content and show the post-save content
+        elements.preSaveContent.classList.add('hidden');
+        elements.postSaveContent.classList.remove('hidden');
+
+        // 3. Animate the new content in
+        gsap.from(elements.postSaveContent, { opacity: 0, duration: 0.4 });
+    });
+
+    // Listener for the 'Go Back' button
+    elements.goBackButton.addEventListener('click', () => {
+        // Hide the post-save content and show the pre-save content
+        elements.postSaveContent.classList.add('hidden');
+        elements.preSaveContent.classList.remove('hidden');
+    });
+
+    // Also, ensure your main "Save Routine" button shows the correct initial state
+    elements.saveButton.addEventListener('click', () => {
+        // Make sure the pre-save content is visible by default when dialog opens
+        elements.preSaveContent.classList.remove('hidden');
+        elements.postSaveContent.classList.add('hidden');
+        openConfirmDialog();
     });
 
 });
