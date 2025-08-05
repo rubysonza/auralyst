@@ -1,0 +1,335 @@
+{
+"moisturizer":
+[
+  {
+    "image_url": "",
+    "brand_name": "Kiehl's",
+    "product_name": "Ultra Facial Cream",
+    "product_type": "Cream",
+    "price": 38.00,
+    "skin_types": ["Normal", "Dry", "Combination", "Sensitive"],
+    "skin_concerns": ["Dryness", "Dehydration"],
+    "key_actives": ["Glacial Glycoprotein", "Squalane"],
+    "usage_time": "Both"
+  },
+  {
+    "image_url": "",
+    "brand_name": "Neutrogena",
+    "product_name": "Hydro Boost Water Gel",
+    "product_type": "Gel",
+    "price": 26.79,
+    "skin_types": ["Normal", "Oily", "Combination"],
+    "skin_concerns": ["Dehydration", "Dryness", "Oily Skin"],
+    "key_actives": ["Hyaluronic Acid", "Glycerin"],
+    "usage_time": "Both"
+  },
+  {
+    "image_url": "",
+    "brand_name": "CeraVe",
+    "product_name": "Daily Moisturizing Lotion",
+    "product_type": "Lotion",
+    "price": 14.99,
+    "skin_types": ["Normal", "Dry", "Sensitive"],
+    "skin_concerns": ["Dryness", "Dehydration", "Eczema"],
+    "key_actives": ["Ceramides", "Hyaluronic Acid"],
+    "usage_time": "Both"
+  },
+  {
+    "image_url": "",
+    "brand_name": "Laura Mercier",
+    "product_name": "Tinted Moisturizer Natural Skin Perfector SPF 30",
+    "product_type": "Tinted",
+    "price": 53.00,
+    "skin_types": ["Normal", "Dry", "Combination"],
+    "skin_concerns": ["Uneven Skin Tone", "Dryness", "Sun Damage"],
+    "key_actives": ["Macadamia Oil", "Kukui Seed Oil", "Vitamin C", "Vitamin E"],
+    "usage_time": "Morning"
+  },
+  {
+    "image_url": "",
+    "brand_name": "Drunk Elephant",
+    "product_name": "Lala Retro Whipped Cream",
+    "product_type": "Cream",
+    "price": 62.00,
+    "skin_types": ["Normal", "Dry", "Combination"],
+    "skin_concerns": ["Dryness", "Fine Lines", "Wrinkles", "Loss of Firmness"],
+    "key_actives": ["Ceramides", "African Oil Blend"],
+    "usage_time": "Both"
+  },
+  {
+    "image_url": "",
+    "brand_name": "Clinique",
+    "product_name": "Moisture Surge 100H Auto-Replenishing Hydrator",
+    "product_type": "Gel",
+    "price": 46.00,
+    "skin_types": ["Normal", "Dry", "Oily", "Combination", "Sensitive"],
+    "skin_concerns": ["Dehydration", "Dryness", "Dullness"],
+    "key_actives": ["Aloe Bioferment", "Hyaluronic Acid", "Vitamin C", "Vitamin E"],
+    "usage_time": "Both"
+  },
+  {
+    "image_url": "",
+    "brand_name": "La Roche-Posay",
+    "product_name": "Toleriane Double Repair Face Moisturizer",
+    "product_type": "Lotion",
+    "price": 23.99,
+    "skin_types": ["Normal", "Dry", "Combination", "Sensitive"],
+    "skin_concerns": ["Dryness", "Dehydration", "Redness", "Sensitive Skin"],
+    "key_actives": ["Ceramide-3", "Niacinamide", "Glycerin"],
+    "usage_time": "Both"
+  },
+  {
+    "image_url": "",
+    "brand_name": "Dr. Jart+",
+    "product_name": "Cicapair Tiger Grass Color Correcting Treatment SPF 30",
+    "product_type": "Tinted",
+    "price": 52.00,
+    "skin_types": ["Normal", "Dry", "Oily", "Combination", "Sensitive"],
+    "skin_concerns": ["Redness", "Uneven Skin Tone", "Sun Damage"],
+    "key_actives": ["Centella Asiatica (Tiger Grass)", "Niacinamide", "Zinc Oxide", "Titanium Dioxide"],
+    "usage_time": "Morning"
+  },
+  {
+    "image_url": "",
+    "brand_name": "Tatcha",
+    "product_name": "The Water Cream",
+    "product_type": "Gel",
+    "price": 72.00,
+    "skin_types": ["Normal", "Oily", "Combination"],
+    "skin_concerns": ["Enlarged Pores", "Oily Skin", "Uneven Texture"],
+    "key_actives": ["Japanese Wild Rose", "Japanese Leopard Lily", "Hadasei-3"],
+    "usage_time": "Both"
+  },
+  {
+    "image_url": "",
+    "brand_name": "Augustinus Bader",
+    "product_name": "The Cream",
+    "product_type": "Cream",
+    "price": 290.00,
+    "skin_types": ["Normal", "Oily", "Combination"],
+    "skin_concerns": ["Fine Lines", "Wrinkles", "Uneven Skin Tone", "Loss of Firmness"],
+    "key_actives": ["TFC8®", "Vitamin A", "Vitamin C", "Vitamin B5"],
+    "usage_time": "Both"
+  },
+  {
+    "image_url": "",
+    "brand_name": "Cetaphil",
+    "product_name": "Moisturizing Lotion",
+    "product_type": "Lotion",
+    "price": 13.99,
+    "skin_types": ["Dry", "Sensitive", "Normal"],
+    "skin_concerns": ["Dryness", "Dehydration", "Sensitive Skin", "Eczema"],
+    "key_actives": ["Niacinamide", "Panthenol", "Glycerin", "Avocado Oil"],
+    "usage_time": "Both"
+  },
+  {
+    "image_url": "",
+    "brand_name": "belif",
+    "product_name": "The True Cream - Aqua Bomb",
+    "product_type": "Gel",
+    "price": 38.00,
+    "skin_types": ["Normal", "Oily", "Combination"],
+    "skin_concerns": ["Dehydration", "Dryness", "Enlarged Pores"],
+    "key_actives": ["Lady's Mantle", "Ceramides", "Glycerin"],
+    "usage_time": "Both"
+  },
+  {
+    "image_url": "",
+    "brand_name": "SkinCeuticals",
+    "product_name": "Triple Lipid Restore 2:4:2",
+    "product_type": "Cream",
+    "price": 136.00,
+    "skin_types": ["Normal", "Dry"],
+    "skin_concerns": ["Dryness", "Wrinkles", "Loss of Firmness", "Dehydration"],
+    "key_actives": ["Ceramides (2%)", "Natural Cholesterol (4%)", "Fatty Acids (2%)"],
+    "usage_time": "Both"
+  },
+  {
+    "image_url": "",
+    "brand_name": "Tower 28 Beauty",
+    "product_name": "SunnyDays SPF 30 Tinted Sunscreen Foundation",
+    "product_type": "Tinted",
+    "price": 32.00,
+    "skin_types": ["Normal", "Dry", "Oily", "Combination", "Sensitive"],
+    "skin_concerns": ["Redness", "Uneven Skin Tone", "Eczema"],
+    "key_actives": ["Zinc Oxide", "Prickly Pear Extract", "White Sage Extract"],
+    "usage_time": "Morning"
+  },
+  {
+    "image_url": "",
+    "brand_name": "Glow Recipe",
+    "product_name": "Plum Plump Hyaluronic Cream",
+    "product_type": "Gel",
+    "price": 39.00,
+    "skin_types": ["Normal", "Dry", "Oily", "Combination"],
+    "skin_concerns": ["Dehydration", "Fine Lines", "Dryness"],
+    "key_actives": ["Hyaluronic Acid", "Polyglutamic Acid", "Plum"],
+    "usage_time": "Both"
+  },
+  {
+    "image_url": "",
+    "brand_name": "Vanicream",
+    "product_name": "Moisturizing Cream",
+    "product_type": "Cream",
+    "price": 13.56,
+    "skin_types": ["Dry", "Sensitive"],
+    "skin_concerns": ["Dryness", "Eczema", "Rosacea", "Sensitive Skin"],
+    "key_actives": ["Petrolatum", "Sorbitol"],
+    "usage_time": "Both"
+  },
+  {
+    "image_url": "",
+    "brand_name": "Youth to the People",
+    "product_name": "Superfood Air-Whip Moisture Cream",
+    "product_type": "Lotion",
+    "price": 48.00,
+    "skin_types": ["Normal", "Oily", "Combination"],
+    "skin_concerns": ["Dehydration", "Oily Skin", "Enlarged Pores"],
+    "key_actives": ["Hyaluronic Acid", "Green Tea", "Kale"],
+    "usage_time": "Both"
+  },
+  {
+    "image_url": "",
+    "brand_name": "Summer Fridays",
+    "product_name": "Cloud Dew Oil-Free Gel Cream Moisturizer",
+    "product_type": "Gel",
+    "price": 45.00,
+    "skin_types": ["Normal", "Oily", "Combination", "Sensitive"],
+    "skin_concerns": ["Dehydration", "Fine Lines", "Dullness"],
+    "key_actives": ["Hyaluronic Acid Complex", "Pineapple Enzyme", "Amino Acids"],
+    "usage_time": "Both"
+  },
+  {
+    "image_url": "",
+    "brand_name": "ILIA",
+    "product_name": "Super Serum Skin Tint SPF 40",
+    "product_type": "Tinted",
+    "price": 48.00,
+    "skin_types": ["Normal", "Dry", "Combination", "Sensitive"],
+    "skin_concerns": ["Dryness", "Uneven Skin Tone", "Sun Damage", "Fine Lines"],
+    "key_actives": ["Zinc Oxide", "Hyaluronic Acid", "Squalane", "Niacinamide"],
+    "usage_time": "Morning"
+  },
+  {
+    "image_url": "",
+    "brand_name": "Farmacy",
+    "product_name": "Honey Halo Ultra-Hydrating Ceramide Moisturizer",
+    "product_type": "Cream",
+    "price": 48.00,
+    "skin_types": ["Normal", "Dry"],
+    "skin_concerns": ["Dryness", "Dullness", "Fine Lines"],
+    "key_actives": ["Ceramides", "Buckwheat Honey", "Fig Fruit Extract"],
+    "usage_time": "Both"
+  },
+  {
+    "image_url": "",
+    "brand_name": "The INKEY List",
+    "product_name": "Omega Water Cream",
+    "product_type": "Gel",
+    "price": 10.99,
+    "skin_types": ["Normal", "Oily", "Combination"],
+    "skin_concerns": ["Dehydration", "Oily Skin"],
+    "key_actives": ["Omega Ceramide Complex", "Glycerin", "Niacinamide"],
+    "usage_time": "Both"
+  },
+  {
+    "image_url": "",
+    "brand_name": "Embryolisse",
+    "product_name": "Lait-Crème Concentré",
+    "product_type": "Lotion",
+    "price": 29.00,
+    "skin_types": ["Normal", "Dry", "Combination", "Sensitive"],
+    "skin_concerns": ["Dryness", "Dehydration"],
+    "key_actives": ["Shea Butter", "Beeswax", "Soy Proteins", "Aloe Vera"],
+    "usage_time": "Both"
+  },
+  {
+    "image_url": "",
+    "brand_name": "NARS Cosmetics",
+    "product_name": "Pure Radiant Tinted Moisturizer SPF 30",
+    "product_type": "Tinted",
+    "price": 46.00,
+    "skin_types": ["Normal", "Dry", "Combination"],
+    "skin_concerns": ["Dullness", "Uneven Skin Tone", "Hyperpigmentation"],
+    "key_actives": ["Vitamin C", "Kopara"],
+    "usage_time": "Morning"
+  },
+  {
+    "image_url": "",
+    "brand_name": "Kate Somerville",
+    "product_name": "Goat Milk Moisturizing Cream",
+    "product_type": "Cream",
+    "price": 76.00,
+    "skin_types": ["Dry", "Sensitive", "Normal"],
+    "skin_concerns": ["Dryness", "Redness", "Sensitive Skin"],
+    "key_actives": ["Goat Milk", "Jojoba Oil", "Avocado Oil", "Aloe"],
+    "usage_time": "Both"
+  },
+  {
+    "image_url": "",
+    "brand_name": "Byoma",
+    "product_name": "Moisturizing Gel-Cream",
+    "product_type": "Gel",
+    "price": 14.99,
+    "skin_types": ["Normal", "Oily", "Combination", "Sensitive"],
+    "skin_concerns": ["Dehydration", "Oily Skin"],
+    "key_actives": ["Tri-Ceramide Complex", "Niacinamide", "Green Tea"],
+    "usage_time": "Both"
+  },
+  {
+    "image_url": "",
+    "brand_name": "COSRX",
+    "product_name": "Advanced Snail 92 All in one Cream",
+    "product_type": "Gel",
+    "price": 26.00,
+    "skin_types": ["Normal", "Dry", "Oily", "Combination", "Sensitive"],
+    "skin_concerns": ["Dehydration", "Dryness", "Acne Scars", "Redness"],
+    "key_actives": ["Snail Secretion Filtrate (92%)", "Betaine", "Hyaluronic Acid"],
+    "usage_time": "Both"
+  },
+  {
+    "image_url": "",
+    "brand_name": "Shiseido",
+    "product_name": "Essential Energy Hydrating Cream",
+    "product_type": "Cream",
+    "price": 50.00,
+    "skin_types": ["Normal", "Dry", "Combination"],
+    "skin_concerns": ["Dryness", "Dehydration", "Dullness"],
+    "key_actives": ["Hyaluronic Acid", "Ginseng Root Extract"],
+    "usage_time": "Both"
+  },
+  {
+    "image_url": "",
+    "brand_name": "First Aid Beauty",
+    "product_name": "Ultra Repair Cream",
+    "product_type": "Cream",
+    "price": 38.00,
+    "skin_types": ["Dry", "Sensitive", "Normal"],
+    "skin_concerns": ["Dryness", "Eczema", "Redness", "Fine Lines"],
+    "key_actives": ["Colloidal Oatmeal", "Shea Butter", "Allantoin"],
+    "usage_time": "Both"
+  },
+  {
+    "image_url": "",
+    "brand_name": "Innisfree",
+    "product_name": "Green Tea Hyaluronic Acid Cream",
+    "product_type": "Lotion",
+    "price": 28.00,
+    "skin_types": ["Normal", "Dry", "Combination"],
+    "skin_concerns": ["Dryness", "Dehydration"],
+    "key_actives": ["Green Tea Extract", "Hyaluronic Acid", "Squalane"],
+    "usage_time": "Both"
+  },
+  {
+    "image_url": "",
+    "brand_name": "Dr. Barbara Sturm",
+    "product_name": "Face Cream",
+    "product_type": "Cream",
+    "price": 225.00,
+    "skin_types": ["Normal", "Combination", "Sensitive"],
+    "skin_concerns": ["Fine Lines", "Redness", "Dehydration"],
+    "key_actives": ["Purslane", "Skullcap", "Vitamin E", "Panthenol"],
+    "usage_time": "Both"
+  }
+]
+}

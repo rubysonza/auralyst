@@ -1,0 +1,335 @@
+{
+"serum":
+[
+  {
+    "image_url": "",
+    "brand_name": "The Ordinary",
+    "product_name": "Granactive Retinoid 2% Emulsion",
+    "product_type": "Retinoid",
+    "price": 12.20,
+    "skin_types": ["Normal", "Dry", "Oily", "Combination", "Sensitive"],
+    "skin_concerns": ["Fine Lines", "Wrinkles", "Uneven Texture", "Dullness"],
+    "key_actives": ["Granactive Retinoid", "Squalane"],
+    "usage_time": "Night"
+  },
+  {
+    "image_url": "",
+    "brand_name": "The Ordinary",
+    "product_name": "\"Buffet\" + Copper Peptides 1%",
+    "product_type": "Peptide",
+    "price": 32.00,
+    "skin_types": ["Normal", "Dry", "Oily", "Combination", "Sensitive"],
+    "skin_concerns": ["Loss of Firmness", "Fine Lines", "Wrinkles", "Uneven Skin Tone"],
+    "key_actives": ["Copper Peptides", "Matrixyl 3000", "Hyaluronic Acid"],
+    "usage_time": "Both"
+  },
+  {
+    "image_url": "",
+    "brand_name": "Drunk Elephant",
+    "product_name": "T.L.C. Framboos Glycolic Night Serum",
+    "product_type": "AHA/BHA",
+    "price": 90.00,
+    "skin_types": ["Normal", "Dry", "Oily", "Combination"],
+    "skin_concerns": ["Dullness", "Uneven Texture", "Enlarged Pores", "Clogged Pores"],
+    "key_actives": ["Glycolic Acid", "Lactic Acid", "Salicylic Acid", "Raspberry Fruit Extract"],
+    "usage_time": "Night"
+  },
+  {
+    "image_url": "",
+    "brand_name": "SkinCeuticals",
+    "product_name": "C E Ferulic",
+    "product_type": "Vitamin C",
+    "price": 182.00,
+    "skin_types": ["Normal", "Dry", "Sensitive"],
+    "skin_concerns": ["Fine Lines", "Wrinkles", "Loss of Firmness", "Dehydration"],
+    "key_actives": ["15% L-ascorbic Acid", "Vitamin E", "Ferulic Acid"],
+    "usage_time": "Morning"
+  },
+  {
+    "image_url": "",
+    "brand_name": "Vichy",
+    "product_name": "Minéral 89 Hyaluronic Acid Face Serum",
+    "product_type": "Hyaluronic Acid",
+    "price": 29.99,
+    "skin_types": ["Normal", "Dry", "Oily", "Combination", "Sensitive"],
+    "skin_concerns": ["Dehydration", "Dryness", "Sensitive Skin"],
+    "key_actives": ["Hyaluronic Acid", "Vichy Volcanic Water"],
+    "usage_time": "Both"
+  },
+  {
+    "image_url": "",
+    "brand_name": "Glow Recipe",
+    "product_name": "Watermelon Glow Niacinamide Dew Drops",
+    "product_type": "Niacinamide",
+    "price": 35.00,
+    "skin_types": ["Normal", "Dry", "Oily", "Combination"],
+    "skin_concerns": ["Dullness", "Dehydration", "Hyperpigmentation"],
+    "key_actives": ["Niacinamide", "Watermelon", "Hyaluronic Acid"],
+    "usage_time": "Both"
+  },
+  {
+    "image_url": "",
+    "brand_name": "Youth to the People",
+    "product_name": "Superfood Firm and Brighten Serum",
+    "product_type": "Antioxidant",
+    "price": 68.00,
+    "skin_types": ["Normal", "Dry", "Oily", "Combination"],
+    "skin_concerns": ["Dullness", "Fine Lines", "Loss of Firmness"],
+    "key_actives": ["Vitamin C (THD Ascorbate)", "Peptides", "Superberry Blend"],
+    "usage_time": "Morning"
+  },
+  {
+    "image_url": "",
+    "brand_name": "Good Molecules",
+    "product_name": "Discoloration Correcting Serum",
+    "product_type": "Brightening",
+    "price": 12.00,
+    "skin_types": ["Normal", "Dry", "Oily", "Combination", "Sensitive"],
+    "skin_concerns": ["Hyperpigmentation", "Acne Scars", "Sun Damage", "Uneven Skin Tone"],
+    "key_actives": ["Tranexamic Acid", "Niacinamide"],
+    "usage_time": "Both"
+  },
+  {
+    "image_url": "",
+    "brand_name": "COSRX",
+    "product_name": "Advanced Snail 96 Mucin Power Essence",
+    "product_type": "Hydrating",
+    "price": 25.00,
+    "skin_types": ["Normal", "Dry", "Oily", "Combination", "Sensitive"],
+    "skin_concerns": ["Dehydration", "Fine Lines", "Acne Scars", "Redness"],
+    "key_actives": ["Snail Secretion Filtrate", "Betaine", "Panthenol"],
+    "usage_time": "Both"
+  },
+  {
+    "image_url": "",
+    "brand_name": "Medik8",
+    "product_name": "Crystal Retinal 6",
+    "product_type": "Retinoid",
+    "price": 81.00,
+    "skin_types": ["Normal", "Dry", "Oily", "Combination"],
+    "skin_concerns": ["Fine Lines", "Wrinkles", "Acne", "Loss of Firmness", "Hyperpigmentation"],
+    "key_actives": ["Retinaldehyde (0.06%)", "Hyaluronic Acid", "Vitamin E"],
+    "usage_time": "Night"
+  },
+  {
+    "image_url": "",
+    "brand_name": "The INKEY List",
+    "product_name": "Collagen Peptide Serum",
+    "product_type": "Peptide",
+    "price": 12.99,
+    "skin_types": ["Normal", "Dry", "Oily", "Combination", "Sensitive"],
+    "skin_concerns": ["Fine Lines", "Wrinkles", "Loss of Firmness"],
+    "key_actives": ["Matrixyl 3000™", "Syn-Tacks™"],
+    "usage_time": "Both"
+  },
+  {
+    "image_url": "",
+    "brand_name": "Paula's Choice",
+    "product_name": "CLINICAL 1% Retinol Treatment",
+    "product_type": "Retinoid",
+    "price": 64.00,
+    "skin_types": ["Normal", "Dry", "Oily", "Combination"],
+    "skin_concerns": ["Wrinkles", "Fine Lines", "Uneven Skin Tone", "Loss of Firmness"],
+    "key_actives": ["Retinol (1%)", "Peptides", "Vitamin C"],
+    "usage_time": "Night"
+  },
+  {
+    "image_url": "",
+    "brand_name": "CeraVe",
+    "product_name": "Resurfacing Retinol Serum",
+    "product_type": "Retinoid",
+    "price": 21.99,
+    "skin_types": ["Oily", "Combination", "Sensitive"],
+    "skin_concerns": ["Acne Scars", "Enlarged Pores", "Uneven Texture"],
+    "key_actives": ["Retinol", "Licorice Root Extract", "Niacinamide", "Ceramides"],
+    "usage_time": "Night"
+  },
+  {
+    "image_url": "",
+    "brand_name": "Biossance",
+    "product_name": "Squalane + Copper Peptide Rapid Plumping Serum",
+    "product_type": "Peptide",
+    "price": 68.00,
+    "skin_types": ["Normal", "Dry", "Oily", "Combination", "Sensitive"],
+    "skin_concerns": ["Dehydration", "Dryness", "Fine Lines", "Loss of Firmness"],
+    "key_actives": ["Copper Peptides", "Squalane", "Hyaluronic Acid"],
+    "usage_time": "Both"
+  },
+  {
+    "image_url": "",
+    "brand_name": "Tatcha",
+    "product_name": "The Dewy Serum",
+    "product_type": "Hydrating",
+    "price": 89.00,
+    "skin_types": ["Normal", "Dry", "Combination"],
+    "skin_concerns": ["Dryness", "Dullness", "Uneven Texture", "Loss of Firmness"],
+    "key_actives": ["Lactic Acid", "Hyaluronic Acid", "Squalane"],
+    "usage_time": "Both"
+  },
+  {
+    "image_url": "",
+    "brand_name": "Farmacy",
+    "product_name": "Honeymoon Glow AHA Resurfacing Night Serum",
+    "product_type": "AHA/BHA",
+    "price": 62.00,
+    "skin_types": ["Normal", "Dry", "Oily", "Combination"],
+    "skin_concerns": ["Dullness", "Enlarged Pores", "Fine Lines", "Uneven Texture"],
+    "key_actives": ["AHA Blend (14%)", "Salicylic Acid (BHA)", "Hyaluronic Acid"],
+    "usage_time": "Night"
+  },
+  {
+    "image_url": "",
+    "brand_name": "Timeless",
+    "product_name": "20% Vitamin C + E Ferulic Acid Serum",
+    "product_type": "Vitamin C",
+    "price": 26.95,
+    "skin_types": ["Normal", "Dry", "Oily", "Combination"],
+    "skin_concerns": ["Dullness", "Hyperpigmentation", "Sun Damage", "Uneven Skin Tone"],
+    "key_actives": ["L-Ascorbic Acid (20%)", "Vitamin E", "Ferulic Acid"],
+    "usage_time": "Morning"
+  },
+  {
+    "image_url": "",
+    "brand_name": "La Roche-Posay",
+    "product_name": "Hyalu B5 Pure Hyaluronic Acid Serum",
+    "product_type": "Hyaluronic Acid",
+    "price": 44.99,
+    "skin_types": ["Normal", "Dry", "Oily", "Combination", "Sensitive"],
+    "skin_concerns": ["Dehydration", "Fine Lines", "Loss of Firmness"],
+    "key_actives": ["Hyaluronic Acid", "Vitamin B5", "Madecassoside"],
+    "usage_time": "Both"
+  },
+  {
+    "image_url": "",
+    "brand_name": "The INKEY List",
+    "product_name": "Niacinamide Serum",
+    "product_type": "Niacinamide",
+    "price": 8.99,
+    "skin_types": ["Oily", "Combination"],
+    "skin_concerns": ["Oily Skin", "Redness", "Enlarged Pores"],
+    "key_actives": ["Niacinamide (10%)", "Hyaluronic Acid (1%)"],
+    "usage_time": "Both"
+  },
+  {
+    "image_url": "",
+    "brand_name": "Caudalie",
+    "product_name": "Resveratrol-Lift Instant Firming Serum",
+    "product_type": "Antioxidant",
+    "price": 84.00,
+    "skin_types": ["Normal", "Dry", "Oily", "Combination"],
+    "skin_concerns": ["Loss of Firmness", "Fine Lines", "Wrinkles"],
+    "key_actives": ["Resveratrol", "Hyaluronic Acid", "Vegan Collagen Alternative"],
+    "usage_time": "Both"
+  },
+  {
+    "image_url": "",
+    "brand_name": "Beauty of Joseon",
+    "product_name": "Glow Deep Serum : Rice + Alpha-Arbutin",
+    "product_type": "Brightening",
+    "price": 17.00,
+    "skin_types": ["Normal", "Dry", "Oily", "Combination", "Sensitive"],
+    "skin_concerns": ["Hyperpigmentation", "Uneven Skin Tone", "Acne Scars"],
+    "key_actives": ["Rice Bran Water (68%)", "Alpha-Arbutin (2%)"],
+    "usage_time": "Both"
+  },
+  {
+    "image_url": "",
+    "brand_name": "Laneige",
+    "product_name": "Water Bank Blue Hyaluronic Serum",
+    "product_type": "Hydrating",
+    "price": 45.00,
+    "skin_types": ["Normal", "Dry", "Oily", "Combination", "Sensitive"],
+    "skin_concerns": ["Dehydration", "Dryness"],
+    "key_actives": ["Blue Hyaluronic Acid", "Peptides", "Green Tea Enzyme"],
+    "usage_time": "Both"
+  },
+  {
+    "image_url": "",
+    "brand_name": "Shani Darden Skin Care",
+    "product_name": "Retinol Reform",
+    "product_type": "Retinoid",
+    "price": 88.00,
+    "skin_types": ["Normal", "Dry", "Oily", "Combination"],
+    "skin_concerns": ["Fine Lines", "Uneven Texture", "Dullness", "Acne"],
+    "key_actives": ["Encapsulated Retinol", "Lactic Acid (AHA)"],
+    "usage_time": "Night"
+  },
+  {
+    "image_url": "",
+    "brand_name": "OLEHENRIKSEN",
+    "product_name": "Banana Bright 15% Vitamin C Serum",
+    "product_type": "Vitamin C",
+    "price": 68.00,
+    "skin_types": ["Normal", "Dry", "Oily", "Combination"],
+    "skin_concerns": ["Dullness", "Loss of Firmness", "Uneven Skin Tone"],
+    "key_actives": ["Vitamin C (15%)", "PHA", "Hyaluronic Acid"],
+    "usage_time": "Morning"
+  },
+  {
+    "image_url": "",
+    "brand_name": "Sunday Riley",
+    "product_name": "A+ High-Dose Retinoid Serum",
+    "product_type": "Retinoid",
+    "price": 85.00,
+    "skin_types": ["Normal", "Dry", "Oily", "Combination"],
+    "skin_concerns": ["Fine Lines", "Wrinkles", "Dullness", "Acne"],
+    "key_actives": ["Retinoid Blend (5%)", "Honey", "CoQ10"],
+    "usage_time": "Night"
+  },
+  {
+    "image_url": "",
+    "brand_name": "Dr. Jart+",
+    "product_name": "Cicapair Tiger Grass Serum",
+    "product_type": "Hydrating",
+    "price": 52.00,
+    "skin_types": ["Normal", "Dry", "Combination", "Sensitive"],
+    "skin_concerns": ["Redness", "Dryness", "Sensitive Skin"],
+    "key_actives": ["Centella Asiatica (Tiger Grass)", "Niacinamide", "Peptides"],
+    "usage_time": "Both"
+  },
+  {
+    "image_url": "",
+    "brand_name": "SkinMedica",
+    "product_name": "TNS Advanced+ Serum",
+    "product_type": "Peptide",
+    "price": 295.00,
+    "skin_types": ["Normal", "Dry", "Oily", "Combination"],
+    "skin_concerns": ["Fine Lines", "Wrinkles", "Loss of Firmness", "Dullness"],
+    "key_actives": ["TNS®-MR (Growth Factor Blend)", "Renessensce (RSC) Advanced"],
+    "usage_time": "Both"
+  },
+  {
+    "image_url": "",
+    "brand_name": "iS Clinical",
+    "product_name": "Pro-Heal Serum Advance+",
+    "product_type": "Antioxidant",
+    "price": 158.00,
+    "skin_types": ["Dry", "Sensitive", "Acne-Prone"],
+    "skin_concerns": ["Acne", "Rosacea", "Redness", "Sensitive Skin"],
+    "key_actives": ["Vitamin C (L-Ascorbic Acid)", "Vitamin E", "Retinol", "Olive Leaf Extract"],
+    "usage_time": "Morning"
+  },
+  {
+    "image_url": "",
+    "brand_name": "Summer Fridays",
+    "product_name": "CC Me Serum",
+    "product_type": "Brightening",
+    "price": 68.00,
+    "skin_types": ["Normal", "Dry", "Oily", "Combination"],
+    "skin_concerns": ["Hyperpigmentation", "Dullness", "Uneven Skin Tone"],
+    "key_actives": ["Vitamin C (3-O-Ethyl Ascorbic Acid & Ascorbyl Glucoside)", "Niacinamide"],
+    "usage_time": "Both"
+  },
+  {
+    "image_url": "",
+    "brand_name": "Herbivore Botanicals",
+    "product_name": "Bakuchiol Retinol Alternative Smoothing Serum",
+    "product_type": "Retinoid",
+    "price": 56.00,
+    "skin_types": ["Normal", "Dry", "Oily", "Combination", "Sensitive"],
+    "skin_concerns": ["Fine Lines", "Wrinkles", "Uneven Texture", "Dryness"],
+    "key_actives": ["Bakuchiol", "PHA", "Tremella Mushroom"],
+    "usage_time": "Both"
+  }
+]
+}

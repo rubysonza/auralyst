@@ -1,0 +1,335 @@
+{
+"spot-treatment":
+[
+  {
+    "image_url": "",
+    "brand_name": "La Roche-Posay",
+    "product_name": "Effaclar Duo Dual Action Acne Treatment",
+    "product_type": "Benzoyl Peroxide",
+    "price": 36.99,
+    "skin_types": ["Oily", "Combination"],
+    "skin_concerns": ["Acne", "Blackheads", "Whiteheads"],
+    "key_actives": ["Benzoyl Peroxide (5.5%)", "Lipo-Hydroxy Acid"],
+    "usage_time": "Both"
+  },
+  {
+    "image_url": "",
+    "brand_name": "COSRX",
+    "product_name": "Acne Pimple Master Patch",
+    "product_type": "Hydrocolloid",
+    "price": 6.00,
+    "skin_types": ["Normal", "Dry", "Oily", "Combination", "Sensitive"],
+    "skin_concerns": ["Acne", "Whiteheads"],
+    "key_actives": ["Hydrocolloid"],
+    "usage_time": "Night"
+  },
+  {
+    "image_url": "",
+    "brand_name": "Kate Somerville",
+    "product_name": "EradiKate Acne Treatment",
+    "product_type": "Sulfur",
+    "price": 28.00,
+    "skin_types": ["Oily", "Combination"],
+    "skin_concerns": ["Acne", "Whiteheads", "Enlarged Pores"],
+    "key_actives": ["Sulfur (10%)", "Salicylic Acid (BHA)", "Zinc Oxide"],
+    "usage_time": "Night"
+  },
+  {
+    "image_url": "",
+    "brand_name": "The INKEY List",
+    "product_name": "Succinic Acid Acne Treatment",
+    "product_type": "Salicylic Acid",
+    "price": 9.99,
+    "skin_types": ["Oily", "Combination", "Normal"],
+    "skin_concerns": ["Acne", "Redness"],
+    "key_actives": ["Succinic Acid (2%)", "Salicylic Acid (1%)", "Sulfur Powder (0.4%)"],
+    "usage_time": "Both"
+  },
+  {
+    "image_url": "",
+    "brand_name": "The Body Shop",
+    "product_name": "Tea Tree Oil",
+    "product_type": "Tea Tree Oil",
+    "price": 12.00,
+    "skin_types": ["Oily", "Combination"],
+    "skin_concerns": ["Acne", "Oily Skin"],
+    "key_actives": ["Tea Tree Oil"],
+    "usage_time": "Both"
+  },
+  {
+    "image_url": "",
+    "brand_name": "Neutrogena",
+    "product_name": "On-the-Spot Acne Treatment",
+    "product_type": "Benzoyl Peroxide",
+    "price": 9.49,
+    "skin_types": ["Normal", "Oily", "Combination"],
+    "skin_concerns": ["Acne"],
+    "key_actives": ["Benzoyl Peroxide (2.5%)"],
+    "usage_time": "Both"
+  },
+  {
+    "image_url": "",
+    "brand_name": "Starface",
+    "product_name": "Hydro-Stars",
+    "product_type": "Hydrocolloid",
+    "price": 14.99,
+    "skin_types": ["Normal", "Dry", "Oily", "Combination", "Sensitive"],
+    "skin_concerns": ["Acne", "Whiteheads"],
+    "key_actives": ["Hydrocolloid"],
+    "usage_time": "Night"
+  },
+  {
+    "image_url": "",
+    "brand_name": "Sunday Riley",
+    "product_name": "Saturn Sulfur Spot Treatment Mask",
+    "product_type": "Sulfur",
+    "price": 20.00,
+    "skin_types": ["Oily", "Combination"],
+    "skin_concerns": ["Acne", "Blackheads", "Redness"],
+    "key_actives": ["Sulfur (10%)", "Niacinamide", "Zinc PCA"],
+    "usage_time": "Night"
+  },
+  {
+    "image_url": "",
+    "brand_name": "Clean & Clear",
+    "product_name": "Advantage Acne Spot Treatment",
+    "product_type": "Salicylic Acid",
+    "price": 8.99,
+    "skin_types": ["Oily", "Combination", "Normal"],
+    "skin_concerns": ["Acne", "Redness"],
+    "key_actives": ["Salicylic Acid (2%)", "Witch Hazel"],
+    "usage_time": "Both"
+  },
+  {
+    "image_url": "",
+    "brand_name": "Peace Out",
+    "product_name": "Acne Healing Dots",
+    "product_type": "Hydrocolloid",
+    "price": 19.00,
+    "skin_types": ["Normal", "Dry", "Oily", "Combination", "Sensitive"],
+    "skin_concerns": ["Acne", "Whiteheads"],
+    "key_actives": ["Hydrocolloid Polymer Technology", "Salicylic Acid", "Aloe Vera"],
+    "usage_time": "Night"
+  },
+  {
+    "image_url": "",
+    "brand_name": "Paula's Choice",
+    "product_name": "CLEAR Daily Skin Clearing Treatment",
+    "product_type": "Benzoyl Peroxide",
+    "price": 22.00,
+    "skin_types": ["Oily", "Combination", "Normal"],
+    "skin_concerns": ["Acne", "Redness"],
+    "key_actives": ["Benzoyl Peroxide (2.5%)", "Bisabolol", "Allantoin"],
+    "usage_time": "Both"
+  },
+  {
+    "image_url": "",
+    "brand_name": "SOME BY MI",
+    "product_name": "30 Days Miracle Tea Tree Clear Spot Oil",
+    "product_type": "Tea Tree Oil",
+    "price": 18.00,
+    "skin_types": ["Oily", "Combination", "Sensitive"],
+    "skin_concerns": ["Acne", "Redness"],
+    "key_actives": ["Tea Tree Oil (15%)", "Panthenol", "Allantoin"],
+    "usage_time": "Both"
+  },
+  {
+    "image_url": "",
+    "brand_name": "Murad",
+    "product_name": "Rapid Relief Acne Spot Treatment",
+    "product_type": "Salicylic Acid",
+    "price": 26.00,
+    "skin_types": ["Oily", "Combination", "Normal"],
+    "skin_concerns": ["Acne", "Redness"],
+    "key_actives": ["Salicylic Acid (2%)", "Witch Hazel", "Pine and Thyme Extracts"],
+    "usage_time": "Both"
+  },
+  {
+    "image_url": "",
+    "brand_name": "Mighty Patch",
+    "product_name": "The Original",
+    "product_type": "Hydrocolloid",
+    "price": 12.99,
+    "skin_types": ["Normal", "Dry", "Oily", "Combination", "Sensitive"],
+    "skin_concerns": ["Acne", "Whiteheads"],
+    "key_actives": ["Hydrocolloid"],
+    "usage_time": "Night"
+  },
+  {
+    "image_url": "",
+    "brand_name": "Mario Badescu",
+    "product_name": "Drying Lotion",
+    "product_type": "Sulfur",
+    "price": 17.00,
+    "skin_types": ["Oily", "Combination", "Normal"],
+    "skin_concerns": ["Acne", "Whiteheads"],
+    "key_actives": ["Sulfur", "Salicylic Acid", "Zinc Oxide", "Calamine"],
+    "usage_time": "Night"
+  },
+  {
+    "image_url": "",
+    "brand_name": "PanOxyl",
+    "product_name": "Acne Foaming Wash",
+    "product_type": "Benzoyl Peroxide",
+    "price": 9.77,
+    "skin_types": ["Oily", "Combination"],
+    "skin_concerns": ["Acne", "Oily Skin"],
+    "key_actives": ["Benzoyl Peroxide (10%)"],
+    "usage_time": "Both"
+  },
+  {
+    "image_url": "",
+    "brand_name": "Hero Cosmetics",
+    "product_name": "Rescue Balm",
+    "product_type": "Salicylic Acid",
+    "price": 12.99,
+    "skin_types": ["Normal", "Dry", "Oily", "Combination", "Sensitive"],
+    "skin_concerns": ["Acne Scars", "Redness", "Uneven Texture"],
+    "key_actives": ["Panthenol", "Beta-Glucan", "Oligopeptides"],
+    "usage_time": "Both"
+  },
+  {
+    "image_url": "",
+    "brand_name": "ZitSticka",
+    "product_name": "KILLA Kit",
+    "product_type": "Hydrocolloid",
+    "price": 29.00,
+    "skin_types": ["Normal", "Dry", "Oily", "Combination", "Sensitive"],
+    "skin_concerns": ["Acne"],
+    "key_actives": ["Salicylic Acid", "Niacinamide", "Hyaluronic Acid", "Microdarts"],
+    "usage_time": "Night"
+  },
+  {
+    "image_url": "",
+    "brand_name": "Indie Lee",
+    "product_name": "Blemish Lotion",
+    "product_type": "Sulfur",
+    "price": 26.00,
+    "skin_types": ["Oily", "Combination", "Normal"],
+    "skin_concerns": ["Acne", "Whiteheads"],
+    "key_actives": ["Colloidal Sulfur", "Salicylic Acid", "Zinc Oxide"],
+    "usage_time": "Night"
+  },
+  {
+    "image_url": "",
+    "brand_name": "CeraVe",
+    "product_name": "Acne Control Gel",
+    "product_type": "Salicylic Acid",
+    "price": 20.49,
+    "skin_types": ["Oily", "Combination"],
+    "skin_concerns": ["Acne", "Blackheads", "Enlarged Pores"],
+    "key_actives": ["Salicylic Acid (2%)", "Glycolic Acid", "Lactic Acid", "Niacinamide"],
+    "usage_time": "Night"
+  },
+  {
+    "image_url": "",
+    "brand_name": "Dr. Jart+",
+    "product_name": "Teatreetment™ Soothing Spot Treatment",
+    "product_type": "Tea Tree Oil",
+    "price": 22.00,
+    "skin_types": ["Oily", "Combination"],
+    "skin_concerns": ["Acne", "Redness", "Oily Skin"],
+    "key_actives": ["Tea Tree Leaf Extract", "Niacinamide", "Salicylic Acid"],
+    "usage_time": "Both"
+  },
+  {
+    "image_url": "",
+    "brand_name": "Versed",
+    "product_name": "Game Over Acne Drying Treatment",
+    "product_type": "Sulfur",
+    "price": 16.99,
+    "skin_types": ["Oily", "Combination", "Normal"],
+    "skin_concerns": ["Acne", "Whiteheads"],
+    "key_actives": ["Sulfur (10%)", "Bentonite Clay", "Niacinamide"],
+    "usage_time": "Night"
+  },
+  {
+    "image_url": "",
+    "brand_name": "Differin",
+    "product_name": "Adapalene Gel 0.1% Acne Treatment",
+    "product_type": "Benzoyl Peroxide",
+    "price": 14.99,
+    "skin_types": ["Oily", "Combination", "Normal"],
+    "skin_concerns": ["Acne", "Blackheads", "Whiteheads", "Clogged Pores"],
+    "key_actives": ["Adapalene (0.1%)"],
+    "usage_time": "Night"
+  },
+  {
+    "image_url": "",
+    "brand_name": "Welly",
+    "product_name": "Face Saver Hydrocolloid Blemish Patches",
+    "product_type": "Hydrocolloid",
+    "price": 8.99,
+    "skin_types": ["Normal", "Dry", "Oily", "Combination", "Sensitive"],
+    "skin_concerns": ["Acne", "Whiteheads"],
+    "key_actives": ["Hydrocolloid"],
+    "usage_time": "Night"
+  },
+  {
+    "image_url": "",
+    "brand_name": "Glow Recipe",
+    "product_name": "Strawberry Salicylic Acid BHA Pimple Patches",
+    "product_type": "Hydrocolloid",
+    "price": 12.00,
+    "skin_types": ["Normal", "Dry", "Oily", "Combination", "Sensitive"],
+    "skin_concerns": ["Acne", "Whiteheads"],
+    "key_actives": ["Salicylic Acid", "Hydrocolloid", "Niacinamide"],
+    "usage_time": "Night"
+  },
+  {
+    "image_url": "",
+    "brand_name": "Origins",
+    "product_name": "Super Spot Remover Acne Treatment Gel",
+    "product_type": "Salicylic Acid",
+    "price": 22.00,
+    "skin_types": ["Oily", "Combination", "Normal"],
+    "skin_concerns": ["Acne", "Redness"],
+    "key_actives": ["Salicylic Acid (1.5%)", "Witch Hazel", "Caffeine"],
+    "usage_time": "Both"
+  },
+  {
+    "image_url": "",
+    "brand_name": "TULA Skincare",
+    "product_name": "Go Away Acne Spot Treatment",
+    "product_type": "Benzoyl Peroxide",
+    "price": 24.00,
+    "skin_types": ["Oily", "Combination", "Normal"],
+    "skin_concerns": ["Acne"],
+    "key_actives": ["Benzoyl Peroxide (5%)", "Niacinamide", "Azelaic Acid", "Probiotics"],
+    "usage_time": "Both"
+  },
+  {
+    "image_url": "",
+    "brand_name": "Kylie Skin",
+    "product_name": "Clarifying Patches",
+    "product_type": "Hydrocolloid",
+    "price": 17.00,
+    "skin_types": ["Normal", "Dry", "Oily", "Combination", "Sensitive"],
+    "skin_concerns": ["Acne", "Whiteheads"],
+    "key_actives": ["Hydrocolloid", "Salicylic Acid", "Niacinamide", "Tea Tree Oil"],
+    "usage_time": "Night"
+  },
+  {
+    "image_url": "",
+    "brand_name": "Burt's Bees",
+    "product_name": "Herbal Blemish Stick",
+    "product_type": "Tea Tree Oil",
+    "price": 8.99,
+    "skin_types": ["Oily", "Combination"],
+    "skin_concerns": ["Acne"],
+    "key_actives": ["Tea Tree Oil", "Willow Bark Extract", "Juniper Oil"],
+    "usage_time": "Both"
+  },
+  {
+    "image_url": "",
+    "brand_name": "PCA Skin",
+    "product_name": "Acne Gel",
+    "product_type": "Salicylic Acid",
+    "price": 60.00,
+    "skin_types": ["Oily", "Combination", "Normal"],
+    "skin_concerns": ["Acne", "Whiteheads", "Blackheads"],
+    "key_actives": ["Salicylic Acid (2%)", "Mandelic Acid", "Hexylresorcinol"],
+    "usage_time": "Both"
+  }
+]
+}
