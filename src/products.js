@@ -828,8 +828,6 @@ document.addEventListener('DOMContentLoaded', () => {
             productGrid.innerHTML = '<p class="text-center text-gray-500 col-span-full">Save a routine to see relevant products here!</p>';
         }
 
-    gsap.delayedCall(0.5, introAnimation);
-
     renderPDP(productData);
 
     
