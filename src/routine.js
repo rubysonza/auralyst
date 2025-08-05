@@ -1,4 +1,4 @@
-import './styles.css'
+import './styles.css';
 import gsap from "gsap";
 import Flip from "gsap/Flip";
 
