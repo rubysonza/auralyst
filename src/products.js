@@ -11,7 +11,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const fsSection = document.getElementById('filter-sort-section');
 
     // PAGE ELEMENTS
-    const landingBottle = document.querySelector('#landing-bottle');
     const headerTitle = document.getElementById('header-title');
 
     // MAIN CONTENT
@@ -112,7 +111,7 @@ document.addEventListener('DOMContentLoaded', () => {
         currentSortOption = 'best-match';
         selectedOptionSpan.textContent = 'Sort by: Best Match';
 
-        const filePath = `/products-list/${step}.json`;
+        const filePath = `./products-list/${step}.json`;
         productGrid.innerHTML = `<p class="text-center text-gray-500">Loading products...</p>`;
         currentStep = step;
 
@@ -568,7 +567,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         try {
             const fetchPromises = steps.map(step =>
-                fetch(`/products-list/${step}.json`).then(res => res.json())
+                fetch(`./products-list/${step}.json`).then(res => res.json())
             );
 
             const results = await Promise.all(fetchPromises);

@@ -82,7 +82,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     let routines;
     try {
-        const response = await fetch('/routine.json');
+        const response = await fetch('./routine.json');
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
