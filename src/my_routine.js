@@ -1,2 +1,2 @@
-import './my_routine.css'
+import './styles.css'
 import gsap from "gsap";
