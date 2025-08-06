@@ -1,51 +1,51 @@
 import './styles.css';
 import gsap from 'gsap';
 
-// CONFIG
+// BOTTLE CONFIG
 const bottleConfig = {
   green: {
     zIndex: 2,
     initial: {
-      desktop: { x: 10 },
-      mobile: { x: 10 },
+      largeScreen: { x: 10 },
+      smallScreen: { x: 10 },
     },
     fanOut: {
-      desktop: { y: -35, x: -35, rotate: -14 },
-      mobile: { y: -30, x: -12, rotate: -8 },
+      largeScreen: { y: -35, x: -35, rotate: -14 },
+      smallScreen: { y: -30, x: -12, rotate: -8 },
     },
     description: {
-      desktop: { x: -110, y: -200 },
-      mobile: { x: 0, y: -220 },
+      largeScreen: { x: -110, y: -200 },
+      smallScreen: { x: 0, y: -220 },
     },
   },
   purple: {
     zIndex: 1,
     initial: {
-      desktop: { x: -15 },
-      mobile: { x: -13 },
+      largeScreen: { x: -15 },
+      smallScreen: { x: -13 },
     },
     fanOut: {
-      desktop: { y: -55, x: -10, rotate: 2 },
-      mobile: { y: -50, x: -8, rotate: 2 },
+      largeScreen: { y: -55, x: -10, rotate: 2 },
+      smallScreen: { y: -50, x: -8, rotate: 2 },
     },
     description: {
-      desktop: { x: 95, y: -300 },
-      mobile: { x: 0, y: -275 },
+      largeScreen: { x: 95, y: -300 },
+      smallScreen: { x: 0, y: -275 },
     },
   },
   orange: {
     zIndex: 3,
     initial: {
-      desktop: { x: -27 },
-      mobile: { x: -25 },
+      largeScreen: { x: -27 },
+      smallScreen: { x: -25 },
     },
     fanOut: {
-      desktop: { y: -35, x: 25, rotate: 15 },
-      mobile: { y: -30, x: 3, rotate: 8 },
+      largeScreen: { y: -35, x: 25, rotate: 15 },
+      smallScreen: { y: -30, x: 3, rotate: 8 },
     },
     description: {
-      desktop: { x: 60, y: -100 },
-      mobile: { x: 0, y: -160 },
+      largeScreen: { x: 60, y: -100 },
+      smallScreen: { x: 0, y: -160 },
     },
   },
 };
@@ -70,38 +70,34 @@ const isTouchDevice = navigator.maxTouchPoints > 0;
 let parentHoverTimeline;
 
 
+// ===========
 // ANIMATIONS
-/**
- * Creates the main fan-out animation timeline dynamically.
- */
+// ===========
+
+// Fan Out
 function createParentHoverAnimation() {
   parentHoverTimeline = gsap.timeline({
     paused: true,
-    // NEW: Callback for when the fan-out animation completes
     onComplete: () => {
-      if (isTouchDevice) {
+      gsap.set(elements.allBottleLinks, { pointerEvents: 'auto' });
+
+      if (window.innerWidth < 1024 || isTouchDevice) {
         elements.allWrappers.forEach(wrapper => {
           const desc = wrapper.querySelector('.description');
           const bottleType = wrapper.dataset.bottle;
-          // Get the mobile animation properties from the config
-          const animProps = bottleConfig[bottleType].description.mobile; 
-          
-          // Animate opacity AND position (x, y)
-          gsap.to(desc, { 
-            opacity: 1, 
-            ...animProps, // Applies the x and y values
-            duration: 0.4, 
-            ease: 'power2.out' 
+          const view = window.innerWidth < 1024 ? 'smallScreen' : 'largeScreen';
+          const animProps = bottleConfig[bottleType].description[view];
+          gsap.to(desc, {
+            opacity: 1,
+            ...animProps,
+            duration: 0.4,
+            ease: 'power2.out'
           });
         });
       }
     },
-    // NEW: Callback for when the fan-in (reverse) animation starts
     onReverseComplete: () => {
-        if (isTouchDevice) {
-            // Reset opacity AND position
-             gsap.set(elements.allDescriptions, { opacity: 0, x: 0, y: 0 });
-        }
+      gsap.set(elements.allBottleLinks, { pointerEvents: 'none' });
     },
     onUpdate: () => {
       elements.allWrappers.forEach(wrapper => {
@@ -112,17 +108,14 @@ function createParentHoverAnimation() {
     },
   });
 
-  // ... the rest of the function remains the same
   const mm = gsap.matchMedia();
   mm.add(
     {
-      isDesktop: `(min-width: 1024px)`,
-      isMobile: `(max-width: 1023px)`,
+      isLargeScreen: `(min-width: 1024px)`,
+      isSmallScreen: `(max-width: 1023px)`,
     },
     (context) => {
-      const { isDesktop } = context.conditions;
-      const view = isDesktop ? 'desktop' : 'mobile';
-
+      const view = context.conditions.isLargeScreen ? 'largeScreen' : 'smallScreen';
       elements.allWrappers.forEach(wrapper => {
         const bottleType = wrapper.dataset.bottle;
         const config = bottleConfig[bottleType].fanOut[view];
@@ -136,9 +129,7 @@ function createParentHoverAnimation() {
   );
 }
 
-/**
- * Resets all bottle wrappers to their default z-index.
- */
+// Reset Z Index
 function resetAllZIndexes() {
   elements.allWrappers.forEach(wrapper => {
     const bottleType = wrapper.dataset.bottle;
@@ -146,11 +137,30 @@ function resetAllZIndexes() {
   });
 }
 
-// =================================================================
-// EVENT HANDLERS
-// =================================================================
+// Fan In
+function reverseFanAnimation() {
+    gsap.to(elements.allDescriptions, {
+        opacity: 0,
+        y: 0,
+        x: 0,
+        duration: 0.2,
+        ease: 'power2.in',
+        onComplete: () => {
+            parentHoverTimeline.reverse();
+            resetAllZIndexes();
+        }
+    });
 
+    gsap.to(elements.allBottles, { scale: 1, duration: 0.3, overwrite: true });
+}
+
+
+// ===============
+// EVENT HANDLERS
+// ===============
 function handleIndividualBottleHover(e) {
+  if (isTouchDevice) return;
+
   const bottle = e.currentTarget;
   const wrapper = bottle.closest('.bottle-wrapper');
   if (!wrapper) return;
@@ -159,10 +169,9 @@ function handleIndividualBottleHover(e) {
   const bottleType = wrapper.dataset.bottle;
   const config = bottleConfig[bottleType];
 
-  const isDesktop = window.matchMedia('(min-width: 769px)').matches;
-  const view = isDesktop ? 'desktop' : 'mobile';
+  const view = window.innerWidth < 1024 ? 'smallScreen' : 'largeScreen';
   const animProps = config.description[view];
-  const scaleValue = isDesktop ? 1.2 : 1.1;
+  const scaleValue = window.innerWidth < 1024 ? 1.1 : 1.2;
 
   wrapper.style.zIndex = 50;
   gsap.to(bottle, { scale: scaleValue, duration: 0.3, ease: 'back.inOut' });
@@ -178,6 +187,8 @@ function handleIndividualBottleHover(e) {
 }
 
 function handleIndividualBottleMouseOut(e) {
+  if (isTouchDevice) return;
+
   const bottle = e.currentTarget;
   const wrapper = bottle.closest('.bottle-wrapper');
   if (!wrapper) return;
@@ -192,47 +203,34 @@ function handleIndividualBottleMouseOut(e) {
   wrapper.style.zIndex = initialZIndex;
 }
 
-/**
- * Reverses the fan animation if a click happens outside the parent container.
- */
 function handleClickOutside(event) {
-  if (elements.parent && !elements.parent.contains(event.target)) {
-    parentHoverTimeline.reverse();
-    gsap.set(elements.allBottleLinks, { pointerEvents: 'none' }); 
-    resetAllZIndexes();
-  }
+    if (isTouchDevice && elements.parent && !elements.parent.contains(event.target)) {
+        reverseFanAnimation();
+    }
 }
 
-// =================================================================
-// INITIALIZATION
-// =================================================================
 
+// ===============
+// INITIALIZATION
+// ===============
 function initializeInteractions() {
   createParentHoverAnimation();
 
   if (isTouchDevice) {
     elements.parent.addEventListener('click', () => {
-      parentHoverTimeline.play();
-      gsap.set(elements.allBottleLinks, { pointerEvents: 'auto' }); 
+      if (parentHoverTimeline.progress() === 0) {
+        parentHoverTimeline.play();
+      }
     });
     document.addEventListener('click', handleClickOutside);
   } else {
-    elements.parent.addEventListener('mouseenter', () => {
-      parentHoverTimeline.play();
-      // ENABLE links on hover in
-      gsap.set(elements.allBottleLinks, { pointerEvents: 'auto' }); 
-    });
+    elements.parent.addEventListener('mouseenter', () => parentHoverTimeline.play());
     elements.parent.addEventListener('mouseleave', () => {
-      parentHoverTimeline.reverse();
-      // DISABLE links on hover out
-      gsap.set(elements.allBottleLinks, { pointerEvents: 'none' }); 
-      
-      gsap.killTweensOf(elements.allDescriptions);
-      gsap.to(elements.allBottles, { scale: 1, duration: 0.3, overwrite: true });
-      gsap.to(elements.allDescriptions, { opacity: 0, y: 0, x: 0, duration: 0.2, ease: 'power2.in' });
-      resetAllZIndexes();
+        reverseFanAnimation();
     });
+  }
 
+  if (!isTouchDevice) {
     elements.allBottles.forEach((bottle) => {
       bottle.addEventListener('mouseover', handleIndividualBottleHover);
       bottle.addEventListener('mouseout', handleIndividualBottleMouseOut);
@@ -240,20 +238,21 @@ function initializeInteractions() {
   }
 }
 
+
+// =====
+// INTRO
+// =====
 function runIntroAnimation() {
-  // Set initial hidden states
   gsap.set([elements.heroTitle, elements.heroSub], { opacity: 0, y: 50 });
   gsap.set(elements.allWrappers, { y: 200, opacity: 0 });
   gsap.set(elements.allBottleLinks, { pointerEvents: 'none' }); 
 
-  // Set initial positions and z-indexes from config
   const mm = gsap.matchMedia();
   mm.add({
-      isDesktop: `(min-width: 769px)`,
-      isMobile: `(max-width: 768px)`,
+      isLargeScreen: `(min-width: 1024px)`,
+      isSmallScreen: `(max-width: 1023px)`,
     }, (context) => {
-      const { isDesktop } = context.conditions;
-      const view = isDesktop ? 'desktop' : 'mobile';
+      const view = context.conditions.isLargeScreen ? 'largeScreen' : 'smallScreen';
 
       elements.allWrappers.forEach(wrapper => {
         const bottleType = wrapper.dataset.bottle;
@@ -266,14 +265,15 @@ function runIntroAnimation() {
     }
   );
 
-  // Create and play intro timeline
   gsap.timeline({ onComplete: initializeInteractions })
     .to(elements.allWrappers, { y: 0, opacity: 1, stagger: 0.1, duration: 0.4, ease: 'power2.out' })
     .to([elements.heroTitle, elements.heroSub], { y: 0, opacity: 1, stagger: 0.2, duration: 0.4, ease: 'power2.out' }, "<0.3");
 }
 
 
+// ====
 // MENU
+// ====
   let menuTimeline = null;
 
   function openMenu() {
@@ -315,5 +315,5 @@ function runIntroAnimation() {
       }
   });
 
-// Run everything!
+  
 runIntroAnimation();
