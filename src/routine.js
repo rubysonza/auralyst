@@ -10,11 +10,8 @@ document.addEventListener('DOMContentLoaded', async () => {
         body: document.body,
         themePill: document.getElementById('theme-pill'),
         landingSection: document.getElementById('landing-section'),
-        headerTitle: document.getElementById('header-title'),
-        landingBottle: document.getElementById('landing-bottle'),
         stepsSection: document.getElementById('steps-section'),
         stepsContent: document.getElementById('steps-content'),
-        stepsPrompt: document.getElementById('steps-prompt'),
         stepsContainer: document.getElementById('steps-container'),
         // BUTTONS
         buttons: document.querySelectorAll('group-buttons'),
@@ -35,7 +32,6 @@ document.addEventListener('DOMContentLoaded', async () => {
         modalCloseButton: document.getElementById('modal-close-button'),
         // DESKTOP
         descriptionPanel: document.getElementById('description-panel'),
-        panelContentWrapper: document.getElementById('panel-content-wrapper'),
         panelTitle: document.getElementById('panel-title'),
         panelDescription: document.getElementById('panel-description'),
         panelTypesContainer: document.getElementById('panel-types-container'),
@@ -71,10 +67,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     function initializeRoutineState() {
         const savedData = localStorage.getItem(routineStorageKey);
         if (savedData) {
-            // If we found saved data, load it into our state object
             userRoutine = JSON.parse(savedData);
         } else {
-            // Otherwise, populate our state with all default steps
             userRoutine.am = routines.am_routine.map(step => step.name);
             userRoutine.pm = routines.pm_routine.map(step => step.name);
         }
@@ -94,26 +88,27 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 
     populateSteps(currentRoutine);
-    gsap.fromTo(elements.stepsContainer.querySelectorAll('.step-item'),
-    {
-        opacity: 0,
-        y: 20
-    },
-    {
-        opacity: (index, target) => {
-            return target.classList.contains('is-deselected') ? 0.3 : 1;
+        gsap.fromTo(elements.stepsContainer.querySelectorAll('.step-item'),
+        {
+            opacity: 0,
+            y: 20
         },
-        y: 0,
-        stagger: 0.07,
-        duration: 0.5,
-        ease: 'power2.out'
-    }
-);
+        {
+            opacity: (index, target) => {
+                return target.classList.contains('is-deselected') ? 0.3 : 1;
+            },
+            y: 0,
+            stagger: 0.07,
+            duration: 0.5,
+            ease: 'power2.out'
+        }
+    );
 
-
+    // ========================
     // STEP CONTAINER FUNCTIONS
+    // ========================
     function routineTransition(newRoutine) {
-        if (gsap.isTweening(elements.stepsWrapper) || gsap.isTweening(elements.themePill)) return;
+        if (gsap.isTweening(elements.stepsContent) || gsap.isTweening(elements.themePill)) return;
 
         currentRoutine = newRoutine;
 
@@ -124,17 +119,16 @@ document.addEventListener('DOMContentLoaded', async () => {
         });
 
         const tl = gsap.timeline();
-
         const oldSteps = elements.stepsContainer.querySelectorAll('.step-item');
 
         tl.to([elements.descriptionPanel, ...oldSteps], {
             opacity: 0,
-            duration: 0.3,
+            duration: 0.1,
             stagger: 0.05
         });
 
         tl.add(() => {
-            const state = Flip.getState(elements.stepsWrapper);
+            const state = Flip.getState(elements.stepsContent);
 
             elements.stepsSection.classList.remove('is-panel-active');
 
@@ -160,7 +154,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     function createStepElement(step, stepNumber) {
         const mod = document.createElement('div');
-        mod.className = 'step-item flex flex-none w-xs min-w-xs mb-3 lg:mb-5 rounded-4xl shadow-lg overflow-hidden cursor-pointer bg-white/90';
+        mod.className = 'step-item flex flex-none w-72 md:w-80 mb-3 lg:mb-5 rounded-4xl shadow-lg overflow-hidden cursor-pointer bg-white/90';
 
         const level = step.level || 'Optional';
         const sidebarColor = levelColors[level] || 'bg-gray-400';
@@ -188,13 +182,9 @@ document.addEventListener('DOMContentLoaded', async () => {
                 const isDeselected = mod.classList.toggle('is-deselected');
                 gsap.to(mod, { opacity: isDeselected ? 0.3 : 1, duration: 0.1 });
 
-                // --- ADD THIS LOGIC ---
-                // Update our state object when the user toggles a step
                 if (isDeselected) {
-                    // Remove the step from the array
                     userRoutine[currentRoutine] = userRoutine[currentRoutine].filter(name => name !== step.name);
                 } else {
-                    // Add the step back to the array
                     userRoutine[currentRoutine].push(step.name);
                 }
             } else if (e.target.closest('.step-content')) {
@@ -227,8 +217,9 @@ document.addEventListener('DOMContentLoaded', async () => {
         elements.stepsContainer.scrollTop = 0;
     }
 
-
+    // =====================
     // MODAL/PANEL FUNCTIONS
+    // =====================
     let modalTimeline = null;
 
     function openModalMobile(step) {
@@ -287,31 +278,26 @@ document.addEventListener('DOMContentLoaded', async () => {
             });
         }
 
-        const state = Flip.getState(elements.stepsWrapper);
+        const state = Flip.getState([elements.stepsContainer, elements.descriptionPanel]);
 
         elements.stepsSection.classList.add('is-panel-active');
 
         Flip.from(state, {
             duration: 0.6,
-            ease: 'power3.inOut'
+            ease: 'power3.inOut',
+            onEnter: (elements) => gsap.fromTo(elements, { opacity: 0, x: 20 }, { opacity: 1, x: 0, duration: 0.5, delay: 0.2 }),
         });
-
-        gsap.fromTo(elements.descriptionPanel, 
-            { opacity: 0, x: 20 },
-            { opacity: 1, x: 0, duration: 0.5, delay: 0.1 }
-        );
     }
 
-
+    // ==========
     // DIALOG BOX
+    // ==========
     function openConfirmDialog() {
-        // Lock the background scroll
         document.body.classList.add('modal-open');
 
         const amList = document.getElementById('am-confirm-list');
         const pmList = document.getElementById('pm-confirm-list');
 
-        // --- Populate Morning List ---
         amList.innerHTML = '';
         routines.am_routine.forEach(step => {
             if (userRoutine.am.includes(step.name)) {
@@ -325,7 +311,6 @@ document.addEventListener('DOMContentLoaded', async () => {
             amList.innerHTML = `<li class="italic text-gray-400">No steps selected</li>`;
         }
 
-        // --- Populate Night List ---
         pmList.innerHTML = '';
         routines.pm_routine.forEach(step => {
             if (userRoutine.pm.includes(step.name)) {
@@ -339,17 +324,14 @@ document.addEventListener('DOMContentLoaded', async () => {
             pmList.innerHTML = `<li class="italic text-gray-400">No steps selected</li>`;
         }
 
-        // Show the relevant list and highlight the active toggle
         document.getElementById('am-confirm-list-container').classList.remove('hidden');
         document.getElementById('pm-confirm-list-container').classList.add('hidden');
         document.getElementById('am-toggle').classList.add('bg-white', 'text-[#00E2E2]', 'shadow-sm');
         document.getElementById('pm-toggle').classList.remove('bg-white', 'text-[#00E2E2]', 'shadow-sm');
 
-        // Show the main save actions and hide the post-save content
         document.getElementById('save-actions').classList.remove('hidden');
         document.getElementById('post-save-content').classList.add('hidden');
 
-        // Show the dialog
         elements.confirmDialog.classList.remove('hidden');
         gsap.from(elements.confirmCard, {
             opacity: 1,
@@ -374,8 +356,9 @@ document.addEventListener('DOMContentLoaded', async () => {
         });
     }
 
-
+    // ====
     // MENU
+    // ====
     let menuTimeline = null;
 
     function openMenu() {
@@ -409,15 +392,16 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
     }
 
-
+    // ===============
     // EVENT LISTENERS
-    elements.sunButton.addEventListener('click', () => {
-        if (currentRoutine !== 'am') {
+    // ===============
+    elements.sunButton.addEventListener('click', (e) => {
+        if (currentRoutine !== 'am' && !e.target.closest('.step-item')) {
             routineTransition('am');
         }
     });
-    elements.moonButton.addEventListener('click', () => {
-        if (currentRoutine !== 'pm') {
+    elements.moonButton.addEventListener('click', (e) => {
+        if (currentRoutine !== 'pm' && !e.target.closest('.step-item')) {
             routineTransition('pm');
         }
     });
@@ -467,27 +451,20 @@ document.addEventListener('DOMContentLoaded', async () => {
     elements.dialogCancelButton.addEventListener('click', (closeConfirmDialog));
 
     elements.dialogSaveButton.addEventListener('click', () => {
-        // 1. Save to Local Storage
         localStorage.setItem(routineStorageKey, JSON.stringify(userRoutine));
 
-        // 2. Hide the pre-save content and show the post-save content
         elements.preSaveContent.classList.add('hidden');
         elements.postSaveContent.classList.remove('hidden');
 
-        // 3. Animate the new content in
         gsap.from(elements.postSaveContent, { opacity: 0, duration: 0.4 });
     });
 
-    // Listener for the 'Go Back' button
     elements.goBackButton.addEventListener('click', () => {
-        // Hide the post-save content and show the pre-save content
         elements.postSaveContent.classList.add('hidden');
         elements.preSaveContent.classList.remove('hidden');
     });
 
-    // Also, ensure your main "Save Routine" button shows the correct initial state
     elements.saveButton.addEventListener('click', () => {
-        // Make sure the pre-save content is visible by default when dialog opens
         elements.preSaveContent.classList.remove('hidden');
         elements.postSaveContent.classList.add('hidden');
         openConfirmDialog();
