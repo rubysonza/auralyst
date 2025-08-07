@@ -14,7 +14,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const headerTitle = document.getElementById('header-title');
 
     // MAIN CONTENT
-    const mainContent = document.getElementById('main-content');
     const stepScroll = document.getElementById('step-scroll');
     const stepFilter = document.getElementById('step-filter');
     const productGrid = document.getElementById('product-grid');
@@ -22,7 +21,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const pdpSection = document.getElementById('pdp-section');
 
     // SORT MENU
-    const sortContainer = document.getElementById('sort-menu-container');
     const sortButton = document.getElementById('sort-menu-button');
     const sortPanel = document.getElementById('sort-menu-panel');
     const sortIcon = document.getElementById('sort-menu-icon');
@@ -60,18 +58,6 @@ document.addEventListener('DOMContentLoaded', () => {
         skin_concerns: [],
         brand_name: []
     }
-
-
-    // INTRO ANIMATION
-    gsap.set([headerTitle, plpSection], { autoAlpha: 1 });
-    // gsap.set(landingBottle, { y: '35vh', autoAlpha: 1 });
-
-    // function introAnimation () {
-    //     const tl = gsap.timeline();
-
-    //     tl.to(landingBottle, { y: '-50vh', autoAlpha: 0, scale: 0.5, duration: 1.0, ease: 'power2.inOut' })
-    //       .to([headerTitle, plpSection], { autoAlpha: 1, duration: 0.8, ease: 'power2.out'}, '>')
-    // }
 
 
     // PLP

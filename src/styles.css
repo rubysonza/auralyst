@@ -111,3 +111,16 @@ body.modal-open {
 .accordion-content.is-open {
     grid-template-rows: 1fr;
 }
+
+.accordion-toggle {
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+.accordion-toggle.active {
+    background-color: #7D32FF;
+    color: gray;
+}
+
+.accordion-toggle.active h3 {
+    color: white;
+}

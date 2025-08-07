@@ -5,9 +5,9 @@
     "category": "Hydrator",
     "description": "Hyaluronic Acid is a humectant that binds to water, providing deep hydration to plump the skin and smooth fine lines.",
     "good_for_skin_concerns": ["Dehydration", "Dryness", "Fine Lines", "Wrinkles"],
-    "when_to_use": "AM & PM",
+    "when_to_use": ["AM", "PM"],
     "pairs_well_with": ["Vitamin C", "Retinoids", "Niacinamide", "Glycolic Acid"],
-    "do_not_mix_with": ["None (Generally compatible with all ingredients)"]
+    "do_not_mix_with": ["None"]
   },
   {
     "active_name": "Niacinamide",
@@ -15,7 +15,7 @@
     "category": "Vitamin",
     "description": "Niacinamide is a form of Vitamin B3 that regulates oil production, minimizes the appearance of pores, and strengthens the skin's moisture barrier.",
     "good_for_skin_concerns": ["Oily Skin", "Enlarged Pores", "Redness", "Acne", "Uneven Skin Tone"],
-    "when_to_use": "AM & PM",
+    "when_to_use": ["AM", "PM"],
     "pairs_well_with": ["Hyaluronic Acid", "Ceramides", "Retinoids", "Antioxidants"],
     "do_not_mix_with": ["High-concentration Vitamin C (in the same routine)"]
   },
@@ -25,7 +25,7 @@
     "category": "Exfoliant (BHA)",
     "description": "Salicylic Acid is an oil-soluble exfoliant that penetrates pores to clear out sebum and dead skin, making it highly effective for treating acne and blackheads.",
     "good_for_skin_concerns": ["Acne", "Blackheads", "Whiteheads", "Enlarged Pores", "Oily Skin"],
-    "when_to_use": "AM & PM",
+    "when_to_use": ["AM", "PM"],
     "pairs_well_with": ["Niacinamide", "Hyaluronic Acid", "Ceramides"],
     "do_not_mix_with": ["Other exfoliants (in the same routine)", "Retinoids (for sensitive skin)"]
   },
@@ -35,9 +35,9 @@
     "category": "Hydrator",
     "description": "Glycerin is a fundamental humectant that draws water from the air and deeper layers of skin to the surface, ensuring lasting hydration and a healthy skin barrier.",
     "good_for_skin_concerns": ["Dryness", "Dehydration", "Sensitive Skin"],
-    "when_to_use": "AM & PM",
+    "when_to_use": ["AM", "PM"],
     "pairs_well_with": ["Hyaluronic Acid", "Ceramides", "Almost all other actives"],
-    "do_not_mix_with": ["None (Generally compatible with all ingredients)"]
+    "do_not_mix_with": ["None"]
   },
   {
     "active_name": "Vitamin C",
@@ -45,7 +45,7 @@
     "category": "Antioxidant",
     "description": "Vitamin C is a potent antioxidant that protects skin from environmental damage, brightens the complexion by fading dark spots, and supports collagen production.",
     "good_for_skin_concerns": ["Dullness", "Hyperpigmentation", "Uneven Skin Tone", "Fine Lines", "Sun Damage"],
-    "when_to_use": "AM",
+    "when_to_use": ["AM"],
     "pairs_well_with": ["Vitamin E", "Ferulic Acid", "Sunscreen"],
     "do_not_mix_with": ["Benzoyl Peroxide", "Retinoids (in the same routine)"]
   },
@@ -55,9 +55,9 @@
     "category": "Soothing Agent",
     "description": "Ceramides are lipid molecules essential for the skin's moisture barrier, working to lock in moisture, prevent water loss, and protect from external irritants.",
     "good_for_skin_concerns": ["Dryness", "Dehydration", "Sensitive Skin", "Eczema", "Rosacea"],
-    "when_to_use": "AM & PM",
+    "when_to_use": ["AM", "PM"],
     "pairs_well_with": ["Retinoids", "Exfoliants (AHAs/BHAs)", "Hyaluronic Acid"],
-    "do_not_mix_with": ["None (Generally compatible with all ingredients)"]
+    "do_not_mix_with": ["None"]
   },
   {
     "active_name": "Squalane",
@@ -65,9 +65,19 @@
     "category": "Hydrator",
     "description": "Squalane is a lightweight, non-comedogenic oil that mimics the skin's natural sebum, providing effective moisture and softening the skin without clogging pores.",
     "good_for_skin_concerns": ["Dryness", "Dehydration", "Fine Lines", "Sensitive Skin"],
-    "when_to_use": "AM & PM",
+    "when_to_use": ["AM", "PM"],
     "pairs_well_with": ["Retinoids", "Vitamin C", "Niacinamide"],
-    "do_not_mix_with": ["None (Generally compatible with all ingredients)"]
+    "do_not_mix_with": ["None"]
+  },
+  {
+    "active_name": "Glycolic Acid",
+    "also_known_as": ["AHA", "Alpha Hydroxy Acid"],
+    "category": "Exfoliant (AHA)",
+    "description": "Glycolic Acid is a small-molecule AHA that exfoliates dead cells to brighten the complexion, smooth texture, and reduce the appearance of fine lines.",
+    "good_for_skin_concerns": ["Dullness", "Uneven Texture", "Hyperpigmentation", "Fine Lines", "Acne Scars"],
+    "when_to_use": ["PM"],
+    "pairs_well_with": ["Hyaluronic Acid", "Ceramides", "Niacinamide"],
+    "do_not_mix_with": ["Other exfoliants (in the same routine)", "Retinoids (use with caution on alternate nights)", "Vitamin C"]
   },
   {
     "active_name": "Peptides",
@@ -75,7 +85,7 @@
     "category": "Peptide",
     "description": "Peptides are short chains of amino acids that signal the skin to produce more collagen and elastin, helping to improve firmness, texture, and fine lines.",
     "good_for_skin_concerns": ["Loss of Firmness", "Fine Lines", "Wrinkles", "Dryness"],
-    "when_to_use": "AM & PM",
+    "when_to_use": ["AM", "PM"],
     "pairs_well_with": ["Hyaluronic Acid", "Niacinamide", "Vitamin C"],
     "do_not_mix_with": ["Direct Acids (AHAs/BHAs can reduce peptide efficacy)"]
   },
@@ -85,9 +95,9 @@
     "category": "Antioxidant",
     "description": "Green Tea Extract is a powerful antioxidant that soothes inflammation, protects against free radical damage, and can help control excess oil production.",
     "good_for_skin_concerns": ["Redness", "Oily Skin", "Acne", "Sun Damage"],
-    "when_to_use": "AM & PM",
+    "when_to_use": ["AM", "PM"],
     "pairs_well_with": ["Vitamin C", "Hyaluronic Acid", "Niacinamide"],
-    "do_not_mix_with": ["None (Generally compatible with all ingredients)"]
+    "do_not_mix_with": ["None"]
   },
   {
     "active_name": "Panthenol",
@@ -95,9 +105,9 @@
     "category": "Hydrator",
     "description": "Panthenol is a humectant that attracts and holds moisture while also soothing the skin, helping to improve barrier function and reduce inflammation.",
     "good_for_skin_concerns": ["Dehydration", "Dryness", "Redness", "Sensitive Skin"],
-    "when_to_use": "AM & PM",
+    "when_to_use": ["AM", "PM"],
     "pairs_well_with": ["Hyaluronic Acid", "Ceramides", "Centella Asiatica"],
-    "do_not_mix_with": ["None (Generally compatible with all ingredients)"]
+    "do_not_mix_with": ["None"]
   },
   {
     "active_name": "Lactic Acid",
@@ -105,7 +115,7 @@
     "category": "Exfoliant (AHA)",
     "description": "Lactic Acid is a gentle AHA that exfoliates the skin's surface to smooth texture, fade hyperpigmentation, and improve the skin's natural moisture factor.",
     "good_for_skin_concerns": ["Uneven Texture", "Dullness", "Hyperpigmentation", "Dryness"],
-    "when_to_use": "PM",
+    "when_to_use": ["PM"],
     "pairs_well_with": ["Hyaluronic Acid", "Ceramides"],
     "do_not_mix_with": ["Other exfoliants (in the same routine)", "Retinoids", "Vitamin C"]
   },
@@ -115,9 +125,9 @@
     "category": "Antioxidant",
     "description": "Vitamin E is a nourishing, oil-soluble antioxidant that protects the skin from environmental stressors and works in synergy with Vitamin C to enhance UV protection.",
     "good_for_skin_concerns": ["Dryness", "Sun Damage", "Fine Lines"],
-    "when_to_use": "AM & PM",
+    "when_to_use": ["AM", "PM"],
     "pairs_well_with": ["Vitamin C", "Ferulic Acid"],
-    "do_not_mix_with": ["None (Generally compatible with all ingredients)"]
+    "do_not_mix_with": ["None"]
   },
   {
     "active_name": "Shea Butter",
@@ -125,9 +135,9 @@
     "category": "Hydrator",
     "description": "Shea Butter is a rich emollient packed with fatty acids and vitamins that deeply moisturizes, nourishes, and soothes dry or compromised skin.",
     "good_for_skin_concerns": ["Dryness", "Dehydration", "Eczema"],
-    "when_to_use": "AM & PM",
+    "when_to_use": ["AM", "PM"],
     "pairs_well_with": ["Ceramides", "Squalane"],
-    "do_not_mix_with": ["None (Generally compatible with all ingredients)"]
+    "do_not_mix_with": ["None"]
   },
   {
     "active_name": "Centella Asiatica",
@@ -135,9 +145,9 @@
     "category": "Soothing Agent",
     "description": "Centella Asiatica is a medicinal herb that calms inflammation, soothes redness, and helps repair the skin barrier, making it ideal for sensitive or irritated skin.",
     "good_for_skin_concerns": ["Redness", "Sensitive Skin", "Acne", "Dehydration"],
-    "when_to_use": "AM & PM",
+    "when_to_use": ["AM", "PM"],
     "pairs_well_with": ["Hyaluronic Acid", "Ceramides", "Niacinamide"],
-    "do_not_mix_with": ["None (Generally compatible with all ingredients)"]
+    "do_not_mix_with": ["None"]
   },
   {
     "active_name": "Jojoba Oil",
@@ -145,9 +155,9 @@
     "category": "Hydrator",
     "description": "Jojoba Oil is a lightweight wax ester that closely mimics human sebum, helping to balance oil production while providing non-greasy moisture.",
     "good_for_skin_concerns": ["Dryness", "Oily Skin", "Acne"],
-    "when_to_use": "AM & PM",
+    "when_to_use": ["AM", "PM"],
     "pairs_well_with": ["Most other oils and moisturizers"],
-    "do_not_mix_with": ["None (Generally compatible with all ingredients)"]
+    "do_not_mix_with": ["None"]
   },
   {
     "active_name": "Retinol",
@@ -155,7 +165,7 @@
     "category": "Retinoid",
     "description": "Retinol is a form of Vitamin A that speeds up cell turnover to reduce the appearance of wrinkles and fine lines, smooth texture, and treat acne.",
     "good_for_skin_concerns": ["Fine Lines", "Wrinkles", "Acne", "Loss of Firmness", "Hyperpigmentation"],
-    "when_to_use": "PM",
+    "when_to_use": ["PM"],
     "pairs_well_with": ["Niacinamide", "Hyaluronic Acid", "Ceramides"],
     "do_not_mix_with": ["Benzoyl Peroxide", "Vitamin C (in the same routine)", "AHAs/BHAs"]
   },
@@ -165,9 +175,9 @@
     "category": "Antioxidant",
     "description": "Caffeine is an antioxidant that constricts blood vessels, helping to reduce under-eye puffiness and diminish the appearance of dark circles.",
     "good_for_skin_concerns": ["Puffiness", "Dark Circles"],
-    "when_to_use": "AM",
+    "when_to_use": ["AM"],
     "pairs_well_with": ["Vitamin C", "Hyaluronic Acid"],
-    "do_not_mix_with": ["None (Generally compatible with all ingredients)"]
+    "do_not_mix_with": ["None"]
   },
   {
     "active_name": "Tea Tree Oil",
@@ -175,7 +185,7 @@
     "category": "Acne Treatment",
     "description": "Tea Tree Oil is an essential oil with powerful antimicrobial and anti-inflammatory properties, making it an effective natural spot treatment for acne.",
     "good_for_skin_concerns": ["Acne", "Oily Skin", "Redness"],
-    "when_to_use": "AM & PM",
+    "when_to_use": ["AM", "PM"],
     "pairs_well_with": ["Salicylic Acid", "Witch Hazel"],
     "do_not_mix_with": ["High-concentration actives (can increase irritation)"]
   },
@@ -185,9 +195,9 @@
     "category": "Soothing Agent",
     "description": "Allantoin is a compound that soothes and protects the skin, promoting cell regeneration and helping to heal minor wounds and irritation.",
     "good_for_skin_concerns": ["Sensitive Skin", "Redness", "Dryness"],
-    "when_to_use": "AM & PM",
+    "when_to_use": ["AM", "PM"],
     "pairs_well_with": ["Panthenol", "Centella Asiatica"],
-    "do_not_mix_with": ["None (Generally compatible with all ingredients)"]
+    "do_not_mix_with": ["None"]
   },
   {
     "active_name": "Rosehip Oil",
@@ -195,9 +205,9 @@
     "category": "Hydrator",
     "description": "Rosehip Oil is a nourishing oil rich in fatty acids and vitamins A and C, which helps to hydrate skin, fade scars, and improve texture and tone.",
     "good_for_skin_concerns": ["Dullness", "Acne Scars", "Fine Lines", "Sun Damage", "Dryness"],
-    "when_to_use": "PM",
+    "when_to_use": ["PM"],
     "pairs_well_with": ["Ceramides", "Squalane"],
-    "do_not_mix_with": ["None (Generally compatible with all ingredients)"]
+    "do_not_mix_with": ["None"]
   },
   {
     "active_name": "Benzoyl Peroxide",
@@ -205,7 +215,7 @@
     "category": "Acne Treatment",
     "description": "Benzoyl Peroxide is an antibacterial agent that effectively kills acne-causing bacteria deep within the pores to treat and prevent breakouts.",
     "good_for_skin_concerns": ["Acne", "Whiteheads", "Blackheads"],
-    "when_to_use": "AM & PM",
+    "when_to_use": ["AM", "PM"],
     "pairs_well_with": ["Niacinamide", "Hyaluronic Acid", "Sunscreen"],
     "do_not_mix_with": ["Retinoids (can deactivate them)", "Vitamin C"]
   },
@@ -215,7 +225,7 @@
     "category": "Enzyme",
     "description": "Papain is an enzyme extracted from papaya that gently exfoliates the skin by breaking down the proteins holding dead skin cells together, revealing a brighter surface.",
     "good_for_skin_concerns": ["Dullness", "Uneven Texture", "Clogged Pores"],
-    "when_to_use": "PM",
+    "when_to_use": ["PM"],
     "pairs_well_with": ["Hydrating ingredients"],
     "do_not_mix_with": ["Other exfoliants", "Retinoids"]
   },
@@ -225,7 +235,7 @@
     "category": "Antioxidant",
     "description": "Ferulic Acid is a plant-based antioxidant that boosts the stability and performance of other antioxidants, especially Vitamin C and E, enhancing overall photo-protection.",
     "good_for_skin_concerns": ["Sun Damage", "Fine Lines", "Wrinkles", "Loss of Firmness"],
-    "when_to_use": "AM",
+    "when_to_use": ["AM"],
     "pairs_well_with": ["Vitamin C", "Vitamin E"],
     "do_not_mix_with": ["Exfoliating Acids (can alter pH and reduce efficacy)"]
   },
@@ -235,9 +245,9 @@
     "category": "Soothing Agent",
     "description": "Aloe Vera is a plant extract known for its powerful soothing and hydrating properties, providing relief for irritated, sun-damaged, or sensitive skin.",
     "good_for_skin_concerns": ["Redness", "Sun Damage", "Dehydration", "Sensitive Skin"],
-    "when_to_use": "AM & PM",
+    "when_to_use": ["AM", "PM"],
     "pairs_well_with": ["Almost all other actives"],
-    "do_not_mix_with": ["None (Generally compatible with all ingredients)"]
+    "do_not_mix_with": ["None"]
   },
   {
     "active_name": "Licorice Root Extract",
@@ -245,9 +255,9 @@
     "category": "Brightening",
     "description": "Licorice Root Extract is a plant extract that brightens the skin by inhibiting the enzyme responsible for dark spots, while also offering soothing anti-inflammatory benefits.",
     "good_for_skin_concerns": ["Hyperpigmentation", "Redness", "Uneven Skin Tone"],
-    "when_to_use": "AM & PM",
+    "when_to_use": ["AM", "PM"],
     "pairs_well_with": ["Niacinamide", "Vitamin C"],
-    "do_not_mix_with": ["None (Generally compatible with all ingredients)"]
+    "do_not_mix_with": ["None"]
   },
   {
     "active_name": "Snail Mucin",
@@ -255,9 +265,9 @@
     "category": "Hydrator",
     "description": "Snail Mucin is a secretion known for its ability to hydrate, repair a damaged skin barrier, fade acne scars, and improve overall skin texture.",
     "good_for_skin_concerns": ["Dehydration", "Acne Scars", "Fine Lines", "Redness", "Uneven Texture"],
-    "when_to_use": "AM & PM",
+    "when_to_use": ["AM", "PM"],
     "pairs_well_with": ["Hyaluronic Acid", "Niacinamide", "Retinoids"],
-    "do_not_mix_with": ["None (Generally compatible with all ingredients)"]
+    "do_not_mix_with": ["None"]
   },
   {
     "active_name": "Witch Hazel",
@@ -265,7 +275,7 @@
     "category": "Astringent",
     "description": "Witch Hazel is a plant extract that acts as a natural astringent, helping to remove excess oil and temporarily tighten the appearance of pores.",
     "good_for_skin_concerns": ["Oily Skin", "Enlarged Pores"],
-    "when_to_use": "AM & PM",
+    "when_to_use": ["AM", "PM"],
     "pairs_well_with": ["Tea Tree Oil", "Salicylic Acid"],
     "do_not_mix_with": ["Very drying or irritating ingredients"]
   },
@@ -275,7 +285,7 @@
     "category": "Acne Treatment",
     "description": "Sulfur is a natural mineral that absorbs excess oil and has antibacterial properties, making it an effective treatment for acne, whiteheads, and rosacea.",
     "good_for_skin_concerns": ["Acne", "Oily Skin", "Rosacea", "Whiteheads"],
-    "when_to_use": "PM",
+    "when_to_use": ["PM"],
     "pairs_well_with": ["Salicylic Acid", "Niacinamide"],
     "do_not_mix_with": ["Harsh physical scrubs", "High-concentration exfoliants"]
   },
@@ -285,8 +295,8 @@
     "category": "Sunscreen",
     "description": "Zinc Oxide is a mineral sunscreen filter that provides broad-spectrum protection by sitting on top of the skin to physically block UVA and UVB rays.",
     "good_for_skin_concerns": ["Sun Damage", "Sensitive Skin", "Redness"],
-    "when_to_use": "AM",
+    "when_to_use": ["AM"],
     "pairs_well_with": ["Antioxidants", "Moisturizers"],
-    "do_not_mix_with": ["None (Generally compatible with all ingredients)"]
+    "do_not_mix_with": ["None"]
   }
 ]
